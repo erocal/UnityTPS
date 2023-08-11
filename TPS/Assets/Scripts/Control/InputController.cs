@@ -208,7 +208,7 @@ public class InputController : MonoBehaviour
 
     private void CheckCursorState()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
         {
             if (Cursor.lockState == CursorLockMode.None)
                 Cursor.lockState = CursorLockMode.Locked;
@@ -223,6 +223,12 @@ public class InputController : MonoBehaviour
     public void CursorStateLocked()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void CursorStateUnlocked()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public bool CanProcessInput()

@@ -16,7 +16,7 @@ public class AudioSelectSadManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //hasbeentrigger = true;
-            camera.GetComponent<ThirdPersonCamera>().AudioSelectSad();
+            camera.GetComponent<BackgroundMusic>().AudioSelectSad();
         }
     }
 }

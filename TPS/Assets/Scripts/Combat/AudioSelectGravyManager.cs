@@ -16,7 +16,7 @@ public class AudioSelectGravyManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //hasbeentrigger = true;
-            camera.GetComponent<ThirdPersonCamera>().AudioSelectGravy();
+            camera.GetComponent<BackgroundMusic>().AudioSelectGravy();
         }
     }
 }

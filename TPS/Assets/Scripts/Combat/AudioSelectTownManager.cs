@@ -16,7 +16,7 @@ public class AudioSelectTownManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //hasbeentrigger = true;
-            camera.GetComponent<ThirdPersonCamera>().AudioSelectTown();
+            camera.GetComponent<BackgroundMusic>().AudioSelectTown();
         }
     }
 }

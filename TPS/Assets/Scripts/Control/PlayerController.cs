@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -67,9 +64,9 @@ public class PlayerController : MonoBehaviour
 
     // 計時器
     private float resttimerrate = 2.0f;
-    /* private float runtimerrate = 2.0f;
+    private float runtimerrate = 2.0f;
     private float steptimerrate = 2.0f;
-    private float runsteptimerrate = 2.0f; */
+    private float runsteptimerrate = 2.0f;
     //private float targetlockontimerrate = 2.0f;
 
     // 下一幀要移動到的目標位置
@@ -82,8 +79,6 @@ public class PlayerController : MonoBehaviour
     float lastFrameSpeed = 0.0f;
     // 是否在瞄準狀態
     bool isAim;
-    // 目標圖層
-    //int targetMask;
 
     /*Vector3 cameraForward;
     Vector3 cameraRight;*/
@@ -111,7 +106,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //IsGrounded = Physics2D.OverlapCircle(feet.position,0.1f,Terrain);
         //print(inputController.horizontal + "Horizontal");
@@ -121,9 +116,9 @@ public class PlayerController : MonoBehaviour
             print(m_Input.GetMoveInput());
         }*/
         resttimerrate -= Time.deltaTime;
-        /* runtimerrate -= Time.deltaTime;
+        runtimerrate -= Time.deltaTime;
         steptimerrate -= Time.deltaTime;
-        runsteptimerrate -= Time.deltaTime; */
+        runsteptimerrate -= Time.deltaTime;
         //targetlockontimerrate -= Time.deltaTime;
 
         // 儲存出生點
@@ -172,7 +167,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // 處理移動
-    private void MoveBehaviour()
+    private async void MoveBehaviour()
     {
         targetMovement = Vector3.zero;
         Vector3 pretargetMovement = targetMovement;
@@ -244,33 +239,30 @@ public class PlayerController : MonoBehaviour
         // 當在走路時，撥放走路音效
         if (lastFrameSpeed > 0.2f && lastFrameSpeed <= 0.5f)
         {
-            if (stepSFX != null/* && steptimerrate <= 1.2f*/)
+            if (stepSFX != null && steptimerrate <= 1.2f)
             {
-                StartCoroutine(PlayWalkSFX());
-                // audioSource.PlayOneShot(stepSFX);
-                // steptimerrate = 2.0f;
+                audioSource.PlayOneShot(stepSFX);
+                steptimerrate = 2.0f;
             }
         }
 
         // 當在奔跑時，撥放走路音效
         if (lastFrameSpeed > 0.7f)
         {
-            if (runstepSFX != null /*&& runsteptimerrate <= 1.7f*/)
+            if (runstepSFX != null && runsteptimerrate <= 1.7f)
             {
-                StartCoroutine(PlayRunSFX());
-                /* audioSource.PlayOneShot(runstepSFX);
-                runsteptimerrate = 2.0f; */
+                audioSource.PlayOneShot(runstepSFX);
+                runsteptimerrate = 2.0f;
             }
         }
 
         // 如果長時間奔跑，播放疲累音效
         if (lastFrameSpeed > 0.9f)
         {
-            if (runtiredSFX != null /*&& runtimerrate <= -0.426f*/)
+            if (runtiredSFX != null && runtimerrate <= -0.426f)
             {
-                StartCoroutine(PlayRunTiredSFX());
-                /* audioSource.PlayOneShot(runtiredSFX);
-                runtimerrate = 2.0f; */
+                audioSource.PlayOneShot(runtiredSFX);
+                runtimerrate = 2.0f;
             }
         }
 
@@ -282,34 +274,7 @@ public class PlayerController : MonoBehaviour
         // 動態變化移動速度
         controller.Move(targetMovement * Time.deltaTime * moveSpeed);
     }
-
-    // 撥放走路音效
-    private IEnumerator PlayWalkSFX()
-    {
-        yield return new WaitForSeconds(0.8f);
-
-        // 撥放走路音效
-        audioSource.PlayOneShot(stepSFX);
-    }
-
-    // 撥放跑步音效
-    private IEnumerator PlayRunSFX()
-    {
-        yield return new WaitForSeconds(0.3f);
-
-        // 撥放跑步音效
-        audioSource.PlayOneShot(runstepSFX);
-    }
-
-    // 撥放疲累音效
-    private IEnumerator PlayRunTiredSFX()
-    {
-        yield return new WaitForSeconds(2.426f);
-
-        // 撥放疲累音效
-        audioSource.PlayOneShot(runtiredSFX);
-    }
-
+    
     // 處理跳躍
     private void JumpBehaviour()
     {
@@ -326,10 +291,6 @@ public class PlayerController : MonoBehaviour
             jumpDirection = Vector3.zero;
             jumpDirection += jumpForce * Vector3.up;
             jumpCount = 0;
-            /*if (jumpSFX != null)
-            {
-                audioSource.PlayOneShot(jumpSFX);
-            }*/
         }
         else if (input.GetJumpInputDown() && jumpCount == 0)
         {
@@ -397,11 +358,28 @@ public class PlayerController : MonoBehaviour
         return cameraRight;
     }
 
+    private void ChangePosition(float x, float y, float z)
+    {
+        this.transform.position = new Vector3(x, y, z);
+    }
+
     private void OnDie()
     {
         animator.SetTrigger("IsDead");
         //取消玩家的控制
         this.GetComponent<PlayerController>().enabled = false;
+    }
+
+    /// <summary>
+    /// 玩家復活
+    /// </summary>
+    public void IsAlive()
+    {
+        health.Alive();
+        animator.SetTrigger("IsAlive");
+        ChangePosition(-473.3f, 21.93f, 245.9f);
+        //還給玩家控制權
+        this.GetComponent<PlayerController>().enabled = true;
     }
 
 }

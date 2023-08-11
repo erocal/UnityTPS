@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
-//using UnityEditor;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -35,19 +32,15 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] ParticleSystem CaplockParticle;
     [Header("Pause的UI")]
     [SerializeField] GameObject pauseUI;
+    [Header("重生的UI")]
+    [SerializeField] GameObject aliveUI;
 
     [Header("Pause的音效")]
     [SerializeField] AudioClip pauseSFX;
 
-    [Header("背景音樂")]
-    [SerializeField] AudioClip[] audios;
-
     [Header("Offset")]
     [SerializeField] Vector3 offset;
     [SerializeField] float offset_Y = 100f;
-
-    [Header("等待秒數")]
-    [SerializeField] float playerondamagerate = 2.0f;
 
     InputController input;
     AudioSource audioSource;
@@ -65,6 +58,8 @@ public class ThirdPersonCamera : MonoBehaviour
     private int targetMask;*/
 
     bool isChange;
+    
+    // 應該是看滑鼠是不是鎖住的狀態
     bool isLocked = false;
 
 
@@ -73,30 +68,26 @@ public class ThirdPersonCamera : MonoBehaviour
         /*info = null;
         targetMask = LayerMask.GetMask("Enemy");*/
         input = GameManagerSingleton.Instance.InputController;
-        player.GetComponent<Health>().onDamage += OnDamage;
-        player.GetComponent<PlayerController>().onCaplock += OnCaplock;
-        audioSource = GetComponent<AudioSource>();
         playercontroller = player.GetComponent<PlayerController>();
-    }
-
-    void Update()
-    {
-        playerondamagerate -= Time.deltaTime;
-        if (audioSource.clip == null)
-        {
-            audioSource.clip = audios[preaudio];
-            audioSource.Play();
-        }
+        player.GetComponent<Health>().onDamage += OnDamage;
+        playercontroller.onCaplock += OnCaplock;
+        player.GetComponent<Health>().onDie += OnDie;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void LateUpdate()
     {
         
-        if (Cursor.lockState == CursorLockMode.Locked)
+        if ( Cursor.lockState == CursorLockMode.Locked )
         {
             pauseUI.SetActive(false);
-            Time.timeScale = 1;
+            aliveUI.SetActive(false);
 
+            if (!aliveUI.activeSelf)
+            {
+                Time.timeScale = 1;
+            }
+            
             mouse_X += input.GetMouseXAxis() * sensitivity_X;
             mouse_Y += input.GetMouseYAxis() * sensitivity_Y;
 
@@ -115,9 +106,19 @@ public class ThirdPersonCamera : MonoBehaviour
         }
         else
         {
-            pauseUI.SetActive(true);
-            Time.timeScale = 0;
+
             isLocked = true;
+
+            if(!aliveUI.activeSelf)
+            {
+                pauseUI.SetActive(true);
+                DelayAndStopTimeAsync(0);
+            }
+            else
+            {
+                DelayAndStopTimeAsync(2000);//延遲停止，讓死亡動畫可以播完
+            }
+
         }
 
         if (isLocked != isChange)
@@ -127,17 +128,27 @@ public class ThirdPersonCamera : MonoBehaviour
         }
     }
 
-    private void OnDamage()
+    private async Task DelayAndStopTimeAsync(int delaytime)
+    {
+        await Task.Delay(delaytime); // 等待?秒
+
+        Time.timeScale = 0; // 停止時間
+    }
+
+    private void OnDie()
+    {
+        aliveUI.SetActive(true);
+        input.CursorStateUnlocked();
+    }
+
+    private async void OnDamage()
     {
         if (beHitParticle == null) return;
         beHitParticle.Play();
 
-        if (playerondamagerate < 0.0f)
-        {
-            //player受傷動畫
-            playercontroller.animator.SetTrigger("IsDamage");
-            playerondamagerate = 2.0f;
-        }
+        //player受傷動畫
+        playercontroller.animator.SetTrigger("IsDamage");
+        await Task.Delay(2000);
 
     }
 
@@ -147,81 +158,7 @@ public class ThirdPersonCamera : MonoBehaviour
         CaplockParticle.Play();
     }
 
-    // 背景音樂
-    public void AudioSelectPotato()
-    {
-        if (audioSource.clip == audios[0])
-        {
-            preaudio = 0;
-            return;
-        }
-
-        audioSource.clip = audios[0];
-        audioSource.volume = 0.4f;
-        audioSource.Play();
-    }
-
-    public void AudioSelectTown()
-    {
-        if (audioSource.clip == audios[1])
-        {
-            preaudio = 1;
-            return;
-        }
-
-
-        audioSource.clip = audios[1];
-        audioSource.volume = 0.141f;
-        audioSource.Play();
-    }
-
-    public void AudioSelectWind()
-    {
-        if (audioSource.clip == audios[2])
-        {
-            preaudio = 2;
-            return;
-        }
-
-        audioSource.clip = audios[2];
-        audioSource.volume = 0.4f;
-        audioSource.Play();
-    }
-
-    public void AudioSelectSad()
-    {
-        if (audioSource.clip == audios[3])
-        {
-            preaudio = 3;
-            return;
-        }
-
-        audioSource.clip = audios[3];
-        audioSource.volume = 0.2f;
-        audioSource.Play();
-    }
-
-    public void AudioSelectGravy()
-    {
-        if (audioSource.clip == audios[3])
-        {
-            preaudio = 3;
-            return;
-        }
-
-        audioSource.clip = audios[4];
-        audioSource.volume = 0.4f;
-        audioSource.Play();
-    }
-
-    public void PreAudio()
-    {
-        if (audioSource.clip == audios[preaudio]) return;
-
-        audioSource.clip = audios[preaudio];
-        audioSource.volume = 0.4f;
-        audioSource.Play();
-    }
+    #region -- UI的OnClick()關聯 --
 
     public void QuitGame()
     {
@@ -233,5 +170,14 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         input.CursorStateLocked();
     }
+
+    public void Respawn()
+    {
+        input.CursorStateLocked();
+
+        playercontroller.IsAlive();
+    }
+
+    #endregion
 
 }

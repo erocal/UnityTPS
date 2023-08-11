@@ -145,4 +145,11 @@ public class Health : MonoBehaviour
             print(this.currentHealth);
         }*/
     }
+
+    public void Alive()
+    {
+        isDead = false;
+        Heal(maxHealth);
+    }
+
 }

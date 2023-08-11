@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlagueDoctorAudio : MonoBehaviour
@@ -11,12 +9,6 @@ public class PlagueDoctorAudio : MonoBehaviour
     [SerializeField] AudioClip plaguedoctorlightingSFX;
 
     AudioSource audioSource;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     public void plaguedoctorfireball(GameObject other)
     {

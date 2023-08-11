@@ -149,6 +149,7 @@
     <Compile Include="Assets\Scripts\Core\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Audio\PlagueDoctorAudio.cs" />
+    <Compile Include="Assets\Scripts\Music\BackgroundMusic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

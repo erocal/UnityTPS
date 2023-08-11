@@ -16,7 +16,7 @@ public class AudioSelectPotatoManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //hasbeentrigger = true;
-            camera.GetComponent<ThirdPersonCamera>().AudioSelectPotato();
+            camera.GetComponent<BackgroundMusic>().AudioSelectPotato();
         }
     }
 }

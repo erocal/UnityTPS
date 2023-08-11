@@ -16,7 +16,7 @@ public class AudioSelectWindManager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //hasbeentrigger = true;
-            camera.GetComponent<ThirdPersonCamera>().AudioSelectWind();
+            camera.GetComponent<BackgroundMusic>().AudioSelectWind();
         }
     }
 }
