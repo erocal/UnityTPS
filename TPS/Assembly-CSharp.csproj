@@ -92,7 +92,7 @@
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\FaceUpdate.cs" />
-    <Compile Include="Assets\Scripts\Reset\ResetGame.cs" />
+    <Compile Include="Assets\Scripts\Reset&amp;Start\ResetGame.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\Asset Packs\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorSelf.cs" />
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Core\HealthBar.cs" />
     <Compile Include="Assets\Scripts\VisableMath\VisableMathScript.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\RandomWind.cs" />
+    <Compile Include="Assets\Scripts\Reset&amp;Start\StartGame.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
     <Compile Include="Assets\Scripts\Core\Health.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\IKCtrlRightHand.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Assets\Asset Packs\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\Scripts\Control\PatrolPath.cs" />
+    <Compile Include="Assets\Scripts\Music\BackgroundMusic.cs" />
     <Compile Include="Assets\Asset Packs\FXIFIED\common\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupAmmo.cs" />
     <Compile Include="Assets\Scripts\Control\Mover.cs" />
@@ -149,7 +151,7 @@
     <Compile Include="Assets\Scripts\Core\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Audio\PlagueDoctorAudio.cs" />
-    <Compile Include="Assets\Scripts\Music\BackgroundMusic.cs" />
+    <Compile Include="Assets\Scripts\UI\StartGameAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

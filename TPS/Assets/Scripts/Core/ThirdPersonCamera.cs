@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -45,13 +46,14 @@ public class ThirdPersonCamera : MonoBehaviour
     InputController input;
     AudioSource audioSource;
     PlayerController playercontroller;
+    GameObject gameSystemObject;
+    StartGame startGame;
 
     RaycastHit hit;
     Ray ray;
 
     float mouse_X = 0;
     float mouse_Y = 30;
-    int preaudio = 0;
     /*[HideInInspector] public string info;
     
     private const float ultDistance = 1000;
@@ -69,10 +71,14 @@ public class ThirdPersonCamera : MonoBehaviour
         targetMask = LayerMask.GetMask("Enemy");*/
         input = GameManagerSingleton.Instance.InputController;
         playercontroller = player.GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
+        gameSystemObject = GameObject.Find("GameSystem");
+        startGame = gameSystemObject.GetComponent<StartGame>();
+
         player.GetComponent<Health>().onDamage += OnDamage;
         playercontroller.onCaplock += OnCaplock;
         player.GetComponent<Health>().onDie += OnDie;
-        audioSource = GetComponent<AudioSource>();
+
     }
 
     private void LateUpdate()
@@ -109,7 +115,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
             isLocked = true;
 
-            if(!aliveUI.activeSelf)
+            if(!aliveUI.activeSelf && !startGame.CheckGameStart())
             {
                 pauseUI.SetActive(true);
                 DelayAndStopTimeAsync(0);
@@ -135,6 +141,8 @@ public class ThirdPersonCamera : MonoBehaviour
         Time.timeScale = 0; // 停止時間
     }
 
+    #region -- 事件相關 --
+
     private void OnDie()
     {
         aliveUI.SetActive(true);
@@ -157,6 +165,8 @@ public class ThirdPersonCamera : MonoBehaviour
         if (CaplockParticle == null) return;
         CaplockParticle.Play();
     }
+
+    #endregion
 
     #region -- UI的OnClick()關聯 --
 
