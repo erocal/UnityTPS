@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Analytics;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -43,11 +41,11 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] Vector3 offset;
     [SerializeField] float offset_Y = 100f;
 
+    #region -- 變數參考區 --
+
     InputController input;
     AudioSource audioSource;
     PlayerController playercontroller;
-    GameObject gameSystemObject;
-    StartGame startGame;
 
     RaycastHit hit;
     Ray ray;
@@ -64,6 +62,7 @@ public class ThirdPersonCamera : MonoBehaviour
     // 應該是看滑鼠是不是鎖住的狀態
     bool isLocked = false;
 
+    #endregion
 
     private void Awake()
     {
@@ -72,12 +71,14 @@ public class ThirdPersonCamera : MonoBehaviour
         input = GameManagerSingleton.Instance.InputController;
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
-        gameSystemObject = GameObject.Find("GameSystem");
-        startGame = gameSystemObject.GetComponent<StartGame>();
+
+        #region -- 事件 --
 
         player.GetComponent<Health>().onDamage += OnDamage;
         playercontroller.onCaplock += OnCaplock;
         player.GetComponent<Health>().onDie += OnDie;
+
+        #endregion
 
     }
 
@@ -115,7 +116,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
             isLocked = true;
 
-            if(!aliveUI.activeSelf && !startGame.CheckGameStart())
+            if(!aliveUI.activeSelf)
             {
                 pauseUI.SetActive(true);
                 DelayAndStopTimeAsync(0);

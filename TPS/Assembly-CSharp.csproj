@@ -89,10 +89,10 @@
     <Compile Include="Assets\Scripts\Pickup\PickupHealth.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\Scripts\UI\StartGameAnimation.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\FaceUpdate.cs" />
-    <Compile Include="Assets\Scripts\Reset&amp;Start\ResetGame.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\Asset Packs\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorSelf.cs" />
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
@@ -117,7 +117,6 @@
     <Compile Include="Assets\Scripts\Core\HealthBar.cs" />
     <Compile Include="Assets\Scripts\VisableMath\VisableMathScript.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\RandomWind.cs" />
-    <Compile Include="Assets\Scripts\Reset&amp;Start\StartGame.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
     <Compile Include="Assets\Scripts\Core\Health.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\IKCtrlRightHand.cs" />
@@ -151,7 +150,7 @@
     <Compile Include="Assets\Scripts\Core\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Audio\PlagueDoctorAudio.cs" />
-    <Compile Include="Assets\Scripts\UI\StartGameAnimation.cs" />
+    <Compile Include="Assets\Scripts\Reset&amp;Start\ActiveGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

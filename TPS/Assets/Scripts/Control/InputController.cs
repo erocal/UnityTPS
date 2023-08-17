@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
+    #region -- 參數參考區 --
+
     public float vertical;
     public float horizontal;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
         //設定游標狀態 (鎖定)
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         // 是否顯示游標
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -23,7 +27,11 @@ public class InputController : MonoBehaviour
         //horizontal = Input.GetAxis("Horizontal");
     }
 
-    // 取得WASD的Axis
+    #endregion
+
+    /// <summary>
+    /// 取得WASD的Axis
+    /// </summary>
     public Vector3 GetMoveInput()
     {
         if(CanProcessInput())
@@ -39,27 +47,9 @@ public class InputController : MonoBehaviour
         return Vector3.zero;
     }
 
-    // 是否按下Sprint加速
-    /*public bool GetSprintInput()
-    {
-        if(CanProcessInput())
-        {
-            return Input.GetKey(KeyCode.LeftShift);
-        }
-        return false;
-    }*/
-
-    // 是否按住Sprint加速
-    /*public bool GetSprintInputDown()
-    {
-        if (CanProcessInput())
-        {
-            return Input.GetKeyDown(KeyCode.LeftShift);
-        }
-        return false;
-    }*/
-
-    // 是否按下CapsLock加速
+    /// <summary>
+    /// 是否按下CapsLock加速
+    /// </summary>
     public bool GetCapInput()
     {
         if (CanProcessInput())
@@ -69,7 +59,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 是否按下Control加速
+    /// <summary>
+    /// 是否按住Control加速
+    /// </summary>
     public bool GetCprintInput()
     {
         if (CanProcessInput())
@@ -79,7 +71,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 是否按住Control加速
+    /// <summary>
+    /// 是否按下Control加速
+    /// </summary>
     public bool GetCprintInputDown()
     {
         if (CanProcessInput())
@@ -89,7 +83,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 是否按下Space跳躍
+    /// <summary>
+    /// 是否按住Space跳躍
+    /// </summary>
     public bool GetJumpInput()
     {
         if (CanProcessInput())
@@ -99,7 +95,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 是否按住Space跳躍
+    /// <summary>
+    /// 是否按下Space跳躍
+    /// </summary>
     public bool GetJumpInputDown()
     {
         if(CanProcessInput())
@@ -109,7 +107,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 取得 Mouse X 的 Axis
+    /// <summary>
+    /// 取得 Mouse X 的 Axis
+    /// </summary>
     public float GetMouseXAxis()
     {
         if (CanProcessInput())
@@ -119,7 +119,9 @@ public class InputController : MonoBehaviour
         return 0;
     }
 
-    // 取得 Mouse Y 的 Axis
+    /// <summary>
+    /// 取得 Mouse Y 的 Axis
+    /// </summary>
     public float GetMouseYAxis()
     {
         if (CanProcessInput())
@@ -129,7 +131,9 @@ public class InputController : MonoBehaviour
         return 0;
     }
 
-    // 取得滾輪的 Axis
+    /// <summary>
+    /// 取得滾輪的 Axis
+    /// </summary>
     public float GetMouseScrollWheelAxis()
     {
         if (CanProcessInput())
@@ -139,7 +143,17 @@ public class InputController : MonoBehaviour
         return 0;
     }
 
-    // 取得是否按下滑鼠左鍵
+    /// <summary>
+    /// 是否按下滑鼠左鍵
+    /// </summary>
+    public bool GetClick()
+    {
+        return Input.GetMouseButtonDown(0);
+    }
+
+    /// <summary>
+    /// 取得是否按下滑鼠左鍵(開火)
+    /// </summary>
     public bool GetFireInputDown()
     {
         if (CanProcessInput())
@@ -149,7 +163,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 取得是否持續按下滑鼠左鍵
+    /// <summary>
+    /// 取得是否持續按下滑鼠左鍵(開火)
+    /// </summary>
     public bool GetFireInputHeld()
     {
         if (CanProcessInput())
@@ -159,7 +175,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 取得是否放開滑鼠左鍵
+    /// <summary>
+    /// 取得是否放開滑鼠左鍵(開火)
+    /// </summary>
     public bool GetFireInputUp()
     {
         if (CanProcessInput())
@@ -169,7 +187,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 取得是否按下滑鼠右鍵
+    /// <summary>
+    /// 取得是否按下滑鼠右鍵(瞄準)
+    /// </summary>
     public bool GetAimInputDown()
     {
         if (CanProcessInput())
@@ -179,7 +199,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 取得滑鼠是否按下Reload
+    /// <summary>
+    /// 取得滑鼠是否按下Reload
+    /// </summary>
     public bool GetReloadInputDown()
     {
         if (CanProcessInput())
@@ -189,7 +211,9 @@ public class InputController : MonoBehaviour
         return false;
     }
 
-    // 取得是否按下切換武器
+    /// <summary>
+    /// 取得是否按下切換武器
+    /// </summary>
     public int GetSwichWeaponInput()
     {
         if (CanProcessInput())
@@ -206,9 +230,10 @@ public class InputController : MonoBehaviour
         return 0;
     }
 
+
     private void CheckCursorState()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0 && SceneManager.GetActiveScene().buildIndex == 0)
         {
             if (Cursor.lockState == CursorLockMode.None)
                 Cursor.lockState = CursorLockMode.Locked;
@@ -220,17 +245,27 @@ public class InputController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 更新鼠標狀態為鎖定
+    /// </summary>
     public void CursorStateLocked()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
+    /// <summary>
+    /// 顯示鼠標&更新鼠標狀態為未鎖定
+    /// </summary>
     public void CursorStateUnlocked()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
+    /// <summary>
+    /// 回傳鼠標狀態是否處於鎖定
+    /// </summary>
     public bool CanProcessInput()
     {
         // 如果Cursor狀態不在鎖定中就不能處理Input
