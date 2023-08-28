@@ -28,11 +28,15 @@ public class ThirdPersonCamera : MonoBehaviour
     [Header("受傷時的特效")]
     [SerializeField] ParticleSystem beHitParticle;
     [Header("加速時的特效")]
-    [SerializeField] ParticleSystem CaplockParticle;
+    [SerializeField] ParticleSystem caplockParticle;
+
     [Header("Pause的UI")]
     [SerializeField] GameObject pauseUI;
     [Header("重生的UI")]
     [SerializeField] GameObject aliveUI;
+    [Header("音量條的UI")]
+    [SerializeField] GameObject volumeSliderUI;
+
 
     [Header("Pause的音效")]
     [SerializeField] AudioClip pauseSFX;
@@ -52,10 +56,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     float mouse_X = 0;
     float mouse_Y = 30;
-    /*[HideInInspector] public string info;
+    //[HideInInspector] public string info;
     
-    private const float ultDistance = 1000;
-    private int targetMask;*/
+    //private const float ultDistance = 1000;
+    //private int targetMask;
 
     bool isChange;
     
@@ -66,8 +70,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Awake()
     {
-        /*info = null;
-        targetMask = LayerMask.GetMask("Enemy");*/
+
         input = GameManagerSingleton.Instance.InputController;
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
@@ -163,30 +166,51 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void OnCaplock()
     {
-        if (CaplockParticle == null) return;
-        CaplockParticle.Play();
+        if (caplockParticle == null) return;
+        caplockParticle.Play();
     }
 
     #endregion
 
     #region -- UI的OnClick()關聯 --
 
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
     public void QuitGame()
     {
         Application.Quit();
         //EditorApplication.isPlaying = false;
     }
 
+    /// <summary>
+    /// 繼續遊戲
+    /// </summary>
     public void ContinueGame()
     {
         input.CursorStateLocked();
     }
 
+    /// <summary>
+    /// 復活
+    /// </summary>
     public void Respawn()
     {
         input.CursorStateLocked();
 
         playercontroller.IsAlive();
+    }
+
+    /// <summary>
+    /// 音量
+    /// </summary>
+    public void Volume()
+    {
+        Debug.Log(".................11325");
+        if(volumeSliderUI.activeSelf)
+            volumeSliderUI.SetActive(false);
+        else
+            volumeSliderUI.SetActive(true);
     }
 
     #endregion
