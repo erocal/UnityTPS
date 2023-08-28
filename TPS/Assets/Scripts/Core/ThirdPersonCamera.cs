@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
@@ -34,6 +35,10 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] GameObject pauseUI;
     [Header("重生的UI")]
     [SerializeField] GameObject aliveUI;
+    [Header("音量鍵的UI")]
+    [SerializeField] GameObject volumeUI;
+    [Header("靜音時的UI")]
+    [SerializeField] GameObject muteUI;
     [Header("音量條的UI")]
     [SerializeField] GameObject volumeSliderUI;
 
@@ -83,6 +88,11 @@ public class ThirdPersonCamera : MonoBehaviour
 
         #endregion
 
+    }
+
+    private void Update()
+    {
+        CheckVolumeMute();
     }
 
     private void LateUpdate()
@@ -138,12 +148,33 @@ public class ThirdPersonCamera : MonoBehaviour
         }
     }
 
+    #region -- 方法 --
+
     private async Task DelayAndStopTimeAsync(int delaytime)
     {
         await Task.Delay(delaytime); // 等待?秒
 
         Time.timeScale = 0; // 停止時間
     }
+
+    /// <summary>
+    /// 確認目前音量是否為零，為零切換UI
+    /// </summary>
+    private void CheckVolumeMute()
+    {
+        if(audioSource.volume == 0)
+        {
+            volumeUI.SetActive(false);
+            muteUI.SetActive(true);
+        }
+        else
+        {
+            volumeUI.SetActive(true);
+            muteUI.SetActive(false);
+        }
+    }
+
+    #endregion
 
     #region -- 事件相關 --
 
@@ -206,7 +237,6 @@ public class ThirdPersonCamera : MonoBehaviour
     /// </summary>
     public void Volume()
     {
-        Debug.Log(".................11325");
         if(volumeSliderUI.activeSelf)
             volumeSliderUI.SetActive(false);
         else
