@@ -192,7 +192,6 @@ public class ThirdPersonCamera : MonoBehaviour
         //player受傷動畫
         playercontroller.animator.SetTrigger("IsDamage");
         await Task.Delay(2000);
-
     }
 
     private void OnCaplock()

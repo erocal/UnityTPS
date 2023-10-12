@@ -61,32 +61,38 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    // 切換武器
+    /// <summary>
+    /// 切換武器位置到(現在武器位置+傳入的參數)的位置
+    /// </summary>
+    /// <param name="addIndex">向左或向右的參數</param>
     public void SwichWeapon(int addIndex)
     {
         int newWeaponIndex = -1;
         // 0 1 2
         if (activeWeaponIndex + addIndex > weapons.Length - 1)
         {
-            newWeaponIndex = 0;
+            newWeaponIndex = 0; //從最右切換到最左
         }
         else if (activeWeaponIndex + addIndex < 0)
         {
-            newWeaponIndex = weapons.Length - 1;
+            newWeaponIndex = weapons.Length - 1; //從最左切換到最右
         }
         else
         {
-            newWeaponIndex = activeWeaponIndex + addIndex;
+            newWeaponIndex = activeWeaponIndex + addIndex;//中間切換左右
         }
-        //print("weapons.Length" + weapons.Length);
-        //print("activeWeaponIndex : " + activeWeaponIndex);
-        //print("newWeaponIndex : " + newWeaponIndex);
+
         // 換武器到NextIndex
         SwichToWeaponIndex(newWeaponIndex);
     }
 
+    /// <summary>
+    /// 顯示對應武器位置的武器
+    /// </summary>
+    /// <param name="index">要顯示武器的對應武器位置</param>
     private void SwichToWeaponIndex(int index)
     {
+        // 確保傳入的參數在武器清單的範圍內
         if (index >= 0 && index < weapons.Length)
         {
             if (GetWeaponAtSlotIndex(index) != null)
@@ -104,14 +110,21 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 回傳當前的武器，沒有就null
+    /// </summary>
     public WeaponController GetActiveWeapon()
     {
         return GetWeaponAtSlotIndex(activeWeaponIndex);
     }
 
+    /// <summary>
+    /// 根據武器槽的位置回傳對應的武器
+    /// </summary>
+    /// <param name="index">武器槽的位置</param>
     public WeaponController GetWeaponAtSlotIndex(int index)
     {
-        // 找到weapon在slot的位置並回傳該武器
+        // 找到weapon在武器槽位置(index)並回傳該武器
         if (index >= 0 && index < weapons.Length && weapons[index] != null)
         {
             return weapons[index];

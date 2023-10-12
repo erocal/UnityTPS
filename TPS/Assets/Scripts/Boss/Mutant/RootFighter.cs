@@ -35,7 +35,6 @@ public class RootFighter : MonoBehaviour
     // 計時器
     private float attackrate;
 
-    // Start is called before the first frame update
     void Start()
     {
         mover = GetComponent<RootMover>();
@@ -45,7 +44,6 @@ public class RootFighter : MonoBehaviour
         health.onDie += OnDie;
     }
 
-    // Update is called once per frame
     void Update()
     {
         attackrate -= Time.deltaTime;
@@ -72,7 +70,9 @@ public class RootFighter : MonoBehaviour
         UpdateTimer();
     }
 
-    // 檢查攻擊動作是否已經結束
+    /// <summary>
+    /// 檢查攻擊動作是否已經結束
+    /// </summary>
     private bool CheckHasAttack()
     {
         baseLayer = animator.GetCurrentAnimatorStateInfo(0);
@@ -118,7 +118,7 @@ public class RootFighter : MonoBehaviour
         {
             if (attackrate <= 0.661f)
             {
-                mutantAudio.mutantattack(gameObject);
+                mutantAudio.MutantAttack(gameObject);
                 attackrate = 2.0f;
             }
             targetHealth.TakeDamage(attackDamage);
@@ -133,7 +133,7 @@ public class RootFighter : MonoBehaviour
         {
             if (attackrate <= 0.661f)
             {
-                mutantAudio.mutantattack(gameObject);
+                mutantAudio.MutantAttack(gameObject);
                 attackrate = 2.0f;
             }
             targetHealth.TakeDamage(jumpAttackDamage);

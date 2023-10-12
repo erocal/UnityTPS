@@ -97,7 +97,7 @@ public class AIController : MonoBehaviour
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombierate <= 0)
         {
             zombieAudio = GetComponent<ZombieAudio>();
-            zombieAudio.zombiefollow(gameObject);
+            zombieAudio.ZombieFollow(gameObject);
             zombierate = 2.0f;
         }
         fighter.Attack(player.GetComponent<Health>());
@@ -109,7 +109,7 @@ public class AIController : MonoBehaviour
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombierate <= 0)
         {
             zombieAudio = GetComponent<ZombieAudio>();
-            zombieAudio.zombieidle(gameObject);
+            zombieAudio.ZombieIdle(gameObject);
             zombierate = 2.0f;
         }
         Vector3 nextWaypointPostion = beginPostion;

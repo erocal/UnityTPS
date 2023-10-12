@@ -19,10 +19,14 @@ public class PickupAmmo : MonoBehaviour
         pickup.onPick += OnPick;
     }
 
+    /// <summary>
+    /// 撿起彈藥
+    /// </summary>
+    /// <param name="player">玩家</param>
     void OnPick(GameObject player)
     {
-        player = GameObject.FindGameObjectWithTag("Weapon");
-        WeaponController weaponController = player.GetComponent<WeaponController>();
+        GameObject weapon = GameObject.FindGameObjectWithTag("Weapon");
+        WeaponController weaponController = weapon.GetComponent<WeaponController>();
         if (weaponController)
         {
             weaponController.fullammo(fullammoAmount);

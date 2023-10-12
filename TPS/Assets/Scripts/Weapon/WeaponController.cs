@@ -76,7 +76,7 @@ public class WeaponController : MonoBehaviour
         if (timeSinceLastShoot + ammoReloadDelay < Time.time && currentAmmo < maxAmmo)
         {
             //當前子彈開始Reload
-            currentAmmo += ammoReloadRate/* = Time.deltaTime*/;
+            currentAmmo += ammoReloadRate;
 
             currentAmmo = Mathf.Clamp(currentAmmo, 0, maxAmmo);
 
@@ -159,9 +159,12 @@ public class WeaponController : MonoBehaviour
         timeSinceLastShoot = Time.time;
     }
 
+    /// <summary>
+    /// 恢復指定數量的子彈數
+    /// </summary>
+    /// <param name="amount">恢復的子彈量</param>
     public void fullammo(float amount)
     {
-        //print("1");
         currentAmmo += amount;
 
         // 限制不要加超過

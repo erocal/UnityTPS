@@ -29,6 +29,8 @@ public class InputController : MonoBehaviour
 
     #endregion
 
+    #region -- 方法 --
+
     /// <summary>
     /// 取得WASD的Axis
     /// </summary>
@@ -212,7 +214,7 @@ public class InputController : MonoBehaviour
     }
 
     /// <summary>
-    /// 取得是否按下切換武器
+    /// 取得是否按下切換武器，向左切換 : -1，向右切換 : 1
     /// </summary>
     public int GetSwichWeaponInput()
     {
@@ -230,7 +232,9 @@ public class InputController : MonoBehaviour
         return 0;
     }
 
-
+    /// <summary>
+    /// 確認畫面是否為鎖定狀態
+    /// </summary>
     private void CheckCursorState()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0 && SceneManager.GetActiveScene().buildIndex == 0)
@@ -271,4 +275,6 @@ public class InputController : MonoBehaviour
         // 如果Cursor狀態不在鎖定中就不能處理Input
         return Cursor.lockState == CursorLockMode.Locked;
     }
+
+    #endregion
 }

@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     public event Action<float> onHealed;
     // 當人物死亡時觸發的委派事件
     public event Action onDie;
-
+    // 判斷擁有血量的物體是否處於死亡狀態
     private bool isDead = false;
 
 
@@ -44,12 +44,6 @@ public class Health : MonoBehaviour
     {
         rate -= Time.deltaTime;
         zombierate -= Time.deltaTime;
-
-        /*if (GameObject.FindWithTag("Player"))
-        {
-            GameObject player = GameObject.FindWithTag("Player");
-            print(player.GetComponent<Health>().currentHealth);
-        }*/
     }
 
     public float GetCurrentHealth()
@@ -72,6 +66,10 @@ public class Health : MonoBehaviour
         return isDead;
     }
 
+    /// <summary>
+    /// 處理承受傷害的方法
+    /// </summary>
+    /// <param name="damage">受到的傷害數值</param>
     public void TakeDamage(float damage)
     {
         if (isDead) return;
@@ -140,10 +138,6 @@ public class Health : MonoBehaviour
 
         maxHealth += amount;
         currentHealth += amount;
-        /*if (GameObject.FindWithTag("Player"))
-        {
-            print(this.currentHealth);
-        }*/
     }
 
     public void Alive()

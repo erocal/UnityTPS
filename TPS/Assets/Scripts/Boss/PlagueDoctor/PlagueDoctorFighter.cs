@@ -123,7 +123,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             if (shootrate <= 0.594f)
             {
-                plagueDoctorAudio.plaguedoctorfireball(gameObject);
+                plagueDoctorAudio.PlagueDoctorFireBall(gameObject);
                 shootrate = 2.0f;
             }
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
@@ -139,7 +139,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             if (continuousshootrate <= 0)
             {
-                plagueDoctorAudio.plaguedoctorlightingball(gameObject);
+                plagueDoctorAudio.PlagueDoctorLighting(gameObject);
                 continuousshootrate = 2.0f;
             }
             Projectile newProjectile = Instantiate(throwProjectile2, hand.position, Quaternion.LookRotation(transform.forward));

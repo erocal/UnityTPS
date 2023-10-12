@@ -2,6 +2,8 @@
 
 public class RootAIController : MonoBehaviour
 {
+    #region -- 物件參考區 --
+
     [Tooltip("追趕距離")]
     [SerializeField] float chaseDistance = 10f;
     [Tooltip("失去目標後困惑的時間")]
@@ -21,6 +23,9 @@ public class RootAIController : MonoBehaviour
     [Header("要銷毀的gameobject根節點")]
     [SerializeField] GameObject enemyRoot;
 
+    #endregion
+
+    #region -- 變數參考區 --
 
     GameObject player;
     RootMover mover;
@@ -29,7 +34,6 @@ public class RootAIController : MonoBehaviour
     RootFighter fighter;
     Collider collider;
     MutantAudio mutantAudio;
-
 
     // 上次看到玩家的時間
     private float timeSinceLastSawPlayer = Mathf.Infinity;
@@ -45,6 +49,8 @@ public class RootAIController : MonoBehaviour
 
     bool isBeHit;
 
+    #endregion
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -56,8 +62,13 @@ public class RootAIController : MonoBehaviour
         mutantAudio = GetComponent<MutantAudio>();
 
         beginPostion = transform.position;
+
+        #region -- 訂閱 --
+
         health.onDamage += OnDamage;
         health.onDie += OnDie;
+
+        #endregion
     }
 
     private void Update()
@@ -95,7 +106,9 @@ public class RootAIController : MonoBehaviour
         fighter.Attack(player.GetComponent<Health>());
     }
 
-    // 巡邏行為
+    /// <summary>
+    /// 巡邏行為
+    /// </summary>
     private void PatrolBehavior()
     {
         Vector3 nextWaypointPostion = beginPostion;
@@ -103,10 +116,9 @@ public class RootAIController : MonoBehaviour
         {
             if (IsAtWayPoint())
             {
-                //print("1");
                 if (roarrate <= -1.37f)
                 {
-                    mutantAudio.mutantroar(gameObject);
+                    mutantAudio.MutantRoar(gameObject);
                     roarrate = 2.0f;
                 }
                 mover.CancelMove();
