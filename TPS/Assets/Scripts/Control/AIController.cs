@@ -152,12 +152,17 @@ public class AIController : MonoBehaviour
         animator.SetBool("IsConfuse", true);
     }
 
-    // 是否小於追趕距離內
+    /// <summary>
+    /// 是否小於追趕距離內
+    /// </summary>
     private bool IsRange()
     {
         return Vector3.Distance(transform.position, player.transform.position) < chaseDistance;
     }
 
+    /// <summary>
+    /// 計時器
+    /// </summary>
     private void UpdateTimer()
     {
         timeSinceLastSawPlayer += Time.deltaTime;

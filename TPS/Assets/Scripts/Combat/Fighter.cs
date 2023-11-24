@@ -89,6 +89,9 @@ public class Fighter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 計時器
+    /// </summary>
     void UpdateTimer()
     {
         timeSinceLastAttack += Time.deltaTime;
@@ -141,11 +144,20 @@ public class Fighter : MonoBehaviour
             newProjectile.Shoot(gameObject);
         }
     }
+
+    /// <summary>
+    /// 是否在搭載此Script的敵人的進戰攻擊範圍內
+    /// </summary>
+    /// <returns>回傳是否在搭載此Script的敵人的進戰攻擊範圍內</returns>
     private bool IsInAttackRange()
     {
         return Vector3.Distance(transform.position, targetHealth.transform.position) < attackRange;
     }
 
+    /// <summary>
+    /// 攻擊目標
+    /// </summary>
+    /// <param name="target"></param>
     public void Attack(Health target)
     {
         targetHealth = target;

@@ -56,15 +56,8 @@ public class ThirdPersonCamera : MonoBehaviour
     AudioSource audioSource;
     PlayerController playercontroller;
 
-    RaycastHit hit;
-    Ray ray;
-
     float mouse_X = 0;
     float mouse_Y = 30;
-    //[HideInInspector] public string info;
-    
-    //private const float ultDistance = 1000;
-    //private int targetMask;
 
     bool isChange;
     
@@ -80,7 +73,7 @@ public class ThirdPersonCamera : MonoBehaviour
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
 
-        #region -- 事件 --
+        #region -- 訂閱 --
 
         player.GetComponent<Health>().onDamage += OnDamage;
         playercontroller.onCaplock += OnCaplock;
@@ -148,8 +141,12 @@ public class ThirdPersonCamera : MonoBehaviour
         }
     }
 
-    #region -- 方法 --
+    #region -- 方法參考區 --
 
+    /// <summary>
+    /// 等待傳入值的秒數後，停止遊戲的時間
+    /// </summary>
+    /// <param name="delaytime">等待的秒數</param>
     private async Task DelayAndStopTimeAsync(int delaytime)
     {
         await Task.Delay(delaytime); // 等待?秒
@@ -178,12 +175,18 @@ public class ThirdPersonCamera : MonoBehaviour
 
     #region -- 事件相關 --
 
+    /// <summary>
+    /// 玩家死亡時處理方法
+    /// </summary>
     private void OnDie()
     {
         aliveUI.SetActive(true);
         input.CursorStateUnlocked();
     }
 
+    /// <summary>
+    /// 玩家受傷時處理方法
+    /// </summary>
     private async void OnDamage()
     {
         if (beHitParticle == null) return;
@@ -194,6 +197,9 @@ public class ThirdPersonCamera : MonoBehaviour
         await Task.Delay(2000);
     }
 
+    /// <summary>
+    /// 玩家加速時處理方法
+    /// </summary>
     private void OnCaplock()
     {
         if (caplockParticle == null) return;

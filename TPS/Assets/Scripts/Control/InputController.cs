@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour
 
     #endregion
 
-    #region -- 方法 --
+    #region -- 方法參考區 --
 
     /// <summary>
     /// 取得WASD的Axis

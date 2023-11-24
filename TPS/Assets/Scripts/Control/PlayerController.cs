@@ -69,6 +69,10 @@ public class PlayerController : MonoBehaviour
     private float runsteptimerrate = 2.0f;
     //private float targetlockontimerrate = 2.0f;
 
+    /// <summary>
+    /// 出生點
+    /// </summary>
+    Vector3 spawn;
     // 下一幀要移動到的目標位置
     Vector3 targetMovement;
     // 下一幀跳躍到的方向
@@ -95,14 +99,10 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //targetMask = LayerMask.GetMask("Terrain");
 
+        spawn = new Vector3(-473.3f, 21.93f, 245.9f);
+
         // 訂閱死亡事件
         health.onDie += OnDie;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //inputController = GameManagerSingleton.Instance.InputController;
     }
 
     // Update is called once per frame
@@ -115,15 +115,8 @@ public class PlayerController : MonoBehaviour
         {
             print(m_Input.GetMoveInput());
         }*/
-        resttimerrate -= Time.deltaTime;
-        runtimerrate -= Time.deltaTime;
-        steptimerrate -= Time.deltaTime;
-        runsteptimerrate -= Time.deltaTime;
-        //targetlockontimerrate -= Time.deltaTime;
 
-        // 儲存出生點
-        //RespawnPosition = transform.position;
-
+        UpdateTimer();
 
         // 瞄準行為
         AimBehaviour();
@@ -136,7 +129,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //處理瞄準
+    #region -- 方法參考區 --
+
+    /// <summary>
+    /// 處理瞄準行為
+    /// </summary>
     private void AimBehaviour()
     {
         bool lastTimeAim = isAim;
@@ -166,7 +163,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsAim", isAim);
     }
 
-    // 處理移動
+    /// <summary>
+    /// 處理移動行為
+    /// </summary>
     private async void MoveBehaviour()
     {
         targetMovement = Vector3.zero;
@@ -275,7 +274,9 @@ public class PlayerController : MonoBehaviour
         controller.Move(targetMovement * Time.deltaTime * moveSpeed);
     }
     
-    // 處理跳躍
+    /// <summary>
+    /// 處理跳躍行為
+    /// </summary>
     private void JumpBehaviour()
     {
         // 如果人物處於地面
@@ -311,7 +312,9 @@ public class PlayerController : MonoBehaviour
         controller.Move(jumpDirection * Time.deltaTime);
     }
 
-    // 處理休息
+    /// <summary>
+    /// 處理休息行為
+    /// </summary>
     private void RestBehaviour()
     {
         if(resttimerrate <= -30.0f)
@@ -325,20 +328,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // 檢測是否在地上
+    /// <summary>
+    /// 檢測玩家是否在地上
+    /// </summary>
+    /// <returns>回傳玩家是否在地上</returns>
     private bool IsGrounded()
     {
         //Debug.DrawRay(transform.position, -Vector3.up * distanceToGround, Color.yellow);
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround/*, targetMask*/);
     }
 
-    //平滑旋轉角度
+    /// <summary>
+    /// 平滑旋轉角度到目標方向
+    /// </summary>
+    /// <param name="targetMovement">目標方向</param>
     private void SmoothRotation(Vector3 targetMovement)
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetMovement, Vector3.up), rotateSpeed * Time.deltaTime);
     }
 
-    // 取得目前相機的正面方向
+    /// <summary>
+    /// 取得目前相機的正面方向
+    /// </summary>
     private Vector3 GetCurrentCameraForward()
     {
         Vector3 cameraForward = Camera.main.transform.forward;
@@ -348,7 +359,9 @@ public class PlayerController : MonoBehaviour
         return cameraForward;
     }
 
-    // 取得目前相機的右側方向
+    /// <summary>
+    /// 取得目前相機的右側方向
+    /// </summary>
     private Vector3 GetCurrentCameraRight()
     {
         Vector3 cameraRight = Camera.main.transform.right;
@@ -358,17 +371,27 @@ public class PlayerController : MonoBehaviour
         return cameraRight;
     }
 
-    private void ChangePosition(float x, float y, float z)
+    /// <summary>
+    /// 將玩家改變位置
+    /// </summary>
+    private void ChangePosition(Vector3 teleportPosition)
     {
-        this.transform.position = new Vector3(x, y, z);
+        this.transform.position = teleportPosition;
     }
 
+    #region -- 事件相關 --
+
+    /// <summary>
+    /// 玩家死亡時處理方法
+    /// </summary>
     private void OnDie()
     {
         animator.SetTrigger("IsDead");
         //取消玩家的控制
         this.GetComponent<PlayerController>().enabled = false;
     }
+
+    #endregion
 
     /// <summary>
     /// 玩家復活
@@ -377,9 +400,23 @@ public class PlayerController : MonoBehaviour
     {
         health.Alive();
         animator.SetTrigger("IsAlive");
-        ChangePosition(-473.3f, 21.93f, 245.9f);
+        // 初始玩家生成位置
+        ChangePosition(spawn);
         //還給玩家控制權
         this.GetComponent<PlayerController>().enabled = true;
     }
+
+    /// <summary>
+    /// 計時器
+    /// </summary>
+    private void UpdateTimer()
+    {
+        resttimerrate -= Time.deltaTime;
+        runtimerrate -= Time.deltaTime;
+        steptimerrate -= Time.deltaTime;
+        runsteptimerrate -= Time.deltaTime;
+    }
+
+    #endregion
 
 }

@@ -18,7 +18,7 @@ public class PlagueDoctorAudio : MonoBehaviour
 
     #endregion
 
-    #region -- 方法 --
+    #region -- 方法參考區 --
 
     /// <summary>
     /// 播放PlagueDoctor火球的音效

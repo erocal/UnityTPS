@@ -24,6 +24,8 @@ public class PlagueDoctorFighter : MonoBehaviour
     [Header("手部座標")]
     [SerializeField] Transform hand;
 
+    #region -- 參數參考區 --
+
     PlagueDoctorMover mover;
     Animator animator;
     Health health;
@@ -36,6 +38,8 @@ public class PlagueDoctorFighter : MonoBehaviour
     private float continuousshootrate = 2.0f;
 
     float timeSinceLastAttack = Mathf.Infinity;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -57,14 +61,12 @@ public class PlagueDoctorFighter : MonoBehaviour
 
         if (IsInContinuousShootRange())
         {
-            //print("1");
             mover.CancelMove();
             AttackBehavior("ContinuousAttack");
         }
 
         else if (IsInShootRange())
         {
-            //print("2");
             mover.CancelMove();
             AttackBehavior("Attack");
         }
@@ -93,6 +95,9 @@ public class PlagueDoctorFighter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 計時器
+    /// </summary>
     void UpdateTimer()
     {
         timeSinceLastAttack += Time.deltaTime;
@@ -147,11 +152,17 @@ public class PlagueDoctorFighter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 是否處於ContinuousShoot的攻擊範圍內
+    /// </summary>
     private bool IsInContinuousShootRange()
     {
         return Vector3.Distance(transform.position, targetHealth.transform.position) < continuousShootRange;
     }
 
+    /// <summary>
+    /// 是否處於Shoot的攻擊範圍內
+    /// </summary>
     private bool IsInShootRange()
     {
         return Vector3.Distance(transform.position, targetHealth.transform.position) < shootRange;

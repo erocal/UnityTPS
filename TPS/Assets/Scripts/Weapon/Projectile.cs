@@ -95,6 +95,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 射出子彈的速度
+    /// </summary>
+    /// <param name="gameObject"></param>
     public void Shoot(GameObject gameObject)
     {
         owner = gameObject;

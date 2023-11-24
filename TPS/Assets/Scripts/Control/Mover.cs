@@ -37,6 +37,11 @@ public class Mover : MonoBehaviour
         this.GetComponent<Animator>().SetFloat("WalkSpeed", lastFrameSpeed / maxSpeed);
     }
 
+    /// <summary>
+    /// 透過NavMeshAgent以可變速度朝目標前進
+    /// </summary>
+    /// <param name="destination">目標的位置</param>
+    /// <param name="speedRatio">移動速率(0~1)</param>
     public void MoveTo(Vector3 destination, float speedRatio)
     {
         navmeshAgent.isStopped = false;

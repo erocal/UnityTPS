@@ -128,6 +128,9 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 判斷彈藥量是否足夠射擊
+    /// </summary>
     private void TryShoot()
     {
         if (currentAmmo >= 1f && timeSinceLastShoot + delayBetweenShoots < Time.time)

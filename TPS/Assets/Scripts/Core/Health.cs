@@ -46,6 +46,8 @@ public class Health : MonoBehaviour
         zombierate -= Time.deltaTime;
     }
 
+    #region -- 方法參考區 --
+
     public float GetCurrentHealth()
     {
         return currentHealth;
@@ -61,6 +63,10 @@ public class Health : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
+    /// <summary>
+    /// 判斷呼叫的對象是否已經死亡
+    /// </summary>
+    /// <returns>傳回呼叫的對象是否已經死亡</returns>
     public bool IsDead()
     {
         return isDead;
@@ -145,5 +151,7 @@ public class Health : MonoBehaviour
         isDead = false;
         Heal(maxHealth);
     }
+
+    #endregion
 
 }

@@ -24,6 +24,7 @@ public class PlagueDoctorAIController : MonoBehaviour
     [Header("要銷毀的gameobject根節點")]
     [SerializeField] GameObject enemyRoot;
 
+    #region -- 參數參考區 --
 
     GameObject player;
     //GameObject zombieaudio;
@@ -32,7 +33,6 @@ public class PlagueDoctorAIController : MonoBehaviour
     Health health;
     PlagueDoctorFighter fighter;
     Collider collider;
-    //ZombieAudio zombieAudio;
 
 
     // 上次看到玩家的時間
@@ -43,10 +43,10 @@ public class PlagueDoctorAIController : MonoBehaviour
     int currentWaypointIndex = 0;
     // 距離上次抵達WayPoint的時間
     float timeSinceArriveWayPoint = 0;
-    // 計時器
-    private float zombierate = 2.0f;
 
     bool isBeHit;
+
+    #endregion
 
     private void Awake()
     {
@@ -64,12 +64,6 @@ public class PlagueDoctorAIController : MonoBehaviour
 
     private void Update()
     {
-        /*print("當前血量為 : " + health.GetCurrentHealth());
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            health.TakeDamage(10);
-        }*/
-        //zombierate -= Time.deltaTime;
 
         if (health.IsDead()) return;
 
@@ -90,16 +84,13 @@ public class PlagueDoctorAIController : MonoBehaviour
         UpdateTimer();
     }
 
+    #region -- 方法參考區 --
+
     private void AttackBehavior()
     {
         animator.SetBool("IsConfuse", false);
         timeSinceLastSawPlayer = 0;
-        /*if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombierate <= 0)
-        {
-            zombieAudio = GetComponent<ZombieAudio>();
-            zombieAudio.zombiefollow(gameObject);
-            zombierate = 2.0f;
-        }*/
+
         fighter.Attack(player.GetComponent<Health>());
     }
 
@@ -152,25 +143,38 @@ public class PlagueDoctorAIController : MonoBehaviour
         return Vector3.Distance(transform.position, player.transform.position) < chaseDistance;
     }
 
+    /// <summary>
+    /// 計時器
+    /// </summary>
     private void UpdateTimer()
     {
         timeSinceLastSawPlayer += Time.deltaTime;
         timeSinceArriveWayPoint += Time.deltaTime;
     }
 
+    #endregion
+
+    #region -- 事件相關 --
+
+    /// <summary>
+    /// 瘟疫醫生受傷處理方法
+    /// </summary>
     private void OnDamage()
     {
         isBeHit = true;
-
     }
 
+    /// <summary>
+    /// 瘟疫醫生死亡處理方法
+    /// </summary>
     private void OnDie()
     {
         mover.CancelMove();
         animator.SetTrigger("IsDead");
         collider.enabled = false;
-        //Destroy(enemyRoot);
     }
+
+    #endregion
 
     // Called by Unity
     // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍

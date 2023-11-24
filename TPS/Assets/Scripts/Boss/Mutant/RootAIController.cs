@@ -73,13 +73,6 @@ public class RootAIController : MonoBehaviour
 
     private void Update()
     {
-        roarrate -= Time.deltaTime;
-        /*print("當前血量為 : " + health.GetCurrentHealth());
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            health.TakeDamage(10);
-        }*/
-
         if (health.IsDead()) return;
 
         // 玩家在追趕範圍內
@@ -99,6 +92,11 @@ public class RootAIController : MonoBehaviour
         UpdateTimer();
     }
 
+    #region -- 方法參考區 --
+
+    /// <summary>
+    /// 攻擊行為
+    /// </summary>
     private void AttackBehavior()
     {
         animator.SetBool("IsConfuse", false);
@@ -140,13 +138,18 @@ public class RootAIController : MonoBehaviour
         }
     }
 
-    // 檢查是否已經抵達WayPoint
+    /// <summary>
+    /// 檢查是否已經抵達WayPoint
+    /// </summary>
+    /// <returns>傳回是否已經抵達WayPoint</returns>
     private bool IsAtWayPoint()
     {
         return (Vector3.Distance(transform.position, patrol.GetWayPointPosition(currentWaypointIndex)) < waypointToStay);
     }
 
-    // 困惑的動作行為
+    /// <summary>
+    /// 困惑的動作行為
+    /// </summary>
     private void ConfuseBehavior()
     {
         mover.CancelMove();
@@ -156,31 +159,47 @@ public class RootAIController : MonoBehaviour
         animator.SetBool("IsConfuse", true);
     }
 
-    // 是否小於追趕距離內
+    /// <summary>
+    /// 判斷是否與玩家的距離小於追趕距離內
+    /// </summary>
+    /// <returns>傳回是否與玩家的距離小於追趕距離內</returns>
     private bool IsRange()
     {
         return Vector3.Distance(transform.position, player.transform.position) < chaseDistance;
     }
 
+    /// <summary>
+    /// 計時器
+    /// </summary>
     private void UpdateTimer()
     {
+        roarrate -= Time.deltaTime;
         timeSinceLastSawPlayer += Time.deltaTime;
         timeSinceArriveWayPoint += Time.deltaTime;
     }
 
+    #region -- 事件相關 --
+
+    /// <summary>
+    /// Mutant受到攻擊時處理方法
+    /// </summary>
     private void OnDamage()
     {
         //  受到攻擊時，觸發的事件
         isBeHit = true;
     }
 
+    /// <summary>
+    /// Mutant死亡時處理方法
+    /// </summary>
     private void OnDie()
     {
         mover.CancelMove();
         animator.SetTrigger("IsDead");
         collider.enabled = false;
-        //Destroy(enemyRoot);
     }
+
+    #endregion
 
     // Called by Unity
     // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
@@ -189,5 +208,7 @@ public class RootAIController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }
+
+    #endregion
 
 }

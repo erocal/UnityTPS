@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManger : MonoBehaviour
@@ -25,6 +24,9 @@ public class EnemySpawnManger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 敵人的生成
+    /// </summary>
     IEnumerator Spawn()
     {
         for (int i = 0; i < spawnAmount; i++)

@@ -139,15 +139,19 @@ public class WeaponManager : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// 新增武器到武器槽
+    /// </summary>
+    /// <param name="weaponPrefab">傳入武器</param>
+    /// <returns>是否成功新增武器</returns>
     public bool AddWeapon(WeaponController weaponPrefab)
     {
-        // 確認目前Slot裡沒有武器
         if (HasWeapon(weaponPrefab))
         {
             return false;
         }
 
-        // 找到下一個空間沒有裝武器
+        // 找到下一個沒有裝武器的武器槽
         for (int i = 0; i < weapons.Length; i++)
         {
             if (weapons[i] == null)
@@ -160,7 +164,6 @@ public class WeaponManager : MonoBehaviour
 
                 weapons[i] = weaponInstance;
 
-                //print("2");
                 onAddWeapon?.Invoke(weaponInstance, i);
 
                 return true;
@@ -169,6 +172,10 @@ public class WeaponManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// 確認玩家是否已經擁有傳入的武器
+    /// </summary>
+    /// <param name="weaponPrefab">傳入的武器</param>
     private bool HasWeapon(WeaponController weaponPrefab)
     {
         foreach (WeaponController weapon in weapons)

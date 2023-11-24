@@ -23,6 +23,8 @@ public class RootFighter : MonoBehaviour
     [Header("手部座標")]
     [SerializeField] Transform hand;
 
+    #region -- 參數參考區 --
+
     RootMover mover;
     Animator animator;
     MutantAudio mutantAudio;
@@ -34,6 +36,8 @@ public class RootFighter : MonoBehaviour
 
     // 計時器
     private float attackrate;
+
+    #endregion
 
     void Start()
     {
@@ -70,6 +74,8 @@ public class RootFighter : MonoBehaviour
         UpdateTimer();
     }
 
+    #region -- 方法參考區 --
+
     /// <summary>
     /// 檢查攻擊動作是否已經結束
     /// </summary>
@@ -88,6 +94,9 @@ public class RootFighter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 計時器
+    /// </summary>
     void UpdateTimer()
     {
         timeSinceLastAttack += Time.deltaTime;
@@ -151,30 +160,54 @@ public class RootFighter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 是否在Mutant的跳躍攻擊範圍內
+    /// </summary>
+    /// <returns>回傳是否在Mutant的跳躍攻擊範圍內</returns>
     private bool IsInJumpAttackRange()
     {
         return Vector3.Distance(transform.position, targetHealth.transform.position) < jumpAttackRange;
     }
 
+    /// <summary>
+    /// 是否在Mutant的一般攻擊範圍內
+    /// </summary>
+    /// <returns>回傳是否在Mutant的一般攻擊範圍內</returns>
     private bool IsInAttackRange()
     {
         return Vector3.Distance(transform.position, targetHealth.transform.position) < attackRange;
     }
 
+    /// <summary>
+    /// 攻擊目標
+    /// </summary>
+    /// <param name="target">目標</param>
     public void Attack(Health target)
     {
         targetHealth = target;
     }
 
+    /// <summary>
+    /// 取消目前追蹤的攻擊目標
+    /// </summary>
     public void CancelTarget()
     {
         targetHealth = null;
     }
 
+    #endregion
+
+    #region -- 事件相關 --
+
+    /// <summary>
+    /// 處理Mutant死亡處理方法
+    /// </summary>
     private void OnDie()
     {
         this.enabled = false;
     }
+
+    #endregion
 
     // Called by Unity
     // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
