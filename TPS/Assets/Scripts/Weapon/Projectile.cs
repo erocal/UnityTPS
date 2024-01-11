@@ -39,8 +39,13 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        // maxLifetime秒後回收子彈
-        StartCoroutine(RecoverAfterDelay(maxLifetime));
+        if (projectileId == ProjectileId.None)
+            Destroy(gameObject, maxLifetime);
+        else
+        {
+            // maxLifetime秒後回收子彈
+            StartCoroutine(RecoverAfterDelay(maxLifetime));
+        }
     }
 
     private void Awake()
