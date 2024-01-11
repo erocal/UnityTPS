@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
@@ -216,7 +217,13 @@ public class ThirdPersonCamera : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        //EditorApplication.isPlaying = false;
+
+#if UNITY_EDITOR
+        if (EditorApplication.isPlaying)
+        {
+            EditorApplication.ExitPlaymode();
+        }
+#endif
     }
 
     /// <summary>

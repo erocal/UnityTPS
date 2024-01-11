@@ -237,7 +237,7 @@ public class InputController : MonoBehaviour
     /// </summary>
     private void CheckCursorState()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0 && SceneManager.GetActiveScene().buildIndex == 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0 && SceneManager.GetActiveScene().buildIndex != 0)
         {
             if (Cursor.lockState == CursorLockMode.None)
                 Cursor.lockState = CursorLockMode.Locked;

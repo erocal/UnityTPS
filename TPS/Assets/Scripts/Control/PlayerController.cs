@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// 出生點
     /// </summary>
-    Vector3 spawn;
+    public Vector3 spawn;
     // 下一幀要移動到的目標位置
     Vector3 targetMovement;
     // 下一幀跳躍到的方向
