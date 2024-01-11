@@ -28593,6 +28593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0da6e4b67d87e4f8352df725d6327d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileId: 2
   type: 1
   hitParticle: {fileID: 0}
   particleLifeTime: 2

@@ -59,10 +59,14 @@ public class WeaponController : MonoBehaviour
     // 是否在瞄準狀態
     bool isAim;
 
+    ProjectilePool projectilePool = null;
+
     private void Awake()
     {
         currentAmmo = maxAmmo;
         audioSource = GetComponent<AudioSource>();
+
+        projectilePool = GameObject.Find(ProjectilePool.PROJECTILEPOOLNAME).GetComponent<ProjectilePool>();
     }
 
     // Update is called once per frame
@@ -144,7 +148,13 @@ public class WeaponController : MonoBehaviour
     {
         for (int i = 0; i < bulletPerShoot; i++)
         {
-            Projectile newProjectile = Instantiate(projectilePrefab, weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward));
+            Projectile newProjectile = null;
+
+            if (projectilePrefab.projectileId == ProjectileId.None)
+                newProjectile = Instantiate(projectilePrefab, weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward));
+            else
+                newProjectile = projectilePool.ReUse(projectilePrefab.projectileId, weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward));
+            
             newProjectile.Shoot(GameObject.FindGameObjectWithTag("Player"));
         }
 
