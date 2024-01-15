@@ -16,8 +16,8 @@ public class TouchLava : MonoBehaviour
     {
         if (hasbeentrigger) return;
 
-        if ((other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy"
-        || other.gameObject.tag == "Zombie" || other.gameObject.tag == "Zombiegrounp"))
+        if ((other.tag == "Player" || other.tag == "Enemy"
+        || other.tag == "Zombie" || other.tag == "Zombiegrounp"))
         {
             //hasbeentrigger = true;
             target = other.gameObject;

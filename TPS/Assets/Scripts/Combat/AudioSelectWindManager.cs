@@ -13,7 +13,7 @@ public class AudioSelectWindManager : MonoBehaviour
     {
         if (hasbeentrigger) return;
 
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             //hasbeentrigger = true;
             camera.GetComponent<BackgroundMusic>().AudioSelectWind();

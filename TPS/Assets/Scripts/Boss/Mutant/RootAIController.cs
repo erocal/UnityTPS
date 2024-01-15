@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class RootAIController : MonoBehaviour
 {
@@ -135,6 +136,15 @@ public class RootAIController : MonoBehaviour
         {
             animator.SetBool("IsConfuse", false);
             mover.MoveTo(beginPostion);
+
+            try
+            {
+                patrol = GameObject.Find("PatrolPath_Mutant").GetComponent<PatrolPath>();
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
     }
 

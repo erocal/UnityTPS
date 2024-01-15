@@ -68,7 +68,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject == owner || !canAttack) return;
 
-        if ((other.gameObject.tag == "Zombiegrounp" || other.gameObject.tag == "Zombie" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player") && type == ProjectileType.Coliider)
+        if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Coliider)
         {
             Health targetHealth = other.gameObject.GetComponent<Health>();
             if (!targetHealth.IsDead())
@@ -85,7 +85,7 @@ public class Projectile : MonoBehaviour
     {
         if (other == owner || !canAttack) return;
 
-        if ((other.gameObject.tag == "Zombiegrounp" || other.gameObject.tag == "Zombie" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player") && type == ProjectileType.Particle)
+        if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Particle)
         {
             Health targetHealth = other.gameObject.GetComponent<Health>();
             if (!targetHealth.IsDead())

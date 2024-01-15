@@ -17,7 +17,7 @@ public class EnemySpawnManger : MonoBehaviour
     {
         if (hasbeentrigger) return;
 
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             hasbeentrigger = true;
             StartCoroutine(Spawn());

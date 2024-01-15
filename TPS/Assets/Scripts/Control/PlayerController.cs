@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -47,6 +48,13 @@ public class PlayerController : MonoBehaviour
     [Header("跑步的音效")]
     [SerializeField] AudioClip runstepSFX;
 
+    [Space(20)]
+    [Header("地圖區域")]
+    [Tooltip("管理地圖區域相關方法")]
+    [SerializeField] MapAreaManager mapAreaManager;
+    [Tooltip("玩家所在地圖區域")]
+    public MapArea playerStandMapArea = MapArea.StartArea;
+    
     // 這是啟動瞄準的事件
     public event Action<bool> onAim;
 
@@ -100,6 +108,10 @@ public class PlayerController : MonoBehaviour
         //targetMask = LayerMask.GetMask("Terrain");
 
         spawn = new Vector3(-473.3f, 21.93f, 245.9f);
+
+#if UNITY_EDITOR
+        if (mapAreaManager == null) Log.Error("地圖管理員未掛載!");
+#endif
 
         // 訂閱死亡事件
         health.onDie += OnDie;
@@ -400,6 +412,9 @@ public class PlayerController : MonoBehaviour
     {
         health.Alive();
         animator.SetTrigger("IsAlive");
+        
+        // 根據玩家區域，開啟地圖
+        mapAreaManager.SwitchMapArea((int)playerStandMapArea);
         // 初始玩家生成位置
         ChangePosition(spawn);
         //還給玩家控制權

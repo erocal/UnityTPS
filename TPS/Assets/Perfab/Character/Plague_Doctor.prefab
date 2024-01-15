@@ -733,7 +733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907454662283194124}
-  m_LocalRotation: {x: 0.023698647, y: 0.023616062, z: 0.047987882, w: 0.99828744}
+  m_LocalRotation: {x: 0.02369865, y: 0.023616062, z: 0.04798789, w: 0.99828744}
   m_LocalPosition: {x: 0.005954175, y: 0.26189423, z: 0.012948267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1328,7 +1328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907454662283194194}
-  m_LocalRotation: {x: 0.023698647, y: 0.023616062, z: 0.047987882, w: 0.99828744}
+  m_LocalRotation: {x: 0.02369865, y: 0.023616062, z: 0.04798789, w: 0.99828744}
   m_LocalPosition: {x: -0.005954667, y: -0.26189443, z: -0.0129441675}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1686,6 +1686,8 @@ MonoBehaviour:
   gothurtSFX: {fileID: 8300000, guid: 137bb003119aa47dfb5ed791d840d650, type: 3}
   rate: 2
   zombierate: 2
+  healParticle: {fileID: 0}
+  lifeParticle: {fileID: 0}
 --- !u!195 &1543216753392985333
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1776,8 +1778,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdbf53ada672c643aab3cc593afe96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plaguedoctorfireballSFX: {fileID: 0}
-  plaguedoctorlightingSFX: {fileID: 0}
+  plaguedoctorfireballSFX: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73,
+    type: 3}
+  plaguedoctorlightingSFX: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4,
+    type: 3}
 --- !u!1 &1907454662283194206
 GameObject:
   m_ObjectHideFlags: 0

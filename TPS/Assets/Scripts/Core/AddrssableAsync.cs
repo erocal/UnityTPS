@@ -77,8 +77,8 @@ public class AddrssableAsync : MonoBehaviour
             return new AsyncOperationHandle<GameObject>();
         }
 
-
     }
+
     public async Task<AsyncOperationHandle<SceneInstance>> LoadSceneAsync(string sceneName, LoadSceneMode loadMode = LoadSceneMode.Single)
     {
         await Task.CompletedTask;
