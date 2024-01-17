@@ -65,7 +65,7 @@ public class ProjectilePool : MonoBehaviour
 
     public void Recovery(ProjectileId projectileId, GameObject recovery)
     {
-        m_pool[(int)projectileId].Enqueue(recovery);
         recovery.SetActive(false);
+        m_pool[(int)projectileId].Enqueue(recovery);
     }
 }

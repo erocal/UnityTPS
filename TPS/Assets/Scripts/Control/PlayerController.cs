@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -408,13 +409,14 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// 玩家復活
     /// </summary>
-    public void IsAlive()
+    public async Task IsAlive()
     {
+        // 根據玩家區域，開啟地圖
+        await mapAreaManager.SwitchMapArea((int)playerStandMapArea);
+
         health.Alive();
         animator.SetTrigger("IsAlive");
         
-        // 根據玩家區域，開啟地圖
-        mapAreaManager.SwitchMapArea((int)playerStandMapArea);
         // 初始玩家生成位置
         ChangePosition(spawn);
         //還給玩家控制權

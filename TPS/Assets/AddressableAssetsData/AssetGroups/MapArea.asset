@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MapArea
+  m_EditorClassIdentifier: 
+  m_GroupName: MapArea
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 27a9b2c09404ff74ea0624432208d34a
+  m_SerializeEntries:
+  - m_GUID: 9b1715b0b9a83904d8c8b11e81882b47
+    m_Address: startarea
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 96f764733772d6b4e99b787f00db18d2
+    m_Address: plainarea
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 98682d3898cb5ef448ead9c27d1e32ec
+    m_Address: plaguedoctorarea
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: efa5ca4fc2b8fe2448d15f2ca8dc5312
+    m_Address: mutantarea
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ffae77cf890a788449e0386bc5733194, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bfdb0fd76d57174408a7a9f9d450fe2d, type: 2}
+    - {fileID: 11400000, guid: e30ea878cb6b7d54baff2641cbdfca90, type: 2}

@@ -35,7 +35,7 @@ public class LoadingManager : MonoBehaviour
             input.CursorStateLocked();
             ShowLoadingImage(0);
 
-            await AddrssableAsync.instance.LoadSceneAsync("samplescene", LoadSceneMode.Single);
+            await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
         }
 

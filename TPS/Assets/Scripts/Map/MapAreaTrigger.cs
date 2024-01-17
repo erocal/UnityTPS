@@ -1,9 +1,10 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MapAreaTrigger : MonoBehaviour
 {
-    [Header("¦a¹Ï°Ï°ì"), Tooltip("³o­ÓÄ²µo©ÒÄİªº¦a¹Ï°Ï°ì")]
+    [Header("åœ°åœ–å€åŸŸ"), Tooltip("é€™å€‹è§¸ç™¼æ‰€å±¬çš„åœ°åœ–å€åŸŸ")]
     [SerializeField] MapArea mapArea;
 
     private MapAreaManager mapAreaManager;
@@ -13,11 +14,11 @@ public class MapAreaTrigger : MonoBehaviour
         if (mapAreaManager == null) mapAreaManager = GetComponentInParent<MapAreaManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private async Task OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            mapAreaManager.SwitchMapArea( (int)mapArea );
+            await mapAreaManager.SwitchMapArea( (int)mapArea );
         }
     }
 }
