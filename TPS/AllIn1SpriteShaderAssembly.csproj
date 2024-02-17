@@ -56,34 +56,34 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetGlobalTimeNew.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTime.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderUiMaskMaterialInspector.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderMaterialInspector.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetGlobalTimeUnity2018.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\SetGlobalTimeNew.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTime.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Editor\AllIn1SpriteShaderUiMaskMaterialInspector.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Editor\AllIn1SpriteShaderMaterialInspector.cs" />
+    <Compile Include="Assets\ThirdParty\AllIn1SpriteShader\Scripts\SetGlobalTimeUnity2018.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\AllIn1SpriteShader\!Start_Here.txt" />
-    <None Include="Assets\AllIn1SpriteShader\AllIn1SpriteShaderAssembly.asmdef" />
-    <None Include="Assets\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
-    <None Include="Assets\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScaledTime.shader" />
-    <None Include="Assets\AllIn1SpriteShader\Resources\AllIn1SpriteShaderUiMask.shader" />
-    <None Include="Assets\AllIn1SpriteShader\Resources\AllIn1OneShaderFunctions.cginc" />
+    <None Include="Assets\ThirdParty\AllIn1SpriteShader\!Start_Here.txt" />
+    <None Include="Assets\ThirdParty\AllIn1SpriteShader\AllIn1SpriteShaderAssembly.asmdef" />
+    <None Include="Assets\ThirdParty\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
+    <None Include="Assets\ThirdParty\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScaledTime.shader" />
+    <None Include="Assets\ThirdParty\AllIn1SpriteShader\Resources\AllIn1SpriteShaderUiMask.shader" />
+    <None Include="Assets\ThirdParty\AllIn1SpriteShader\Resources\AllIn1OneShaderFunctions.cginc" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

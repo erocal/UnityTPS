@@ -804,41 +804,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartGame
       objectReference: {fileID: 0}
-    - target: {fileID: 208941024155537486, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 208941024155537486, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094596051704956434, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125954365749539104, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125954365749539104, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125954365749539104, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125954365749539104, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 1150865620921346592, guid: dc949ad975d2ff641988a88f63073128,
         type: 3}
       propertyPath: m_Pivot.x
@@ -944,31 +909,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2887276349854209498, guid: dc949ad975d2ff641988a88f63073128,
+    - target: {fileID: 2988476987106634761, guid: dc949ad975d2ff641988a88f63073128,
         type: 3}
-      propertyPath: scaleSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2887276349854209498, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: baseFontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2887276349854209498, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: animationDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837445569292599476, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477005114287163294, guid: dc949ad975d2ff641988a88f63073128,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 643244199}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc949ad975d2ff641988a88f63073128, type: 3}
 --- !u!224 &1220645294 stripped

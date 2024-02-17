@@ -3,7 +3,6 @@ using UnityEngine;
 
 public static class Log
 {
-#if UNITY_EDITOR
     public static void Warning(string msg)
     {
         Debug.LogWarning(msg);
@@ -18,5 +17,4 @@ public static class Log
     {
         Debug.LogError(msg);
     }
-#endif
 }

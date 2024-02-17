@@ -29,21 +29,12 @@ public class LoadingManager : MonoBehaviour
     private async void Update()
     {
 
-        // 如果按下滑鼠左鍵，且在開始畫面，就加載Game
-        if (input.GetClick() && SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            input.CursorStateLocked();
-            ShowLoadingImage(0);
-
-            await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
-
-        }
-
         // 如果已在切換的場景，且Loading圖還在啟動
         if (SceneManager.GetActiveScene().buildIndex != sceneIndex && loadingImage.IsActive())
         {
             HideLoadingImage();
         }
+
     }
 
     #region -- 方法參考區 --
@@ -72,6 +63,26 @@ public class LoadingManager : MonoBehaviour
             loadingImage.gameObject.SetActive(false);
         }
     }
+
+    #region -- onClick --
+
+    /// <summary>
+    /// Button-Start 加載下一張地圖
+    /// </summary>
+    public async void onStartGame()
+    {
+        // 加載Game
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            input.CursorStateLocked();
+            ShowLoadingImage(0);
+
+            await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
+
+        }
+    }
+
+    #endregion
 
     #endregion
 }
