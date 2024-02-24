@@ -1,78 +1,62 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlagueDoctorAIController : MonoBehaviour
+public class PlagueDoctorAIController : AIController
 {
-    [Tooltip("追趕距離")]
-    [SerializeField] float chaseDistance = 10f;
-    [Tooltip("失去目標後困惑的時間")]
-    [SerializeField] float confuseTime = 5f;
-
-    [Header("巡邏路徑")]
-    [SerializeField] PatrolPath patrol;
-    [Header("需要到達WayPoint的距離")]
-    [SerializeField] float waypointToStay = 3f;
-    [Header("待在WayPoint的時間")]
-    [SerializeField] float waypointToWaitTime = 3f;
-    [Header("巡邏時的速度")]
-    [Range(0, 1)]
-    [SerializeField] float patrolSpeedRatio = 0.5f;
-
-    [Space(20)]
-    [Header("要銷毀的gameobject根節點")]
-    [SerializeField] GameObject enemyRoot;
 
     #region -- 參數參考區 --
 
-    GameObject player;
-    //GameObject zombieaudio;
-    PlagueDoctorMover mover;
-    Animator animator;
-    Health health;
-    PlagueDoctorFighter fighter;
-    Collider collider;
-
-
-    // 上次看到玩家的時間
-    private float timeSinceLastSawPlayer = Mathf.Infinity;
-    // 原點座標
-    private Vector3 beginPostion;
-    // 當前需要到達的WayPoint編號
-    int currentWaypointIndex = 0;
-    // 距離上次抵達WayPoint的時間
-    float timeSinceArriveWayPoint = 0;
-
-    bool isBeHit;
+    PlagueDoctorMover plagueDoctorMover;
+    PlagueDoctorFighter plagueDoctorFighter;
 
     #endregion
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        mover = GetComponent<PlagueDoctorMover>();
+        plagueDoctorMover = GetComponent<PlagueDoctorMover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
-        fighter = GetComponent<PlagueDoctorFighter>();
+        plagueDoctorFighter = GetComponent<PlagueDoctorFighter>();
         collider = GetComponent<Collider>();
 
-        beginPostion = transform.position;
-        health.onDamage += OnDamage;
-        health.onDie += OnDie;
+        SetSpawnPosition(transform.position);
+
+        #region -- 委派 --
+
+        SetAction();
+
+        #endregion
     }
 
     private void Update()
     {
+        AIBehavior();
 
-        if (health.IsDead()) return;
+        UpdateTimer();
+    }
 
+    #region -- 方法參考區 --
+
+    /// <summary>
+    /// 設置委派事件
+    /// </summary>
+    private void SetAction()
+    {
+        health.onDamage += OnDamage;
+        health.onDie += OnDie;
+    }
+
+    /// <summary>
+    /// AI所能做出的行為
+    /// </summary>
+    protected override void AIBehavior()
+    {
         // 玩家在追趕範圍內
-        if (IsRange() || isBeHit)
+        if (IsRange() || CheckIsBeHit())
         {
             AttackBehavior();
         }
-        else if (timeSinceLastSawPlayer < confuseTime)
+        else if (sinceLastSawPlayerTimer < confuseTime)
         {
             ConfuseBehavior();
         }
@@ -80,67 +64,52 @@ public class PlagueDoctorAIController : MonoBehaviour
         {
             PatrolBehavior();
         }
-
-        UpdateTimer();
     }
 
-    #region -- 方法參考區 --
-
-    private void AttackBehavior()
+    protected override void AttackBehavior()
     {
         animator.SetBool("IsConfuse", false);
-        timeSinceLastSawPlayer = 0;
 
-        fighter.Attack(player.GetComponent<Health>());
-    }
+        SawPlayer();
 
-    // 巡邏行為
-    private void PatrolBehavior()
-    {
-        Vector3 nextWaypointPostion = beginPostion;
-        if (patrol != null)
-        {
-            if (IsAtWayPoint())
-            {
-                mover.CancelMove();
-                animator.SetBool("IsConfuse", true);
-                timeSinceArriveWayPoint = 0;
-                currentWaypointIndex = patrol.GetNextWayPointNumber(currentWaypointIndex);
-            }
-
-            if (timeSinceArriveWayPoint > waypointToWaitTime)
-            {
-                animator.SetBool("IsConfuse", false);
-                mover.MoveTo(patrol.GetWayPointPosition(currentWaypointIndex), patrolSpeedRatio);
-            }
-        }
-        else
-        {
-            animator.SetBool("IsConfuse", false);
-            mover.MoveTo(beginPostion, 0.5f);
-        }
-    }
-
-    // 檢查是否已經抵達WayPoint
-    private bool IsAtWayPoint()
-    {
-        return (Vector3.Distance(transform.position, patrol.GetWayPointPosition(currentWaypointIndex)) < waypointToStay);
+        plagueDoctorFighter.Attack(player.GetComponent<Health>());
     }
 
     // 困惑的動作行為
-    private void ConfuseBehavior()
+    protected override void ConfuseBehavior()
     {
-        mover.CancelMove();
-        fighter.CancelTarget();
+        plagueDoctorMover.CancelMove();
+        plagueDoctorFighter.CancelTarget();
 
         // 困惑動作
         animator.SetBool("IsConfuse", true);
     }
 
-    // 是否小於追趕距離內
-    private bool IsRange()
+    // 巡邏行為
+    protected override void PatrolBehavior()
     {
-        return Vector3.Distance(transform.position, player.transform.position) < chaseDistance;
+        Vector3 nextWaypointPostion = aiSpawnPostion;
+        if (patrol != null)
+        {
+            if (IsAtWayPoint())
+            {
+                plagueDoctorMover.CancelMove();
+                animator.SetBool("IsConfuse", true);
+                sinceArriveWayPointTimer = 0;
+                currentWaypointIndex = patrol.GetNextWayPointNumber(currentWaypointIndex);
+            }
+
+            if (sinceArriveWayPointTimer > waypointToWaitTime)
+            {
+                animator.SetBool("IsConfuse", false);
+                plagueDoctorMover.MoveTo(patrol.GetWayPointPosition(currentWaypointIndex), patrolSpeedRatio);
+            }
+        }
+        else
+        {
+            animator.SetBool("IsConfuse", false);
+            plagueDoctorMover.MoveTo(aiSpawnPostion, 0.5f);
+        }
     }
 
     /// <summary>
@@ -148,8 +117,8 @@ public class PlagueDoctorAIController : MonoBehaviour
     /// </summary>
     private void UpdateTimer()
     {
-        timeSinceLastSawPlayer += Time.deltaTime;
-        timeSinceArriveWayPoint += Time.deltaTime;
+        UpdateLastSawPlayerTimer();
+        UpdateArriveWayPointTimer();
     }
 
     #endregion
@@ -157,19 +126,11 @@ public class PlagueDoctorAIController : MonoBehaviour
     #region -- 事件相關 --
 
     /// <summary>
-    /// 瘟疫醫生受傷處理方法
+    /// PlagueDoctor死亡時處理方法
     /// </summary>
-    private void OnDamage()
+    protected override void OnDie()
     {
-        isBeHit = true;
-    }
-
-    /// <summary>
-    /// 瘟疫醫生死亡處理方法
-    /// </summary>
-    private void OnDie()
-    {
-        mover.CancelMove();
+        plagueDoctorMover.CancelMove();
         animator.SetTrigger("IsDead");
         collider.enabled = false;
     }

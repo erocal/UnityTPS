@@ -1,194 +1,161 @@
-ï»¿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AIController : MonoBehaviour
+public abstract class AIController : MonoBehaviour
 {
-    [Tooltip("è¿½è¶•è·é›¢")]
-    [SerializeField] float chaseDistance = 10f;
-    [Tooltip("å¤±å»ç›®æ¨™å¾Œå›°æƒ‘çš„æ™‚é–“")]
-    [SerializeField] float confuseTime = 5f;
+    #region -- ¸ê·½°Ñ¦Ò°Ï --
 
-    [Header("å·¡é‚è·¯å¾‘")]
-    [SerializeField] PatrolPath patrol;
-    [Header("éœ€è¦åˆ°é”WayPointçš„è·é›¢")]
-    [SerializeField] float waypointToStay = 3f;
-    [Header("å¾…åœ¨WayPointçš„æ™‚é–“")]
-    [SerializeField] float waypointToWaitTime = 3f;
-    [Header("å·¡é‚æ™‚çš„é€Ÿåº¦")]
+    [Tooltip("°l»°¶ZÂ÷")]
+    [SerializeField] protected float chaseDistance = 10f;
+    [Tooltip("¥¢¥h¥Ø¼Ğ«á§x´bªº®É¶¡")]
+    [SerializeField] protected float confuseTime = 5f;
+
+    [Header("¨µÅŞ¸ô®|")]
+    [SerializeField] protected PatrolPath patrol;
+    [Header("»İ­n¨ì¹FWayPointªº¶ZÂ÷")]
+    [SerializeField] protected float waypointToStay = 3f;
+    [Header("«İ¦bWayPointªº®É¶¡")]
+    [SerializeField] protected float waypointToWaitTime = 3f;
+    [Header("¨µÅŞ®Éªº³t«×")]
     [Range(0, 1)]
-    [SerializeField] float patrolSpeedRatio = 0.5f;
+    [SerializeField] protected float patrolSpeedRatio = 0.5f;
 
     [Space(20)]
-    [Header("è¦éŠ·æ¯€çš„gameobjectæ ¹ç¯€é»")]
-    [SerializeField] GameObject enemyRoot;
+    [Header("­n¾P·´ªºgameobject®Ú¸`ÂI")]
+    [SerializeField] protected GameObject enemyRoot;
 
+    [Space(20)]
+    [Header("AI¬O§_¨üÀ»"), ReadOnly]
+    [SerializeField] protected bool isBeHit;
 
-    GameObject player;
-    GameObject zombieaudio;
-    Mover mover;
-    Animator animator;
-    Health health;
-    Fighter fighter;
-    Collider collider;
-    ZombieAudio zombieAudio;
+    [Header("ª±®a")]
+    [SerializeField] protected GameObject player;
+    [Header("°Êµe±±¨î¾¹")]
+    [SerializeField] protected Animator animator;
+    [Header("Health")]
+    [SerializeField] protected Health health;
+    [Header("¸I¼²Åé")]
+    [SerializeField] protected Collider collider;
 
+    #endregion
 
-    // ä¸Šæ¬¡çœ‹åˆ°ç©å®¶çš„æ™‚é–“
-    private float timeSinceLastSawPlayer = Mathf.Infinity;
-    // åŸé»åº§æ¨™
-    private Vector3 beginPostion;
-    // ç•¶å‰éœ€è¦åˆ°é”çš„WayPointç·¨è™Ÿ
-    int currentWaypointIndex = 0;
-    // è·é›¢ä¸Šæ¬¡æŠµé”WayPointçš„æ™‚é–“
-    float timeSinceArriveWayPoint = 0;
-    // è¨ˆæ™‚å™¨
-    private float zombierate = 2.0f;
+    #region -- ÅÜ¼Æ°Ñ¦Ò°Ï --
 
-    bool isBeHit;
+    [Tooltip("¤W¦¸¬İ¨ìª±®aªº®É¶¡"), ReadOnly]
+    [SerializeField] protected float sinceLastSawPlayerTimer = Mathf.Infinity;
+    [Tooltip("ªì©l¥Í¦¨®y¼Ğ"), ReadOnly]
+    [SerializeField] protected Vector3 aiSpawnPostion;
+    [Tooltip("·í«e»İ­n¨ì¹FªºWayPoint½s¸¹"), ReadOnly]
+    [SerializeField] protected int currentWaypointIndex = 0;
+    [Tooltip("¶ZÂ÷¤W¦¸©è¹FWayPointªº®É¶¡"), ReadOnly]
+    [SerializeField] protected float sinceArriveWayPointTimer = 0;
 
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        mover = GetComponent<Mover>();
-        animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
-        fighter = GetComponent<Fighter>();
-        collider = GetComponent<Collider>();
+    #endregion
 
-        beginPostion = transform.position;
-        health.onDamage += OnDamage;
-        health.onDie += OnDie;
-    }
+    #region -- ªì©l¤Æ/¹B§@ --
 
     private void Update()
     {
-        /*print("ç•¶å‰è¡€é‡ç‚º : " + health.GetCurrentHealth());
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            health.TakeDamage(10);
-        }*/
-        zombierate -= Time.deltaTime;
-
         if (health.IsDead()) return;
-
-        // ç©å®¶åœ¨è¿½è¶•ç¯„åœå…§
-        if (IsRange() || isBeHit || fighter.actorType == Actor.Zombie)
-        {
-            AttackBehavior();
-        }
-        else if (timeSinceLastSawPlayer < confuseTime)
-        {
-            ConfuseBehavior();
-        }
-        else
-        {
-            PatrolBehavior();
-        }
-
-        UpdateTimer();
     }
 
-    private void AttackBehavior()
+    #endregion
+
+    #region -- ¤èªk°Ñ¦Ò°Ï --
+
+    /// <summary>
+    /// ³]©wAIªì©l¥Í¦¨¦ì¸m
+    /// </summary>
+    /// <param name="spawnPostion">ªì©l¥Í¦¨¦ì¸m</param>
+    protected void SetSpawnPosition(Vector3 spawnPostion)
     {
-        animator.SetBool("IsConfuse", false);
-        timeSinceLastSawPlayer = 0;
-        if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombierate <= 0)
-        {
-            zombieAudio = GetComponent<ZombieAudio>();
-            zombieAudio.ZombieFollow(gameObject);
-            zombierate = 2.0f;
-        }
-        fighter.Attack(player.GetComponent<Health>());
+        this.aiSpawnPostion = spawnPostion;
     }
 
-    // å·¡é‚è¡Œç‚º
-    private void PatrolBehavior()
+    /// <summary>
+    /// AI©Ò¯à°µ¥Xªº¦æ¬°
+    /// </summary>
+    protected abstract void AIBehavior();
+
+    /// <summary>
+    /// ³B²zAI§ğÀ»¦æ¬°
+    /// </summary>
+    protected abstract void AttackBehavior();
+
+    // ¨µÅŞ¦æ¬°
+    protected abstract void PatrolBehavior();
+
+    // §x´bªº°Ê§@¦æ¬°
+    protected abstract void ConfuseBehavior();
+
+    /// <summary>
+    /// ¬İ¨£ª±®a
+    /// </summary>
+    protected void SawPlayer()
     {
-        if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombierate <= 0)
-        {
-            zombieAudio = GetComponent<ZombieAudio>();
-            zombieAudio.ZombieIdle(gameObject);
-            zombierate = 2.0f;
-        }
-        Vector3 nextWaypointPostion = beginPostion;
-        if (patrol != null)
-        {
-            if (IsAtWayPoint())
-            {
-                mover.CancelMove();
-                animator.SetBool("IsConfuse", true);
-                timeSinceArriveWayPoint = 0;
-                currentWaypointIndex = patrol.GetNextWayPointNumber(currentWaypointIndex);
-            }
-
-            if (timeSinceArriveWayPoint > waypointToWaitTime)
-            {
-                animator.SetBool("IsConfuse", false);
-                mover.MoveTo(patrol.GetWayPointPosition(currentWaypointIndex), patrolSpeedRatio);
-            }
-        }
-        else
-        {
-            animator.SetBool("IsConfuse", false);
-            mover.MoveTo(beginPostion, 0.5f);
-        }
+        sinceLastSawPlayerTimer = 0;
     }
 
-    // æª¢æŸ¥æ˜¯å¦å·²ç¶“æŠµé”WayPoint
-    private bool IsAtWayPoint()
+    // ÀË¬d¬O§_¤w¸g©è¹FWayPoint
+    protected bool IsAtWayPoint()
     {
         return (Vector3.Distance(transform.position, patrol.GetWayPointPosition(currentWaypointIndex)) < waypointToStay);
     }
 
-    // å›°æƒ‘çš„å‹•ä½œè¡Œç‚º
-    private void ConfuseBehavior()
-    {
-        mover.CancelMove();
-        fighter.CancelTarget();
-
-        // å›°æƒ‘å‹•ä½œ
-        animator.SetBool("IsConfuse", true);
-    }
-
     /// <summary>
-    /// æ˜¯å¦å°æ–¼è¿½è¶•è·é›¢å…§
+    /// ¬O§_¤p©ó°l»°¶ZÂ÷¤º
     /// </summary>
-    private bool IsRange()
+    protected bool IsRange()
     {
         return Vector3.Distance(transform.position, player.transform.position) < chaseDistance;
     }
 
     /// <summary>
-    /// è¨ˆæ™‚å™¨
+    /// ½T»{¬O§_¨üÀ»
     /// </summary>
-    private void UpdateTimer()
+    protected bool CheckIsBeHit()
     {
-        timeSinceLastSawPlayer += Time.deltaTime;
-        timeSinceArriveWayPoint += Time.deltaTime;
+        return isBeHit;
     }
 
-    private void OnDamage()
+    protected void UpdateLastSawPlayerTimer()
     {
+        sinceLastSawPlayerTimer += Time.deltaTime;
+    }
+
+    protected void UpdateArriveWayPointTimer()
+    {
+        sinceArriveWayPointTimer += Time.deltaTime;
+    }
+
+    #region -- ¨Æ¥ó¬ÛÃö --
+
+    /// <summary>
+    /// AI¨ü¨ì§ğÀ»®É³B²z¤èªk
+    /// </summary>
+    protected void OnDamage()
+    {
+        //  ¨ü¨ì§ğÀ»®É¡AÄ²µoªº¨Æ¥ó
         isBeHit = true;
-
     }
 
-    private void OnDie()
-    {
-        mover.CancelMove();
-        animator.SetTrigger("IsDead");
-        collider.enabled = false;
-        //Destroy(enemyRoot);
-    }
+    /// <summary>
+    /// AI¦º¤`®É³B²z¤èªk
+    /// </summary>
+    protected abstract void OnDie();
+
+    #endregion
+
+    #region -- DrawGizmo --
 
     // Called by Unity
-    // é€™æ˜¯è‡ªè¡Œç¹ªè£½visableå¯è¦–åŒ–ç‰©ä»¶ï¼Œç”¨ä¾†è¨­è¨ˆæ€ªç‰©è¿½è¹¤ç©å®¶çš„ç¯„åœ
+    // ³o¬O¦Û¦æÃ¸»svisable¥iµø¤Æª«¥ó¡A¥Î¨Ó³]­p©Çª«°lÂÜª±®aªº½d³ò
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }
 
+    #endregion
+
+    #endregion
 }

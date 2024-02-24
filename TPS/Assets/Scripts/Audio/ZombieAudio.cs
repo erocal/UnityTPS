@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ZombieAudio : MonoBehaviour
 {
-    #region -- 物件參考區 --
+    #region -- 資源參考區 --
 
     [Space(5)]
     [Header("閒置的音效")]
-    [SerializeField] AudioClip zombieidleSFX;
+    [SerializeField] AudioClip zombieIdleSFX;
     [Header("追趕的音效")]
-    [SerializeField] AudioClip zombiefollowSFX;
+    [SerializeField] AudioClip zombieFollowSFX;
 
     #endregion
 
@@ -21,25 +18,29 @@ public class ZombieAudio : MonoBehaviour
 
     #endregion
 
+    #region -- 方法參考區 --
+
     /// <summary>
     /// 播放Zombie閒置的音效
     /// </summary>
-    /// <param name="other">傳入的物件，用來抓取聲音組件，此處應為Boss:Zombie</param>
-    public void ZombieIdle(GameObject other)
+    /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
+    public void ZombieIdle(GameObject zombie)
     {
-        audioSource = other.GetComponent<AudioSource>();
+        audioSource = zombie.GetComponent<AudioSource>();
 
-        audioSource?.PlayOneShot(zombieidleSFX); 
+        audioSource?.PlayOneShot(zombieIdleSFX); 
     }
 
     /// <summary>
     /// 播放Zombie追趕的音效
     /// </summary>
-    /// <param name="other">傳入的物件，用來抓取聲音組件，此處應為Boss:Zombie</param>
-    public void ZombieFollow(GameObject other)
+    /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
+    public void ZombieFollow(GameObject zombie)
     {
-        audioSource = other.GetComponent<AudioSource>();
+        audioSource = zombie.GetComponent<AudioSource>();
 
-        audioSource?.PlayOneShot(zombiefollowSFX);
+        audioSource?.PlayOneShot(zombieFollowSFX);
     }
+
+    #endregion
 }

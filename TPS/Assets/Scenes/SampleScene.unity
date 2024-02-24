@@ -3611,8 +3611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &73191216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5723,8 +5723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &105034344
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11807,8 +11807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &209147290
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13277,8 +13277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &232673459
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14500,8 +14500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &248341083
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15611,8 +15611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &263331192
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17351,8 +17351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &294486774
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22138,8 +22138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &391140789
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28858,8 +28858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &522916882
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33791,8 +33791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &614564704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34118,8 +34118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &614776570
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37405,8 +37405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &683914225
 AudioSource:
   m_ObjectHideFlags: 0
@@ -50224,8 +50224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &983624668
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52821,8 +52821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1023302292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -55415,8 +55415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1071911411
 AudioSource:
   m_ObjectHideFlags: 0
@@ -56416,8 +56416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1090706691
 AudioSource:
   m_ObjectHideFlags: 0
@@ -57951,8 +57951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1120218826
 AudioSource:
   m_ObjectHideFlags: 0
@@ -58969,8 +58969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1138989904
 AudioSource:
   m_ObjectHideFlags: 0
@@ -62077,8 +62077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1199031748
 AudioSource:
   m_ObjectHideFlags: 0
@@ -62882,8 +62882,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1206268749
 AudioSource:
   m_ObjectHideFlags: 0
@@ -63914,8 +63914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1216081046
 AudioSource:
   m_ObjectHideFlags: 0
@@ -71019,8 +71019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1352323557
 AudioSource:
   m_ObjectHideFlags: 0
@@ -72114,8 +72114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1376334952
 AudioSource:
   m_ObjectHideFlags: 0
@@ -74747,8 +74747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1416757883
 AudioSource:
   m_ObjectHideFlags: 0
@@ -88758,8 +88758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1704060337
 AudioSource:
   m_ObjectHideFlags: 0
@@ -89180,8 +89180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1705988332
 AudioSource:
   m_ObjectHideFlags: 0
@@ -95519,8 +95519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1821287315
 AudioSource:
   m_ObjectHideFlags: 0
@@ -99399,8 +99399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1891096638
 AudioSource:
   m_ObjectHideFlags: 0
@@ -100179,8 +100179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1907606956
 AudioSource:
   m_ObjectHideFlags: 0
@@ -102612,8 +102612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &1962723989
 AudioSource:
   m_ObjectHideFlags: 0
@@ -104869,8 +104869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &2002073672
 AudioSource:
   m_ObjectHideFlags: 0
@@ -105379,8 +105379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &2007800793
 AudioSource:
   m_ObjectHideFlags: 0
@@ -107622,8 +107622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &2051728759
 AudioSource:
   m_ObjectHideFlags: 0
@@ -110733,8 +110733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &2113985092
 AudioSource:
   m_ObjectHideFlags: 0
@@ -111292,8 +111292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!82 &2118305865
 AudioSource:
   m_ObjectHideFlags: 0
@@ -115252,8 +115252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!114 &2120720027122065857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116756,7 +116756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315461945635994400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.7, y: -2.65, z: -37.6}
+  m_LocalPosition: {x: -50, y: -2.65, z: -98.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8315461947081377631}
@@ -116778,7 +116778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315461946353591832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.4, y: -2.65, z: -19.3}
+  m_LocalPosition: {x: -22, y: -2.65, z: -54.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8315461947081377631}
@@ -116856,7 +116856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315461946889186792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1, y: -2.65, z: -42.6}
+  m_LocalPosition: {x: -10.4, y: -2.65, z: -42.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8315461947081377631}
@@ -116945,7 +116945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315461947127052156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.7, y: -2.65, z: -14.2}
+  m_LocalPosition: {x: 10.4, y: -2.65, z: 4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8315461947081377631}

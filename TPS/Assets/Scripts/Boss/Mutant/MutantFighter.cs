@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootFighter : MonoBehaviour
+public class MutantFighter : MonoBehaviour
 {
     [Header("角色攻擊類型")]
     [SerializeField] Actor actorType;
@@ -25,7 +25,7 @@ public class RootFighter : MonoBehaviour
 
     #region -- 參數參考區 --
 
-    RootMover mover;
+    MutantMover mover;
     Animator animator;
     MutantAudio mutantAudio;
     Health health;
@@ -41,7 +41,7 @@ public class RootFighter : MonoBehaviour
 
     void Start()
     {
-        mover = GetComponent<RootMover>();
+        mover = GetComponent<MutantMover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         mutantAudio = GetComponent<MutantAudio>();

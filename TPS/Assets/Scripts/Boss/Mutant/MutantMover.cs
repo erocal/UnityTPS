@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class RootMover : MonoBehaviour
+public class MutantMover : MonoBehaviour
 {
     [Header("旋轉速度")]
     [SerializeField] float rotateSpeed = 3f;

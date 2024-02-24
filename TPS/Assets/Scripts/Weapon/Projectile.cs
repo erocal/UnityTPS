@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public enum ProjectileType
@@ -66,7 +64,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == owner || !canAttack || other.tag == "MapAreaTrigger") return;
+        if (other.gameObject == owner || !canAttack || LayerMask.LayerToName(other.gameObject.layer) == "MapAreaTrigger") return;
 
         if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Coliider)
         {
