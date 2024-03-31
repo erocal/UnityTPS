@@ -177,6 +177,7 @@
     <None Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
     <None Include="Assets\Asset Packs\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
     <None Include="Assets\Asset Packs\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+    <None Include="Assets\Shader\Sequence.shader" />
     <None Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
     <None Include="Assets\Asset Packs\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
     <None Include="Assets\Asset Packs\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
@@ -206,6 +207,7 @@
     <None Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
     <None Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\Asset Packs\Terrian\SimpleLowPolyNature\Readme.txt" />
+    <None Include="Assets\Shader\SequenceFrameAnimation.shader" />
     <None Include="Assets\Asset Packs\FXIFIED\common\Shaders\RimLight.shader" />
     <None Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Asset Packs\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />
