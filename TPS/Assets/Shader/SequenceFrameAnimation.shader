@@ -51,27 +51,26 @@
             }
             fixed4 frag(vert2frag i) : SV_Target
             {
-            	//floor返回小于等于的最大整数
-            	//获得虚拟时间,并进行拉伸取整，缩短图片间播放间隔，方便取模
+            	// 獲取時間，向下取整，以_Speed做調整
                 float time = floor(_Time.y * _Speed);
-                //获得总图片数量 _HorizontalAmount * _VerticalAmount
-                //对总数取模，得到当前时间点要播放的图片索引号，即整体的第几张图片
+                
+                //獲取當前圖片ID
                 float row = time % (_HorizontalAmount * _VerticalAmount);
 				
-				//水平方向取模，获取行的索引号
+				//獲取處於哪一行
                 float posx = floor(row % _HorizontalAmount);
-                //floor(row / _HorizontalAmount)能获得纹理坐标竖直方向的序列数
-                //Unity的纹理坐标竖直方向的顺序和序列帧纹理中竖直方向上的顺序是相反的。
-                //用总体-1-纹理坐标序列数得到序列帧纹理中竖直方向索引号
+                //獲取處於哪一列
+                //Unity的紋理座標垂直方向的順序和序列幀紋理中垂直方向上的順序是相反的
+                //因此要倒過來取
                 float posy = _VerticalAmount - floor(row / _HorizontalAmount) - 1;
 				
-				//添加到uv坐标上
+				//添加到uv座標上
                 half2 uv = i.uv + half2(posx, posy);
-                //缩小范围
+                //縮小範圍
                 uv.x /= _HorizontalAmount;
                 uv.y /= _VerticalAmount;
+                
                 fixed4 color = tex2D(_MainTex, uv);
-                //添加颜色
                 color.rgb *= _Color;
                 return color;
 
