@@ -15,7 +15,7 @@ public class SpawnPoint : MonoBehaviour
             var playerController = other.GetComponent<PlayerController>();
 
             playerController.spawn = this.transform.position;// 更新重生點
-            playerController.playerStandMapArea = mapArea;
+            playerController.SetPlayerStandMapArea(mapArea);
 
             // 觸發特效
             var spawnPointParticle = Instantiate(this.spawnPointParticle, this.transform);

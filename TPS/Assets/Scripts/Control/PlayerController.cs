@@ -1,10 +1,11 @@
 ﻿using System;
-using System.ComponentModel.Design;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region -- 資源參考區 --
+
     [Header("移動速度")]
     [Tooltip("移動速度")]
     [SerializeField] float moveSpeed = 8;
@@ -41,7 +42,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip runtiredSFX;
     [Header("跳躍時的音效")]
     [SerializeField] AudioClip jumptwiceSFX;
-    //[SerializeField] AudioClip jumpSFX;
     [Header("瞄準時的音效")]
     [SerializeField] AudioClip targetlockonSFX;
     [Header("走路的音效")]
@@ -54,15 +54,23 @@ public class PlayerController : MonoBehaviour
     [Tooltip("管理地圖區域相關方法")]
     [SerializeField] MapAreaManager mapAreaManager;
     [Tooltip("玩家所在地圖區域")]
-    public MapArea playerStandMapArea = MapArea.StartArea;
-    
+    [SerializeField] MapArea playerStandMapArea = MapArea.StartArea;
+
+    #endregion
+
+    #region -- 變數參考區 --
+
+    #region -- Action --
+
     // 這是啟動瞄準的事件
     public event Action<bool> onAim;
 
     // 這是跑步特效的事件
     public event Action onCaplock;
 
-    InputController inputController, input;
+    #endregion
+
+    InputController input;
     CharacterController controller;
     [HideInInspector] public Animator animator;
     Health health;
@@ -71,32 +79,29 @@ public class PlayerController : MonoBehaviour
 
     int jumpCount = 1;
 
-    // 計時器
+    #region -- 計時器 --
+
     private float resttimerrate = 2.0f;
     private float runtimerrate = 2.0f;
     private float steptimerrate = 2.0f;
     private float runsteptimerrate = 2.0f;
-    //private float targetlockontimerrate = 2.0f;
 
-    /// <summary>
-    /// 出生點
-    /// </summary>
+    #endregion
+
+    [Tooltip("出生點")]
     public Vector3 spawn;
-    // 下一幀要移動到的目標位置
+    [Tooltip("下一幀要移動到的目標位置")]
     Vector3 targetMovement;
-    // 下一幀跳躍到的方向
+    [Tooltip("下一幀跳躍到的方向")]
     Vector3 jumpDirection;
-    // 復活點
-    //Vector3 RespawnPosition;
-    // 上一幀的移動速度
+    [Tooltip("上一幀的移動速度")]
     float lastFrameSpeed = 0.0f;
-    // 是否在瞄準狀態
+    [Tooltip("是否在瞄準狀態")]
     bool isAim;
 
-    /*Vector3 cameraForward;
-    Vector3 cameraRight;*/
+    #endregion
 
-
+    #region -- 初始化/運作 --
 
     void Awake()
     {
@@ -106,7 +111,6 @@ public class PlayerController : MonoBehaviour
         health = GetComponent<Health>();
         weaponManager = GetComponent<WeaponManager>();
         audioSource = GetComponent<AudioSource>();
-        //targetMask = LayerMask.GetMask("Terrain");
 
         spawn = new Vector3(-473.3f, 21.93f, 245.9f);
 
@@ -118,31 +122,53 @@ public class PlayerController : MonoBehaviour
         health.onDie += OnDie;
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        //IsGrounded = Physics2D.OverlapCircle(feet.position,0.1f,Terrain);
-        //print(inputController.horizontal + "Horizontal");
-        //print(inputController.vertical + "Vertical");
-        /*if (m_Input.GetMoveInput()!= Vector3.zero)
-        {
-            print(m_Input.GetMoveInput());
-        }*/
 
         UpdateTimer();
 
-        // 瞄準行為
         AimBehaviour();
-        // 移動行為
+        
         MoveBehaviour();
-        // 跳躍行為
+        
         JumpBehaviour();
-        // 休息行為
+        
         RestBehaviour();
 
     }
 
+    #endregion
+
     #region -- 方法參考區 --
+
+    #region -- 事件相關 --
+
+    /// <summary>
+    /// 玩家死亡時處理方法
+    /// </summary>
+    private void OnDie()
+    {
+        animator.SetTrigger("IsDead");
+        //取消玩家的控制
+        this.GetComponent<PlayerController>().enabled = false;
+    }
+
+    #endregion
+
+    #region -- 計時器 --
+
+    /// <summary>
+    /// 計時器
+    /// </summary>
+    private void UpdateTimer()
+    {
+        resttimerrate -= Time.deltaTime;
+        runtimerrate -= Time.deltaTime;
+        steptimerrate -= Time.deltaTime;
+        runsteptimerrate -= Time.deltaTime;
+    }
+
+    #endregion
 
     /// <summary>
     /// 處理瞄準行為
@@ -164,10 +190,9 @@ public class PlayerController : MonoBehaviour
             if (crosshair != null)
             {
                 crosshair.SetActive(isAim);
-                if (targetlockonSFX != null /*&& targetlockontimerrate <= 0.0f*/ && crosshair.activeInHierarchy != false)
+                if (targetlockonSFX != null && crosshair.activeInHierarchy != false)
                 {
                     audioSource.PlayOneShot(targetlockonSFX);
-                    //targetlockontimerrate = 2.0f;
                 }
             }
             onAim?.Invoke(isAim);
@@ -179,7 +204,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// 處理移動行為
     /// </summary>
-    private async void MoveBehaviour()
+    private void MoveBehaviour()
     {
         targetMovement = Vector3.zero;
         Vector3 pretargetMovement = targetMovement;
@@ -220,14 +245,6 @@ public class PlayerController : MonoBehaviour
                 jumpCount = 0;
             }
         }
-
-        /*else if (input.GetSprintInput() && !isAim)
-        {
-            print("2");
-            nextFrameSpeed = 1f;
-            targetMovement *= sprintSpeedModifier;
-            SmoothRotation(targetMovement);
-        }*/
 
         // 如果不處於瞄準
         else if (!isAim)
@@ -284,7 +301,49 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", input.GetMoveInput().x);
 
         // 動態變化移動速度
-        controller.Move(targetMovement * Time.deltaTime * moveSpeed);
+        controller.Move(moveSpeed * Time.deltaTime * targetMovement);
+    }
+    
+    /// <summary>
+    /// 取得目前相機的正面方向
+    /// </summary>
+    private Vector3 GetCurrentCameraForward()
+    {
+        Vector3 cameraForward = Camera.main.transform.forward;
+        cameraForward.y = 0f;
+        //歸一化
+        cameraForward.Normalize();
+        return cameraForward;
+    }
+    
+    /// <summary>
+    /// 取得目前相機的右側方向
+    /// </summary>
+    private Vector3 GetCurrentCameraRight()
+    {
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraRight.y = 0f;
+        //歸一化
+        cameraRight.Normalize();
+        return cameraRight;
+    }
+
+    /// <summary>
+    /// 平滑旋轉角度到目標方向
+    /// </summary>
+    /// <param name="targetMovement">目標方向</param>
+    private void SmoothRotation(Vector3 targetMovement)
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetMovement, Vector3.up), rotateSpeed * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// 檢測玩家是否在地上
+    /// </summary>
+    /// <returns>回傳玩家是否在地上</returns>
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
     }
     
     /// <summary>
@@ -342,71 +401,6 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 檢測玩家是否在地上
-    /// </summary>
-    /// <returns>回傳玩家是否在地上</returns>
-    private bool IsGrounded()
-    {
-        //Debug.DrawRay(transform.position, -Vector3.up * distanceToGround, Color.yellow);
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround/*, targetMask*/);
-    }
-
-    /// <summary>
-    /// 平滑旋轉角度到目標方向
-    /// </summary>
-    /// <param name="targetMovement">目標方向</param>
-    private void SmoothRotation(Vector3 targetMovement)
-    {
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetMovement, Vector3.up), rotateSpeed * Time.deltaTime);
-    }
-
-    /// <summary>
-    /// 取得目前相機的正面方向
-    /// </summary>
-    private Vector3 GetCurrentCameraForward()
-    {
-        Vector3 cameraForward = Camera.main.transform.forward;
-        cameraForward.y = 0f;
-        //歸一化
-        cameraForward.Normalize();
-        return cameraForward;
-    }
-
-    /// <summary>
-    /// 取得目前相機的右側方向
-    /// </summary>
-    private Vector3 GetCurrentCameraRight()
-    {
-        Vector3 cameraRight = Camera.main.transform.right;
-        cameraRight.y = 0f;
-        //歸一化
-        cameraRight.Normalize();
-        return cameraRight;
-    }
-
-    /// <summary>
-    /// 將玩家改變位置
-    /// </summary>
-    private void ChangePosition(Vector3 teleportPosition)
-    {
-        this.transform.position = teleportPosition;
-    }
-
-    #region -- 事件相關 --
-
-    /// <summary>
-    /// 玩家死亡時處理方法
-    /// </summary>
-    private void OnDie()
-    {
-        animator.SetTrigger("IsDead");
-        //取消玩家的控制
-        this.GetComponent<PlayerController>().enabled = false;
-    }
-
-    #endregion
-
-    /// <summary>
     /// 玩家復活
     /// </summary>
     public async Task IsAlive()
@@ -424,15 +418,24 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 計時器
+    /// 將玩家改變位置
     /// </summary>
-    private void UpdateTimer()
+    private void ChangePosition(Vector3 teleportPosition)
     {
-        resttimerrate -= Time.deltaTime;
-        runtimerrate -= Time.deltaTime;
-        steptimerrate -= Time.deltaTime;
-        runsteptimerrate -= Time.deltaTime;
+        this.transform.position = teleportPosition;
     }
+
+    #region -- Set方法 --
+
+    /// <summary>
+    /// 取得玩家所在地圖區域
+    /// </summary>
+    public void SetPlayerStandMapArea(MapArea playerStandMapArea)
+    {
+        this.playerStandMapArea = playerStandMapArea;
+    }
+
+    #endregion
 
     #endregion
 
