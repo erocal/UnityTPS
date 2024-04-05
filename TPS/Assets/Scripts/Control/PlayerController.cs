@@ -4,50 +4,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     #region -- 資源參考區 --
 
     [Header("移動速度")]
-    [Tooltip("移動速度")]
-    [SerializeField] float moveSpeed = 8;
-    [Tooltip("Shift加速的倍數")]
-    [Range(1, 3)]
-    [SerializeField] float sprintSpeedModifier = 2;
-    [Tooltip("蹲下時的減速倍數")]
-    [Range(0, 1)]
-    [SerializeField] float crouchedSpeedModifer = 0.5f;
-    [Tooltip("旋轉速度")]
-    [SerializeField] float rotateSpeed = 5f;
-    [Tooltip("加速度百分比")]
-    [SerializeField] float addSpeedRatio = 0.1f;
+    [SerializeField, Tooltip("移動速度")] float moveSpeed = 8;
+    [SerializeField, Range(1, 3), Tooltip("Shift加速的倍數")] float sprintSpeedModifier = 2;
+    [SerializeField, Range(0, 1), Tooltip("蹲下時的減速倍數")] float crouchedSpeedModifer = 0.5f;
+    [SerializeField, Tooltip("旋轉速度")] float rotateSpeed = 5f;
+    [SerializeField, Tooltip("加速度百分比")] float addSpeedRatio = 0.1f;
 
     [Space(20)]
     [Header("跳躍參數")]
-    [Tooltip("跳躍時向上施加的力量")]
-    [SerializeField] float jumpForce = 15;
-    [Tooltip("在空中下施加的力量")]
-    [SerializeField] float gravityDownForce = 50;
-    [Tooltip("檢查與地面之間的距離")]
-    [SerializeField] float distanceToGround = 0.1f;
+    [SerializeField, Tooltip("跳躍時向上施加的力量")] float jumpForce = 15;
+    [SerializeField, Tooltip("在空中下施加的力量")] float gravityDownForce = 50;
+    [SerializeField, Tooltip("檢查與地面之間的距離")] float distanceToGround = 0.1f;
+    
     [Header("儲存腳的位置")]
     [SerializeField] Transform feet;
 
     [Space(20)]
     [Header("準星Icon")]
-    public GameObject crosshair;
+    [SerializeField] GameObject crosshair;
 
     [Space(20)]
-    [Header("休息的音效")]
-    [SerializeField] AudioClip feelsleepSFX;
-    [Header("跑步喘氣的音效")]
-    [SerializeField] AudioClip runtiredSFX;
-    [Header("跳躍時的音效")]
-    [SerializeField] AudioClip jumptwiceSFX;
-    [Header("瞄準時的音效")]
-    [SerializeField] AudioClip targetlockonSFX;
-    [Header("走路的音效")]
-    [SerializeField] AudioClip stepSFX;
-    [Header("跑步的音效")]
-    [SerializeField] AudioClip runstepSFX;
+    [Header("音效")]
+    [SerializeField, Tooltip("休息的音效")] AudioClip feelsleepSFX;
+    [SerializeField, Tooltip("跑步喘氣的音效")] AudioClip runtiredSFX;
+    [SerializeField, Tooltip("跳躍時的音效")] AudioClip jumptwiceSFX;
+    [SerializeField, Tooltip("瞄準時的音效")] AudioClip targetlockonSFX;
+    [SerializeField, Tooltip("走路的音效")] AudioClip stepSFX;
+    [SerializeField, Tooltip("跑步的音效")] AudioClip runstepSFX;
 
     [Space(20)]
     [Header("地圖區域")]
@@ -424,6 +411,18 @@ public class PlayerController : MonoBehaviour
     {
         this.transform.position = teleportPosition;
     }
+
+    #region -- Get方法 --
+
+    /// <summary>
+    /// 取得準星Icon
+    /// </summary>
+    public GameObject GetCrosshair()
+    {
+        return crosshair;
+    }
+
+    #endregion
 
     #region -- Set方法 --
 

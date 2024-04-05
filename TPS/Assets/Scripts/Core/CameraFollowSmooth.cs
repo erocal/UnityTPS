@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollowSmooth : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Tooltip("跟隨的Player目標")]
     [SerializeField] Transform player;
     [Tooltip("跟目標的最大距離")]
@@ -19,13 +19,20 @@ public class CameraFollowSmooth : MonoBehaviour
     [SerializeField] float minOffset_Y;
     [Tooltip("最大垂直 Y offset")]
     [SerializeField] float maxOffset_Y;
-    
-    
+
+    #endregion
+
+    #region -- 變數參考區 --
+
     float offset_Y;
 
     InputController input;
     Vector3 smoothPosition = Vector3.zero;
     Vector3 currentVelocity = Vector3.zero;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake() 
     {
@@ -50,9 +57,16 @@ public class CameraFollowSmooth : MonoBehaviour
         transform.position = smoothPosition;
     }
 
+    #endregion
+
+    #region -- 方法參考區 --
+
     // 檢查與目標的距離
     private bool CheckDistance()
     {
         return Vector3.Distance(transform.position, player.position) > distanceToTarget;
     }
+
+    #endregion
+
 }

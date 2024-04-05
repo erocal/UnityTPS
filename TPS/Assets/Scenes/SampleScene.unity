@@ -3810,6 +3810,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 73191211}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &73191223
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5537,6 +5546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104755630}
+  - component: {fileID: 104755631}
   m_Layer: 0
   m_Name: Organism
   m_TagString: Untagged
@@ -5562,6 +5572,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104755631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104755629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ffa7a660d0086429fb57068c36cac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1220530031}
+  mutant: {fileID: 1894963757}
+  plagueDoctor: {fileID: 2029433458}
 --- !u!1 &104909057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,6 +5947,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 105034339}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &105034351
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12006,6 +12040,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 209147285}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &209147297
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13476,6 +13519,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 232673454}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &232673466
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14699,6 +14751,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 248341078}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &248341090
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -15810,6 +15871,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 263331187}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &263331199
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17550,6 +17620,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 294486769}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &294486781
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22337,6 +22416,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 391140784}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &391140796
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -29057,6 +29145,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 522916877}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &522916889
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -33990,6 +34087,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 614564699}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &614564711
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34317,6 +34423,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 614776565}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &614776577
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -37604,6 +37719,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 683914220}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &683914232
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -50423,6 +50547,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 983624663}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &983624675
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -53020,6 +53153,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1023302287}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1023302299
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -55614,6 +55756,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1071911406}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1071911418
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -56615,6 +56766,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1090706686}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1090706698
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -58150,6 +58310,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1120218821}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1120218833
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -59168,6 +59337,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1138989899}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1138989911
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -62276,6 +62454,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1199031743}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1199031755
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -63081,6 +63268,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1206268744}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1206268756
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -64113,6 +64309,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1216081041}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1216081053
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -71218,6 +71423,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1352323552}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1352323564
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -72313,6 +72527,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1376334947}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1376334959
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -74946,6 +75169,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1416757878}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1416757890
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -88957,6 +89189,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1704060332}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1704060344
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -89379,6 +89620,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1705988327}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1705988339
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -95718,6 +95968,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1821287310}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1821287322
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -99598,6 +99857,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1891096633}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1891096645
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -100378,6 +100646,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1907606951}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1907606963
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -102811,6 +103088,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 1962723984}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &1962723996
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -105068,6 +105354,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 2002073667}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &2002073679
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -105578,6 +105873,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 2007800788}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &2007800800
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -107821,6 +108125,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 2051728754}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &2051728766
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -110932,6 +111245,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 2113985087}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &2113985099
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -111491,6 +111813,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 2118305860}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!195 &2118305872
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -115566,6 +115897,15 @@ MonoBehaviour:
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
   enemyRoot: {fileID: 405600536187809221}
+  isBeHit: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  health: {fileID: 0}
+  collider: {fileID: 0}
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!114 &2988732817513273777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116127,6 +116467,18 @@ PrefabInstance:
       objectReference: {fileID: 1465038637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29b2e772c22e49841bcca21c879b63fe, type: 3}
+--- !u!114 &6181018794735210891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6181018793532940024, guid: 29b2e772c22e49841bcca21c879b63fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6181018794735210890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220530031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2523719f7fbc6a849ab1ce0b9e066398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6333158939082492429
 GameObject:
   m_ObjectHideFlags: 0
@@ -116476,6 +116828,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 534669906}
+    - target: {fileID: 6567254906019687500, guid: 0509333bcbd1a9c498d8650d0c4e1859,
+        type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 6181018794735210891}
     - target: {fileID: 8377188165618395721, guid: 0509333bcbd1a9c498d8650d0c4e1859,
         type: 3}
       propertyPath: m_AnchorMax.x

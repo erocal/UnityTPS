@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlagueDoctorAudio : MonoBehaviour
 {
+
     #region -- 資源參考區 --
 
     [Space(5)]
@@ -43,4 +44,5 @@ public class PlagueDoctorAudio : MonoBehaviour
     }
 
     #endregion
+
 }

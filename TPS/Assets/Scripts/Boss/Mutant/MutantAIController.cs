@@ -5,6 +5,8 @@ public class MutantAIController : AIController
 {
     #region -- 變數參考區 --
 
+    Organism organism;
+
     MutantMover mutantMover;
     MutantFighter mutantFighter;
     MutantAudio mutantAudio;
@@ -18,7 +20,9 @@ public class MutantAIController : AIController
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        organism = Organism.Instance;
+
+        player = organism.GetPlayer();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         collider = GetComponent<Collider>();

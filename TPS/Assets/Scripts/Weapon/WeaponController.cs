@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-public enum WeaponShootType
-{
-    Single,
-    Automatic,
-}
+﻿using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("Icon")]
     public Sprite weaponIcon;
 
@@ -46,6 +39,10 @@ public class WeaponController : MonoBehaviour
     [Header("切換到這個武器時的音效")]
     [SerializeField] AudioClip changeWeaponSFX;
 
+    #endregion
+
+    #region -- 變數參考區 --
+
     public GameObject sourcePrefab { get; set; }
     public float currentAmmoRatio { get; private set; }
     public bool isCooling { get; private set; }
@@ -61,6 +58,10 @@ public class WeaponController : MonoBehaviour
 
     ProjectilePool projectilePool = null;
 
+    #endregion
+
+    #region -- 初始化/運作 --
+
     private void Awake()
     {
         currentAmmo = maxAmmo;
@@ -69,11 +70,14 @@ public class WeaponController : MonoBehaviour
         projectilePool = GameObject.Find(ProjectilePool.PROJECTILEPOOLNAME).GetComponent<ProjectilePool>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateAmmo();
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     private void UpdateAmmo()
     {
@@ -176,11 +180,14 @@ public class WeaponController : MonoBehaviour
     /// 恢復指定數量的子彈數
     /// </summary>
     /// <param name="amount">恢復的子彈量</param>
-    public void fullammo(float amount)
+    public void Fullammo(float amount)
     {
         currentAmmo += amount;
 
         // 限制不要加超過
         currentAmmo = Mathf.Min(currentAmmo, maxAmmo);
     }
+
+    #endregion
+
 }

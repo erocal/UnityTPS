@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [Header("最大血量")]
-    [SerializeField] public float maxHealth = 10f;
-    [Header("當前血量")]
-    [SerializeField] public float currentHealth;
+
+    #region -- 資源參考區 --
+
+    [Header("血量")]
+    [SerializeField, Tooltip("最大血量")] public float maxHealth = 10f;
+    [SerializeField, Tooltip("當前血量")] public float currentHealth;
 
     [Space(5)]
     [Header("受傷的音效")]
@@ -17,10 +17,13 @@ public class Health : MonoBehaviour
     [SerializeField] float rate = 2.0f;
     [SerializeField] float zombierate = 2.0f;
 
-    [Header("治療時的特效")]
-    [SerializeField] ParticleSystem healParticle;
-    [Header("生命提升時的特效")]
-    [SerializeField] ParticleSystem lifeParticle;
+    [Header("特效")]
+    [SerializeField, Tooltip("治療時的特效")] ParticleSystem healParticle;
+    [SerializeField, Tooltip("生命提升時的特效")] ParticleSystem lifeParticle;
+
+    #endregion
+
+    #region -- 變數參考區 --
 
     AudioSource audioSource;
 
@@ -33,6 +36,9 @@ public class Health : MonoBehaviour
     // 判斷擁有血量的物體是否處於死亡狀態
     private bool isDead = false;
 
+    #endregion
+
+    #region -- 初始化/運作 --
 
     void Start()
     {
@@ -45,6 +51,8 @@ public class Health : MonoBehaviour
         rate -= Time.deltaTime;
         zombierate -= Time.deltaTime;
     }
+
+    #endregion
 
     #region -- 方法參考區 --
 

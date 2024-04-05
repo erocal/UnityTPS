@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public enum MapArea
-{
-    StartArea,
-    PlainArea,
-    PlagueDoctorArea,
-    MutantArea
-}
-
 public class MapAreaManager : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
 
     [Header("敵人"), Tooltip("地圖上預先生成的全部敵人")]
     [SerializeField] List<GameObject> fullEnemyList = new List<GameObject>();
@@ -26,6 +19,8 @@ public class MapAreaManager : MonoBehaviour
     [SerializeField] List<GameObject> PlagueDoctorAreaEnemyList = new List<GameObject>();
     [Tooltip("MutantArea區域預先生成的敵人")]
     [SerializeField] List<GameObject> MutantAreaEnemyList = new List<GameObject>();
+
+    #endregion
 
     #region -- 參數參考區 --
 

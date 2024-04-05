@@ -1,13 +1,13 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public static class GameObjectComparer
 {
     /// <summary>
-    /// ¤ñ¸û¨â­ÓList¤¤¬Û¦P¤Î¤£¦Pªº¤¸¯À
+    /// æ¯”è¼ƒå…©å€‹Listä¸­ç›¸åŒåŠä¸åŒçš„å…ƒç´ 
     /// </summary>
-    /// <returns>¶Ç¦^ComparisonResult³o­Ó«¬ºAªº¸ê®Æ</returns>
+    /// <returns>å‚³å›ComparisonResulté€™å€‹å‹æ…‹çš„è³‡æ–™</returns>
     public static ComparisonResult CompareAndExecuteMethods(List<GameObject> list1, List<GameObject> list2)
     {
         if (list1.Count < 1 || list2.Count < 1) return null;
@@ -19,9 +19,9 @@ public static class GameObjectComparer
     }
 
     /// <summary>
-    /// ¤ñ¸û¨â­ÓList¤¤¬Û¦Pªº¤¸¯À
+    /// æ¯”è¼ƒå…©å€‹Listä¸­ç›¸åŒçš„å…ƒç´ 
     /// </summary>
-    /// <returns>¶Ç¦^©Ò¦³¬Û¦P¤¸¯ÀªºList</returns>
+    /// <returns>å‚³å›æ‰€æœ‰ç›¸åŒå…ƒç´ çš„List</returns>
     private static List<GameObject> ExecuteMethodForCommonElements(List<GameObject> list1, List<GameObject> list2)
     {
         if (list1.Count < 1 || list2.Count < 1) return null;
@@ -38,9 +38,9 @@ public static class GameObjectComparer
     }
 
     /// <summary>
-    /// ¤ñ¸û¨â­ÓList¤¤¤£¦Pªº¤¸¯À
+    /// æ¯”è¼ƒå…©å€‹Listä¸­ä¸åŒçš„å…ƒç´ 
     /// </summary>
-    /// <returns>¶Ç¦^©Ò¦³¤£¦P¤¸¯ÀªºList</returns>
+    /// <returns>å‚³å›æ‰€æœ‰ä¸åŒå…ƒç´ çš„List</returns>
     private static List<GameObject> ExecuteMethodForDifferentElements(List<GameObject> list1, List<GameObject> list2)
     {
         if (list1.Count < 1 || list2.Count < 1) return null;
@@ -57,17 +57,17 @@ public static class GameObjectComparer
     }
 
     /// <summary>
-    /// ¦Û©w¸q«¬ºA¡A¥Î©óÀx¦s¬Û¦P»P¤£¦P¤¸¯ÀªºList
+    /// è‡ªå®šç¾©å‹æ…‹ï¼Œç”¨æ–¼å„²å­˜ç›¸åŒèˆ‡ä¸åŒå…ƒç´ çš„List
     /// </summary>
     public class ComparisonResult
     {
         /// <summary>
-        /// ¬Û¦Pªº¤¸¯ÀList
+        /// ç›¸åŒçš„å…ƒç´ List
         /// </summary>
         public List<GameObject> commonElementsList { get; private set; }
 
         /// <summary>
-        /// ¤£¦Pªº¤¸¯ÀList
+        /// ä¸åŒçš„å…ƒç´ List
         /// </summary>
         public List<GameObject> differentElementsList { get; private set; }
 

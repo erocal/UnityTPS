@@ -3,25 +3,31 @@ using UnityEngine.UI;
 
 public class WeaponUI : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [SerializeField] Image[] pocket;
     [SerializeField] Image[] weaponIcon;
     [SerializeField] Image[] energy;
 
+    #endregion
+
+    #region -- 變數參考區 --
+
+    Organism organism;
+
     WeaponManager weaponManager;
 
-    // Start is called before the first frame update
+    #endregion
+
+    #region -- 初始化/運作 --
+
     void Awake()
     {
-        //print("1");
-        weaponManager = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>();
-        weaponManager.onAddWeapon += OnAddWeapon;
-    }
+        organism = Organism.Instance;
 
-    private void OnAddWeapon(WeaponController weapon, int index)
-    {
-        //print("3");
-        weaponIcon[index].enabled = true;
-        weaponIcon[index].sprite = weapon.weaponIcon;
+        weaponManager = organism.GetPlayer().GetComponent<WeaponManager>();
+        weaponManager.onAddWeapon += OnAddWeapon;
     }
 
     private void Update()
@@ -51,4 +57,17 @@ public class WeaponUI : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
+
+    private void OnAddWeapon(WeaponController weapon, int index)
+    {
+        weaponIcon[index].enabled = true;
+        weaponIcon[index].sprite = weapon.weaponIcon;
+    }
+
+    #endregion
+
 }

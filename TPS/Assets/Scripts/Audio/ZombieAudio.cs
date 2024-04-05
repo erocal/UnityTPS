@@ -2,6 +2,7 @@
 
 public class ZombieAudio : MonoBehaviour
 {
+
     #region -- 資源參考區 --
 
     [Space(5)]
@@ -21,17 +22,6 @@ public class ZombieAudio : MonoBehaviour
     #region -- 方法參考區 --
 
     /// <summary>
-    /// 播放Zombie閒置的音效
-    /// </summary>
-    /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
-    public void ZombieIdle(GameObject zombie)
-    {
-        audioSource = zombie.GetComponent<AudioSource>();
-
-        audioSource?.PlayOneShot(zombieIdleSFX); 
-    }
-
-    /// <summary>
     /// 播放Zombie追趕的音效
     /// </summary>
     /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
@@ -42,5 +32,17 @@ public class ZombieAudio : MonoBehaviour
         audioSource?.PlayOneShot(zombieFollowSFX);
     }
 
+    /// <summary>
+    /// 播放Zombie閒置的音效
+    /// </summary>
+    /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
+    public void ZombieIdle(GameObject zombie)
+    {
+        audioSource = zombie.GetComponent<AudioSource>();
+
+        audioSource?.PlayOneShot(zombieIdleSFX);
+    }
+
     #endregion
+
 }

@@ -5,6 +5,8 @@ public class PlagueDoctorAIController : AIController
 
     #region -- 參數參考區 --
 
+    Organism organism;
+
     PlagueDoctorMover plagueDoctorMover;
     PlagueDoctorFighter plagueDoctorFighter;
 
@@ -12,7 +14,9 @@ public class PlagueDoctorAIController : AIController
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        organism = Organism.Instance;
+
+        player = organism.GetPlayer();
         plagueDoctorMover = GetComponent<PlagueDoctorMover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();

@@ -1,23 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealthUI : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [SerializeField] Image healthImage;
+    [SerializeField] Health playerHealth;
 
-    Health playerHealth;
+    #endregion
 
-    // Start is called before the first frame update
-    void Start()
+    #region -- 變數參考區 --
+
+    Organism organism;
+
+    #endregion
+
+    #region -- 初始化/運作 --
+
+    private void Awake()
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        organism = Organism.Instance;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        if (playerHealth == null) playerHealth = organism.GetPlayer().GetComponent<Health>();
+    }
+
     void Update()
     {
         healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, playerHealth.GetHealthRatio(), 0.3f);
     }
+
+    #endregion
+
 }

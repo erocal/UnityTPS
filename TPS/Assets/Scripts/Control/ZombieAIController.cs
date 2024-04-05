@@ -5,6 +5,8 @@ public class ZombieAIController : AIController
 
     #region -- 變數參考區 --
 
+    Organism organism;
+
     Mover mover;
     Fighter fighter;
     ZombieAudio zombieAudio;
@@ -16,7 +18,9 @@ public class ZombieAIController : AIController
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        organism = Organism.Instance;
+
+        player = organism.GetPlayer();
         mover = GetComponent<Mover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();

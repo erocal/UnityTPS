@@ -1,65 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class MuzzleRotateToScreenMiddle : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("Ray最大距離")]
     [SerializeField] float maxDistance = 5000f;
-
-    Ray ray;
-    RaycastHit hit;
-
+    
     [SerializeField] float offset_Y = 50f;
     [Header("準星探測距離")]
     [SerializeField] float ultDistance = 40f;
 
+    #endregion
+
+    #region -- 變數參考區 --
+
+    Organism organism;
+
+    Ray ray;
+    RaycastHit hit;
+
     [HideInInspector] public string info = null;
     private int targetMaskEnemy;
-    private int targetMaskTerrain;
     private GameObject player;
 
     PlayerController playerController;
     gazed ingazed;
 
+    #endregion
+
+    #region -- 初始化/運作 --
+
     private void Awake()
     {
+        organism = Organism.Instance;
+
         ingazed = null;
         targetMaskEnemy = LayerMask.GetMask("Enemy");
-        targetMaskTerrain = LayerMask.GetMask("Terrain");
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = organism.GetPlayer();
         playerController = player.GetComponent<PlayerController>();
         
         //ingazed = GetComponent<gazed>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ingazed = null;
         
         ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2 + offset_Y, 0));
-        //print("1");
         transform.rotation = Quaternion.LookRotation(ray.GetPoint(maxDistance));
         if (Physics.Raycast(transform.position, ray.GetPoint(maxDistance), out hit, ultDistance, targetMaskEnemy))
         {
             
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * ultDistance, Color.yellow);
-            //print("2");
             info = "gazed";
-            if (playerController.crosshair.activeInHierarchy != false)
+            if (playerController.GetCrosshair().activeInHierarchy != false)
             {
-                //print("4");
                 ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<gazed>();
                 ingazed.Ingazed();
             }
         }
         else
         {
-            if (playerController.crosshair.activeInHierarchy != false)
+            if (playerController.GetCrosshair().activeInHierarchy != false)
             {
-                //print("3");
                 ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<gazed>();
                 ingazed.NotIngazed();
             }
@@ -70,4 +75,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
         //Debug.DrawLine(transform.position, ray.GetPoint(maxDistance), Color.blue);
     }
+
+    #endregion
+
 }

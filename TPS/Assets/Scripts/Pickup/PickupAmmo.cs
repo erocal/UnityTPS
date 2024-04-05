@@ -29,7 +29,7 @@ public class PickupAmmo : MonoBehaviour
         WeaponController weaponController = weapon.GetComponent<WeaponController>();
         if (weaponController)
         {
-            weaponController.fullammo(fullammoAmount);
+            weaponController.Fullammo(fullammoAmount);
 
             //Destroy(pickupRoot);
             pickupRoot.SetActive(false);
