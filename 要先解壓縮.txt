@@ -1,7 +1,0 @@
-D:\UnityTPS\TPS\Library\ArtifactDB.7z
-
-D:\UnityTPS\TPS\Library\Artifacts\c5\c5bfd6b615055317a58b2a224d3bfb79.7z
-
-D:\UnityTPS\TPS\Library\Artifacts\d8\d8e460ee71905b4618e28454e89cb4eb.7z
-
-D:\UnityTPS\TPS\Library\PlayerDataCache\Win64\Data\sharedassets0.assets.7z
