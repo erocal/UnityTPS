@@ -5,8 +5,6 @@ public class PlagueDoctorAIController : AIController
 
     #region -- 參數參考區 --
 
-    Organism organism;
-
     PlagueDoctorMover plagueDoctorMover;
     PlagueDoctorFighter plagueDoctorFighter;
 
@@ -14,14 +12,16 @@ public class PlagueDoctorAIController : AIController
 
     private void Awake()
     {
-        organism = Organism.Instance;
 
+        organism = Organism.Instance;
+        enemyRoot = this.gameObject;
         player = organism.GetPlayer();
+        aiAnimator = this.GetComponent<Animator>();
+        aiCollider = this.GetComponent<Collider>();
+        health = this.GetComponent<Health>();
+
         plagueDoctorMover = GetComponent<PlagueDoctorMover>();
-        animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
         plagueDoctorFighter = GetComponent<PlagueDoctorFighter>();
-        collider = GetComponent<Collider>();
 
         SetSpawnPosition(transform.position);
 
@@ -72,7 +72,7 @@ public class PlagueDoctorAIController : AIController
 
     protected override void AttackBehavior()
     {
-        animator.SetBool("IsConfuse", false);
+        aiAnimator.SetBool("IsConfuse", false);
 
         SawPlayer();
 
@@ -86,7 +86,7 @@ public class PlagueDoctorAIController : AIController
         plagueDoctorFighter.CancelTarget();
 
         // 困惑動作
-        animator.SetBool("IsConfuse", true);
+        aiAnimator.SetBool("IsConfuse", true);
     }
 
     // 巡邏行為
@@ -98,20 +98,20 @@ public class PlagueDoctorAIController : AIController
             if (IsAtWayPoint())
             {
                 plagueDoctorMover.CancelMove();
-                animator.SetBool("IsConfuse", true);
+                aiAnimator.SetBool("IsConfuse", true);
                 sinceArriveWayPointTimer = 0;
                 currentWaypointIndex = patrol.GetNextWayPointNumber(currentWaypointIndex);
             }
 
             if (sinceArriveWayPointTimer > waypointToWaitTime)
             {
-                animator.SetBool("IsConfuse", false);
+                aiAnimator.SetBool("IsConfuse", false);
                 plagueDoctorMover.MoveTo(patrol.GetWayPointPosition(currentWaypointIndex), patrolSpeedRatio);
             }
         }
         else
         {
-            animator.SetBool("IsConfuse", false);
+            aiAnimator.SetBool("IsConfuse", false);
             plagueDoctorMover.MoveTo(aiSpawnPostion, 0.5f);
         }
     }
@@ -135,8 +135,8 @@ public class PlagueDoctorAIController : AIController
     protected override void OnDie()
     {
         plagueDoctorMover.CancelMove();
-        animator.SetTrigger("IsDead");
-        collider.enabled = false;
+        aiAnimator.SetTrigger("IsDead");
+        aiCollider.enabled = false;
     }
 
     #endregion

@@ -1627,6 +1627,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 30763536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &30763538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 30763536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &30763539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30763538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1170848604}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &32019610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,7 +3756,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &73191218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,7 +3828,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 73191211}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -3809,12 +3837,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 73191211}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -4064,6 +4087,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 76066713}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &76066715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 76066713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &76066716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76066715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1170848604}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &77459716
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5916,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &105034346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5937,7 +5988,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 105034339}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -5946,12 +5997,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 105034339}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -7256,6 +7302,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cee93f580c863439b0974544536661, type: 3}
+--- !u!1 &132936757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 132936756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &132936758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132936757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 639048287}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &135201058
 GameObject:
   m_ObjectHideFlags: 0
@@ -10663,6 +10738,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 193739199}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &193739201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 193739199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &193739202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193739201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1792516874}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &195052369
 GameObject:
   m_ObjectHideFlags: 0
@@ -11873,7 +11977,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &209147292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11946,7 +12049,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209147285}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -11955,12 +12058,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 209147285}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -12462,6 +12560,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 216993501}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &216993503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 216993501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &216993504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216993503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 47620686}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &217625640
 GameObject:
   m_ObjectHideFlags: 0
@@ -13352,7 +13479,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &232673461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13425,7 +13551,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 232673454}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -13434,12 +13560,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 232673454}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -14584,7 +14705,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &248341085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14657,7 +14777,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 248341078}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -14666,12 +14786,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 248341078}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -15704,7 +15819,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &263331194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15777,7 +15891,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 263331187}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -15786,12 +15900,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 263331187}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -16535,6 +16644,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 273119926}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &273119928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 273119926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &273119929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273119928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1312690027}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &274384638
 GameObject:
   m_ObjectHideFlags: 0
@@ -17453,7 +17591,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &294486776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17526,7 +17663,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 294486769}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -17535,12 +17672,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 294486769}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -18809,6 +18941,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cee93f580c863439b0974544536661, type: 3}
+--- !u!1 &311919065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 311919064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &311919066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311919065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1477660340}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &312039244
 GameObject:
   m_ObjectHideFlags: 0
@@ -21339,6 +21500,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 367063067}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &367063069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 405600536223058674, guid: f87e135959a0b6945af25cfe291bcb18,
+    type: 3}
+  m_PrefabInstance: {fileID: 367063067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &367063070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367063069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 0}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &368724009
 GameObject:
   m_ObjectHideFlags: 0
@@ -22249,7 +22439,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &391140791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22322,7 +22511,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 391140784}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -22331,12 +22520,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 391140784}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -25930,6 +26114,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 477491735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &477491737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3847871812968571579, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 477491735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &477491738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477491737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1212663141}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &477566773
 GameObject:
   m_ObjectHideFlags: 0
@@ -28212,6 +28425,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 508496172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &508496174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 508496172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &508496175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508496174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 47620686}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &508519635
 GameObject:
   m_ObjectHideFlags: 0
@@ -28978,7 +29220,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &522916884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29051,7 +29292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 522916877}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -29060,12 +29301,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 522916877}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -31616,6 +31852,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 560882132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &560882134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 560882132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &560882135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560882134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1477660340}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &562637005
 GameObject:
   m_ObjectHideFlags: 0
@@ -33878,7 +34143,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &614564706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33951,7 +34215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 614564699}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -33960,12 +34224,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 614564699}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -34214,7 +34473,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &614776572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34287,7 +34545,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 614776565}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -34296,12 +34554,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 614776565}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -37468,7 +37721,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &683914227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37541,7 +37793,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 683914220}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -37550,12 +37802,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 683914220}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -40291,6 +40538,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 743760126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &743760128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3847871812968571579, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 743760126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &743760129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743760128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 639048287}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &744462477
 GameObject:
   m_ObjectHideFlags: 0
@@ -41532,6 +41808,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 772637403}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &772637405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 772637403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &772637406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772637405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1312690027}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &772900453
 GameObject:
   m_ObjectHideFlags: 0
@@ -48266,6 +48571,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 938204970}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &938204972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 938204970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &938204973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938204972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1597109035}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &943922997
 GameObject:
   m_ObjectHideFlags: 0
@@ -49970,6 +50304,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 974908339}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &974908341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 974908339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &974908342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974908341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 297819159}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &976089602
 GameObject:
   m_ObjectHideFlags: 0
@@ -50296,7 +50659,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &983624670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50369,7 +50731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 983624663}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -50378,12 +50740,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 983624663}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -52902,7 +53259,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1023302294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52975,7 +53331,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1023302287}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -52984,12 +53340,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1023302287}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -55505,7 +55856,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1071911413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55578,7 +55928,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1071911406}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -55587,12 +55937,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1071911406}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -56515,7 +56860,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1090706693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56588,7 +56932,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1090706686}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -56597,12 +56941,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1090706686}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -58059,7 +58398,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1120218828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58132,7 +58470,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120218821}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -58141,12 +58479,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1120218821}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -59086,7 +59419,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1138989906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59159,7 +59491,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1138989899}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -59168,12 +59500,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1138989899}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -60665,6 +60992,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1164334820}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1164334822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164334820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1164334823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164334822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1792516874}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1166376287
 GameObject:
   m_ObjectHideFlags: 0
@@ -62203,7 +62559,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1199031750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62276,7 +62631,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1199031743}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -62285,12 +62640,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1199031743}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -63017,7 +63367,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1206268751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63090,7 +63439,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206268744}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -63099,12 +63448,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1206268744}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -63475,6 +63819,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1211129848}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1211129850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1211129848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1211129851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211129850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1792516874}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1211432159
 GameObject:
   m_ObjectHideFlags: 0
@@ -64058,7 +64431,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1216081048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64131,7 +64503,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216081041}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -64140,12 +64512,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1216081041}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -64968,6 +65335,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1229515258}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1229515260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1229515258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1229515261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229515260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1173594615}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1229629152
 GameObject:
   m_ObjectHideFlags: 0
@@ -71172,7 +71568,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1352323559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71245,7 +71640,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1352323552}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -71254,12 +71649,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1352323552}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -72276,7 +72666,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1376334954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72349,7 +72738,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1376334947}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -72358,12 +72747,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1376334947}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -74918,7 +75302,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1416757885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74991,7 +75374,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1416757878}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -75000,12 +75383,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1416757878}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -88896,7 +89274,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1704060339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88969,7 +89346,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704060332}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -88978,12 +89355,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1704060332}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -89327,7 +89699,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1705988334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89400,7 +89771,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705988327}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -89409,12 +89780,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1705988327}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -89565,6 +89931,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1706331353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1706331355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1706331353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1706331356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706331355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 47620686}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1706371442
 GameObject:
   m_ObjectHideFlags: 0
@@ -94536,6 +94931,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1809786178}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1809786180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1809786178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1809786181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809786180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1792516874}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1810318625
 GameObject:
   m_ObjectHideFlags: 0
@@ -95675,7 +96099,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1821287317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95748,7 +96171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1821287310}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -95757,12 +96180,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1821287310}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -98634,6 +99052,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1880901017}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880901019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 405600536223058674, guid: f87e135959a0b6945af25cfe291bcb18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880901017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1880901020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880901019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 0}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1881143029
 GameObject:
   m_ObjectHideFlags: 0
@@ -99564,7 +100011,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1891096640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99637,7 +100083,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1891096633}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -99646,12 +100092,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1891096633}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -99798,6 +100239,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1429238949914004714}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1894963758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894963757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ffa550442d35a43a12999d6e3deb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 8315461947081377600}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1895489206
 GameObject:
   m_ObjectHideFlags: 0
@@ -100353,7 +100817,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1907606958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100426,7 +100889,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1907606951}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -100435,12 +100898,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1907606951}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -101539,6 +101997,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1934155952}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1934155954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1934155952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934155955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934155954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1170848604}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &1935690915
 GameObject:
   m_ObjectHideFlags: 0
@@ -102795,7 +103282,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1962723991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102868,7 +103354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1962723984}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -102877,12 +103363,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1962723984}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -105061,7 +105542,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &2002073674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105134,7 +105614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2002073667}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -105143,12 +105623,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 2002073667}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -105580,7 +106055,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &2007800795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105653,7 +106127,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2007800788}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -105662,12 +106136,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 2007800788}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -106392,6 +106861,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2019483047}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2019483049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 2019483047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2019483050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019483049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1312690027}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &2020115268
 GameObject:
   m_ObjectHideFlags: 0
@@ -107832,7 +108330,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &2051728761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107905,7 +108402,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2051728754}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -107914,12 +108411,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 2051728754}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -108449,6 +108941,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2061495043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2061495045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 2061495043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2061495046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061495045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 297819159}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &2062106726
 GameObject:
   m_ObjectHideFlags: 0
@@ -109937,6 +110458,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2097413132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2097413134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 2097413132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097413135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097413134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1597109035}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &2097928698
 GameObject:
   m_ObjectHideFlags: 0
@@ -110952,7 +111502,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &2113985094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111025,7 +111574,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113985087}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -111034,12 +111583,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 2113985087}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -111520,7 +112064,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &2118305867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111593,7 +112136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2118305860}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -111602,12 +112145,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 2118305860}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -112792,6 +113330,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2144494348}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2144494350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 2144494348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144494351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144494350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1792516874}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &2144739709
 GameObject:
   m_ObjectHideFlags: 0
@@ -112953,6 +113520,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cee93f580c863439b0974544536661, type: 3}
+--- !u!1 &2145676516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 2145676515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145676517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145676516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1173594615}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!1 &323625698108597711
 GameObject:
   m_ObjectHideFlags: 0
@@ -115109,6 +115705,11 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 1486791707}
+    - target: {fileID: 7179587110553425907, guid: e751070895d255f45b4afc320943e139,
+        type: 3}
+      propertyPath: plagueDoctorLightingSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4, type: 3}
     - target: {fileID: 8224705692419168645, guid: e751070895d255f45b4afc320943e139,
         type: 3}
       propertyPath: m_Camera
@@ -115194,6 +115795,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7754407660756948227, guid: ac32101e219160845922951046c70ff6,
+        type: 3}
+      propertyPath: patrol
+      value: 
+      objectReference: {fileID: 8315461947081377600}
+    - target: {fileID: 8347928683958988552, guid: ac32101e219160845922951046c70ff6,
         type: 3}
       propertyPath: patrol
       value: 
@@ -115393,7 +115999,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!4 &2350882533493382339
 Transform:
   m_ObjectHideFlags: 0
@@ -115677,7 +116282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 405600536187809221}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
@@ -115686,12 +116291,7 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 405600536187809221}
   isBeHit: 0
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  health: {fileID: 0}
-  collider: {fileID: 0}
   sinceLastSawPlayerTimer: Infinity
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
@@ -115845,6 +116445,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3847871812882434120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3847871812882434122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3847871812968571579, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3847871812882434120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3847871812882434123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847871812882434122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 1212663141}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!114 &4766635931341616015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117123,9 +117752,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 504335807}
     m_Modifications:
     - target: {fileID: 541853359, guid: 02cee93f580c863439b0974544536661, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 8370538998052168223}
+    - target: {fileID: 541853359, guid: 02cee93f580c863439b0974544536661, type: 3}
       propertyPath: patrol
       value: 
       objectReference: {fileID: 385417664}
+    - target: {fileID: 541853359, guid: 02cee93f580c863439b0974544536661, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1220530031}
+    - target: {fileID: 541853359, guid: 02cee93f580c863439b0974544536661, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8370538998052168224}
+    - target: {fileID: 541853359, guid: 02cee93f580c863439b0974544536661, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 8370538998052168222}
+    - target: {fileID: 541853359, guid: 02cee93f580c863439b0974544536661, type: 3}
+      propertyPath: enemyRoot
+      value: 
+      objectReference: {fileID: 8370538998052168221}
     - target: {fileID: 1542838682064669065, guid: 02cee93f580c863439b0974544536661,
         type: 3}
       propertyPath: m_Camera
@@ -117224,6 +117873,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8370538998052168219}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8370538998052168221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232149808626856647, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 8370538998052168219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &8370538998052168222 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 8370538998052168229, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 8370538998052168219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8370538998052168223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6342168783833707145, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 8370538998052168219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370538998052168221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2523719f7fbc6a849ab1ce0b9e066398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &8370538998052168224 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3232149808636330247, guid: 02cee93f580c863439b0974544536661,
+    type: 3}
+  m_PrefabInstance: {fileID: 8370538998052168219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8370538998052168225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370538998052168221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 385417664}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!224 &8830910803178485296
 RectTransform:
   m_ObjectHideFlags: 0

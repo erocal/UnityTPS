@@ -1535,16 +1535,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 405600536223058674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e508199a4fd6db4ebec30a0206f2616, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfcfa3d51429fc42a64c513368d4cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 10
   confuseTime: 5
   patrol: {fileID: 0}
-  waypointToStay: 1.13
-  waypointToWaitTime: 2.58
+  waypointToStay: 3
+  waypointToWaitTime: 3
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 405600536223058674}
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!114 &2988732817540152966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,6 +1580,8 @@ MonoBehaviour:
   gothurtSFX: {fileID: 8300000, guid: 137bb003119aa47dfb5ed791d840d650, type: 3}
   rate: 2
   zombierate: 2
+  healParticle: {fileID: 0}
+  lifeParticle: {fileID: 0}
 --- !u!136 &6723940725919078928
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1624,7 +1630,6 @@ MonoBehaviour:
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!82 &-7762786383811461739
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1733,8 +1738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 8300000, guid: 90d342cf6f89440b9aa6c6ef4af6af88, type: 3}
+  zombieFollowSFX: {fileID: 8300000, guid: ad7b6eb3c723442b483e6b280fa02230, type: 3}
 --- !u!1 &405600536223058676
 GameObject:
   m_ObjectHideFlags: 0

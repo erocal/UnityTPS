@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider), typeof(Animator), typeof(Health))]
 public abstract class AIController : MonoBehaviour
 {
     #region -- 資源參考區 --
@@ -20,34 +21,30 @@ public abstract class AIController : MonoBehaviour
     [SerializeField] protected float patrolSpeedRatio = 0.5f;
 
     [Space(20)]
-    [Header("要銷毀的gameobject根節點")]
-    [SerializeField] protected GameObject enemyRoot;
-
-    [Space(20)]
-    [Header("AI是否受擊"), ReadOnly]
+    [Header("AI是否受擊")]
     [SerializeField] protected bool isBeHit;
-
-    [Header("玩家")]
-    [SerializeField] protected GameObject player;
-    [Header("動畫控制器")]
-    [SerializeField] protected Animator animator;
-    [Header("Health")]
-    [SerializeField] protected Health health;
-    [Header("碰撞體")]
-    [SerializeField] protected Collider collider;
 
     #endregion
 
     #region -- 變數參考區 --
 
-    [Tooltip("上次看到玩家的時間"), ReadOnly]
+    [Tooltip("上次看到玩家的時間")]
     [SerializeField] protected float sinceLastSawPlayerTimer = Mathf.Infinity;
-    [Tooltip("初始生成座標"), ReadOnly]
+    [Tooltip("初始生成座標")]
     [SerializeField] protected Vector3 aiSpawnPostion;
-    [Tooltip("當前需要到達的WayPoint編號"), ReadOnly]
+    [Tooltip("當前需要到達的WayPoint編號")]
     [SerializeField] protected int currentWaypointIndex = 0;
-    [Tooltip("距離上次抵達WayPoint的時間"), ReadOnly]
+    [Tooltip("距離上次抵達WayPoint的時間")]
     [SerializeField] protected float sinceArriveWayPointTimer = 0;
+
+    protected Organism organism;
+
+    /// <summary> 要銷毀的gameobject根節點 </summary>
+    protected GameObject enemyRoot;
+    protected GameObject player;
+    protected Animator aiAnimator;
+    protected Collider aiCollider;
+    protected Health health;
 
     #endregion
 

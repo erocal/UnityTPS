@@ -18,14 +18,16 @@ public class ZombieAIController : AIController
 
     private void Awake()
     {
+
         organism = Organism.Instance;
 
+        enemyRoot = this.gameObject;
         player = organism.GetPlayer();
         mover = GetComponent<Mover>();
-        animator = GetComponent<Animator>();
+        aiAnimator = GetComponent<Animator>();
         health = GetComponent<Health>();
         fighter = GetComponent<Fighter>();
-        collider = GetComponent<Collider>();
+        aiCollider = GetComponent<Collider>();
 
         SetSpawnPosition(transform.position);
 
@@ -76,7 +78,7 @@ public class ZombieAIController : AIController
 
     protected override void AttackBehavior()
     {
-        animator.SetBool("IsConfuse", false);
+        aiAnimator.SetBool("IsConfuse", false);
         SawPlayer();
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombieFollowTimer <= 0)
         {
@@ -103,20 +105,20 @@ public class ZombieAIController : AIController
             if (IsAtWayPoint())
             {
                 mover.CancelMove();
-                animator.SetBool("IsConfuse", true);
+                aiAnimator.SetBool("IsConfuse", true);
                 sinceArriveWayPointTimer = 0;
                 currentWaypointIndex = patrol.GetNextWayPointNumber(currentWaypointIndex);
             }
 
             if (sinceArriveWayPointTimer > waypointToWaitTime)
             {
-                animator.SetBool("IsConfuse", false);
+                aiAnimator.SetBool("IsConfuse", false);
                 mover.MoveTo(patrol.GetWayPointPosition(currentWaypointIndex), patrolSpeedRatio);
             }
         }
         else
         {
-            animator.SetBool("IsConfuse", false);
+            aiAnimator.SetBool("IsConfuse", false);
             mover.MoveTo(aiSpawnPostion, 0.5f);
         }
     }
@@ -128,7 +130,7 @@ public class ZombieAIController : AIController
         fighter.CancelTarget();
 
         // 困惑動作
-        animator.SetBool("IsConfuse", true);
+        aiAnimator.SetBool("IsConfuse", true);
     }
 
     /// <summary>
@@ -157,8 +159,8 @@ public class ZombieAIController : AIController
     protected override void OnDie()
     {
         mover.CancelMove();
-        animator.SetTrigger("IsDead");
-        collider.enabled = false;
+        aiAnimator.SetTrigger("IsDead");
+        aiCollider.enabled = false;
     }
 
     #endregion

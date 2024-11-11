@@ -1102,10 +1102,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6867669641158447859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b2c556548a70394e8ecee67b1858d08, type: 3}
+  m_Script: {fileID: 11500000, guid: 94ffa550442d35a43a12999d6e3deb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 3
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 0}
+  waypointToStay: 3
+  waypointToWaitTime: 3
+  patrolSpeedRatio: 0.5
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!114 &4069765651592129423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,14 +1125,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6867669641158447859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178578780047e4548809223f85d1a748, type: 3}
+  m_Script: {fileID: 11500000, guid: ddd28a7eae1065c4e90a01e152e8640b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actorType: 3
   attackDamage: 10
-  jumpAttackDamage: 15
-  attackRange: 13
-  jumpAttackRange: 25
+  jumpAttackDamage: 20
+  attackRange: 8
+  jumpAttackRange: 12
   timeBetweenAttack: 2
   throwProjectile: {fileID: 0}
   hand: {fileID: 0}
@@ -1135,16 +1145,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6867669641158447859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b67fc5ac8cea634e9e4111f44878d37, type: 3}
+  m_Script: {fileID: 11500000, guid: f12e2b4c11cf1fd428c0704f1043f6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 55
-  confuseTime: 5
-  patrol: {fileID: 0}
-  waypointToStay: 3
-  waypointToWaitTime: 3
-  patrolSpeedRatio: 0.802
-  enemyRoot: {fileID: 6867669641158447859}
+  rotateSpeed: 3
 --- !u!114 &6787237974808016240
 MonoBehaviour:
   m_ObjectHideFlags: 0

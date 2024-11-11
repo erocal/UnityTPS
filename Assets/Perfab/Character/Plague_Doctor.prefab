@@ -1651,8 +1651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieidleSFX: {fileID: 8300000, guid: 34767f6b4d2574de9a7e3e7346bd1f11, type: 3}
-  zombiefollowSFX: {fileID: 8300000, guid: 8c8b4012f639545b2a1f70a2082307b3, type: 3}
+  zombieIdleSFX: {fileID: 0}
+  zombieFollowSFX: {fileID: 0}
 --- !u!114 &1543216753392985325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,7 +1728,11 @@ MonoBehaviour:
   waypointToStay: 1.13
   waypointToWaitTime: 2.58
   patrolSpeedRatio: 0.5
-  enemyRoot: {fileID: 1907454662283194204}
+  isBeHit: 0
+  sinceLastSawPlayerTimer: Infinity
+  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
+  sinceArriveWayPointTimer: 0
 --- !u!114 &5042442598815150079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,9 +1782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdbf53ada672c643aab3cc593afe96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plaguedoctorfireballSFX: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73,
+  plagueDoctorFireballSFX: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73,
     type: 3}
-  plaguedoctorlightingSFX: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4,
+  plagueDoctorLightingSFX: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4,
     type: 3}
 --- !u!1 &1907454662283194206
 GameObject:

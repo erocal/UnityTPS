@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 869644877}
   - component: {fileID: 869644876}
   m_Layer: 5
-  m_Name: GameStats
+  m_Name: FPSDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 869644873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e94d5043d1d689478acb1120976e91c, type: 3}
+  m_Script: {fileID: 11500000, guid: 86fae2502c1cee447a8aac3954b1ba13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text_FPS: {fileID: 595605368}

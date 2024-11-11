@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class MutantAIController : AIController
 {
-    #region -- 變數參考區 --
 
-    Organism organism;
+    #region -- 變數參考區 --
 
     MutantMover mutantMover;
     MutantFighter mutantFighter;
@@ -20,12 +19,14 @@ public class MutantAIController : AIController
 
     private void Awake()
     {
-        organism = Organism.Instance;
 
+        organism = Organism.Instance;
+        enemyRoot = this.gameObject;
         player = organism.GetPlayer();
-        animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
-        collider = GetComponent<Collider>();
+        aiAnimator = this.GetComponent<Animator>();
+        aiCollider = this.GetComponent<Collider>();
+        health = this.GetComponent<Health>();
+
         mutantMover = GetComponent<MutantMover>();
         mutantFighter = GetComponent<MutantFighter>();
         mutantAudio = GetComponent<MutantAudio>();
@@ -85,7 +86,7 @@ public class MutantAIController : AIController
     /// </summary>
     protected override void AttackBehavior()
     {
-        animator.SetBool("IsConfuse", false);
+        aiAnimator.SetBool("IsConfuse", false);
         SawPlayer();
         mutantFighter.Attack(player.GetComponent<Health>());
     }
@@ -106,20 +107,20 @@ public class MutantAIController : AIController
                     roarTimer = 2.0f;
                 }
                 mutantMover.CancelMove();
-                animator.SetBool("IsConfuse", true);
+                aiAnimator.SetBool("IsConfuse", true);
                 sinceArriveWayPointTimer = 0;
                 currentWaypointIndex = patrol.GetNextWayPointNumber(currentWaypointIndex);
             }
 
             if (sinceArriveWayPointTimer > waypointToWaitTime)
             {
-                animator.SetBool("IsConfuse", false);
+                aiAnimator.SetBool("IsConfuse", false);
                 mutantMover.MoveTo(patrol.GetWayPointPosition(currentWaypointIndex));
             }
         }
         else
         {
-            animator.SetBool("IsConfuse", false);
+            aiAnimator.SetBool("IsConfuse", false);
             mutantMover.MoveTo(aiSpawnPostion);
 
             try
@@ -142,7 +143,7 @@ public class MutantAIController : AIController
         mutantFighter.CancelTarget();
 
         // 困惑動作
-        animator.SetBool("IsConfuse", true);
+        aiAnimator.SetBool("IsConfuse", true);
     }
 
     /// <summary>
@@ -162,8 +163,8 @@ public class MutantAIController : AIController
     protected override void OnDie()
     {
         mutantMover.CancelMove();
-        animator.SetTrigger("IsDead");
-        collider.enabled = false;
+        aiAnimator.SetTrigger("IsDead");
+        aiCollider.enabled = false;
     }
 
     #endregion

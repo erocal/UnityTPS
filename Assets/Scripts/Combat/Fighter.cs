@@ -34,8 +34,8 @@ public class Fighter : MonoBehaviour
     [Header("手部座標")]
     [SerializeField] Transform hand;
 
-    [Header("相機")]
-    [SerializeField] GameObject camera;
+    //[Header("相機")]
+    //[SerializeField] GameObject camera;
 
     Mover mover;
     Animator animator;
