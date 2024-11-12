@@ -20,9 +20,10 @@ public static class AddrssableAsync
     {
         Addressables.InitializeAsync().WaitForCompletion();
         var updates = Addressables.CheckForCatalogUpdates().WaitForCompletion();
-        if (updates.Count > 0)
+        if (updates != null)
         {
-            Addressables.UpdateCatalogs().WaitForCompletion();
+            if(updates.Count > 0)
+                Addressables.UpdateCatalogs().WaitForCompletion();
         }
 
         //Addressables.InitializeAsync().Completed += (Result) =>

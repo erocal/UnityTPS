@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Scene
   m_EditorClassIdentifier: 
   m_GroupName: Scene
-  m_Data:
-    m_SerializedData: []
   m_GUID: 73502c2ccd04ac449af5c03f43daceac
   m_SerializeEntries:
   - m_GUID: ef13065bd303dfe479c71e7826dfbd8e
     m_Address: samplescene
     m_ReadOnly: 0
     m_SerializedLabels:
+    - AllAsssetBundle
     - default
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ffae77cf890a788449e0386bc5733194, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: b1275df835fc4004d93ce471839bc524, type: 2}
     - {fileID: 11400000, guid: 3849e1398345d074ba72cb3c7db45d3f, type: 2}
+    - {fileID: 11400000, guid: b1275df835fc4004d93ce471839bc524, type: 2}
