@@ -5,8 +5,6 @@ public class ZombieAIController : AIController
 
     #region -- 變數參考區 --
 
-    Organism organism;
-
     Mover mover;
     Fighter fighter;
     ZombieAudio zombieAudio;
