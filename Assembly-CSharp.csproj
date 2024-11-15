@@ -56,10 +56,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.JarResolver.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.VersionHandlerImpl.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.IOSResolver.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.VersionHandler.dll" />
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -82,7 +78,6 @@
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
     <Compile Include="Assets\FX\BlackHole.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Aircraft\Scripts\AeroplaneControlSurfaceAnimator.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SpringBone.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
     <Compile Include="Assets\ThirdParty\SampleScenes\Scripts\SlowMoButton.cs" />
@@ -91,16 +86,18 @@
     <Compile Include="Assets\Scripts\Control\ZombieAIController.cs" />
     <Compile Include="Assets\ThirdParty\Dark Singularity\Core Scripts\Singularity.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\FaceUpdate.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\ParticleSystemDestroyer.cs" />
     <Compile Include="Assets\Scripts\Boss\PlagueDoctor\PlagueDoctorMover.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\DragRigidbody.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\ParticleSystems\Scripts\Hose.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\SplashScreen\Scripts\SplashScreen.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\RandomWind.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Car\Scripts\Mudguard.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\IdleChanger.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SetShadowResolution.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
     <Compile Include="Assets\Scripts\Loading\LoadingManager.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\ParticleSystems\Scripts\SmokeParticles.cs" />
@@ -114,6 +111,7 @@
     <Compile Include="Assets\Scripts\SpawnPoint\SpawnPoint.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\RendererFeatures\DistortTunnel\DistortTunnelPass_Tunnel.cs" />
     <Compile Include="Assets\Scripts\Music\BackgroundMusic.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\RefleshProbe.cs" />
     <Compile Include="Assets\ThirdParty\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\SpringBone.cs" />
     <Compile Include="Assets\Scripts\UI\WeaponUI.cs" />
@@ -131,12 +129,12 @@
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\IdleChanger.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\TimedObjectActivator.cs" />
     <Compile Include="Assets\Scripts\UI\gazed.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SpringManager.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\GlobalGbuffers\GlobalGbuffersRendererFeature.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\RendererFeatures\BlitToRTHandle\BlitToRTHandleRendererFeature.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Car\Scripts\SkidTrail.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\RandomWind.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\RefleshProbe.cs" />
     <Compile Include="Assets\Scripts\Core\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
@@ -149,12 +147,12 @@
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\Boss\Mutant\MutantAIController.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SetShadowQuality.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\ParticleSystems\Scripts\ExplosionFireAndDebris.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
     <Compile Include="Assets\Asset Packs\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Aircraft\Scripts\AeroplaneUserControl2Axis.cs" />
     <Compile Include="Assets\Scripts\Boss\PlagueDoctor\PlagueDoctorAIController.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SetShadowQuality.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\RendererFeatures\DistortTunnel\DistortTunnelRendererFeature.cs" />
     <Compile Include="Assets\ThirdParty\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
     <Compile Include="Assets\Scripts\Pickup\Pickup.cs" />
@@ -172,9 +170,7 @@
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\LensFlares\Scripts\ScreenSpacePlacement.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\FramebufferFetch\FrameBufferFetchRenderFeature.cs" />
     <Compile Include="Assets\Asset Packs\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorMove.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Animations\Rotator.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Aircraft\Scripts\AeroplaneAiControl.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Core\GameObjectComparer.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupHealth.cs" />
     <Compile Include="Assets\Asset Packs\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorLinear.cs" />
@@ -185,20 +181,20 @@
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Aircraft\Scripts\AeroplaneUserControl4Axis.cs" />
     <Compile Include="Assets\Scripts\Audio\ZombieAudio.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Aircraft\Scripts\AeroplaneController.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\IdleChanger.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SpringManager.cs" />
     <Compile Include="Assets\ThirdParty\SapphiArt\SapphiArtchan\Scripts\AnimationManagerUI.cs" />
     <Compile Include="Assets\Scripts\Weapon\MuzzleRotateToScreenMiddle.cs" />
     <Compile Include="Assets\Scripts\Boss\PlagueDoctor\PlagueDoctorFighter.cs" />
     <Compile Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\GbufferVisualization\GbufferVisualizationRendererFeature.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\CurveControlledBob.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Animations\Rotator.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\WaypointCircuit.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SpringCollider.cs" />
     <Compile Include="Assets\Scripts\Core\Organism.cs" />
     <Compile Include="Assets\Scripts\Boss\Mutant\MutantFighter.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SpringBone.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\TextureReference w. FrameData\TextureRefRendererFeature.cs" />
     <Compile Include="Assets\Scripts\Boss\Mutant\MutantMover.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
     <Compile Include="Assets\Asset Packs\Particle Attractor by Moonflower Carnivore\Scripts\rotation.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
@@ -217,7 +213,6 @@
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\SpringCollider.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\RandomWind.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\2D\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\FollowTarget.cs" />
@@ -240,13 +235,13 @@
     <Compile Include="Assets\ThirdParty\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Car\Scripts\CarAIControl.cs" />
     <Compile Include="Assets\ThirdParty\SapphiArt\SapphiArtchan\Scripts\SapphiArtChan_AnimManager.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Scripts\MirrorReflection.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\IKCtrlRightHand.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
     <Compile Include="Assets\Asset Packs\FXIFIED\common\Scripts\PlayerController.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\RendererFeatures\DepthBlit\DepthBlitFeature.cs" />
     <Compile Include="Assets\Scripts\Combat\AudioSelectTownManager.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\2D\Scripts\Restarter.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\ThirdParty\SampleScenes\Scripts\LevelReset.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupLife.cs" />
     <Compile Include="Assets\Scripts\Map\MapAreaEnum.cs" />
@@ -255,6 +250,7 @@
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\CameraController.cs" />
     <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Characters\RollerBall\Scripts\Ball.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\FaceUpdate.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\UnsafePass\UnsafePassRenderFeature.cs" />
     <Compile Include="Assets\ThirdParty\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\RendererFeatures\BlitToRTHandle\BlitToRTHandlePass.cs" />
@@ -265,12 +261,12 @@
     <Compile Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\ParticleSystems\Scripts\FireLight.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\AutoBlinkforSD.cs" />
     <Compile Include="Assets\Scripts\Map\MapAreaTrigger.cs" />
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\SharedAssets\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\SmoothFollow.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\Compute\ComputeRendererFeature.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\AutoBlinkforSD.cs" />
     <Compile Include="Assets\Scripts\Core\AddrssableAsync.cs" />
     <Compile Include="Assets\Scripts\Core\Health.cs" />
     <Compile Include="Assets\ThirdParty\SampleScenes\Scripts\CameraSwitch.cs" />
@@ -284,6 +280,7 @@
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\SharedAssets\Scripts\CheckAssignedRenderPipelineAsset.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\LerpControlledBob.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Core\Log.cs" />
     <Compile Include="Assets\Scripts\Core\HealthBar.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP Package Samples\RendererFeatures\KeepFrame\KeepFrameFeature.cs" />
@@ -293,7 +290,7 @@
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\FPSCounter.cs" />
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Scripts\Terrian\TouchLava.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SpringCollider.cs" />
+    <Compile Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Scripts\MirrorReflection.cs" />
     <Compile Include="Assets\Scripts\Core\ReferenceCollector.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\AlphaButtonClickMask.cs" />
@@ -301,15 +298,14 @@
     <Compile Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\Control\InputController.cs" />
     <Compile Include="Assets\Scripts\Combat\AudioSelectGravyManager.cs" />
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\UnityChan\Scripts\SetShadowResolution.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerHealthUI.cs" />
     <Compile Include="Assets\Scripts\Core\GameManagerSingleton.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\SimpleMouseRotator.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Utility\ActivateTrigger.cs" />
     <Compile Include="Assets\ThirdParty\Dark Singularity\Core Scripts\SingularityCore.cs" />
     <Compile Include="Assets\ThirdParty\Samples\Universal RP\17.0.3\URP RenderGraph Samples\Blit w. FrameData\BlitRendererFeature.cs" />
-    <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\ThirdParty\Standard Assets\Vehicles\Aircraft\Scripts\AeroplanePropellerAnimator.cs" />
+    <Compile Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -334,18 +330,19 @@
     <None Include="Assets\Asset Packs\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
     <None Include="Assets\Asset Packs\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
     <None Include="Assets\ThirdParty\Standard Assets\Effects\Projectors\Guidelines.txt" />
-    <None Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Shader\Mirror.shader" />
+    <None Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Shader\Mirror.shader" />
     <None Include="Assets\Asset Packs\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
     <None Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
     <None Include="Assets\ThirdParty\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
     <None Include="Assets\Asset Packs\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
+    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\ThirdParty\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Asset Packs\Particle Attractor by Moonflower Carnivore\Shaders\Particles Additive Intensify.shader" />
     <None Include="Assets\Asset Packs\AurynSky\Gems Ultimate Pack\READ ME.txt" />
     <None Include="Assets\ThirdParty\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\ThirdParty\SampleScenes\Shaders\Skybox-Procedural.shader" />
-    <None Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Specification.txt" />
+    <None Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Specification.txt" />
     <None Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
     <None Include="Assets\Asset Packs\Lava_Flowing_Shader\ReadMe.txt" />
     <None Include="Assets\ThirdParty\Standard Assets\Vehicles\Car\CarGuidelines.txt" />
@@ -401,7 +398,7 @@
     <None Include="Assets\Asset Packs\Ultra Skybox Fog\Shaders\UltraSkyboxFog.shader" />
     <None Include="Assets\Asset Packs\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
     <None Include="Assets\Asset Packs\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
-    <None Include="Assets\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Shader\FaceOrientation.shader" />
+    <None Include="Assets\ThirdParty\Samples\Unity Toon Shader\0.10.2-preview\Universal render pipeline\Scenes\Mirror\Shader\FaceOrientation.shader" />
     <None Include="Assets\ThirdParty\Standard Assets\Vehicles\Car\Shaders\DiffuseReflectiveShader.shader" />
     <None Include="Assets\ThirdParty\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
     <None Include="Assets\Asset Packs\Ultra Skybox Fog\Manual.txt" />
@@ -1570,12 +1567,16 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Services.Analytics">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Analytics.dll</HintPath>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Services.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Analytics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ResourceManager">
@@ -1584,10 +1585,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>Library\ScriptAssemblies\Unity.Analytics.DataPrivacy.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
@@ -1610,12 +1607,12 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Toonshader.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Toonshader.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
@@ -1682,10 +1679,6 @@
       <HintPath>Library\ScriptAssemblies\Analytics.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Formats.Fbx.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1694,16 +1687,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing.Stores">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing.Stores">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Formats.Fbx.Editor">

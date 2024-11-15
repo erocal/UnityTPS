@@ -56,10 +56,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.JarResolver.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.VersionHandlerImpl.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.IOSResolver.dll" />
-    <Analyzer Include="D:\Program Files\UnityProject\UnityTPS\Assets\ThirdParty\MobileDependencyResolver\Editor\Google.VersionHandler.dll" />
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -1324,12 +1320,16 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Services.Analytics">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Analytics.dll</HintPath>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Services.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Analytics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ResourceManager">
@@ -1338,10 +1338,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>Library\ScriptAssemblies\Unity.Analytics.DataPrivacy.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
@@ -1364,12 +1360,12 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Toonshader.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Toonshader.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
@@ -1436,10 +1432,6 @@
       <HintPath>Library\ScriptAssemblies\Analytics.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Formats.Fbx.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1448,16 +1440,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing.Stores">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing.Stores">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Formats.Fbx.Editor">
