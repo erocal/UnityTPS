@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 515d958a07a1a9746b9ac78ea33c3f42
+timeCreated: 1510404580
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Inziu Iosevka TC
+  fontNames:
+  - Inziu Iosevka TC
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 36929ebcbcf2900499085cd0dcdc3c43, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

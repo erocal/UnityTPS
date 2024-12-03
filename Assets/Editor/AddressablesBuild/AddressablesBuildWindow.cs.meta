@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d1879c6701e11044fbe578eed30c81f0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - evanGUISkin: {fileID: 11400000, guid: 608c0bacb4b5a0547a1646f99db29abb, type: 2}
+  - defaultGUISkin: {fileID: 11400000, guid: 25b42889fc8e73b41affab34c745435b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
