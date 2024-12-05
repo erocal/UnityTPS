@@ -18,7 +18,7 @@ public class GenerateLighingAndOcclution
     static void GenerateLightmapAndOcclutionData()
     {
 
-        GenerateLighingWithPrefabLightmapData.GenerateLightmapInfo();
+        GenerateLightingWithPrefabLightmapData.GenerateLightmapInfo();
 
         OcclusionBaking.BakeOcclusion();
 

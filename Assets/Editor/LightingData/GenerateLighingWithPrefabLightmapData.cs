@@ -1,143 +1,216 @@
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using static PrefabLightmapData;
 
-public class GenerateLighingWithPrefabLightmapData : MonoBehaviour
+public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
 {
 
+    // 定義 Lightmap 信息的結構
+    class LightmapInfo
+    {
+        public Texture2D LightmapColor { get; set; }
+        public Texture2D LightmapDir { get; set; }
+        public Texture2D ShadowMask { get; set; }
+    }
+
+    // 存儲 renderer 數據的結構
+    class RendererData
+    {
+        public MeshRenderer Renderer { get; set; }
+        public int LightmapIndex { get; set; }
+        public Vector4 LightmapScaleOffset { get; set; }
+    }
+
+    // 存儲 Prefab 資料的結構
+    class PrefabData
+    {
+        public PrefabLightmapData PrefabInstance { get; set; }
+        public List<RendererData> RendererData { get; set; }
+        public List<Light> Lights { get; set; }
+    }
+
+    [MenuItem("Assets/Generate Lighting With Prefab")]
     public static void GenerateLightmapInfo()
     {
-
         Lightmapping.Bake();
 
-        PrefabLightmapData[] prefabs = FindObjectsByType<PrefabLightmapData>(FindObjectsSortMode.InstanceID);
+        // 主線程收集 LightmapSettings 數據
+        LightmapData[] lightmaps = LightmapSettings.lightmaps;
+        var lightmapInfos = new List<LightmapInfo>();
+
+        foreach (var lightmap in lightmaps)
+        {
+            lightmapInfos.Add(new LightmapInfo
+            {
+                LightmapColor = lightmap.lightmapColor,
+                LightmapDir = lightmap.lightmapDir,
+                ShadowMask = lightmap.shadowMask
+            });
+        }
+
+        var prefabs = FindObjectsByType<PrefabLightmapData>(FindObjectsSortMode.InstanceID);
+        var dataList = new List<PrefabData>();
 
         foreach (var instance in prefabs)
         {
-            var gameObject = instance.gameObject;
-            var rendererInfos = new List<PrefabLightmapData.RendererInfo>();
-            var lightmaps = new List<Texture2D>();
-            var lightmapsDir = new List<Texture2D>();
-            var shadowMasks = new List<Texture2D>();
-            var lightsInfos = new List<PrefabLightmapData.LightInfo>();
 
-            GenerateLightmapInfo(gameObject, rendererInfos, lightmaps, lightmapsDir, shadowMasks, lightsInfos);
+            var renderers = instance.gameObject.GetComponentsInChildren<MeshRenderer>();
+            var lights = instance.gameObject.GetComponentsInChildren<Light>(true);
+
+            var rendererData = renderers
+                .Select(renderer => new RendererData
+                {
+                    Renderer = renderer,
+                    LightmapIndex = renderer.lightmapIndex,
+                    LightmapScaleOffset = renderer.lightmapScaleOffset
+                })
+                .ToList();
+
+            dataList.Add(new PrefabData
+            {
+                PrefabInstance = instance,
+                RendererData = rendererData,
+                Lights = lights.ToList()
+            });
+
+        }
+
+        // 並行處理數據
+        var lightmapsDir = new ConcurrentBag<Texture2D>();
+        var shadowMasks = new ConcurrentBag<Texture2D>();
+        var lightsInfos = new ConcurrentBag<PrefabLightmapData.LightInfo>();
+
+        Parallel.ForEach(dataList, data =>
+        {
+            ProcessLightmapData(data, lightmapInfos, lightsInfos);
+        });
+
+        // 在主線程應用數據
+        foreach (var data in dataList)
+        {
+
+            var instance = data.PrefabInstance;
+
+            var rendererInfos = new List<PrefabLightmapData.RendererInfo>();
+            var lightmap = new HashSet<Texture2D>();
+
+            // 優化數據處理，避免重複添加
+            GenerateRendererInfo(instance.gameObject, rendererInfos, lightmap);
 
             instance.RendererInformation = rendererInfos.ToArray();
-            instance.Lightmaps = lightmaps.ToArray();
-            instance.LightmapsDir = lightmapsDir.ToArray();
+            instance.Lightmaps = lightmapInfos.Select(info => info.LightmapColor).ToArray();
+            instance.LightmapsDir = lightmapInfos.Select(info => info.LightmapDir).ToArray();
+            instance.ShadowMasks = lightmapInfos.Select(info => info.ShadowMask).ToArray();
             instance.LightInformation = lightsInfos.ToArray();
-            instance.ShadowMasks = shadowMasks.ToArray();
 
-#if UNITY_2018_3_OR_NEWER
-
-            // 獲取當前物件對應的 Prefab 原始資源（非實例）
-            var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
-
-            // 如果有對應的 Prefab
-            if (targetPrefab != null)
-            {
-
-                // 獲取最外層的 Prefab 實例根物件
-                GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(instance.gameObject);
-
-                // 如果存在最外層的 Prefab 實例根物件
-                if (root != null)
-                {
-                    // 獲取當前物件的來源 Prefab 資源
-                    GameObject rootPrefab = PrefabUtility.GetCorrespondingObjectFromSource(instance.gameObject);
-                    // 獲取來源 Prefab 資源的路徑
-                    string rootPath = AssetDatabase.GetAssetPath(rootPrefab);
-
-                    // 解包最外層的 Prefab 實例並返回新的根物件
-                    PrefabUtility.UnpackPrefabInstanceAndReturnNewOutermostRoots(root, PrefabUnpackMode.OutermostRoot);
-
-                    try
-                    {
-                        // 將修改應用到當前物件所屬的 Prefab 實例
-                        PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
-
-                    }
-                    catch { }
-                    finally
-                    {
-                        // 儲存解包後的物件為 Prefab 資源
-                        PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootPath, InteractionMode.AutomatedAction);
-
-                    }
-                }
-                else // 如果沒有最外層的 Prefab 實例根物件
-                {
-                    // 將修改應用到當前物件所屬的 Prefab 實例
-                    PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
-                }
-            }
-#else
-            var targetPrefab = UnityEditor.PrefabUtility.GetPrefabParent(gameObject) as GameObject;
-            if (targetPrefab != null)
-            {
-                //UnityEditor.Prefab
-                UnityEditor.PrefabUtility.ReplacePrefab(gameObject, targetPrefab);
-            }
-#endif
+            ApplyPrefabChanges(instance);
         }
+
+        Debug.Log("Lighting generation completed successfully.");
 
     }
 
-    static void GenerateLightmapInfo(GameObject root, List<PrefabLightmapData.RendererInfo> rendererInfos,
-                                     List<Texture2D> lightmaps, List<Texture2D> lightmapsDir, List<Texture2D> shadowMasks,
-                                     List<PrefabLightmapData.LightInfo> lightsInfo)
+    static void ProcessLightmapData(PrefabData data,
+                                List<LightmapInfo> lightmapInfos,
+                                ConcurrentBag<PrefabLightmapData.LightInfo> lightsInfo)
     {
-        var renderers = root.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer renderer in renderers)
+
+        foreach (var light in data.Lights)
         {
-            if (renderer.lightmapIndex != -1)
+            var lightInfo = new PrefabLightmapData.LightInfo
             {
-                PrefabLightmapData.RendererInfo info = new PrefabLightmapData.RendererInfo();
-                info.renderer = renderer;
+                light = light,
+                lightmapBaketype = (int)light.lightmapBakeType
+            };
 
-                if (renderer.lightmapScaleOffset != Vector4.zero)
-                {
-
-                    if (renderer.lightmapIndex < 0 || renderer.lightmapIndex == 0xFFFE) continue;
-                    info.lightmapOffsetScale = renderer.lightmapScaleOffset;
-
-                    Texture2D lightmap = LightmapSettings.lightmaps[renderer.lightmapIndex].lightmapColor;
-                    Texture2D lightmapDir = LightmapSettings.lightmaps[renderer.lightmapIndex].lightmapDir;
-                    Texture2D shadowMask = LightmapSettings.lightmaps[renderer.lightmapIndex].shadowMask;
-
-                    info.lightmapIndex = lightmaps.IndexOf(lightmap);
-                    if (info.lightmapIndex == -1)
-                    {
-                        info.lightmapIndex = lightmaps.Count;
-                        lightmaps.Add(lightmap);
-                        lightmapsDir.Add(lightmapDir);
-                        shadowMasks.Add(shadowMask);
-                    }
-
-                    rendererInfos.Add(info);
-                }
-
-            }
-        }
-
-        var lights = root.GetComponentsInChildren<Light>(true);
-
-        foreach (Light light in lights)
-        {
-            PrefabLightmapData.LightInfo lightInfo = new PrefabLightmapData.LightInfo();
-            lightInfo.light = light;
-            lightInfo.lightmapBaketype = (int)light.lightmapBakeType;
 #if UNITY_2020_1_OR_NEWER
             lightInfo.mixedLightingMode = (int)Lightmapping.lightingSettings.mixedBakeMode;
 #elif UNITY_2018_1_OR_NEWER
-            lightInfo.mixedLightingMode = (int)LightmapEditorSettings.mixedBakeMode;
+        lightInfo.mixedLightingMode = (int)LightmapEditorSettings.mixedBakeMode;
 #else
-            lightInfo.mixedLightingMode = (int)light.bakingOutput.lightmapBakeType;            
+        lightInfo.mixedLightingMode = (int)light.bakingOutput.lightmapBakeType;
 #endif
             lightsInfo.Add(lightInfo);
-
         }
     }
 
+
+    static void ApplyPrefabChanges(PrefabLightmapData instance)
+    {
+#if UNITY_2018_3_OR_NEWER
+        var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
+
+        if (targetPrefab != null)
+        {
+            var root = PrefabUtility.GetOutermostPrefabInstanceRoot(instance.gameObject);
+            if (root != null)
+            {
+                var rootPrefab = PrefabUtility.GetCorrespondingObjectFromSource(instance.gameObject);
+                var rootPath = AssetDatabase.GetAssetPath(rootPrefab);
+
+                PrefabUtility.UnpackPrefabInstanceAndReturnNewOutermostRoots(root, PrefabUnpackMode.OutermostRoot);
+
+                try
+                {
+                    PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
+                }
+                catch { }
+                finally
+                {
+                    PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootPath, InteractionMode.AutomatedAction);
+                }
+            }
+            else
+            {
+                PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
+            }
+        }
+#else
+        var targetPrefab = PrefabUtility.GetPrefabParent(instance.gameObject) as GameObject;
+        if (targetPrefab != null)
+        {
+            PrefabUtility.ReplacePrefab(instance.gameObject, targetPrefab);
+        }
+#endif
+    }
+
+    static void GenerateRendererInfo(
+        GameObject root,
+        List<PrefabLightmapData.RendererInfo> rendererInfos,
+        HashSet<Texture2D> lightmaps)
+    {
+        var renderers = root.GetComponentsInChildren<MeshRenderer>();
+        foreach (var renderer in renderers)
+        {
+            if (renderer.lightmapIndex != -1 && renderer.lightmapScaleOffset != Vector4.zero)
+            {
+                PrefabLightmapData.RendererInfo info = new PrefabLightmapData.RendererInfo
+                {
+                    renderer = renderer,
+                    lightmapOffsetScale = renderer.lightmapScaleOffset
+                };
+
+                if (renderer.lightmapIndex >= 0 && renderer.lightmapIndex != 0xFFFE)
+                {
+
+                    var lightmapData = LightmapSettings.lightmaps[renderer.lightmapIndex];
+                    info.lightmapIndex = AddLightmap(lightmapData.lightmapColor, lightmaps);
+
+                }
+
+                rendererInfos.Add(info);
+            }
+        }
+    }
+
+    static int AddLightmap(Texture2D lightmap, HashSet<Texture2D> lightmaps)
+    {
+        if (lightmap == null || lightmaps.Contains(lightmap)) return -1;
+        lightmaps.Add(lightmap);
+        return lightmaps.Count - 1;
+    }
 }
