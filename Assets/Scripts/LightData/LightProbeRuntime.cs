@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class LightProbeRuntime : MonoBehaviour
 {
-
+    
     #region -- 資源參考區 --
 
     public Color m_Ambient;
