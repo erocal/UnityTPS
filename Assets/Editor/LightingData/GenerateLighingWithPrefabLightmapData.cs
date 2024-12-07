@@ -142,41 +142,43 @@ public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
     static void ApplyPrefabChanges(PrefabLightmapData instance)
     {
 #if UNITY_2018_3_OR_NEWER
-        var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
+        // 獲取子物件的最外層 Prefab 根節點
+        var rootPrefabInstance = PrefabUtility.GetOutermostPrefabInstanceRoot(instance.gameObject);
+        if (rootPrefabInstance != null)
+        {
+            // 檢查父物件是否有需要覆蓋的變更
+            var parentOverrides = PrefabUtility.GetObjectOverrides(rootPrefabInstance);
+            if (parentOverrides.Any())
+            {
+                PrefabUtility.ApplyPrefabInstance(rootPrefabInstance, InteractionMode.AutomatedAction);
+            }
 
+            // 獲取父物件的原始 Prefab 並執行保存
+            var rootPrefab = PrefabUtility.GetCorrespondingObjectFromSource(rootPrefabInstance);
+            if (rootPrefab != null)
+            {
+                var rootPath = AssetDatabase.GetAssetPath(rootPrefab);
+                PrefabUtility.SaveAsPrefabAssetAndConnect(rootPrefabInstance, rootPath, InteractionMode.AutomatedAction);
+            }
+        }
+
+        // 處理當前物件的 Prefab
+        var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
         if (targetPrefab != null)
         {
-            var root = PrefabUtility.GetOutermostPrefabInstanceRoot(instance.gameObject);
-            if (root != null)
-            {
-                var rootPrefab = PrefabUtility.GetCorrespondingObjectFromSource(instance.gameObject);
-                var rootPath = AssetDatabase.GetAssetPath(rootPrefab);
-
-                PrefabUtility.UnpackPrefabInstanceAndReturnNewOutermostRoots(root, PrefabUnpackMode.OutermostRoot);
-
-                try
-                {
-                    PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
-                }
-                catch { }
-                finally
-                {
-                    PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootPath, InteractionMode.AutomatedAction);
-                }
-            }
-            else
-            {
-                PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
-            }
+            // 確保當前物件的 Override 被應用
+            PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
         }
 #else
-        var targetPrefab = PrefabUtility.GetPrefabParent(instance.gameObject) as GameObject;
-        if (targetPrefab != null)
-        {
-            PrefabUtility.ReplacePrefab(instance.gameObject, targetPrefab);
-        }
+    // 對於舊版本 Unity
+    var targetPrefab = PrefabUtility.GetPrefabParent(instance.gameObject) as GameObject;
+    if (targetPrefab != null)
+    {
+        PrefabUtility.ReplacePrefab(instance.gameObject, targetPrefab);
+    }
 #endif
     }
+
 
     static void GenerateRendererInfo(
         GameObject root,
