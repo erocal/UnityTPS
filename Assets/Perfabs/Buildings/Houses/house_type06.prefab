@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 6538669099827703329}
   - component: {fileID: 6538669099831991873}
   - component: {fileID: 7474059568081833721}
+  - component: {fileID: 8176450535596501451}
   m_Layer: 10
   m_Name: house_type06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &6538669099829472449
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6538669099829899489}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14866902, y: -0.19461317, z: -0.116751626, w: 0.96249276}
+  m_LocalRotation: {x: 0.14866537, y: -0.19461504, z: -0.11674972, w: 0.96249324}
   m_LocalPosition: {x: -1.4400005, y: 11.760001, z: -22.62}
   m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -127,8 +128,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 6538669099827703329}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 0.3380961, y: 0.3380961, z: 0.57680434, w: -0.0013206879}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: 041f9ea35ea078b4a8089813b9c14ec8, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: f782f413469563b439773841a81c61c1, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: 5ec2f6162460ef04e816fcdbf3225086, type: 3}
   m_LightInfo: []
+--- !u!114 &8176450535596501451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538669099829899489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

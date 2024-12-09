@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 8101607124072223277}
   - component: {fileID: 8101607124076585549}
   - component: {fileID: 7709530496982410104}
+  - component: {fileID: 5845048744387663674}
   m_Layer: 10
   m_Name: house_type01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &8101607124074516685
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8101607124074482925}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.8952826, z: -0, w: 0.44549876}
+  m_LocalRotation: {x: 0, y: -0.8952806, z: 0, w: 0.44550267}
   m_LocalPosition: {x: -4.120001, y: 11.04, z: -22.639997}
   m_LocalScale: {x: 1.5000025, y: 1.5, z: 1.5000025}
   m_ConstrainProportionsScale: 0
@@ -127,8 +128,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 8101607124072223277}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 0.25963083, y: 0.25963083, z: 0.7235952, w: 0.42476708}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: 778c9ba13b2c8ee4b95fe12b4708dbd5, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: b373b5a603f7ff9409718988416c674d, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: e054e618ccdd0ca4ca468636f0d9c9b0, type: 3}
   m_LightInfo: []
+--- !u!114 &5845048744387663674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8101607124074482925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

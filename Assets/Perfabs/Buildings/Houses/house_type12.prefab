@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 7193953818242560158}
   - component: {fileID: 7193953818238451966}
   - component: {fileID: 608920943643301101}
+  - component: {fileID: 7410422562384583247}
   m_Layer: 10
   m_Name: house_type12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &7193953818240660094
 Transform:
@@ -28,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7193953818240560734}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21869458, y: 0.496693, z: -0.338463, w: 0.76870775}
+  m_LocalRotation: {x: -0.21869424, y: 0.49669105, z: -0.33846417, w: 0.7687085}
   m_LocalPosition: {x: 4.9100018, y: 11.3, z: -18.17}
-  m_LocalScale: {x: 1.5000001, y: 1.5000001, z: 1.5000002}
+  m_LocalScale: {x: 1.5000001, y: 1.5000001, z: 1.5000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,8 +128,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 7193953818242560158}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 0.3145761, y: 0.3145761, z: 0.35228682, w: -0.0012288128}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: 566158202a4b78e499aff1ddd5313579, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: def502825b5e3da488a2c658a0d8870d, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: 5e62acb963a62df448617c8398fdf7ee, type: 3}
   m_LightInfo: []
+--- !u!114 &7410422562384583247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193953818240560734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

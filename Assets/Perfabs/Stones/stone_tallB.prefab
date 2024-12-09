@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2568912343285403516}
   - component: {fileID: 2568912343286533564}
   - component: {fileID: 2568912343290838492}
-  - component: {fileID: 8128411141313290672}
+  - component: {fileID: 5638072282573299119}
+  - component: {fileID: 6766852358286269623}
   m_Layer: 10
   m_Name: stone_tallB
   m_TagString: Untagged
@@ -111,7 +112,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: dcd855af31809214f94374acbf59252c, type: 3}
---- !u!114 &8128411141313290672
+--- !u!114 &5638072282573299119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2568912343284536188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b4e6b564c599104ab9a1901e1f056b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 54e94aa4c1d1e5c4f87eb8418cfa05ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
@@ -129,3 +130,23 @@ MonoBehaviour:
   m_LightmapsDir: []
   m_ShadowMasks: []
   m_LightInfo: []
+--- !u!114 &6766852358286269623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568912343284536188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

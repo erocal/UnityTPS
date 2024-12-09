@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 464744408436925774}
   - component: {fileID: 464744408441017646}
   - component: {fileID: 1965217508344416292}
+  - component: {fileID: 5758789146517071184}
   m_Layer: 10
   m_Name: rock_tallJ
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 464744408434736014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b4e6b564c599104ab9a1901e1f056b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 54e94aa4c1d1e5c4f87eb8418cfa05ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
@@ -130,3 +131,23 @@ MonoBehaviour:
   m_LightmapsDir: []
   m_ShadowMasks: []
   m_LightInfo: []
+--- !u!114 &5758789146517071184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464744408434736014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

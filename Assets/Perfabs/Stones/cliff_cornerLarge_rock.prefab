@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 3506839843433341898}
   - component: {fileID: 3506839843434307850}
   - component: {fileID: 3506839843438334314}
-  - component: {fileID: 6907938109955936262}
+  - component: {fileID: 3303137074205282166}
+  - component: {fileID: 3067581758331422557}
   m_Layer: 10
   m_Name: cliff_cornerLarge_rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &3506839843436209130
 Transform:
@@ -28,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3506839843436249034}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.71228087, z: -0, w: 0.70189464}
+  m_LocalRotation: {x: 0, y: 0.7122828, z: 0, w: 0.7018926}
   m_LocalPosition: {x: -25.615452, y: 2.0534601, z: 25.109474}
-  m_LocalScale: {x: 8.630201, y: 9.179407, z: -24.083733}
+  m_LocalScale: {x: 25.879513, y: 10, z: 24.133137}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,7 +111,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 239f66f74f83bd541ad0456e370ba955, type: 3}
---- !u!114 &6907938109955936262
+--- !u!114 &3303137074205282166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,12 +120,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 3506839843436249034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b4e6b564c599104ab9a1901e1f056b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 54e94aa4c1d1e5c4f87eb8418cfa05ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 3506839843434307850}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 1.0131714, y: 1.0131714, z: -0.003957701, w: -0.003957701}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: d4b3ff16e2ece6646b51831a87453e75, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: 597bc555f40e18a4eb6a3566b5295916, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: d565d09e8fa13b84bb381c91f74d520a, type: 3}
   m_LightInfo: []
+--- !u!114 &3067581758331422557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506839843436249034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

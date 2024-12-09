@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 5699015300287804358}
   - component: {fileID: 5699015300291822502}
   - component: {fileID: 4407525876979077661}
+  - component: {fileID: 8590684392442540555}
   m_Layer: 10
   m_Name: house_type16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &5699015300285903142
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5699015300285541638}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.37318718, y: -0, z: -0, w: 0.9277561}
+  m_LocalRotation: {x: -0.37319016, y: 0, z: 0, w: 0.92775494}
   m_LocalPosition: {x: 10.139999, y: 12.05346, z: -28.590002}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -127,8 +128,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 5699015300287804358}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 0.26548237, y: 0.26548237, z: 0.5048223, w: 0.7001348}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: ec039defaaf21784fb96953bdcf01eb6, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: 11ee70ee4dfe2f646b4537de9e5e00aa, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: c20aae8e285f10a47b299da9469b4f4d, type: 3}
   m_LightInfo: []
+--- !u!114 &8590684392442540555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5699015300285541638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

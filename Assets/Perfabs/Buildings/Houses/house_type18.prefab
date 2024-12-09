@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 7813973547376353393}
   - component: {fileID: 7813973547380379665}
   - component: {fileID: 5134680571634044905}
+  - component: {fileID: 1715494355347266766}
   m_Layer: 10
   m_Name: house_type18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &7813973547374584465
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7813973547374100145}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5351548, y: 0.39018852, z: -0.3051533, w: 0.6842834}
+  m_LocalRotation: {x: 0.5351574, y: 0.3901881, z: -0.30515558, w: 0.6842806}
   m_LocalPosition: {x: 7.950001, y: 11.46, z: -17.130003}
   m_LocalScale: {x: 1.5000002, y: 1.5000001, z: 1.5000002}
   m_ConstrainProportionsScale: 0
@@ -127,8 +128,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 7813973547376353393}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 0.29126847, y: 0.29126847, z: -0.0011377675, w: 0.6844091}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: 19b782c36c766d841ac8b06ffd2f711d, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: 4eb9d687aa66da746b068736d3efd4f8, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: d7645b781f8ecf64c9a8c78e17348e5e, type: 3}
   m_LightInfo: []
+--- !u!114 &1715494355347266766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813973547374100145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

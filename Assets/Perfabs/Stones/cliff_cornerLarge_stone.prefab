@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 5593231748319235564}
   - component: {fileID: 5593231748323605900}
   - component: {fileID: 2171579857743465466}
+  - component: {fileID: 647992421691045820}
   m_Layer: 10
   m_Name: cliff_cornerLarge_stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 2147483639
   m_IsActive: 1
 --- !u!4 &5593231748321529612
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5593231748321497900}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9559418, z: -0, w: 0.2935565}
+  m_LocalRotation: {x: 0, y: 0.9559418, z: 0, w: 0.2935565}
   m_LocalPosition: {x: -5.8654537, y: 2.0534601, z: -47.570526}
   m_LocalScale: {x: 66.18059, y: 10, z: 51.622967}
   m_ConstrainProportionsScale: 0
@@ -123,8 +124,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   releaseShaders: 1
-  m_RendererInfo: []
-  m_Lightmaps: []
-  m_LightmapsDir: []
-  m_ShadowMasks: []
+  m_RendererInfo:
+  - renderer: {fileID: 5593231748319235564}
+    lightmapIndex: 0
+    lightmapOffsetScale: {x: 1.0301594, y: 1.0301594, z: -0.00402406, w: -0.00402406}
+  m_Lightmaps:
+  - {fileID: 2800000, guid: d94079bfeca191f40aa3c48ed0774012, type: 3}
+  m_LightmapsDir:
+  - {fileID: 2800000, guid: 85aff8ed0ee0aac46b1e8308945fd0ad, type: 3}
+  m_ShadowMasks:
+  - {fileID: 2800000, guid: d27ce2144c975c841b5d47a083e02fbf, type: 3}
   m_LightInfo: []
+--- !u!114 &647992421691045820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593231748321497900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
