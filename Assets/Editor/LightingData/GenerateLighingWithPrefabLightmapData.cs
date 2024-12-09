@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
-using static PrefabLightmapData;
 
 public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
 {
@@ -118,24 +117,32 @@ public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
                                 List<LightmapInfo> lightmapInfos,
                                 ConcurrentBag<PrefabLightmapData.LightInfo> lightsInfo)
     {
+        var prefabLightmaps = new List<Texture2D>();
+        var prefabLightmapsDir = new List<Texture2D>();
+        var prefabShadowMasks = new List<Texture2D>();
 
-        foreach (var light in data.Lights)
+        foreach (var rendererData in data.RendererData)
         {
-            var lightInfo = new PrefabLightmapData.LightInfo
+            int lightmapIndex = rendererData.LightmapIndex;
+            if (lightmapIndex >= 0 && lightmapIndex < lightmapInfos.Count)
             {
-                light = light,
-                lightmapBaketype = (int)light.lightmapBakeType
-            };
+                var lightmapInfo = lightmapInfos[lightmapIndex];
 
-#if UNITY_2020_1_OR_NEWER
-            lightInfo.mixedLightingMode = (int)Lightmapping.lightingSettings.mixedBakeMode;
-#elif UNITY_2018_1_OR_NEWER
-        lightInfo.mixedLightingMode = (int)LightmapEditorSettings.mixedBakeMode;
-#else
-        lightInfo.mixedLightingMode = (int)light.bakingOutput.lightmapBakeType;
-#endif
-            lightsInfo.Add(lightInfo);
+                if (!prefabLightmaps.Contains(lightmapInfo.LightmapColor))
+                    prefabLightmaps.Add(lightmapInfo.LightmapColor);
+
+                if (lightmapInfo.LightmapDir != null && !prefabLightmapsDir.Contains(lightmapInfo.LightmapDir))
+                    prefabLightmapsDir.Add(lightmapInfo.LightmapDir);
+
+                if (lightmapInfo.ShadowMask != null && !prefabShadowMasks.Contains(lightmapInfo.ShadowMask))
+                    prefabShadowMasks.Add(lightmapInfo.ShadowMask);
+            }
         }
+
+        // 更新 Prefab 的 Lightmap 資料
+        data.PrefabInstance.Lightmaps = prefabLightmaps.ToArray();
+        data.PrefabInstance.LightmapsDir = prefabLightmapsDir.ToArray();
+        data.PrefabInstance.ShadowMasks = prefabShadowMasks.ToArray();
     }
 
 

@@ -102,12 +102,30 @@ public class PrefabLightmapData : MonoBehaviour
 
     void Awake()
     {
+
+        //ResetResource();
+
         Init();
+
     }
 
     #endregion
 
     #region -- 方法參考區 --
+
+    /// <summary>
+    /// 重置資源參考
+    /// </summary>
+    private void ResetResource()
+    {
+
+        m_RendererInfo = null;
+        m_Lightmaps = null;
+        m_LightmapsDir = null;
+        m_ShadowMasks = null;
+        m_LightInfo = null;
+
+    }
 
     /// <summary>
     /// 初始化
@@ -118,63 +136,34 @@ public class PrefabLightmapData : MonoBehaviour
             return;
 
         var lightmaps = LightmapSettings.lightmaps;
-        int[] offsetsindexes = new int[m_Lightmaps.Length];
-        int counttotal = lightmaps.Length;
-        List<LightmapData> combinedLightmaps = new List<LightmapData>();
+        List<LightmapData> combinedLightmaps = new List<LightmapData>(lightmaps);
 
+        int[] offsetsindexes = new int[m_Lightmaps.Length];
         for (int i = 0; i < m_Lightmaps.Length; i++)
         {
-            bool exists = false;
-            for (int j = 0; j < lightmaps.Length; j++)
+            int existingIndex = combinedLightmaps.FindIndex(
+                lm => lm.lightmapColor == m_Lightmaps[i]
+                    && lm.lightmapDir == (i < m_LightmapsDir.Length ? m_LightmapsDir[i] : null)
+                    && lm.shadowMask == (i < m_ShadowMasks.Length ? m_ShadowMasks[i] : null));
+
+            if (existingIndex == -1)
             {
-
-                if (m_Lightmaps[i] == lightmaps[j].lightmapColor)
-                {
-                    exists = true;
-                    offsetsindexes[i] = j;
-
-                }
-
-            }
-            if (!exists)
-            {
-                offsetsindexes[i] = counttotal;
-                var newlightmapdata = new LightmapData
+                offsetsindexes[i] = combinedLightmaps.Count;
+                combinedLightmaps.Add(new LightmapData
                 {
                     lightmapColor = m_Lightmaps[i],
-                    lightmapDir = m_LightmapsDir.Length == m_Lightmaps.Length ? m_LightmapsDir[i] : default,
-                    shadowMask = m_ShadowMasks.Length == m_Lightmaps.Length ? m_ShadowMasks[i] : default,
-                };
-
-                combinedLightmaps.Add(newlightmapdata);
-
-                counttotal += 1;
-
-
+                    lightmapDir = i < m_LightmapsDir.Length ? m_LightmapsDir[i] : null,
+                    shadowMask = i < m_ShadowMasks.Length ? m_ShadowMasks[i] : null
+                });
             }
-
-        }
-
-        var combinedLightmaps2 = new LightmapData[counttotal];
-
-        lightmaps.CopyTo(combinedLightmaps2, 0);
-        combinedLightmaps.ToArray().CopyTo(combinedLightmaps2, lightmaps.Length);
-
-        bool directional = true;
-
-        foreach (Texture2D t in m_LightmapsDir)
-        {
-            if (t == null)
+            else
             {
-                directional = false;
-                break;
+                offsetsindexes[i] = existingIndex;
             }
         }
 
-        LightmapSettings.lightmapsMode = (m_LightmapsDir.Length == m_Lightmaps.Length && directional) ?
-            LightmapsMode.CombinedDirectional : LightmapsMode.NonDirectional;
+        LightmapSettings.lightmaps = combinedLightmaps.ToArray();
         ApplyRendererInfo(m_RendererInfo, offsetsindexes, m_LightInfo);
-        LightmapSettings.lightmaps = combinedLightmaps2;
     }
 
     /// <summary>
