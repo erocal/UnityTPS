@@ -1,225 +1,193 @@
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static PrefabLightmapData;
 
 public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
 {
-
-    // 定義 Lightmap 信息的結構
-    class LightmapInfo
-    {
-        public Texture2D LightmapColor { get; set; }
-        public Texture2D LightmapDir { get; set; }
-        public Texture2D ShadowMask { get; set; }
-    }
-
-    // 存儲 renderer 數據的結構
-    class RendererData
-    {
-        public MeshRenderer Renderer { get; set; }
-        public int LightmapIndex { get; set; }
-        public Vector4 LightmapScaleOffset { get; set; }
-    }
-
-    // 存儲 Prefab 資料的結構
-    class PrefabData
-    {
-        public PrefabLightmapData PrefabInstance { get; set; }
-        public List<RendererData> RendererData { get; set; }
-        public List<Light> Lights { get; set; }
-    }
 
     [MenuItem("Assets/Generate Lighting With Prefab")]
     public static void GenerateLightmapInfo()
     {
         Lightmapping.Bake();
 
-        // 主線程收集 LightmapSettings 數據
-        LightmapData[] lightmaps = LightmapSettings.lightmaps;
-        var lightmapInfos = new List<LightmapInfo>();
-
-        foreach (var lightmap in lightmaps)
-        {
-            lightmapInfos.Add(new LightmapInfo
-            {
-                LightmapColor = lightmap.lightmapColor,
-                LightmapDir = lightmap.lightmapDir,
-                ShadowMask = lightmap.shadowMask
-            });
-        }
-
-        var prefabs = FindObjectsByType<PrefabLightmapData>(FindObjectsSortMode.InstanceID);
-        var dataList = new List<PrefabData>();
+        PrefabLightmapData[] prefabs = FindObjectsByType<PrefabLightmapData>(FindObjectsSortMode.InstanceID);
 
         foreach (var instance in prefabs)
         {
 
-            var renderers = instance.gameObject.GetComponentsInChildren<MeshRenderer>();
-            var lights = instance.gameObject.GetComponentsInChildren<Light>(true);
+            instance.ResetResource();
 
-            var rendererData = renderers
-                .Select(renderer => new RendererData
-                {
-                    Renderer = renderer,
-                    LightmapIndex = renderer.lightmapIndex,
-                    LightmapScaleOffset = renderer.lightmapScaleOffset
-                })
-                .ToList();
+            var gameObject = instance.gameObject;
+            var rendererInfos = new List<RendererInfo>();
+            var lightmaps = new List<Texture2D>();
+            var lightmapsDir = new List<Texture2D>();
+            var shadowMasks = new List<Texture2D>();
+            var lightsInfos = new List<LightInfo>();
 
-            dataList.Add(new PrefabData
-            {
-                PrefabInstance = instance,
-                RendererData = rendererData,
-                Lights = lights.ToList()
-            });
-
-        }
-
-        // 並行處理數據
-        var lightmapsDir = new ConcurrentBag<Texture2D>();
-        var shadowMasks = new ConcurrentBag<Texture2D>();
-        var lightsInfos = new ConcurrentBag<PrefabLightmapData.LightInfo>();
-
-        Parallel.ForEach(dataList, data =>
-        {
-            ProcessLightmapData(data, lightmapInfos, lightsInfos);
-        });
-
-        // 在主線程應用數據
-        foreach (var data in dataList)
-        {
-
-            var instance = data.PrefabInstance;
-
-            var rendererInfos = new List<PrefabLightmapData.RendererInfo>();
-            var lightmap = new HashSet<Texture2D>();
-
-            // 優化數據處理，避免重複添加
-            GenerateRendererInfo(instance.gameObject, rendererInfos, lightmap);
+            GenerateLightmapInfo(gameObject, rendererInfos, lightmaps, lightmapsDir, shadowMasks, lightsInfos);
 
             instance.RendererInformation = rendererInfos.ToArray();
-            instance.Lightmaps = lightmapInfos.Select(info => info.LightmapColor).ToArray();
-            instance.LightmapsDir = lightmapInfos.Select(info => info.LightmapDir).ToArray();
-            instance.ShadowMasks = lightmapInfos.Select(info => info.ShadowMask).ToArray();
+            instance.Lightmaps = lightmaps.ToArray();
+            instance.LightmapsDir = lightmapsDir.ToArray();
+            instance.ShadowMasks = shadowMasks.ToArray();
             instance.LightInformation = lightsInfos.ToArray();
 
-            ApplyPrefabChanges(instance);
-        }
+            var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
+            OverridePrefabs(gameObject);
 
-        Debug.Log("Lighting generation completed successfully.");
+        }
 
     }
 
-    static void ProcessLightmapData(PrefabData data,
-                                List<LightmapInfo> lightmapInfos,
-                                ConcurrentBag<PrefabLightmapData.LightInfo> lightsInfo)
-    {
-        var prefabLightmaps = new List<Texture2D>();
-        var prefabLightmapsDir = new List<Texture2D>();
-        var prefabShadowMasks = new List<Texture2D>();
-
-        foreach (var rendererData in data.RendererData)
-        {
-            int lightmapIndex = rendererData.LightmapIndex;
-            if (lightmapIndex >= 0 && lightmapIndex < lightmapInfos.Count)
-            {
-                var lightmapInfo = lightmapInfos[lightmapIndex];
-
-                if (!prefabLightmaps.Contains(lightmapInfo.LightmapColor))
-                    prefabLightmaps.Add(lightmapInfo.LightmapColor);
-
-                if (lightmapInfo.LightmapDir != null && !prefabLightmapsDir.Contains(lightmapInfo.LightmapDir))
-                    prefabLightmapsDir.Add(lightmapInfo.LightmapDir);
-
-                if (lightmapInfo.ShadowMask != null && !prefabShadowMasks.Contains(lightmapInfo.ShadowMask))
-                    prefabShadowMasks.Add(lightmapInfo.ShadowMask);
-            }
-        }
-
-        // 更新 Prefab 的 Lightmap 資料
-        data.PrefabInstance.Lightmaps = prefabLightmaps.ToArray();
-        data.PrefabInstance.LightmapsDir = prefabLightmapsDir.ToArray();
-        data.PrefabInstance.ShadowMasks = prefabShadowMasks.ToArray();
-    }
-
-
-    static void ApplyPrefabChanges(PrefabLightmapData instance)
+    /// <summary>
+    /// 覆寫物件(最外層)
+    /// </summary>
+    /// <param name="gameObject"></param>
+    private static void OverrideRootPrefab(GameObject gameObject)
     {
 #if UNITY_2018_3_OR_NEWER
-        // 獲取子物件的最外層 Prefab 根節點
-        var rootPrefabInstance = PrefabUtility.GetOutermostPrefabInstanceRoot(instance.gameObject);
-        if (rootPrefabInstance != null)
+        // 確認是否為Prefab的一部分
+        var prefabStatus = PrefabUtility.GetPrefabInstanceStatus(gameObject);
+        if (prefabStatus == PrefabInstanceStatus.Connected)
         {
-            // 檢查父物件是否有需要覆蓋的變更
-            var parentOverrides = PrefabUtility.GetObjectOverrides(rootPrefabInstance);
-            if (parentOverrides.Any())
+            // 取得最外層的Prefab根節點
+            GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(gameObject);
+            if (root != null)
             {
-                PrefabUtility.ApplyPrefabInstance(rootPrefabInstance, InteractionMode.AutomatedAction);
+                // 檢查是否有變更需要應用
+                if (PrefabUtility.HasPrefabInstanceAnyOverrides(root, false))
+                {
+                    // Apply變更到最外層Prefab
+                    PrefabUtility.ApplyPrefabInstance(root, InteractionMode.AutomatedAction);
+                    Debug.Log($"Applied overrides for root Prefab: {root.name}");
+                }
             }
-
-            // 獲取父物件的原始 Prefab 並執行保存
-            var rootPrefab = PrefabUtility.GetCorrespondingObjectFromSource(rootPrefabInstance);
-            if (rootPrefab != null)
+            else
             {
-                var rootPath = AssetDatabase.GetAssetPath(rootPrefab);
-                PrefabUtility.SaveAsPrefabAssetAndConnect(rootPrefabInstance, rootPath, InteractionMode.AutomatedAction);
+                Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
             }
         }
-
-        // 處理當前物件的 Prefab
-        var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
-        if (targetPrefab != null)
+        else
         {
-            // 確保當前物件的 Override 被應用
-            PrefabUtility.ApplyPrefabInstance(instance.gameObject, InteractionMode.AutomatedAction);
+            Debug.LogWarning($"{gameObject.name} is not a connected Prefab instance.");
         }
 #else
-    // 對於舊版本 Unity
-    var targetPrefab = PrefabUtility.GetPrefabParent(instance.gameObject) as GameObject;
+    var targetPrefab = PrefabUtility.GetPrefabParent(gameObject) as GameObject;
     if (targetPrefab != null)
     {
-        PrefabUtility.ReplacePrefab(instance.gameObject, targetPrefab);
+        PrefabUtility.ReplacePrefab(gameObject, targetPrefab);
+        Debug.Log($"Replaced Prefab: {targetPrefab.name}");
     }
 #endif
     }
 
+    /// <summary>
+    /// 覆寫物件
+    /// </summary>
+    public static void OverridePrefabs(GameObject gameObject)
+    {
+#if UNITY_2018_3_OR_NEWER
+        // 確保物件為有效的Prefab實例
+        GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(gameObject);
+        if (root == null)
+        {
+            Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
+            return;
+        }
 
-    static void GenerateRendererInfo(
-        GameObject root,
-        List<PrefabLightmapData.RendererInfo> rendererInfos,
-        HashSet<Texture2D> lightmaps)
+        // 獲取Prefab原始資產
+        GameObject sourcePrefab = PrefabUtility.GetCorrespondingObjectFromSource(root);
+        if (sourcePrefab == null)
+        {
+            Debug.LogError("Failed to find corresponding Prefab source.");
+            return;
+        }
+
+        string prefabPath = AssetDatabase.GetAssetPath(sourcePrefab);
+        if (string.IsNullOrEmpty(prefabPath))
+        {
+            Debug.LogError("Failed to get Prefab path.");
+            return;
+        }
+
+        // 應用變更並保存
+        try
+        {
+            PrefabUtility.SaveAsPrefabAssetAndConnect(root, prefabPath, InteractionMode.AutomatedAction);
+            Debug.Log($"Successfully updated Prefab at: {prefabPath}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to save Prefab: {ex.Message}");
+        }
+#else
+        // Unity 2018.3 以下版本的邏輯
+        var targetPrefab = PrefabUtility.GetPrefabParent(gameObject) as GameObject;
+        if (targetPrefab != null)
+        {
+            PrefabUtility.ReplacePrefab(gameObject, targetPrefab, ReplacePrefabOptions.ConnectToPrefab);
+            Debug.Log($"Replaced Prefab: {targetPrefab.name}");
+        }
+        else
+        {
+            Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
+        }
+#endif
+    }
+
+    static void GenerateLightmapInfo(GameObject root, List<RendererInfo> rendererInfos, List<Texture2D> lightmaps, List<Texture2D> lightmapsDir, List<Texture2D> shadowMasks, List<LightInfo> lightsInfo)
     {
         var renderers = root.GetComponentsInChildren<MeshRenderer>();
-        foreach (var renderer in renderers)
+        foreach (MeshRenderer renderer in renderers)
         {
-            if (renderer.lightmapIndex != -1 && renderer.lightmapScaleOffset != Vector4.zero)
+            if (renderer.lightmapIndex != -1)
             {
-                PrefabLightmapData.RendererInfo info = new PrefabLightmapData.RendererInfo
+                RendererInfo info = new RendererInfo();
+                info.renderer = renderer;
+
+                if (renderer.lightmapScaleOffset != Vector4.zero)
                 {
-                    renderer = renderer,
-                    lightmapOffsetScale = renderer.lightmapScaleOffset
-                };
+                    //1ibrium's pointed out this issue : https://docs.unity3d.com/ScriptReference/Renderer-lightmapIndex.html
+                    if (renderer.lightmapIndex < 0 || renderer.lightmapIndex == 0xFFFE) continue;
+                    info.lightmapOffsetScale = renderer.lightmapScaleOffset;
 
-                if (renderer.lightmapIndex >= 0 && renderer.lightmapIndex != 0xFFFE)
-                {
+                    Texture2D lightmap = LightmapSettings.lightmaps[renderer.lightmapIndex].lightmapColor;
+                    Texture2D lightmapDir = LightmapSettings.lightmaps[renderer.lightmapIndex].lightmapDir;
+                    Texture2D shadowMask = LightmapSettings.lightmaps[renderer.lightmapIndex].shadowMask;
 
-                    var lightmapData = LightmapSettings.lightmaps[renderer.lightmapIndex];
-                    info.lightmapIndex = AddLightmap(lightmapData.lightmapColor, lightmaps);
+                    info.lightmapIndex = lightmaps.IndexOf(lightmap);
+                    if (info.lightmapIndex == -1)
+                    {
+                        info.lightmapIndex = lightmaps.Count;
+                        lightmaps.Add(lightmap);
+                        lightmapsDir.Add(lightmapDir);
+                        shadowMasks.Add(shadowMask);
+                    }
 
+                    rendererInfos.Add(info);
                 }
 
-                rendererInfos.Add(info);
             }
+        }
+
+        var lights = root.GetComponentsInChildren<Light>(true);
+
+        foreach (Light light in lights)
+        {
+            LightInfo lightInfo = new LightInfo();
+            lightInfo.light = light;
+            lightInfo.lightmapBaketype = (int)light.lightmapBakeType;
+#if UNITY_2020_1_OR_NEWER
+            lightInfo.mixedLightingMode = (int)UnityEditor.Lightmapping.lightingSettings.mixedBakeMode;
+#elif UNITY_2018_1_OR_NEWER
+            lightInfo.mixedLightingMode = (int)UnityEditor.LightmapEditorSettings.mixedBakeMode;
+#else
+            lightInfo.mixedLightingMode = (int)light.bakingOutput.lightmapBakeType;
+#endif
+            lightsInfo.Add(lightInfo);
+
         }
     }
 
-    static int AddLightmap(Texture2D lightmap, HashSet<Texture2D> lightmaps)
-    {
-        if (lightmap == null || lightmaps.Contains(lightmap)) return -1;
-        lightmaps.Add(lightmap);
-        return lightmaps.Count - 1;
-    }
 }

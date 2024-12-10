@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6113679485711404641}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
@@ -331,6 +331,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 566158202a4b78e499aff1ddd5313579, type: 3}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 5e62acb963a62df448617c8398fdf7ee, type: 3}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: def502825b5e3da488a2c658a0d8870d, type: 3}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.6866486
+      objectReference: {fileID: 0}
+    - target: {fileID: 114848013507108304, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.75110173
+      objectReference: {fileID: 0}
     - target: {fileID: 6240878014538322771, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,6 +450,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: caa30b9075eaf5b4bb3719744cf47607, type: 3}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ec998751d2a1d6b45b95bb08060d05e7, type: 3}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: cf34c50fbd0939f48beaccbade9a9547, type: 3}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.6863322
+      objectReference: {fileID: 0}
     - target: {fileID: 9085703082669218455, guid: 0a6b4595497f2c34689c28990fb25d30,
         type: 3}
       propertyPath: m_Name
@@ -534,6 +619,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: driveway_long
       objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: d1edc84aa0ee7c04fb869306c28a78d4, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 05da035777462994a8db7898774bd17c, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: e376eb32c6ed7b74d96aa2e69b67e0e6, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.001623645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.x
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.y
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.72298574
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -607,6 +747,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.00094410125
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.7236653
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -682,6 +852,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: driveway_long
       objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.24251698
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.x
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.y
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.72298574
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -755,6 +965,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 0018c4b5d668d244da038b401cf08a1b, type: 3}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b733135306803be4e82abebe0e8e46c8, type: 3}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ce9bc9981352ad74ba7b6482cbb6c622, type: 3}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.7353136
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.48921987
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -830,6 +1085,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type07
       objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ec039defaaf21784fb96953bdcf01eb6, type: 3}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: c20aae8e285f10a47b299da9469b4f4d, type: 3}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 11ee70ee4dfe2f646b4537de9e5e00aa, type: 3}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.70015734
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.50484484
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -904,6 +1204,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type06
       objectReference: {fileID: 0}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 65733276e86e87c4c9b6b6af2a7d856e, type: 3}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: a62e808f31424024eb09ea1775fdb2ec, type: 3}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 52ca997cbe347a4458d7e559aad35726, type: 3}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.57094496
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.39321056
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -923,6 +1268,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 981b2a003a976ec41931e844a78f7a78, type: 3}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: fce31e10c7e1bca499e0fc24b0239399, type: 3}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4b243a0942c745c4eb36ea322da57567, type: 3}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.28978682
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.6862712
+      objectReference: {fileID: 0}
     - target: {fileID: 7193953818240560734, guid: b84c3a9e65f0b824294ad1e6985084a6,
         type: 3}
       propertyPath: m_Name
@@ -1052,6 +1442,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: driveway_long
       objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 0018c4b5d668d244da038b401cf08a1b, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b733135306803be4e82abebe0e8e46c8, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ce9bc9981352ad74ba7b6482cbb6c622, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.001623645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.x
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.y
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.74056387
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1071,6 +1516,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679486446042615}
     m_Modifications:
+    - target: {fileID: 2171579857743465466, guid: deff414d72e58e8498134596352b313f,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171579857743465466, guid: deff414d72e58e8498134596352b313f,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171579857743465466, guid: deff414d72e58e8498134596352b313f,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171579857743465466, guid: deff414d72e58e8498134596352b313f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5593231748321497900, guid: deff414d72e58e8498134596352b313f,
         type: 3}
       propertyPath: m_Name
@@ -1145,6 +1610,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: e2d64857f3cb46e4da29c220f548ad7d, type: 3}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 6b7f0a92abc25114e951cf2a08d0cc59, type: 3}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 783b46dee464a78468021b08d955b48d, type: 3}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.73529106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407525876979077661, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: -0.0010370405
+      objectReference: {fileID: 0}
     - target: {fileID: 5699015300285541638, guid: 265d897c89fb6cb48b075c0899cc2948,
         type: 3}
       propertyPath: m_Name
@@ -1219,6 +1729,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: cc0ca9bb0dea2aa42bf25a7fea7bc028, type: 3}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 89eb6f66835f15144893117d0add2870, type: 3}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 07b97a4f29188cd4e878d5b1727f8fdc, type: 3}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.72556335
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.485329
+      objectReference: {fileID: 0}
     - target: {fileID: 4740634213585827619, guid: 69ab9ea8c098c4b41a7a329b144453ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1293,6 +1848,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.64617956
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1411,6 +1991,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 40.396004
       objectReference: {fileID: 0}
+    - target: {fileID: 4053982142733040770, guid: d2debcb3c417b07419457484a835eb7d,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053982142733040770, guid: d2debcb3c417b07419457484a835eb7d,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053982142733040770, guid: d2debcb3c417b07419457484a835eb7d,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053982142733040770, guid: d2debcb3c417b07419457484a835eb7d,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1430,6 +2030,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: fa8e04f960ebfc648a087b55a062f05e, type: 3}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b85c3ca396939f04196dd2e740e86d9f, type: 3}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 9f0d44c1140c7ba49bed503dbdeda455, type: 3}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.0010236495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.7235857
+      objectReference: {fileID: 0}
     - target: {fileID: 7921162285901062147, guid: fdf6d0db86a460842a5446760e6b1098,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1559,6 +2204,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1578,6 +2243,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 66c6444bef73d194bbcb1cb0c2e87c06, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ac93efaa63e5ad24cbe3350165ad9a6c, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 6cb372702408a044b84048149ba808c8, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.56024206
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.9059452
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1707,6 +2417,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type13
       objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1726,6 +2456,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.7216421
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.24312644
+      objectReference: {fileID: 0}
     - target: {fileID: 8101607124074482925, guid: fdea16c61d021c646a7393785ddfb5a3,
         type: 3}
       propertyPath: m_Name
@@ -1855,6 +2615,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: driveway_long
       objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 67f8dd860fb7c8d41b0fc1721c3b0589, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: a2c8c72dcbaec184197251192e80849e, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 34f835310668891488573013e3d20b34, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.49056387
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.x
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.y
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.70931387
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1928,6 +2743,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: dcf4fa7f01225cf48a4322129a8fa075, type: 3}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: e2ece9ba9959eae468c8248e456d6a57, type: 3}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 9a5574b7374aa0e4ebf9571a7f368e83, type: 3}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.7078559
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: -0.0011285206
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2003,6 +2863,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type14
       objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 761cd60731236af4a837cf8110b0599c, type: 3}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 401dd66ee755ebe4391471afc697f149, type: 3}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4cca3d720cbb9764f9e0dedd091917cd, type: 3}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.49107987
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.3445955
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2022,6 +2927,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4f71e068c9b1db64fa4f8da87545b889, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 3259bc7b65fe1cf4388be73f823a27fd, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 9136c31ef3510e14393bdf928a02d1d2, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.89422643
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.81610143
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2096,6 +3046,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 5134680571634044905, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134680571634044905, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134680571634044905, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134680571634044905, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134680571634044905, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.3015966
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134680571634044905, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.6863622
+      objectReference: {fileID: 0}
     - target: {fileID: 7813973547374100145, guid: e38cceaad7140e546af538add9ef2932,
         type: 3}
       propertyPath: m_Name
@@ -2225,6 +3205,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 58fe589f83cb5bd48ad70c59c47ba12a, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 3b206a5fd2242b142ab9ccb535d548f6, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 3f2229954f4f38a49b213b15d3c753f6, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.0019362284
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2298,6 +3318,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 44dfab47c8cdf6441b6bdfd757178bbb, type: 3}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b340bd5e86cac2140af409a2f94c116b, type: 3}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 3dba00c9889a204428582c6f2d6de9f9, type: 3}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.49092823
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2373,6 +3433,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.72265625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2392,6 +3482,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894337987059767678, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9085703082669218455, guid: 0a6b4595497f2c34689c28990fb25d30,
         type: 3}
       propertyPath: m_Name
@@ -2521,6 +3631,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1569425933850774996, guid: b5272922ea5ed1c46808b1a7d66c84e9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569425933850774996, guid: b5272922ea5ed1c46808b1a7d66c84e9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569425933850774996, guid: b5272922ea5ed1c46808b1a7d66c84e9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569425933850774996, guid: b5272922ea5ed1c46808b1a7d66c84e9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2595,6 +3725,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type14
       objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ad3fb4207a41023409c287e68e987048, type: 3}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 9df2f5150e202b245b938456c9ea5ae0, type: 3}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: bd78e0581eac49f4f83dba2f3f02bae7, type: 3}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.0011076294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.65318924
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2614,6 +3789,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.6298602
+      objectReference: {fileID: 0}
     - target: {fileID: 4740634213585827619, guid: 69ab9ea8c098c4b41a7a329b144453ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2743,6 +3943,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type02
       objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 0018c4b5d668d244da038b401cf08a1b, type: 3}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b733135306803be4e82abebe0e8e46c8, type: 3}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ce9bc9981352ad74ba7b6482cbb6c622, type: 3}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.73538405
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: -0.00094410125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2816,6 +4061,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: -0.00094410125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2891,6 +4161,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type03
       objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ec039defaaf21784fb96953bdcf01eb6, type: 3}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: c20aae8e285f10a47b299da9469b4f4d, type: 3}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 11ee70ee4dfe2f646b4537de9e5e00aa, type: 3}
+    - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.674522
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2965,6 +4275,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type13
       objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 6971a66dc9f9867458b7890f1bac7610, type: 3}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b18c3ea6f0c9dd64abcd3de9bfe6cad5, type: 3}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 182ba771aab5a3547818800c021c0581, type: 3}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.5711526
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.33482447
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2984,6 +4339,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608920943643301101, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7193953818240560734, guid: b84c3a9e65f0b824294ad1e6985084a6,
         type: 3}
       propertyPath: m_Name
@@ -3058,6 +4433,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: d4b3ff16e2ece6646b51831a87453e75, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: d565d09e8fa13b84bb381c91f74d520a, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 597bc555f40e18a4eb6a3566b5295916, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.8766483
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.24383584
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3132,6 +4552,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 66c6444bef73d194bbcb1cb0c2e87c06, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: ac93efaa63e5ad24cbe3350165ad9a6c, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 6cb372702408a044b84048149ba808c8, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.00030479545
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.9059452
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3261,6 +4726,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type14
       objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3280,6 +4765,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 738b40a793c177e4f9a2b014f9f76abe, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 993c3d7c4d5144c41b2ac0be168df0dc, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: eb49cf7396b575f4eb8a78723e84cd00, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.24969521
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.8922733
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3409,6 +4939,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type05
       objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3428,6 +4978,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703649591790555798, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.5341326
+      objectReference: {fileID: 0}
     - target: {fileID: 7921162285901062147, guid: fdf6d0db86a460842a5446760e6b1098,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3502,6 +5077,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.91766393
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: -0.00030479545
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3576,6 +5181,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: d00e7b34585126842bf539fa0871f09c, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: b38d9be39eccf684dadf83077f639a9d, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 1ddd99f52bca0a748853dd8405bdf109, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.88641393
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.24578896
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3650,6 +5300,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: cc0ca9bb0dea2aa42bf25a7fea7bc028, type: 3}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 89eb6f66835f15144893117d0add2870, type: 3}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 07b97a4f29188cd4e878d5b1727f8fdc, type: 3}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.20993838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060592490274315218, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.7314227
+      objectReference: {fileID: 0}
     - target: {fileID: 4740634213585827619, guid: 69ab9ea8c098c4b41a7a329b144453ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3724,6 +5419,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 761cd60731236af4a837cf8110b0599c, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 401dd66ee755ebe4391471afc697f149, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4cca3d720cbb9764f9e0dedd091917cd, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.29071084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.73797643
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3853,6 +5593,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 67c3ea685a7a9794f93b7554b0782a3b, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 8b822d87de322794c8a7cb7c487bf36d, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 90f500af3ddd0c24ebc88b3b2bb8dddc, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.49025127
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.42579815
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3872,6 +5657,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 3429276872791680743, guid: 0d03e433793a7a14ba20f03ed433ee6d,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429276872791680743, guid: 0d03e433793a7a14ba20f03ed433ee6d,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429276872791680743, guid: 0d03e433793a7a14ba20f03ed433ee6d,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429276872791680743, guid: 0d03e433793a7a14ba20f03ed433ee6d,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3629430451972775826, guid: 0d03e433793a7a14ba20f03ed433ee6d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4001,6 +5806,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type13
       objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.0011130137
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4074,6 +5904,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wallPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 53eb271ac469f564b8cc7c1c502f9893, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 5a1ec65f6de4bf941b242928867e03cc, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: aab83e3a4c9c12846b3141d3b982af1c, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.0019362284
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4149,6 +6019,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: cc0ca9bb0dea2aa42bf25a7fea7bc028, type: 3}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 89eb6f66835f15144893117d0add2870, type: 3}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 07b97a4f29188cd4e878d5b1727f8fdc, type: 3}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.7265625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407908968409547397, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4168,6 +6083,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485251902029}
     m_Modifications:
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 566158202a4b78e499aff1ddd5313579, type: 3}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 5e62acb963a62df448617c8398fdf7ee, type: 3}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: def502825b5e3da488a2c658a0d8870d, type: 3}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.6864858
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709530496982410104, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.49117333
+      objectReference: {fileID: 0}
     - target: {fileID: 8101607124074482925, guid: fdea16c61d021c646a7393785ddfb5a3,
         type: 3}
       propertyPath: m_Name
@@ -4297,6 +6257,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type08
       objectReference: {fileID: 0}
+    - target: {fileID: 6647155533803351535, guid: c2853374668a9164aaba706c005aa086,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647155533803351535, guid: c2853374668a9164aaba706c005aa086,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647155533803351535, guid: c2853374668a9164aaba706c005aa086,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647155533803351535, guid: c2853374668a9164aaba706c005aa086,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4371,6 +6351,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 761cd60731236af4a837cf8110b0599c, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 401dd66ee755ebe4391471afc697f149, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4cca3d720cbb9764f9e0dedd091917cd, type: 3}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.0019362284
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.12111065
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4390,6 +6415,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 761cd60731236af4a837cf8110b0599c, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 401dd66ee755ebe4391471afc697f149, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4cca3d720cbb9764f9e0dedd091917cd, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.124695204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: -0.00030479545
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4519,6 +6589,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: driveway_long
       objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 761cd60731236af4a837cf8110b0599c, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 401dd66ee755ebe4391471afc697f149, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4cca3d720cbb9764f9e0dedd091917cd, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.49056387
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.x
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.y
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.12142323
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4538,6 +6663,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6113679485659221347}
     m_Modifications:
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 761cd60731236af4a837cf8110b0599c, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 401dd66ee755ebe4391471afc697f149, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 4cca3d720cbb9764f9e0dedd091917cd, type: 3}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: 0.077820204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116722346339897380, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.9059452
+      objectReference: {fileID: 0}
     - target: {fileID: 5226188125100914546, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4666,6 +6836,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Lightmaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_ShadowMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_Lightmaps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: e2d64857f3cb46e4da29c220f548ad7d, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_LightmapsDir.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_ShadowMasks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 6b7f0a92abc25114e951cf2a08d0cc59, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: 'm_LightmapsDir.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2800000, guid: 783b46dee464a78468021b08d955b48d, type: 3}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.w
+      value: -0.001623645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.x
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.y
+      value: 0.4156531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_RendererInfo.Array.data[0].lightmapOffsetScale.z
+      value: 0.74056387
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

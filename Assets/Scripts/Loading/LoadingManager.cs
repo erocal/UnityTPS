@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,13 +12,27 @@ public class LoadingManager : MonoBehaviour
     [Header("等待圖"), Tooltip("切換場景時的等待畫面")]
     [SerializeField] Image loadingImage;
 
+    [Header("Btn")]
+    [SerializeField] Button btn_Start;
+    [SerializeField] Button btn_Quit;
+
+    [Header("GameObject")]
+    [SerializeField] GameObject startGameUI;
+
+    [Header("CanvasGroup")]
+    [SerializeField] CanvasGroup canvasGroup_LoadingUI;
+
     #endregion
 
     #region -- 參數參考區 --
 
-    InputController input;
+    #region -- 常數 --
 
-    int sceneIndex = -1;
+    private const int FIVE_THOUSAND_MILLISECONDS = 5000;
+
+    #endregion
+
+    InputController input;
 
     #endregion
 
@@ -24,21 +40,8 @@ public class LoadingManager : MonoBehaviour
 
     void Awake()
     {
-        input = GameManagerSingleton.Instance.InputController;
 
-        // 避免切換場景破壞
-        DontDestroyOnLoad(input);
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    private void Update()
-    {
-
-        // 如果已在切換的場景，且Loading圖還在啟動
-        if (SceneManager.GetActiveScene().buildIndex != sceneIndex && loadingImage.IsActive())
-        {
-            HideLoadingImage();
-        }
+        Init();
 
     }
 
@@ -46,12 +49,25 @@ public class LoadingManager : MonoBehaviour
 
     #region -- 方法參考區 --
 
-    private void HideLoadingImage()
+    /// <summary>
+    /// 初始化
+    /// </summary>
+    private void Init()
     {
-        if (loadingImage != null)
-        {
-            loadingImage.gameObject.SetActive(false);
-        }
+
+        input = GameManagerSingleton.Instance.InputController;
+
+        // 避免切換場景破壞
+        DontDestroyOnLoad(input);
+        DontDestroyOnLoad(this.gameObject);
+
+        #region -- btn --
+
+        btn_Start.onClick.AddListener(() => _ = onStartGame());
+        btn_Quit.onClick.AddListener(onQuitGame);
+
+        #endregion
+
     }
 
     #region -- onClick --
@@ -59,37 +75,41 @@ public class LoadingManager : MonoBehaviour
     /// <summary>
     /// Button-Start 加載下一張地圖
     /// </summary>
-    public async void onStartGame()
+    private async Task onStartGame()
     {
         // 加載Game
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             input.CursorStateLocked();
-            ShowLoadingImage(0);
+
+            Destroy(startGameUI);
 
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
+            await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+
+            canvasGroup_LoadingUI.SetEnable(false);
+
         }
     }
-
-    #endregion
 
     /// <summary>
-    /// 在切換場景時，將等待畫面顯示出來
+    /// 離開遊戲
     /// </summary>
-    /// <param name="sceneIndex">切換前的場景索引</param>
-    public void ShowLoadingImage(int sceneIndex)
+    private void onQuitGame()
     {
-        if (loadingImage != null)
+        Application.Quit();
+
+#if UNITY_EDITOR
+        if (EditorApplication.isPlaying)
         {
-            loadingImage.gameObject.SetActive(true);
-
-            // 將初始介面關閉
-            GameObject.Find("UI").SetActive(false);
+            EditorApplication.ExitPlaymode();
         }
-
-        this.sceneIndex = sceneIndex;
+#endif
     }
 
     #endregion
+
+    #endregion
+
 }

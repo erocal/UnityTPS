@@ -30,6 +30,9 @@ public class FPSDisplay : MonoBehaviour
 
     void Update()
     {
+
+        if(Time.timeScale != 1) return;
+
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
 
         float msec = deltaTime * 1000.0f;
