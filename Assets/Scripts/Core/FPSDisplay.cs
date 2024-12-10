@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class FPSDisplay : MonoBehaviour
 {
 
-    #region -- ¸ê·½°Ñ¦Ò°Ï --
+    #region -- è³‡æºåƒè€ƒå€ --
 
     [Header("Text")]
     [SerializeField, Tooltip("FPS")] private Text Text_FPS;
@@ -12,19 +12,17 @@ public class FPSDisplay : MonoBehaviour
 
     #endregion
 
-    #region -- ÅÜ¼Æ°Ñ¦Ò°Ï --
+    #region -- è®Šæ•¸åƒè€ƒå€ --
 
     float deltaTime = 0.0f;
-    float fps = 0.0f;
-    float msec = 0.0f;
 
     #endregion
 
-    #region -- ªì©l¤Æ/¹B§@ --
+    #region -- åˆå§‹åŒ–/é‹ä½œ --
 
     void Awake()
     {
-        // ¼Ğ°O¦¹ª«¥ó¤£·|¦b³õ´º¤Á´«®É³Q¨ø¸ü
+        // æ¨™è¨˜æ­¤ç‰©ä»¶ä¸æœƒåœ¨å ´æ™¯åˆ‡æ›æ™‚è¢«å¸è¼‰
         DontDestroyOnLoad(gameObject);
     }
 
@@ -42,4 +40,5 @@ public class FPSDisplay : MonoBehaviour
     }
 
     #endregion
+
 }

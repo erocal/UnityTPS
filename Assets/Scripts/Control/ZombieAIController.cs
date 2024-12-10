@@ -9,6 +9,8 @@ public class ZombieAIController : AIController
     Fighter fighter;
     ZombieAudio zombieAudio;
 
+    bool isDead;
+
     // 計時器
     private float zombieFollowTimer = 2.0f;
 
@@ -17,15 +19,7 @@ public class ZombieAIController : AIController
     private void Awake()
     {
 
-        organism = Organism.Instance;
-
-        enemyRoot = this.gameObject;
-        player = organism.GetPlayer();
-        mover = GetComponent<Mover>();
-        aiAnimator = GetComponent<Animator>();
-        health = GetComponent<Health>();
-        fighter = GetComponent<Fighter>();
-        aiCollider = GetComponent<Collider>();
+        Init();
 
         SetSpawnPosition(transform.position);
 
@@ -38,12 +32,35 @@ public class ZombieAIController : AIController
 
     private void Update()
     {
+
+        if(isDead) return;
+
         AIBehavior();
 
         UpdateTimer();
+
     }
 
     #region -- 方法參考區 --
+
+    /// <summary>
+    /// 初始化
+    /// </summary>
+    private void Init()
+    {
+
+        organism = Organism.Instance;
+
+        enemyRoot = this.gameObject;
+        player = organism.GetPlayer();
+        mover = GetComponent<Mover>();
+        aiAnimator = GetComponent<Animator>();
+        health = GetComponent<Health>();
+        fighter = GetComponent<Fighter>();
+        aiCollider = GetComponent<Collider>();
+        zombieAudio = GetComponent<ZombieAudio>();
+
+    }
 
     /// <summary>
     /// 設置委派事件
@@ -80,7 +97,6 @@ public class ZombieAIController : AIController
         SawPlayer();
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombieFollowTimer <= 0)
         {
-            zombieAudio = GetComponent<ZombieAudio>();
             zombieAudio.ZombieFollow(gameObject);
             zombieFollowTimer = 2.0f;
         }
@@ -92,7 +108,6 @@ public class ZombieAIController : AIController
     {
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombieFollowTimer <= 0)
         {
-            zombieAudio = GetComponent<ZombieAudio>();
             zombieAudio.ZombieIdle(gameObject);
             zombieFollowTimer = 2.0f;
         }
@@ -156,9 +171,12 @@ public class ZombieAIController : AIController
     /// </summary>
     protected override void OnDie()
     {
+
         mover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;
+        isDead = true;
+
     }
 
     #endregion
