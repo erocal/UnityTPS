@@ -12,6 +12,14 @@ public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
         Lightmapping.Bake();
 
         PrefabLightmapData[] prefabs = FindObjectsByType<PrefabLightmapData>(FindObjectsSortMode.InstanceID);
+        HashSet<GameObject> roots = new HashSet<GameObject>();
+        HashSet<GameObject> overridePrefabs = new HashSet<GameObject>();
+
+        var rendererInfos = new List<RendererInfo>();
+        var lightmaps = new List<Texture2D>();
+        var lightmapsDir = new List<Texture2D>();
+        var shadowMasks = new List<Texture2D>();
+        var lightsInfos = new List<LightInfo>();
 
         foreach (var instance in prefabs)
         {
@@ -19,11 +27,11 @@ public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
             instance.ResetResource();
 
             var gameObject = instance.gameObject;
-            var rendererInfos = new List<RendererInfo>();
-            var lightmaps = new List<Texture2D>();
-            var lightmapsDir = new List<Texture2D>();
-            var shadowMasks = new List<Texture2D>();
-            var lightsInfos = new List<LightInfo>();
+            rendererInfos.Clear();
+            lightmaps.Clear();
+            lightmapsDir.Clear();
+            shadowMasks.Clear();
+            lightsInfos.Clear();
 
             GenerateLightmapInfo(gameObject, rendererInfos, lightmaps, lightmapsDir, shadowMasks, lightsInfos);
 
@@ -33,107 +41,23 @@ public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
             instance.ShadowMasks = shadowMasks.ToArray();
             instance.LightInformation = lightsInfos.ToArray();
 
-            var targetPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(instance.gameObject) as GameObject;
+            GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(gameObject);
+
+            if (!roots.Contains(root))
+            {
+                roots.Add(root);
+                overridePrefabs.Add(gameObject);
+            }
+            
+        }
+
+        foreach (GameObject gameObject in overridePrefabs)
+        {
+
             OverridePrefabs(gameObject);
 
         }
 
-    }
-
-    /// <summary>
-    /// 覆寫物件(最外層)
-    /// </summary>
-    /// <param name="gameObject"></param>
-    private static void OverrideRootPrefab(GameObject gameObject)
-    {
-#if UNITY_2018_3_OR_NEWER
-        // 確認是否為Prefab的一部分
-        var prefabStatus = PrefabUtility.GetPrefabInstanceStatus(gameObject);
-        if (prefabStatus == PrefabInstanceStatus.Connected)
-        {
-            // 取得最外層的Prefab根節點
-            GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(gameObject);
-            if (root != null)
-            {
-                // 檢查是否有變更需要應用
-                if (PrefabUtility.HasPrefabInstanceAnyOverrides(root, false))
-                {
-                    // Apply變更到最外層Prefab
-                    PrefabUtility.ApplyPrefabInstance(root, InteractionMode.AutomatedAction);
-                    Debug.Log($"Applied overrides for root Prefab: {root.name}");
-                }
-            }
-            else
-            {
-                Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
-            }
-        }
-        else
-        {
-            Debug.LogWarning($"{gameObject.name} is not a connected Prefab instance.");
-        }
-#else
-    var targetPrefab = PrefabUtility.GetPrefabParent(gameObject) as GameObject;
-    if (targetPrefab != null)
-    {
-        PrefabUtility.ReplacePrefab(gameObject, targetPrefab);
-        Debug.Log($"Replaced Prefab: {targetPrefab.name}");
-    }
-#endif
-    }
-
-    /// <summary>
-    /// 覆寫物件
-    /// </summary>
-    public static void OverridePrefabs(GameObject gameObject)
-    {
-#if UNITY_2018_3_OR_NEWER
-        // 確保物件為有效的Prefab實例
-        GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(gameObject);
-        if (root == null)
-        {
-            Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
-            return;
-        }
-
-        // 獲取Prefab原始資產
-        GameObject sourcePrefab = PrefabUtility.GetCorrespondingObjectFromSource(root);
-        if (sourcePrefab == null)
-        {
-            Debug.LogError("Failed to find corresponding Prefab source.");
-            return;
-        }
-
-        string prefabPath = AssetDatabase.GetAssetPath(sourcePrefab);
-        if (string.IsNullOrEmpty(prefabPath))
-        {
-            Debug.LogError("Failed to get Prefab path.");
-            return;
-        }
-
-        // 應用變更並保存
-        try
-        {
-            PrefabUtility.SaveAsPrefabAssetAndConnect(root, prefabPath, InteractionMode.AutomatedAction);
-            Debug.Log($"Successfully updated Prefab at: {prefabPath}");
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError($"Failed to save Prefab: {ex.Message}");
-        }
-#else
-        // Unity 2018.3 以下版本的邏輯
-        var targetPrefab = PrefabUtility.GetPrefabParent(gameObject) as GameObject;
-        if (targetPrefab != null)
-        {
-            PrefabUtility.ReplacePrefab(gameObject, targetPrefab, ReplacePrefabOptions.ConnectToPrefab);
-            Debug.Log($"Replaced Prefab: {targetPrefab.name}");
-        }
-        else
-        {
-            Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
-        }
-#endif
     }
 
     static void GenerateLightmapInfo(GameObject root, List<RendererInfo> rendererInfos, List<Texture2D> lightmaps, List<Texture2D> lightmapsDir, List<Texture2D> shadowMasks, List<LightInfo> lightsInfo)
@@ -188,6 +112,60 @@ public class GenerateLightingWithPrefabLightmapData : MonoBehaviour
             lightsInfo.Add(lightInfo);
 
         }
+    }
+
+    /// <summary>
+    /// 覆寫物件
+    /// </summary>
+    public static void OverridePrefabs(GameObject gameObject)
+    {
+#if UNITY_2018_3_OR_NEWER
+        // 確保物件為有效的Prefab實例
+        GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(gameObject);
+        if (root == null)
+        {
+            Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
+            return;
+        }
+
+        // 獲取Prefab原始資產
+        GameObject sourcePrefab = PrefabUtility.GetCorrespondingObjectFromSource(root);
+        if (sourcePrefab == null)
+        {
+            Debug.LogError("Failed to find corresponding Prefab source.");
+            return;
+        }
+
+        string prefabPath = AssetDatabase.GetAssetPath(sourcePrefab);
+        if (string.IsNullOrEmpty(prefabPath))
+        {
+            Debug.LogError("Failed to get Prefab path.");
+            return;
+        }
+
+        // 應用變更並保存
+        try
+        {
+            PrefabUtility.SaveAsPrefabAssetAndConnect(root, prefabPath, InteractionMode.AutomatedAction);
+            Debug.Log($"Successfully updated Prefab at: {prefabPath}");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to save Prefab: {ex.Message}");
+        }
+#else
+        // Unity 2018.3 以下版本的邏輯
+        var targetPrefab = PrefabUtility.GetPrefabParent(gameObject) as GameObject;
+        if (targetPrefab != null)
+        {
+            PrefabUtility.ReplacePrefab(gameObject, targetPrefab, ReplacePrefabOptions.ConnectToPrefab);
+            Debug.Log($"Replaced Prefab: {targetPrefab.name}");
+        }
+        else
+        {
+            Debug.LogWarning($"{gameObject.name} is not part of a Prefab instance.");
+        }
+#endif
     }
 
 }
