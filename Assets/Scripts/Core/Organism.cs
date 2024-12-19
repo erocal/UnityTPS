@@ -21,7 +21,7 @@ public class Organism : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<Organism>();
+                _instance = FindFirstObjectByType<Organism>();
             }
 
             return _instance;

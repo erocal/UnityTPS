@@ -51,7 +51,7 @@ public class Fighter : MonoBehaviour
         mover = GetComponent<Mover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
-        health.onDie += OnDie;
+        health.OnDie += OnDie;
     }
 
     // Update is called once per frame

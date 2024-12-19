@@ -16,7 +16,7 @@ public class PickupAmmo : MonoBehaviour
     {
         pickup = GetComponent<Pickup>();
 
-        pickup.onPick += OnPick;
+        pickup.OnPick += OnPick;
     }
 
     /// <summary>

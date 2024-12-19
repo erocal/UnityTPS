@@ -45,7 +45,7 @@ public class MutantFighter : MonoBehaviour
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         mutantAudio = GetComponent<MutantAudio>();
-        health.onDie += OnDie;
+        health.OnDie += OnDie;
     }
 
     void Update()

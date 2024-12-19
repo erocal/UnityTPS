@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ToolBox.Pools;
+using UnityEngine;
 
 // singleton單例模式
 // 可以確保生成對象只有一個實例存在
@@ -17,8 +18,11 @@ public class GameManagerSingleton
             if(m_Instance == null)
             {
                 m_Instance = new GameManagerSingleton();
-                m_Instance.gameObject = new GameObject("GameManager");
+                m_Instance.gameObject = new GameObject("Core");
+
                 m_Instance.gameObject.AddComponent<InputController>();
+                m_Instance.gameObject.AddComponent<PoolInstaller>();
+
             }
             return m_Instance;
         }
@@ -36,4 +40,18 @@ public class GameManagerSingleton
             return m_InputController;
         }
     }
+
+    private PoolInstaller m_PoolInstaller;
+    public PoolInstaller PoolInstaller
+    {
+        get
+        {
+            if (m_PoolInstaller == null)
+            {
+                m_PoolInstaller = gameObject.GetComponent<PoolInstaller>();
+            }
+            return m_PoolInstaller;
+        }
+    }
+
 }

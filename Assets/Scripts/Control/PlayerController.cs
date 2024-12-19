@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("移動速度")]
     [SerializeField, Tooltip("移動速度")] float moveSpeed = 8;
     [SerializeField, Range(1, 3), Tooltip("Shift加速的倍數")] float sprintSpeedModifier = 2;
-    [SerializeField, Range(0, 1), Tooltip("蹲下時的減速倍數")] float crouchedSpeedModifer = 0.5f;
+    //[SerializeField, Range(0, 1), Tooltip("蹲下時的減速倍數")] float crouchedSpeedModifer = 0.5f;
     [SerializeField, Tooltip("旋轉速度")] float rotateSpeed = 5f;
     [SerializeField, Tooltip("加速度百分比")] float addSpeedRatio = 0.1f;
 
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 #endif
 
         // 訂閱死亡事件
-        health.onDie += OnDie;
+        health.OnDie += OnDie;
     }
 
     private void Update()

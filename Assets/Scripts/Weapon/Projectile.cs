@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using ToolBox.Pools;
 using UnityEngine;
 
 public enum ProjectileType
@@ -9,8 +10,7 @@ public enum ProjectileType
 
 public class Projectile : MonoBehaviour
 {
-    [Header("Id"), Tooltip("子彈的Id類別，供物件池判別")]
-    public ProjectileId projectileId;
+
     [Header("Type")]
     [SerializeField] ProjectileType type;
     [Header("射到目標的Particle")]
@@ -29,7 +29,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] float damage = 40f;
 
     GameObject owner;
-    ProjectilePool projectilePool;
     bool canAttack;
 
     // 子彈當前飛行速度
@@ -37,18 +36,8 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        if (projectileId == ProjectileId.None)
-            Destroy(gameObject, maxLifetime);
-        else
-        {
-            // maxLifetime秒後回收子彈
-            StartCoroutine(RecoverAfterDelay(maxLifetime));
-        }
-    }
-
-    private void Awake()
-    {
-        projectilePool = GameObject.Find(ProjectilePool.PROJECTILEPOOLNAME).GetComponent<ProjectilePool>();
+        // maxLifetime秒後回收子彈
+        StartCoroutine(RecoverAfterDelay(maxLifetime));
     }
 
     // Update is called once per frame
@@ -76,7 +65,7 @@ public class Projectile : MonoBehaviour
         }
 
         HitEffect(transform.position);
-        projectilePool.Recovery(projectileId, this.gameObject);
+        this.gameObject.Release();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -125,7 +114,7 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // 在這裡執行 Recovery 方法
-        projectilePool.Recovery(projectileId, this.gameObject);
+        this.gameObject.Release();
     }
 
     #endregion

@@ -28,11 +28,9 @@ public class Health : MonoBehaviour
     AudioSource audioSource;
 
     // 當受到攻擊時觸發的委派事件
-    public event Action onDamage;
-    // 當受到治療效果時，觸發的委派事件，並且回傳float的變數
-    public event Action<float> onHealed;
+    public event Action OnDamage;
     // 當人物死亡時觸發的委派事件
-    public event Action onDie;
+    public event Action OnDie;
     // 判斷擁有血量的物體是否處於死亡狀態
     private bool isDead = false;
 
@@ -113,8 +111,8 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            // ? = if (onDamage != null) //讓他不要重複Invoke
-            onDamage?.Invoke();
+            // ? = if (OnDamage != null) //讓他不要重複Invoke
+            OnDamage?.Invoke();
         }
 
         if (currentHealth <= 0)
@@ -130,7 +128,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
-            onDie?.Invoke();
+            OnDie?.Invoke();
         }
     }
 

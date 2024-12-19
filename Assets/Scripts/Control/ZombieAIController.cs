@@ -67,8 +67,8 @@ public class ZombieAIController : AIController
     /// </summary>
     private void SetAction()
     {
-        health.onDamage += OnDamage;
-        health.onDie += OnDie;
+        health.OnDamage += OnDamage;
+        health.OnDie += OnDie;
     }
 
     /// <summary>

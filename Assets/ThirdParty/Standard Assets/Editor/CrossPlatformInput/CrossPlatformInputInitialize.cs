@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Build;
 
 namespace UnityStandardAssets.CrossPlatformInput.Inspector
 {
@@ -79,18 +80,17 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
         }
 
 
-        private static BuildTargetGroup[] buildTargetGroups = new BuildTargetGroup[]
+        private static NamedBuildTarget[] buildTargetGroups = new NamedBuildTarget[]
             {
-                BuildTargetGroup.Standalone,
-                BuildTargetGroup.Android,
-                BuildTargetGroup.iOS
+                NamedBuildTarget.Standalone,
+                NamedBuildTarget.Android,
+                NamedBuildTarget.iOS
             };
 
-        private static BuildTargetGroup[] mobileBuildTargetGroups = new BuildTargetGroup[]
+        private static NamedBuildTarget[] mobileBuildTargetGroups = new NamedBuildTarget[]
             {
-                BuildTargetGroup.Android,
-                BuildTargetGroup.iOS,
-                BuildTargetGroup.WSA
+                NamedBuildTarget.Android,
+                NamedBuildTarget.iOS
             };
 
 
@@ -120,14 +120,14 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                     }
                 }
                 string definesString = string.Join(";", defines.ToArray());
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(group, definesString);
+                PlayerSettings.SetScriptingDefineSymbols(group, definesString);
             }
         }
 
 
-        private static List<string> GetDefinesList(BuildTargetGroup group)
+        private static List<string> GetDefinesList(NamedBuildTarget group)
         {
-            return new List<string>(PlayerSettings.GetScriptingDefineSymbolsForGroup(group).Split(';'));
+            return new List<string>(PlayerSettings.GetScriptingDefineSymbols(group).Split(';'));
         }
     }
 }

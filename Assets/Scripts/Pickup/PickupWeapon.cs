@@ -16,7 +16,7 @@ public class PickupWeapon : MonoBehaviour
     {
         pickup = GetComponent<Pickup>();
 
-        pickup.onPick += OnPick;
+        pickup.OnPick += OnPick;
     }
 
     void OnPick(GameObject player)

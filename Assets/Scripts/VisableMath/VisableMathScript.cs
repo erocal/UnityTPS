@@ -8,8 +8,6 @@ public class VisableMathScript : MonoBehaviour
     [SerializeField] private Transform pointPrefab;
     [SerializeField, Range(10, 100)] private int resolution = 10;// 限制該值並顯示一個滑塊(10, 100)
 
-    int i = 0;
-
     Transform[] points;
 
     Vector3 position;

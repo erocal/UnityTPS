@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Scene
+  m_Name: Packed Assets
   m_EditorClassIdentifier: 
-  m_GroupName: Scene
-  m_GUID: 73502c2ccd04ac449af5c03f43daceac
+  m_GroupName: Packed Assets
+  m_GUID: 381621776029a1246a553005650db515
   m_SerializeEntries:
   - m_GUID: ef13065bd303dfe479c71e7826dfbd8e
     m_Address: samplescene
     m_ReadOnly: 0
     m_SerializedLabels:
-    - AllAsssetBundle
     - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ffae77cf890a788449e0386bc5733194, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 3849e1398345d074ba72cb3c7db45d3f, type: 2}
-    - {fileID: 11400000, guid: b1275df835fc4004d93ce471839bc524, type: 2}
+    - {fileID: 11400000, guid: 663f9a7649dcb2244ac67c03f5e55c7c, type: 2}
+    - {fileID: 11400000, guid: 6e9d47a1d1e85d34f930973d267aab1c, type: 2}

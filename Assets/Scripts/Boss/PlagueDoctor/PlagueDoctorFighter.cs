@@ -6,10 +6,6 @@ public class PlagueDoctorFighter : MonoBehaviour
 {
     [Header("角色攻擊類型")]
     [SerializeField] public Actor actorType;
-    [Header("攻擊傷害")]
-    [SerializeField] float attackDamage = 10f;
-    [Header("連續射擊傷害")]
-    [SerializeField] float continuousAttackDamage = 10f;
     [Header("攻擊距離")]
     [SerializeField] float shootRange = 2f;
     [Header("連續射擊距離")]
@@ -48,7 +44,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         plagueDoctorAudio = GetComponent<PlagueDoctorAudio>();
-        health.onDie += OnDie;
+        health.OnDie += OnDie;
     }
 
     // Update is called once per frame

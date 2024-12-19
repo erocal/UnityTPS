@@ -54,20 +54,39 @@ public static class AddrssableAsync
     }
 
     #region Load
-    public static async Task<AsyncOperationHandle<Object>> LoadAsync(string assetName)
+
+    public static async Task<AsyncOperationHandle<T>> LoadAsync<T>(string assetName) where T : class
     {
+        // 確保方法可正常進入異步模式
         await Task.CompletedTask;
+
         try
         {
-            return Addressables.LoadAssetAsync<Object>(assetName);
+            // 開始異步載入資源
+            var handle = Addressables.LoadAssetAsync<T>(assetName);
+
+            // 等待載入完成
+            await handle.Task;
+
+            // 檢查載入是否成功
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                return handle;
+            }
+            else
+            {
+                Debug.LogError($"載入資源失敗: {assetName}");
+                return default;
+            }
         }
         catch (System.Exception e)
         {
-            Debug.LogError(e);
-            return new AsyncOperationHandle<Object>();
+            // 捕獲例外並輸出錯誤訊息
+            Debug.LogError($"載入資源過程中發生例外: {e.Message}");
+            return default;
         }
-
     }
+
     public static async Task<GameObject> LoadInstantiate(string assetName, Transform parent = null, bool instantiateInWorldSpace = false, bool trackHandle = true)
     {
         try
@@ -95,6 +114,9 @@ public static class AddrssableAsync
             return new AsyncOperationHandle<SceneInstance>();
         }
     }
+
+
+
     #endregion
 
     #region Unload

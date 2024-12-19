@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("物件上下移動頻率")]
     [SerializeField] float verticalBobFrequency = 1f;
     [Header("物件上下移動的距離")]
@@ -12,27 +13,31 @@ public class Pickup : MonoBehaviour
     [Header("每秒旋轉的角度")]
     [SerializeField] float rotatingSpeed = 360f;
 
-    public event Action<GameObject> onPick;
+    #endregion
 
+    #region -- 變數參考區 --
 
-    Rigidbody rigidbody;
-    Collider collider;
+    public event Action<GameObject> OnPick;
 
-    Vector3 startPosition;
+    private Vector3 startPosition;
 
-    // Start is called before the first frame update
+    #endregion
+
+    #region -- 初始化/運作 --
+
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+
+        var rigidbody = GetComponent<Rigidbody>();
+        var collider = GetComponent<Collider>();
 
         rigidbody.isKinematic = true;
         collider.isTrigger = true;
 
         startPosition = transform.position;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         // 上下移動的公式
@@ -46,7 +51,10 @@ public class Pickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            onPick?.Invoke(other.gameObject);
+            OnPick?.Invoke(other.gameObject);
         }
     }
+
+    #endregion
+
 }

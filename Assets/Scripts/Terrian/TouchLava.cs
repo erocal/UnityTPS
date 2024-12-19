@@ -19,7 +19,7 @@ public class TouchLava : MonoBehaviour
         if ((other.tag == "Player" || other.tag == "Enemy"
         || other.tag == "Zombie" || other.tag == "Zombiegrounp"))
         {
-            //hasbeentrigger = true;
+
             target = other.gameObject;
 
             if (target) targetHealth = target.GetComponent<Health>();

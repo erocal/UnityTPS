@@ -49,7 +49,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
     [Header("Offset")]
     [SerializeField] Vector3 offset;
-    [SerializeField] float offset_Y = 100f;
 
     #region -- 變數參考區 --
 
@@ -76,9 +75,9 @@ public class ThirdPersonCamera : MonoBehaviour
 
         #region -- 訂閱 --
 
-        player.GetComponent<Health>().onDamage += OnDamage;
+        player.GetComponent<Health>().OnDamage += OnDamage;
         playercontroller.onCaplock += OnCaplock;
-        player.GetComponent<Health>().onDie += OnDie;
+        player.GetComponent<Health>().OnDie += OnDie;
 
         #endregion
 
@@ -89,7 +88,7 @@ public class ThirdPersonCamera : MonoBehaviour
         CheckVolumeMute();
     }
 
-    private void LateUpdate()
+    private async void LateUpdate()
     {
         
         if ( Cursor.lockState == CursorLockMode.Locked )
@@ -126,11 +125,11 @@ public class ThirdPersonCamera : MonoBehaviour
             if(!aliveUI.activeSelf)
             {
                 pauseUI.SetActive(true);
-                DelayAndStopTimeAsync(0);
+                await DelayAndStopTimeAsync(0);
             }
             else
             {
-                DelayAndStopTimeAsync(2000);//延遲停止，讓死亡動畫可以播完
+                await DelayAndStopTimeAsync(2000);//延遲停止，讓死亡動畫可以播完
             }
 
         }
@@ -237,11 +236,11 @@ public class ThirdPersonCamera : MonoBehaviour
     /// <summary>
     /// 復活
     /// </summary>
-    public void Respawn()
+    public async void Respawn()
     {
         input.CursorStateLocked();
 
-        playercontroller.IsAlive();
+        await playercontroller.IsAlive();
     }
 
     /// <summary>

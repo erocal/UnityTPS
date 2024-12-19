@@ -16,7 +16,7 @@ public class PickupHealth : MonoBehaviour
     {
         pickup = GetComponent<Pickup>();
 
-        pickup.onPick += OnPick;
+        pickup.OnPick += OnPick;
     }
 
     void OnPick(GameObject player)
