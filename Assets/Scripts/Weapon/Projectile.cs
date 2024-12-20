@@ -2,14 +2,10 @@
 using ToolBox.Pools;
 using UnityEngine;
 
-public enum ProjectileType
-{
-    Coliider,
-    Particle,
-}
-
 public class Projectile : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
 
     [Header("Type")]
     [SerializeField] ProjectileType type;
@@ -28,11 +24,27 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float damage = 40f;
 
+    #endregion
+
+    #region -- 變數參考區 --
+
+    PoolInstaller poolInstaller;
     GameObject owner;
     bool canAttack;
 
     // 子彈當前飛行速度
     Vector3 currentVelocity;
+
+    #endregion
+
+    #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+
+        poolInstaller = GameManagerSingleton.Instance.PoolInstaller;
+
+    }
 
     private void OnEnable()
     {
@@ -65,7 +77,7 @@ public class Projectile : MonoBehaviour
         }
 
         HitEffect(transform.position);
-        this.gameObject.Release();
+        this.gameObject.Release(poolInstaller.transform);
     }
 
     private void OnParticleCollision(GameObject other)
@@ -83,6 +95,10 @@ public class Projectile : MonoBehaviour
 
         HitEffect(transform.position);
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     private void HitEffect(Vector3 hitpoint)
     {
@@ -111,11 +127,16 @@ public class Projectile : MonoBehaviour
 
     IEnumerator RecoverAfterDelay(float delay)
     {
+
         yield return new WaitForSeconds(delay);
 
         // 在這裡執行 Recovery 方法
-        this.gameObject.Release();
+        this.gameObject.Release(poolInstaller.transform);
+
     }
 
     #endregion
+
+    #endregion
+
 }

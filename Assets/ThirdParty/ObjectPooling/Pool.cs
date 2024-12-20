@@ -166,6 +166,21 @@ namespace ToolBox.Pools
             _instances.Push(poolable);
         }
 
+        public void Release(GameObject instance, Transform parent)
+        {
+            var poolable = instance.GetComponent<Poolable>();
+            poolable.OnRelease();
+
+            instance.SetActive(false);
+
+            var instanceTransform = instance.transform;
+            instanceTransform.SetParent(parent);
+            instanceTransform.rotation = _rotation;
+            instanceTransform.localScale = _scale;
+
+            _instances.Push(poolable);
+        }
+
         private Poolable GetInstance()
         {
             var count = _instances.Count;

@@ -47,6 +47,7 @@ public class WeaponController : MonoBehaviour
     public float currentAmmoRatio { get; private set; }
     public bool isCooling { get; private set; }
 
+    private PoolInstaller poolInstaller;
     AudioSource audioSource;
 
     // 當前子彈數量
@@ -63,6 +64,7 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
 
+        poolInstaller = GameManagerSingleton.Instance.PoolInstaller;
         currentAmmo = maxAmmo;
         audioSource = GetComponent<AudioSource>();
 
@@ -152,7 +154,7 @@ public class WeaponController : MonoBehaviour
         {
             Projectile newProjectile = null;
 
-            newProjectile = projectilePrefab.gameObject.Reuse<Projectile>(weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward));
+            newProjectile = projectilePrefab.gameObject.Reuse<Projectile>(weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward), poolInstaller.transform);
             
             newProjectile.Shoot(GameObject.FindGameObjectWithTag("Player"));
         }

@@ -82,5 +82,20 @@ namespace ToolBox.Pools
 				Object.Destroy(instance);
 			}
 		}
-	}
+
+        public static void Release(this GameObject instance, Transform parent)
+        {
+            var isPooled = Pool.GetPoolByInstance(instance, out var pool);
+
+            if (isPooled)
+            {
+                pool.Release(instance, parent);
+            }
+            else
+            {
+                Object.Destroy(instance);
+            }
+        }
+
+    }
 }
