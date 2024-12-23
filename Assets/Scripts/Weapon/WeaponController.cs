@@ -152,11 +152,20 @@ public class WeaponController : MonoBehaviour
     {
         for (int i = 0; i < bulletPerShoot; i++)
         {
+
             Projectile newProjectile = null;
 
             newProjectile = projectilePrefab.gameObject.Reuse<Projectile>(weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward), poolInstaller.transform);
-            
+
+            var trail = newProjectile.trailRenderer;
+            if (trail != null)
+            {
+                trail.Clear(); // 清除軌跡緩存
+                trail.enabled = true; // 再次啟用
+            }
+
             newProjectile.Shoot(GameObject.FindGameObjectWithTag("Player"));
+
         }
 
         if (muzzleFlashPrefab != null)

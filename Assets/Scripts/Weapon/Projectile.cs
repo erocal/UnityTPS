@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
 
     [Header("Type")]
     [SerializeField] ProjectileType type;
+    [Header("子彈軌跡")]
+    public TrailRenderer trailRenderer;
     [Header("射到目標的Particle")]
     [SerializeField] GameObject hitParticle;
     [Header("擊中物件特效的存活時間")]
@@ -65,6 +67,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject == owner || !canAttack || LayerMask.LayerToName(other.gameObject.layer) == "MapAreaTrigger") return;
 
         if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Coliider)
@@ -77,7 +80,12 @@ public class Projectile : MonoBehaviour
         }
 
         HitEffect(transform.position);
+
+        if(trailRenderer != null)
+            trailRenderer.enabled = false;
+
         this.gameObject.Release(poolInstaller.transform);
+
     }
 
     private void OnParticleCollision(GameObject other)
@@ -129,6 +137,9 @@ public class Projectile : MonoBehaviour
     {
 
         yield return new WaitForSeconds(delay);
+
+        if (trailRenderer != null)
+            trailRenderer.enabled = false;
 
         // 在這裡執行 Recovery 方法
         this.gameObject.Release(poolInstaller.transform);

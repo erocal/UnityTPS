@@ -14,7 +14,11 @@ namespace ToolBox.Pools
 
         #region -- 變數參考區 --
 
+        #region -- 常數 --
+
         private const string SO_ADDRESS = "poolcontainerso";
+
+        #endregion
 
         #endregion
 
