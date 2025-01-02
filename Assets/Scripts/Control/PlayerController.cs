@@ -74,18 +74,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    #region -- Action --
+    #region -- 常數 --
 
-    // 這是啟動瞄準的事件
-    public event Action<bool> onAim;
-
-    // 這是跑步特效的事件
-    public event Action onCaplock;
-    public event Action onCaplockUp;
+    private const int DASH_SPEED_MODIFIER = 3;
 
     #endregion
 
     InputController input;
+    ActionManager actionManager;
     CharacterController controller;
     [HideInInspector] public Animator animator;
     Health health;
@@ -114,6 +110,8 @@ public class PlayerController : MonoBehaviour
     [Tooltip("是否在瞄準狀態")]
     bool isAim;
 
+    bool canDash = true;
+
     #endregion
 
     #region -- 初始化/運作 --
@@ -121,6 +119,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         input = GameManagerSingleton.Instance.InputController;
+        actionManager = GameManagerSingleton.Instance.ActionManager;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
@@ -210,7 +209,7 @@ public class PlayerController : MonoBehaviour
                     audioSource.PlayOneShot(soundEffects.TargetLockonSFX);
                 }
             }
-            onAim?.Invoke(isAim);
+            actionManager.onAim?.Invoke(isAim);
         }
 
         animator.SetBool("IsAim", isAim);
@@ -244,11 +243,20 @@ public class PlayerController : MonoBehaviour
         }
         else if (input.GetCapInput() && !isAim)// 如果加速鍵被按下且不在瞄準時
         {
+
             
             nextFrameSpeed = 1f;
             targetMovement *= cprintSpeedModifier;
+
+            if(canDash)
+            {
+                targetMovement *= DASH_SPEED_MODIFIER;
+                animator.SetTrigger("IsDash");
+                canDash = false;
+            }
+
             SmoothRotation(targetMovement);
-            onCaplock?.Invoke();
+            actionManager.onCaplock?.Invoke();
 
             // 如果按下跳躍鍵，且人物處在地面上時
             if (input.GetJumpInputDown() && IsGrounded())
@@ -268,7 +276,8 @@ public class PlayerController : MonoBehaviour
 
         if(!input.GetCapInput())
         {
-            onCaplockUp?.Invoke();
+            canDash = true;
+            actionManager.onCaplockUp?.Invoke();
         }
 
         // 處於瞄準時

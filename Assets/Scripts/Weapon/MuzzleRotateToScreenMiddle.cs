@@ -26,7 +26,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
     private GameObject player;
 
     PlayerController playerController;
-    gazed ingazed;
+    Gazed ingazed;
 
     #endregion
 
@@ -41,7 +41,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
         player = organism.GetPlayer();
         playerController = player.GetComponent<PlayerController>();
         
-        //ingazed = GetComponent<gazed>();
+        //ingazed = GetComponent<Gazed>();
     }
 
     void Update()
@@ -54,10 +54,10 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
         {
             
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * ultDistance, Color.yellow);
-            info = "gazed";
+            info = "Gazed";
             if (playerController.GetCrosshair().activeInHierarchy != false)
             {
-                ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<gazed>();
+                ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<Gazed>();
                 ingazed.Ingazed();
             }
         }
@@ -65,7 +65,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
         {
             if (playerController.GetCrosshair().activeInHierarchy != false)
             {
-                ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<gazed>();
+                ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<Gazed>();
                 ingazed.NotIngazed();
             }
             info = null;

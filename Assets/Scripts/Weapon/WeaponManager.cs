@@ -14,7 +14,11 @@ public class WeaponManager : MonoBehaviour
     [Header("瞄準的準備時間")]
     [SerializeField] float aimTime = 2f;
 
+    #region -- 變數參考區 --
+
     public event Action<WeaponController, int> onAddWeapon;
+
+    private ActionManager actionManager;
 
     // 目前裝備的武器清單位置
     int activeWeaponIndex;
@@ -26,6 +30,18 @@ public class WeaponManager : MonoBehaviour
 
     bool isAim;
 
+    #endregion
+
+    #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+
+        actionManager = GameManagerSingleton.Instance.ActionManager;
+
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +50,7 @@ public class WeaponManager : MonoBehaviour
 
         input = GameManagerSingleton.Instance.InputController;
         player = GetComponent<PlayerController>();
-        player.onAim += OnAim;
+        actionManager.onAim += OnAim;
 
         foreach (WeaponController weapon in startingWeapons)
         {
@@ -60,6 +76,8 @@ public class WeaponManager : MonoBehaviour
             SwichWeapon(swichWeaponInput);
         }
     }
+
+    #endregion
 
     /// <summary>
     /// 切換武器位置到(現在武器位置+傳入的參數)的位置

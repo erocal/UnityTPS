@@ -22,6 +22,7 @@ public class GameManagerSingleton
 
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<PoolInstaller>();
+                m_Instance.gameObject.AddComponent<ActionManager>();
 
             }
             return m_Instance;
@@ -51,6 +52,19 @@ public class GameManagerSingleton
                 m_PoolInstaller = gameObject.GetComponent<PoolInstaller>();
             }
             return m_PoolInstaller;
+        }
+    }
+
+    private ActionManager m_ActionManager;
+    public ActionManager ActionManager
+    {
+        get
+        {
+            if (m_ActionManager == null)
+            {
+                m_ActionManager = gameObject.GetComponent<ActionManager>();
+            }
+            return m_ActionManager;
         }
     }
 

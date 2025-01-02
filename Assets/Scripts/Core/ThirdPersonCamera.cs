@@ -54,6 +54,7 @@ public class ThirdPersonCamera : MonoBehaviour
     #region -- 變數參考區 --
 
     InputController input;
+    ActionManager actionManager;
     AudioSource audioSource;
     PlayerController playercontroller;
     UniversalAdditionalCameraData mainCameraData;
@@ -72,6 +73,7 @@ public class ThirdPersonCamera : MonoBehaviour
     {
 
         input = GameManagerSingleton.Instance.InputController;
+        actionManager = GameManagerSingleton.Instance.ActionManager;
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
         mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
@@ -79,8 +81,8 @@ public class ThirdPersonCamera : MonoBehaviour
         #region -- 訂閱 --
 
         player.GetComponent<Health>().OnDamage += OnDamage;
-        playercontroller.onCaplock += OnCaplock;
-        playercontroller.onCaplockUp += OnCaplockUp;
+        actionManager.onCaplock += OnCaplock;
+        actionManager.onCaplockUp += OnCaplockUp;
         player.GetComponent<Health>().OnDie += OnDie;
 
         #endregion
