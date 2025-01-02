@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("移動速度")]
     [SerializeField, Tooltip("移動速度")] float moveSpeed = 8;
-    [SerializeField, Range(1, 3), Tooltip("Shift加速的倍數")] float sprintSpeedModifier = 2;
+    [SerializeField, Range(1, 3), Tooltip("CapsLock加速的倍數")] float cprintSpeedModifier = 2;
     //[SerializeField, Range(0, 1), Tooltip("蹲下時的減速倍數")] float crouchedSpeedModifer = 0.5f;
     [SerializeField, Tooltip("旋轉速度")] float rotateSpeed = 5f;
     [SerializeField, Tooltip("加速度百分比")] float addSpeedRatio = 0.1f;
@@ -29,12 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [Space(20)]
     [Header("音效")]
-    [SerializeField, Tooltip("休息的音效")] AudioClip feelsleepSFX;
-    [SerializeField, Tooltip("跑步喘氣的音效")] AudioClip runtiredSFX;
-    [SerializeField, Tooltip("跳躍時的音效")] AudioClip jumptwiceSFX;
-    [SerializeField, Tooltip("瞄準時的音效")] AudioClip targetlockonSFX;
-    [SerializeField, Tooltip("走路的音效")] AudioClip stepSFX;
-    [SerializeField, Tooltip("跑步的音效")] AudioClip runstepSFX;
+    [SerializeField] private SoundEffects soundEffects;
 
     [Space(20)]
     [Header("地圖區域")]
@@ -47,6 +42,38 @@ public class PlayerController : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    [System.Serializable]
+    public class SoundEffects
+    {
+
+        [SerializeField, Tooltip("休息的音效")]
+        private AudioClip feelsleepSFX;
+
+        [SerializeField, Tooltip("跑步喘氣的音效")]
+        private AudioClip runtiredSFX;
+
+        [SerializeField, Tooltip("跳躍時的音效")]
+        private AudioClip jumptwiceSFX;
+
+        [SerializeField, Tooltip("瞄準時的音效")]
+        private AudioClip targetlockonSFX;
+
+        [SerializeField, Tooltip("走路的音效")]
+        private AudioClip stepSFX;
+
+        [SerializeField, Tooltip("跑步的音效")]
+        private AudioClip runstepSFX;
+
+        // 提供屬性存取 (可根據需要新增)
+        public AudioClip FeelSleepSFX => feelsleepSFX;
+        public AudioClip RunTiredSFX => runtiredSFX;
+        public AudioClip JumpTwiceSFX => jumptwiceSFX;
+        public AudioClip TargetLockonSFX => targetlockonSFX;
+        public AudioClip StepSFX => stepSFX;
+        public AudioClip RunStepSFX => runstepSFX;
+
+    }
+
     #region -- Action --
 
     // 這是啟動瞄準的事件
@@ -54,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
     // 這是跑步特效的事件
     public event Action onCaplock;
+    public event Action onCaplockUp;
 
     #endregion
 
@@ -177,9 +205,9 @@ public class PlayerController : MonoBehaviour
             if (crosshair != null)
             {
                 crosshair.SetActive(isAim);
-                if (targetlockonSFX != null && crosshair.activeInHierarchy != false)
+                if (soundEffects.TargetLockonSFX != null && crosshair.activeInHierarchy != false)
                 {
-                    audioSource.PlayOneShot(targetlockonSFX);
+                    audioSource.PlayOneShot(soundEffects.TargetLockonSFX);
                 }
             }
             onAim?.Invoke(isAim);
@@ -214,12 +242,11 @@ public class PlayerController : MonoBehaviour
         {
             nextFrameSpeed = 0f;
         }
-
-        // 如果加速鍵被按下且不在瞄準時
-        else if (input.GetCapInput() && !isAim)
+        else if (input.GetCapInput() && !isAim)// 如果加速鍵被按下且不在瞄準時
         {
+            
             nextFrameSpeed = 1f;
-            targetMovement *= sprintSpeedModifier;
+            targetMovement *= cprintSpeedModifier;
             SmoothRotation(targetMovement);
             onCaplock?.Invoke();
 
@@ -231,13 +258,17 @@ public class PlayerController : MonoBehaviour
                 jumpDirection += jumpForce * Vector3.up;
                 jumpCount = 0;
             }
-        }
 
-        // 如果不處於瞄準
-        else if (!isAim)
+        }
+        else if (!isAim)// 如果不處於瞄準
         {
             nextFrameSpeed = 0.5f;
             SmoothRotation(targetMovement);
+        }
+
+        if(!input.GetCapInput())
+        {
+            onCaplockUp?.Invoke();
         }
 
         // 處於瞄準時
@@ -255,9 +286,9 @@ public class PlayerController : MonoBehaviour
         // 當在走路時，撥放走路音效
         if (lastFrameSpeed > 0.2f && lastFrameSpeed <= 0.5f)
         {
-            if (stepSFX != null && steptimerrate <= 1.2f)
+            if (soundEffects.StepSFX != null && steptimerrate <= 1.2f)
             {
-                audioSource.PlayOneShot(stepSFX);
+                audioSource.PlayOneShot(soundEffects.StepSFX);
                 steptimerrate = 2.0f;
             }
         }
@@ -265,9 +296,9 @@ public class PlayerController : MonoBehaviour
         // 當在奔跑時，撥放走路音效
         if (lastFrameSpeed > 0.7f)
         {
-            if (runstepSFX != null && runsteptimerrate <= 1.7f)
+            if (soundEffects.RunStepSFX != null && runsteptimerrate <= 1.7f)
             {
-                audioSource.PlayOneShot(runstepSFX);
+                audioSource.PlayOneShot(soundEffects.RunStepSFX);
                 runsteptimerrate = 2.0f;
             }
         }
@@ -275,9 +306,9 @@ public class PlayerController : MonoBehaviour
         // 如果長時間奔跑，播放疲累音效
         if (lastFrameSpeed > 0.9f)
         {
-            if (runtiredSFX != null && runtimerrate <= -0.426f)
+            if (soundEffects.RunTiredSFX != null && runtimerrate <= -0.426f)
             {
-                audioSource.PlayOneShot(runtiredSFX);
+                audioSource.PlayOneShot(soundEffects.RunTiredSFX);
                 runtimerrate = 2.0f;
             }
         }
@@ -359,9 +390,9 @@ public class PlayerController : MonoBehaviour
             jumpCount--;
 
             // 播放跳躍音效
-            if (jumptwiceSFX != null)
+            if (soundEffects.JumpTwiceSFX != null)
             {
-                audioSource.PlayOneShot(jumptwiceSFX);
+                audioSource.PlayOneShot(soundEffects.JumpTwiceSFX);
             }
         }
 
@@ -380,9 +411,9 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("IsRest");
             resttimerrate = 2.0f;
-            if (feelsleepSFX != null)
+            if (soundEffects.FeelSleepSFX != null)
             {
-                audioSource.PlayOneShot(feelsleepSFX);
+                audioSource.PlayOneShot(soundEffects.FeelSleepSFX);
             }
         }
     }

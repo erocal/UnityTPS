@@ -31906,7 +31906,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -121310,6 +121310,36 @@ PrefabInstance:
       propertyPath: mapAreaManager
       value: 
       objectReference: {fileID: 490745222}
+    - target: {fileID: 6181018793532940030, guid: 29b2e772c22e49841bcca21c879b63fe,
+        type: 3}
+      propertyPath: soundEffects.stepSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: e85ebefcaa228bc42adb2554e5a428d4, type: 3}
+    - target: {fileID: 6181018793532940030, guid: 29b2e772c22e49841bcca21c879b63fe,
+        type: 3}
+      propertyPath: soundEffects.runstepSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: e85ebefcaa228bc42adb2554e5a428d4, type: 3}
+    - target: {fileID: 6181018793532940030, guid: 29b2e772c22e49841bcca21c879b63fe,
+        type: 3}
+      propertyPath: soundEffects.runtiredSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 23b4a85d442dc4abb8d2c6559b135c3c, type: 3}
+    - target: {fileID: 6181018793532940030, guid: 29b2e772c22e49841bcca21c879b63fe,
+        type: 3}
+      propertyPath: soundEffects.feelsleepSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a28075a3eb144446a49f716c52bec89, type: 3}
+    - target: {fileID: 6181018793532940030, guid: 29b2e772c22e49841bcca21c879b63fe,
+        type: 3}
+      propertyPath: soundEffects.jumptwiceSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ccbc3d284bd849d49fb1f8f94ab2888, type: 3}
+    - target: {fileID: 6181018793532940030, guid: 29b2e772c22e49841bcca21c879b63fe,
+        type: 3}
+      propertyPath: soundEffects.targetlockonSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: d73b73743ea434d9b98c5c0b04b51e3a, type: 3}
     - target: {fileID: 6181018793533031025, guid: 29b2e772c22e49841bcca21c879b63fe,
         type: 3}
       propertyPath: m_LocalRotation.w

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class ThirdPersonCamera : MonoBehaviour
     InputController input;
     AudioSource audioSource;
     PlayerController playercontroller;
+    UniversalAdditionalCameraData mainCameraData;
 
     float mouse_X = 0;
     float mouse_Y = 30;
@@ -72,11 +74,13 @@ public class ThirdPersonCamera : MonoBehaviour
         input = GameManagerSingleton.Instance.InputController;
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
+        mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
 
         #region -- 訂閱 --
 
         player.GetComponent<Health>().OnDamage += OnDamage;
         playercontroller.onCaplock += OnCaplock;
+        playercontroller.onCaplockUp += OnCaplockUp;
         player.GetComponent<Health>().OnDie += OnDie;
 
         #endregion
@@ -204,6 +208,25 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         if (caplockParticle == null) return;
         caplockParticle.Play();
+
+        if (mainCameraData != null)
+        {
+            mainCameraData.SetRenderer(1);
+        }
+
+    }
+
+    /// <summary>
+    /// 玩家鬆開加速鍵時處理方法
+    /// </summary>
+    private void OnCaplockUp()
+    {
+
+        if (mainCameraData != null)
+        {
+            mainCameraData.SetRenderer(0);
+        }
+
     }
 
     #endregion

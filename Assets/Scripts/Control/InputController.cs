@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
+
     #region -- 參數參考區 --
 
     public float vertical;
@@ -57,30 +58,6 @@ public class InputController : MonoBehaviour
         if (CanProcessInput())
         {
             return Input.GetKey(KeyCode.CapsLock);
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// 是否按住Control加速
-    /// </summary>
-    public bool GetCprintInput()
-    {
-        if (CanProcessInput())
-        {
-            return Input.GetKey(KeyCode.LeftControl);
-        }
-        return false;
-    }
-
-    /// <summary>
-    /// 是否按下Control加速
-    /// </summary>
-    public bool GetCprintInputDown()
-    {
-        if (CanProcessInput())
-        {
-            return Input.GetKeyDown(KeyCode.LeftControl);
         }
         return false;
     }
@@ -277,4 +254,5 @@ public class InputController : MonoBehaviour
     }
 
     #endregion
+
 }
