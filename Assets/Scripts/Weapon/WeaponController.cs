@@ -43,9 +43,9 @@ public class WeaponController : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    public GameObject sourcePrefab { get; set; }
-    public float currentAmmoRatio { get; private set; }
-    public bool isCooling { get; private set; }
+    public GameObject SourcePrefab { get; set; }
+    public float CurrentAmmoRatio { get; private set; }
+    public bool IsCooling { get; private set; }
 
     private PoolInstaller poolInstaller;
     AudioSource audioSource;
@@ -88,20 +88,20 @@ public class WeaponController : MonoBehaviour
 
             currentAmmo = Mathf.Clamp(currentAmmo, 0, maxAmmo);
 
-            isCooling = true;
+            IsCooling = true;
         }
         else
         {
-            isCooling = false;
+            IsCooling = false;
         }
 
         if (maxAmmo == Mathf.Infinity)
         {
-            currentAmmoRatio = 1f;
+            CurrentAmmoRatio = 1f;
         }
         else
         {
-            currentAmmoRatio = currentAmmo / maxAmmo;
+            CurrentAmmoRatio = currentAmmo / maxAmmo;
         }
     }
 

@@ -6,6 +6,9 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("Camera跟隨的目標")]
     [SerializeField] Transform target;
 
@@ -51,10 +54,14 @@ public class ThirdPersonCamera : MonoBehaviour
     [Header("Offset")]
     [SerializeField] Vector3 offset;
 
+    #endregion
+
     #region -- 變數參考區 --
 
+    Organism organism;
+
     InputController input;
-    ActionManager actionManager;
+    ActionSystem actionSystem;
     AudioSource audioSource;
     PlayerController playercontroller;
     UniversalAdditionalCameraData mainCameraData;
@@ -69,21 +76,25 @@ public class ThirdPersonCamera : MonoBehaviour
 
     #endregion
 
+    #region -- 初始化/運作 --
+
     private void Awake()
     {
 
+        organism = Organism.Instance;
+
         input = GameManagerSingleton.Instance.InputController;
-        actionManager = GameManagerSingleton.Instance.ActionManager;
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
         mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
 
         #region -- 訂閱 --
 
-        player.GetComponent<Health>().OnDamage += OnDamage;
-        actionManager.onCaplock += OnCaplock;
-        actionManager.onCaplockUp += OnCaplockUp;
-        player.GetComponent<Health>().OnDie += OnDie;
+        actionSystem.OnDamage += OnDamage;
+        actionSystem.OnCaplock += OnCaplock;
+        actionSystem.OnCaplockUp += OnCaplockUp;
+        actionSystem.OnDie += OnDie;
 
         #endregion
 
@@ -113,9 +124,16 @@ public class ThirdPersonCamera : MonoBehaviour
             // 限制垂直角度
             mouse_Y = Mathf.Clamp(mouse_Y, minVerticalAngle, maxVerticalAngle);
 
+            // 計算旋轉角度
+            Quaternion rotation = Quaternion.Euler(mouse_Y, mouse_X, 0);
+
+            // 計算相機位置
+            Vector3 position = rotation * new Vector3(0, 0, -cameraToTargetDistance)
+                               + target.position
+                               + Vector3.up * offset.y;
+
             // 固定相機在玩家身後
-            transform.rotation = Quaternion.Euler(mouse_Y, mouse_X, 0);
-            transform.position = Quaternion.Euler(mouse_Y, mouse_X, 0) * new Vector3(0, 0, -cameraToTargetDistance) + target.position + Vector3.up * offset.y;
+            transform.SetPositionAndRotation(position, rotation);
 
             // 滑鼠滾輪控制遠近
             cameraToTargetDistance += input.GetMouseScrollWheelAxis() * sensitivity_Z;
@@ -145,7 +163,10 @@ public class ThirdPersonCamera : MonoBehaviour
             audioSource.PlayOneShot(pauseSFX);
             isChange = isLocked;
         }
+
     }
+
+    #endregion
 
     #region -- 方法參考區 --
 
@@ -165,6 +186,7 @@ public class ThirdPersonCamera : MonoBehaviour
     /// </summary>
     private void CheckVolumeMute()
     {
+
         if(audioSource.volume == 0)
         {
             volumeUI.SetActive(false);
@@ -175,6 +197,7 @@ public class ThirdPersonCamera : MonoBehaviour
             volumeUI.SetActive(true);
             muteUI.SetActive(false);
         }
+
     }
 
     #endregion
@@ -184,23 +207,30 @@ public class ThirdPersonCamera : MonoBehaviour
     /// <summary>
     /// 玩家死亡時處理方法
     /// </summary>
-    private void OnDie()
+    private void OnDie(int id)
     {
+
+        if (id != organism.GetPlayer().GetInstanceID()) return;
+
         aliveUI.SetActive(true);
         input.CursorStateUnlocked();
+
     }
 
     /// <summary>
     /// 玩家受傷時處理方法
     /// </summary>
-    private async void OnDamage()
+    private async void OnDamage(int id)
     {
-        if (beHitParticle == null) return;
-        beHitParticle.Play();
+
+        if (id != organism.GetPlayer().GetInstanceID()) return;
+
+        beHitParticle?.Play();
 
         //player受傷動畫
         playercontroller.animator.SetTrigger("IsDamage");
         await Task.Delay(2000);
+
     }
 
     /// <summary>

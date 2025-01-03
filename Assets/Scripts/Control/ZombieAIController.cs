@@ -5,6 +5,8 @@ public class ZombieAIController : AIController
 
     #region -- 變數參考區 --
 
+    ActionSystem actionSystem;
+
     Mover mover;
     Fighter fighter;
     ZombieAudio zombieAudio;
@@ -28,6 +30,7 @@ public class ZombieAIController : AIController
         SetAction();
 
         #endregion
+
     }
 
     private void Update()
@@ -49,6 +52,8 @@ public class ZombieAIController : AIController
     private void Init()
     {
 
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
         organism = Organism.Instance;
 
         enemyRoot = this.gameObject;
@@ -67,8 +72,10 @@ public class ZombieAIController : AIController
     /// </summary>
     private void SetAction()
     {
-        health.OnDamage += OnDamage;
-        health.OnDie += OnDie;
+
+        actionSystem.OnDamage += OnDamage;
+        actionSystem.OnDie += OnDie;
+
     }
 
     /// <summary>
@@ -169,8 +176,10 @@ public class ZombieAIController : AIController
     /// <summary>
     /// AI死亡時處理方法
     /// </summary>
-    protected override void OnDie()
+    protected override void OnDie(int id)
     {
+
+        if (id != this.gameObject.GetInstanceID()) return;
 
         mover.CancelMove();
         aiAnimator.SetTrigger("IsDead");

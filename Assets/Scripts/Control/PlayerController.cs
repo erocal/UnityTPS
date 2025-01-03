@@ -81,7 +81,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     InputController input;
-    ActionManager actionManager;
+    ActionSystem actionSystem;
+    Organism organism;
     CharacterController controller;
     [HideInInspector] public Animator animator;
     Health health;
@@ -118,8 +119,10 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+
         input = GameManagerSingleton.Instance.InputController;
-        actionManager = GameManagerSingleton.Instance.ActionManager;
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        organism = Organism.Instance;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
@@ -133,7 +136,7 @@ public class PlayerController : MonoBehaviour
 #endif
 
         // 訂閱死亡事件
-        health.OnDie += OnDie;
+        actionSystem.OnDie += OnDie;
     }
 
     private void Update()
@@ -160,11 +163,15 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// 玩家死亡時處理方法
     /// </summary>
-    private void OnDie()
+    private void OnDie(int id)
     {
+
+        if (id != organism.GetPlayer().GetInstanceID()) return;
+
         animator.SetTrigger("IsDead");
         //取消玩家的控制
         this.GetComponent<PlayerController>().enabled = false;
+
     }
 
     #endregion
@@ -209,7 +216,7 @@ public class PlayerController : MonoBehaviour
                     audioSource.PlayOneShot(soundEffects.TargetLockonSFX);
                 }
             }
-            actionManager.onAim?.Invoke(isAim);
+            actionSystem.Aim(isAim);
         }
 
         animator.SetBool("IsAim", isAim);
@@ -256,7 +263,7 @@ public class PlayerController : MonoBehaviour
             }
 
             SmoothRotation(targetMovement);
-            actionManager.onCaplock?.Invoke();
+            actionSystem.PlayerSpeedUp();
 
             // 如果按下跳躍鍵，且人物處在地面上時
             if (input.GetJumpInputDown() && IsGrounded())
@@ -277,7 +284,7 @@ public class PlayerController : MonoBehaviour
         if(!input.GetCapInput())
         {
             canDash = true;
-            actionManager.onCaplockUp?.Invoke();
+            actionSystem.ReleaseCaplock();
         }
 
         // 處於瞄準時

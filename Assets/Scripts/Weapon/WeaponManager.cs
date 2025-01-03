@@ -16,9 +16,7 @@ public class WeaponManager : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    public event Action<WeaponController, int> onAddWeapon;
-
-    private ActionManager actionManager;
+    private ActionSystem actionSystem;
 
     // 目前裝備的武器清單位置
     int activeWeaponIndex;
@@ -37,12 +35,10 @@ public class WeaponManager : MonoBehaviour
     private void Awake()
     {
 
-        actionManager = GameManagerSingleton.Instance.ActionManager;
-
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
 
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         // 初始狀態
@@ -50,18 +46,19 @@ public class WeaponManager : MonoBehaviour
 
         input = GameManagerSingleton.Instance.InputController;
         player = GetComponent<PlayerController>();
-        actionManager.onAim += OnAim;
+        actionSystem.OnAim += OnAim;
 
         foreach (WeaponController weapon in startingWeapons)
         {
             AddWeapon(weapon);
         }
         SwichWeapon(1);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
+
         WeaponController activeWeapon = GetActiveWeapon();
 
         if (activeWeapon && isAim)
@@ -75,6 +72,7 @@ public class WeaponManager : MonoBehaviour
         {
             SwichWeapon(swichWeaponInput);
         }
+
     }
 
     #endregion
@@ -85,7 +83,8 @@ public class WeaponManager : MonoBehaviour
     /// <param name="addIndex">向左或向右的參數</param>
     public void SwichWeapon(int addIndex)
     {
-        int newWeaponIndex = -1;
+
+        int newWeaponIndex;
         // 0 1 2
         if (activeWeaponIndex + addIndex > weapons.Length - 1)
         {
@@ -102,6 +101,7 @@ public class WeaponManager : MonoBehaviour
 
         // 換武器到NextIndex
         SwichToWeaponIndex(newWeaponIndex);
+
     }
 
     /// <summary>
@@ -110,6 +110,7 @@ public class WeaponManager : MonoBehaviour
     /// <param name="index">要顯示武器的對應武器位置</param>
     private void SwichToWeaponIndex(int index)
     {
+
         // 確保傳入的參數在武器清單的範圍內
         if (index >= 0 && index < weapons.Length)
         {
@@ -126,6 +127,7 @@ public class WeaponManager : MonoBehaviour
                 GetActiveWeapon().ShowWeapon(true);
             }
         }
+
     }
 
     /// <summary>
@@ -142,6 +144,7 @@ public class WeaponManager : MonoBehaviour
     /// <param name="index">武器槽的位置</param>
     public WeaponController GetWeaponAtSlotIndex(int index)
     {
+
         // 找到weapon在武器槽位置(index)並回傳該武器
         if (index >= 0 && index < weapons.Length && weapons[index] != null)
         {
@@ -155,6 +158,7 @@ public class WeaponManager : MonoBehaviour
 
         // 如果沒有找到武器
         return null;
+
     }
 
     /// <summary>
@@ -164,6 +168,7 @@ public class WeaponManager : MonoBehaviour
     /// <returns>是否成功新增武器</returns>
     public bool AddWeapon(WeaponController weaponPrefab)
     {
+
         if (HasWeapon(weaponPrefab))
         {
             return false;
@@ -177,17 +182,18 @@ public class WeaponManager : MonoBehaviour
                 // 產生Weapon到設定好的位置底下
                 WeaponController weaponInstance = Instantiate(weaponPrefab, equipWeaponParent);
 
-                weaponInstance.sourcePrefab = weaponPrefab.gameObject;
+                weaponInstance.SourcePrefab = weaponPrefab.gameObject;
                 weaponInstance.ShowWeapon(false);
 
                 weapons[i] = weaponInstance;
 
-                onAddWeapon?.Invoke(weaponInstance, i);
+                actionSystem.AddWeapon(weaponInstance, i);
 
                 return true;
             }
         }
         return false;
+
     }
 
     /// <summary>
@@ -196,19 +202,22 @@ public class WeaponManager : MonoBehaviour
     /// <param name="weaponPrefab">傳入的武器</param>
     private bool HasWeapon(WeaponController weaponPrefab)
     {
+
         foreach (WeaponController weapon in weapons)
         {
-            if (weapon != null && weapon.sourcePrefab == weaponPrefab.gameObject)
+            if (weapon != null && weapon.SourcePrefab == weaponPrefab.gameObject)
             {
                 return true;
             }
         }
 
         return false;
+
     }
 
     private void OnAim(bool value)
     {
+
         if (value)
         {
             StopAllCoroutines();
@@ -218,11 +227,14 @@ public class WeaponManager : MonoBehaviour
         {
             isAim = value;
         }
+
     }
 
     IEnumerator DelayAim()
     {
+
         yield return new WaitForSecondsRealtime(aimTime);
         isAim = true;
+
     }
 }

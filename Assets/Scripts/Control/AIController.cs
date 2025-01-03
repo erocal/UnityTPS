@@ -129,16 +129,20 @@ public abstract class AIController : MonoBehaviour
     /// <summary>
     /// AI受到攻擊時處理方法
     /// </summary>
-    protected void OnDamage()
+    protected void OnDamage(int id)
     {
+
+        if (id != this.gameObject.GetInstanceID()) return;
+
         //  受到攻擊時，觸發的事件
         isBeHit = true;
+
     }
 
     /// <summary>
     /// AI死亡時處理方法
     /// </summary>
-    protected abstract void OnDie();
+    protected abstract void OnDie(int id);
 
     #endregion
 

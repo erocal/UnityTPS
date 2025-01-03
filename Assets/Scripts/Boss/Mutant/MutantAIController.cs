@@ -6,6 +6,8 @@ public class MutantAIController : AIController
 
     #region -- 變數參考區 --
 
+    ActionSystem actionSystem;
+
     MutantMover mutantMover;
     MutantFighter mutantFighter;
     MutantAudio mutantAudio;
@@ -21,6 +23,7 @@ public class MutantAIController : AIController
     {
 
         organism = Organism.Instance;
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
         enemyRoot = this.gameObject;
         player = organism.GetPlayer();
         aiAnimator = this.GetComponent<Animator>();
@@ -43,10 +46,24 @@ public class MutantAIController : AIController
 
     private void Update()
     {
+
         AIBehavior();
 
         UpdateTimer();
+
     }
+
+    #region -- DrawGizmo --
+
+    // Called by Unity
+    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, chaseDistance);
+    }
+
+    #endregion
 
     #endregion
 
@@ -57,8 +74,10 @@ public class MutantAIController : AIController
     /// </summary>
     private void SetAction()
     {
-        health.OnDamage += OnDamage;
-        health.OnDie += OnDie;
+
+        actionSystem.OnDamage += OnDamage;
+        actionSystem.OnDie += OnDie;
+
     }
 
     /// <summary>
@@ -66,6 +85,7 @@ public class MutantAIController : AIController
     /// </summary>
     protected override void AIBehavior()
     {
+
         // 玩家在追趕範圍內
         if (IsRange() || CheckIsBeHit())
         {
@@ -79,6 +99,7 @@ public class MutantAIController : AIController
         {
             PatrolBehavior();
         }
+
     }
 
     /// <summary>
@@ -86,9 +107,11 @@ public class MutantAIController : AIController
     /// </summary>
     protected override void AttackBehavior()
     {
+
         aiAnimator.SetBool("IsConfuse", false);
         SawPlayer();
         mutantFighter.Attack(player.GetComponent<Health>());
+
     }
 
     /// <summary>
@@ -96,6 +119,7 @@ public class MutantAIController : AIController
     /// </summary>
     protected override void PatrolBehavior()
     {
+
         Vector3 nextWaypointPostion = aiSpawnPostion;
         if (patrol != null)
         {
@@ -132,6 +156,7 @@ public class MutantAIController : AIController
                 Debug.LogException(e);
             }
         }
+
     }
 
     /// <summary>
@@ -139,11 +164,13 @@ public class MutantAIController : AIController
     /// </summary>
     protected override void ConfuseBehavior()
     {
+
         mutantMover.CancelMove();
         mutantFighter.CancelTarget();
 
         // 困惑動作
         aiAnimator.SetBool("IsConfuse", true);
+
     }
 
     /// <summary>
@@ -151,8 +178,10 @@ public class MutantAIController : AIController
     /// </summary>
     private void UpdateTimer()
     {
+
         UpdateLastSawPlayerTimer();
         UpdateArriveWayPointTimer();
+
     }
 
     #region -- 事件相關 --
@@ -160,23 +189,14 @@ public class MutantAIController : AIController
     /// <summary>
     /// Mutant死亡時處理方法
     /// </summary>
-    protected override void OnDie()
+    protected override void OnDie(int id)
     {
+
+        if (id != this.gameObject.GetInstanceID()) return;
+
         mutantMover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;
-    }
-
-    #endregion
-
-    #region -- DrawGizmo --
-
-    // Called by Unity
-    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }
 
     #endregion

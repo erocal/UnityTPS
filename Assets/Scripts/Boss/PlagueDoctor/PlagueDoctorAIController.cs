@@ -5,23 +5,19 @@ public class PlagueDoctorAIController : AIController
 
     #region -- 參數參考區 --
 
+    ActionSystem actionSystem;
+
     PlagueDoctorMover plagueDoctorMover;
     PlagueDoctorFighter plagueDoctorFighter;
 
     #endregion
 
+    #region -- 初始化/運作 --
+
     private void Awake()
     {
 
-        organism = Organism.Instance;
-        enemyRoot = this.gameObject;
-        player = organism.GetPlayer();
-        aiAnimator = this.GetComponent<Animator>();
-        aiCollider = this.GetComponent<Collider>();
-        health = this.GetComponent<Health>();
-
-        plagueDoctorMover = GetComponent<PlagueDoctorMover>();
-        plagueDoctorFighter = GetComponent<PlagueDoctorFighter>();
+        Init();
 
         SetSpawnPosition(transform.position);
 
@@ -34,20 +30,46 @@ public class PlagueDoctorAIController : AIController
 
     private void Update()
     {
+
         AIBehavior();
 
         UpdateTimer();
+
     }
 
+    #endregion
+
     #region -- 方法參考區 --
+
+    /// <summary>
+    /// 初始化參數
+    /// </summary>
+    private void Init()
+    {
+
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
+        organism = Organism.Instance;
+        enemyRoot = this.gameObject;
+        player = organism.GetPlayer();
+        aiAnimator = this.GetComponent<Animator>();
+        aiCollider = this.GetComponent<Collider>();
+        health = this.GetComponent<Health>();
+
+        plagueDoctorMover = GetComponent<PlagueDoctorMover>();
+        plagueDoctorFighter = GetComponent<PlagueDoctorFighter>();
+
+    }
 
     /// <summary>
     /// 設置委派事件
     /// </summary>
     private void SetAction()
     {
-        health.OnDamage += OnDamage;
-        health.OnDie += OnDie;
+
+        actionSystem.OnDamage += OnDamage;
+        actionSystem.OnDie += OnDie;
+
     }
 
     /// <summary>
@@ -132,8 +154,11 @@ public class PlagueDoctorAIController : AIController
     /// <summary>
     /// PlagueDoctor死亡時處理方法
     /// </summary>
-    protected override void OnDie()
+    protected override void OnDie(int id)
     {
+
+        if (id != this.gameObject.GetInstanceID()) return;
+
         plagueDoctorMover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;

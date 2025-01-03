@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlagueDoctorFighter : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("角色攻擊類型")]
     [SerializeField] public Actor actorType;
     [Header("攻擊距離")]
@@ -20,7 +21,12 @@ public class PlagueDoctorFighter : MonoBehaviour
     [Header("手部座標")]
     [SerializeField] Transform hand;
 
+    #endregion
+
     #region -- 參數參考區 --
+
+    ActionSystem actionSystem;
+    Organism organism;
 
     PlagueDoctorMover mover;
     Animator animator;
@@ -37,17 +43,25 @@ public class PlagueDoctorFighter : MonoBehaviour
 
     #endregion
 
-    // Start is called before the first frame update
+    #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        organism = Organism.Instance;
+    }
+
     void Start()
     {
+
         mover = GetComponent<PlagueDoctorMover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         plagueDoctorAudio = GetComponent<PlagueDoctorAudio>();
-        health.OnDie += OnDie;
+        actionSystem.OnDie += OnDie;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         shootrate -= Time.deltaTime;
@@ -74,6 +88,21 @@ public class PlagueDoctorFighter : MonoBehaviour
 
         UpdateTimer();
     }
+
+    // Called by Unity
+    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, shootRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, continuousShootRange);
+    }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     // 檢查攻擊動作是否已經結束
     private bool CheckHasAttack()
@@ -174,19 +203,15 @@ public class PlagueDoctorFighter : MonoBehaviour
         targetHealth = null;
     }
 
-    private void OnDie()
+    private void OnDie(int id)
     {
+
+        if (id != organism.GetPlagueDoctor().GetInstanceID()) return;
+
         this.enabled = false;
+
     }
 
-    // Called by Unity
-    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, shootRange);
+    #endregion
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, continuousShootRange);
-    }
 }

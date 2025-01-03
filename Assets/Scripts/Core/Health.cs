@@ -25,18 +25,21 @@ public class Health : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    ActionSystem actionSystem;
+
     AudioSource audioSource;
 
-    // 當受到攻擊時觸發的委派事件
-    public event Action OnDamage;
-    // 當人物死亡時觸發的委派事件
-    public event Action OnDie;
     // 判斷擁有血量的物體是否處於死亡狀態
     private bool isDead = false;
 
     #endregion
 
     #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+    }
 
     void Start()
     {
@@ -88,7 +91,6 @@ public class Health : MonoBehaviour
 
         if (gameObject.tag == "Player" && rate <= 0)
         {
-            //print("Player目前血量 : " + currentHealth);
             rate = 2.0f;
             if (gothurtSFX != null)
             {
@@ -98,7 +100,6 @@ public class Health : MonoBehaviour
 
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombierate <= 0)
         {
-            //print("Player目前血量 : " + currentHealth);
             zombierate = 2.0f;
             if (gothurtSFX != null)
             {
@@ -111,8 +112,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            // ? = if (OnDamage != null) //讓他不要重複Invoke
-            OnDamage?.Invoke();
+            actionSystem.Damage(gameObject.GetInstanceID());
         }
 
         if (currentHealth <= 0)
@@ -128,7 +128,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
-            OnDie?.Invoke();
+            actionSystem.Death(this.gameObject.GetInstanceID());
         }
     }
 

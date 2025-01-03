@@ -19,6 +19,9 @@ public enum Actor
 
 public class Fighter : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("角色攻擊類型")]
     [SerializeField] public Actor actorType;
     [Header("攻擊傷害")]
@@ -30,12 +33,15 @@ public class Fighter : MonoBehaviour
 
     [Space(20)]
     [Header("要丟出去的Projectile")]
-    [SerializeField] Projectile throwProjectile; 
+    [SerializeField] Projectile throwProjectile;
     [Header("手部座標")]
     [SerializeField] Transform hand;
 
-    //[Header("相機")]
-    //[SerializeField] GameObject camera;
+    #endregion
+
+    #region -- 變數參考區 --
+
+    ActionSystem actionSystem;
 
     Mover mover;
     Animator animator;
@@ -45,16 +51,23 @@ public class Fighter : MonoBehaviour
 
     float timeSinceLastAttack = Mathf.Infinity;
 
-    // Start is called before the first frame update
+    #endregion
+
+    #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+    }
+
     void Start()
     {
         mover = GetComponent<Mover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
-        health.OnDie += OnDie;
+        actionSystem.OnDie += OnDie;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (targetHealth == null || targetHealth.IsDead()) return;
@@ -72,6 +85,18 @@ public class Fighter : MonoBehaviour
 
         UpdateTimer();
     }
+
+    // Called by Unity
+    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     // 檢查攻擊動作是否已經結束
     private bool CheckHasAttack()
@@ -140,7 +165,7 @@ public class Fighter : MonoBehaviour
 
         if (throwProjectile != null)
         {
-            Projectile newProjectile = Instantiate(throwProjectile,hand.position,Quaternion.LookRotation(transform.forward));
+            Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
             newProjectile.Shoot(gameObject);
         }
     }
@@ -168,16 +193,15 @@ public class Fighter : MonoBehaviour
         targetHealth = null;
     }
 
-    private void OnDie()
+    private void OnDie(int id)
     {
+
+        if (id != this.gameObject.GetInstanceID()) return;
+
         this.enabled = false;
+
     }
 
-    // Called by Unity
-    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
+    #endregion
+
 }

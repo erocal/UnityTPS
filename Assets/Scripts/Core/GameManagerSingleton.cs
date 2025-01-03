@@ -17,12 +17,14 @@ public class GameManagerSingleton
         {
             if(m_Instance == null)
             {
-                m_Instance = new GameManagerSingleton();
-                m_Instance.gameObject = new GameObject("Core");
+
+                m_Instance = new GameManagerSingleton
+                {
+                    gameObject = new GameObject("Core")
+                };
 
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<PoolInstaller>();
-                m_Instance.gameObject.AddComponent<ActionManager>();
 
             }
             return m_Instance;
@@ -55,16 +57,13 @@ public class GameManagerSingleton
         }
     }
 
-    private ActionManager m_ActionManager;
-    public ActionManager ActionManager
+    private ActionSystem m_ActionSystem;
+    public ActionSystem ActionSystem
     {
         get
         {
-            if (m_ActionManager == null)
-            {
-                m_ActionManager = gameObject.GetComponent<ActionManager>();
-            }
-            return m_ActionManager;
+            m_ActionSystem ??= new ActionSystem();
+            return m_ActionSystem;
         }
     }
 

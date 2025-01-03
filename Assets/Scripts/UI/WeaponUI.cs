@@ -14,6 +14,8 @@ public class WeaponUI : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    private ActionSystem actionSystem;
+
     Organism organism;
 
     WeaponManager weaponManager;
@@ -24,10 +26,13 @@ public class WeaponUI : MonoBehaviour
 
     void Awake()
     {
+
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
         organism = Organism.Instance;
 
         weaponManager = organism.GetPlayer().GetComponent<WeaponManager>();
-        weaponManager.onAddWeapon += OnAddWeapon;
+        actionSystem.OnAddWeapon += OnAddWeapon;
     }
 
     private void Update()
@@ -36,7 +41,7 @@ public class WeaponUI : MonoBehaviour
         {
             if (weaponManager.GetWeaponAtSlotIndex(i) == null) continue;
 
-            float value = weaponManager.GetWeaponAtSlotIndex(i).currentAmmoRatio;
+            float value = weaponManager.GetWeaponAtSlotIndex(i).CurrentAmmoRatio;
 
             energy[i].fillAmount = Mathf.Lerp(energy[i].fillAmount, value, 0.2f);
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MutantFighter : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("角色攻擊類型")]
     [SerializeField] Actor actorType;
     [Header("攻擊傷害")]
@@ -23,7 +26,12 @@ public class MutantFighter : MonoBehaviour
     [Header("手部座標")]
     [SerializeField] Transform hand;
 
+    #endregion
+
     #region -- 參數參考區 --
+
+    ActionSystem actionSystem;
+    Organism organism;
 
     MutantMover mover;
     Animator animator;
@@ -39,17 +47,26 @@ public class MutantFighter : MonoBehaviour
 
     #endregion
 
+    #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        organism = Organism.Instance;
+    }
+
     void Start()
     {
         mover = GetComponent<MutantMover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
         mutantAudio = GetComponent<MutantAudio>();
-        health.OnDie += OnDie;
+        actionSystem.OnDie += OnDie;
     }
 
     void Update()
     {
+
         attackrate -= Time.deltaTime;
 
         if (targetHealth == null || targetHealth.IsDead()) return;
@@ -72,7 +89,21 @@ public class MutantFighter : MonoBehaviour
         }
 
         UpdateTimer();
+
     }
+
+    // Called by Unity
+    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, jumpAttackRange);
+    }
+
+    #endregion
 
     #region -- 方法參考區 --
 
@@ -202,21 +233,15 @@ public class MutantFighter : MonoBehaviour
     /// <summary>
     /// 處理Mutant死亡處理方法
     /// </summary>
-    private void OnDie()
+    private void OnDie(int id)
     {
+
+        if (id != organism.GetMutant().GetInstanceID()) return;
+
         this.enabled = false;
+
     }
 
     #endregion
 
-    // Called by Unity
-    // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, jumpAttackRange);
-    }
 }
