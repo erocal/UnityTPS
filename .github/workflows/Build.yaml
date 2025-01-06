@@ -7,14 +7,32 @@ jobs:
   build:
     name: Build Project
     runs-on: ubuntu-latest
+
     steps:
-      # 查看repo
+      # Step 1: 查看repo
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           lfs: true # 使用 LFS
 
-      # (可選) Cache可以讓你之後Build更快
+      # Step 2: 清理Docker空間以釋放磁碟空間
+      - name: Clean Docker Space
+        run: |
+          docker system prune -af --volumes
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/unity/Editor/Data/Documentation
+          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport
+          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer
+          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/iOSSupport
+
+      # Step 3: 清理Unity Cache以釋放額外空間
+      - name: Clear Unity Cache
+        run: |
+          rm -rf ~/.cache/unity3d
+
+      # Step 4: (可選) Cache加速Build
       - name: Cache
         uses: actions/cache@v3
         with:
@@ -23,13 +41,7 @@ jobs:
           restore-keys: |
             Library-
 
-      # 清理Docker空間
-      - name: Clean up Docker space
-        run: |
-          docker system prune -af
-          docker volume prune -f
-          
-      # 用Game-CI Builder建置專案
+      # Step 5: 用Game-CI Builder建置專案
       - name: Build project
         uses: game-ci/unity-builder@v4
         env:
@@ -39,9 +51,9 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
 
-      # 輸出成artifact
+      # Step 6: 輸出成artifact
       - uses: actions/upload-artifact@v3
         with:
           name: Build
           path: build
-          retention-days: 2     # 幾天後會刪除
+          retention-days: 2  # 幾天後會刪除
