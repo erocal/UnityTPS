@@ -37,7 +37,7 @@ public class MapAreaManager : MonoBehaviour
 
     #endregion
 
-    #region -- 初始/運作 --
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
@@ -169,4 +169,5 @@ public class MapAreaManager : MonoBehaviour
     }
 
     #endregion
+
 }
