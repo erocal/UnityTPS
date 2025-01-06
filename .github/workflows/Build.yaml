@@ -8,6 +8,11 @@ jobs:
     name: Build Project
     runs-on: ubuntu-latest
     steps:
+      # 安裝與更新 Docker
+      - name: Setup Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-ce docker-ce-cli containerd.io
       # 查看repo
       - name: Checkout repo
         uses: actions/checkout@v4
