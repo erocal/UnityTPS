@@ -256,17 +256,28 @@ public class ThirdPersonCamera : MonoBehaviour
             if(!isRidalBlur)
             {
 
-                mainCameraData.SetRenderer(1);
+                CameraSetRenderer(RADIAL_BLUR_RENDERER);
 
                 isRidalBlur = true;
 
                 await Task.Delay(1000);
 
-                mainCameraData.SetRenderer(0);
+                CameraSetRenderer(ORIGINAL_RENDERER);
 
             }
 
         }
+
+    }
+
+    /// <summary>
+    /// 相機設置渲染資料
+    /// </summary>
+    private void CameraSetRenderer(int renderer)
+    {
+
+        if (mainCameraData != null)
+            mainCameraData.SetRenderer(renderer);
 
     }
 
@@ -277,16 +288,6 @@ public class ThirdPersonCamera : MonoBehaviour
     {
 
         isRidalBlur = false;
-
-    }
-
-    private void SetOriginalRenderer()
-    {
-
-        if (mainCameraData != null)
-        {
-            mainCameraData.SetRenderer(0);
-        }
 
     }
 

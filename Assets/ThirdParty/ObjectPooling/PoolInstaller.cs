@@ -8,8 +8,6 @@ namespace ToolBox.Pools
 
         #region -- 戈方把σ跋 --
 
-        [SerializeField] private PoolContainerSO poolContainerSO;
-
         #endregion
 
         #region -- 跑计把σ跋 --
@@ -19,6 +17,8 @@ namespace ToolBox.Pools
         private const string SO_ADDRESS = "poolcontainerso";
 
         #endregion
+
+        private PoolContainerSO poolContainerSO;
 
         #endregion
 
