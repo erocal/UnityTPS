@@ -1,7 +1,9 @@
 name: Build 🥖😭🌭
 
 on:
-  workflow_dispatch: {}
+  schedule:
+    # 分 時 日 月 星期幾
+    - cron: '0 4 * * 5'
 
 jobs:
   build:
@@ -62,4 +64,4 @@ jobs:
         with:
           name: Build-${{ github.run_id }}
           path: build
-          retention-days: 2  # 幾天後會刪除
+          retention-days: 6  # 幾天後會刪除
