@@ -18,14 +18,19 @@ jobs:
       # Step 2: 清理Docker空間以釋放磁碟空間
       - name: Clean Docker Space
         run: |
-          docker system prune -af --volumes
+          echo "Cleaning system to free up space..."
+          docker system prune -af --volumes # 清除 Docker 資源
           sudo apt-get clean
           sudo rm -rf /var/lib/apt/lists/*
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /opt/unity/Editor/Data/Documentation
-          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport
-          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer
-          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/iOSSupport
+          sudo rm -rf /usr/local/lib/android # 刪除 Android 工具
+          sudo rm -rf /opt/unity/Editor/Data/Documentation # 刪除 Unity 文件
+          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport # 刪除 Linux 支援
+          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer # 刪除 Android 支援
+          sudo rm -rf /opt/unity/Editor/Data/PlaybackEngines/iOSSupport # 刪除 iOS 支援
+          sudo rm -rf /usr/share/dotnet # 移除未使用的 .NET SDK
+          sudo rm -rf /usr/local/lib/node_modules # 移除 Node.js 套件
+          sudo apt-get autoremove -y # 自動移除不需要的套件
+          df -h # 查看剩餘空間狀態
 
       # Step 3: 清理Unity Cache以釋放額外空間
       - name: Clear Unity Cache
