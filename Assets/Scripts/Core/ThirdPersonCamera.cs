@@ -58,6 +58,13 @@ public class ThirdPersonCamera : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    #region -- 常數 --
+
+    private const int ORIGINAL_RENDERER = 0;
+    private const int RADIAL_BLUR_RENDERER = 1;
+
+    #endregion
+
     Organism organism;
 
     InputController input;
@@ -68,6 +75,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
     float mouse_X = 0;
     float mouse_Y = 30;
+
+    bool isRidalBlur;
 
     bool isChange;
     
@@ -236,14 +245,27 @@ public class ThirdPersonCamera : MonoBehaviour
     /// <summary>
     /// 玩家加速時處理方法
     /// </summary>
-    private void OnCaplock()
+    private async void OnCaplock()
     {
         if (caplockParticle == null) return;
         caplockParticle.Play();
 
         if (mainCameraData != null)
         {
-            mainCameraData.SetRenderer(1);
+
+            if(!isRidalBlur)
+            {
+
+                mainCameraData.SetRenderer(1);
+
+                isRidalBlur = true;
+
+                await Task.Delay(1000);
+
+                mainCameraData.SetRenderer(0);
+
+            }
+
         }
 
     }
@@ -252,6 +274,13 @@ public class ThirdPersonCamera : MonoBehaviour
     /// 玩家鬆開加速鍵時處理方法
     /// </summary>
     private void OnCaplockUp()
+    {
+
+        isRidalBlur = false;
+
+    }
+
+    private void SetOriginalRenderer()
     {
 
         if (mainCameraData != null)
