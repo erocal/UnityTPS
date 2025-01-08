@@ -19,8 +19,8 @@ TagManager:
   - VFX
   - Water
   - UI
-  - 
   - MapArea
+  - MapAreaTrigger
   - Ground
   - Player
   - Enemy

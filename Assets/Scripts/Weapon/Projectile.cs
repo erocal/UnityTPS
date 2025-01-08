@@ -81,7 +81,7 @@ public class Projectile : MonoBehaviour
 
         HitEffect(transform.position);
 
-        if(trailRenderer != null)
+        if (trailRenderer != null)
             trailRenderer.enabled = false;
 
         this.gameObject.Release(poolInstaller.transform);

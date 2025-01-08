@@ -3334,7 +3334,7 @@ GameObject:
   - component: {fileID: 66372098}
   - component: {fileID: 66372097}
   - component: {fileID: 66372096}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: StartArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24296,7 +24296,7 @@ GameObject:
   - component: {fileID: 408310695}
   - component: {fileID: 408310694}
   - component: {fileID: 408310693}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: PlainArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27672,7 +27672,7 @@ GameObject:
   - component: {fileID: 482246529}
   - component: {fileID: 482246528}
   - component: {fileID: 482246527}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: MutantArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31669,7 +31669,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1951
+    m_Bits: 1887
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -41585,7 +41585,7 @@ GameObject:
   - component: {fileID: 728592364}
   - component: {fileID: 728592363}
   - component: {fileID: 728592362}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: PlainArea (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81547,7 +81547,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 437
+    m_Bits: 373
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 6ee43c92d049e6a4ea9168f7c86fd5ec, type: 2}
   m_TargetDisplay: 0
