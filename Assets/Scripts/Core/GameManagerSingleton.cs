@@ -25,6 +25,7 @@ public class GameManagerSingleton
 
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<PoolInstaller>();
+                m_Instance.gameObject.AddComponent<BackgroundMusicSystem>();
 
             }
             return m_Instance;
@@ -54,6 +55,19 @@ public class GameManagerSingleton
                 m_PoolInstaller = gameObject.GetComponent<PoolInstaller>();
             }
             return m_PoolInstaller;
+        }
+    }
+
+    private BackgroundMusicSystem m_BackgroundMusicSystem;
+    public BackgroundMusicSystem BackgroundMusicSystem
+    {
+        get
+        {
+            if (m_BackgroundMusicSystem == null)
+            {
+                m_BackgroundMusicSystem = gameObject.GetComponent<BackgroundMusicSystem>();
+            }
+            return m_BackgroundMusicSystem;
         }
     }
 

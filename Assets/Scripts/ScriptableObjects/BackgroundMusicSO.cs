@@ -27,4 +27,13 @@ public class BackgroundMusicSO : ScriptableObject
 
     }
 
+    public enum BackgroundMusicType
+    {
+        Potato,
+        Town,
+        Wind,
+        Sad,
+        Grave
+    }
+
 }

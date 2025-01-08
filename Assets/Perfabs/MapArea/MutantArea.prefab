@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113679485251902029}
   - component: {fileID: 5953320650240466723}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113679485659221347}
   - component: {fileID: 7262580340246951376}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113679485711404640}
   - component: {fileID: 3395895935960441222}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: MutantArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113679486265760849}
   - component: {fileID: 5881423276776039916}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113679486446042615}
   - component: {fileID: 7643762831382240021}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Terrian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,6 +431,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gate
       objectReference: {fileID: 0}
+    - target: {fileID: 6240878014538551155, guid: e5c8b28ab57a6b344ac7d16d9e89ca5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -499,6 +504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085703082669218455, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9085703082669246135, guid: 0a6b4595497f2c34689c28990fb25d30,
         type: 3}
@@ -623,6 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 47622362897534705, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
         type: 3}
@@ -753,6 +768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type02
       objectReference: {fileID: 0}
+    - target: {fileID: 22903564835500384, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -871,6 +891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 47622362897534705, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
         type: 3}
@@ -1001,6 +1026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type07
       objectReference: {fileID: 0}
+    - target: {fileID: 1292195126609478316, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -1119,6 +1149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292195126609478316, guid: dbe487d2e95a8b24b97b4029db3a5742,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3930606782297747429, guid: dbe487d2e95a8b24b97b4029db3a5742,
         type: 3}
@@ -1239,6 +1274,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type06
       objectReference: {fileID: 0}
+    - target: {fileID: 6538669099829899489, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7474059568081833721, guid: e0d52a7b1cf91c6468d2a2a337f4a9f9,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -1352,6 +1392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193953818240560734, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7193953818240660094, guid: b84c3a9e65f0b824294ad1e6985084a6,
         type: 3}
@@ -1476,6 +1521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 47622362897534705, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
         type: 3}
@@ -1611,6 +1661,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_cornerLarge_stone
       objectReference: {fileID: 0}
+    - target: {fileID: 5593231748321497900, guid: deff414d72e58e8498134596352b313f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5593231748321529612, guid: deff414d72e58e8498134596352b313f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1729,6 +1784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699015300285541638, guid: 265d897c89fb6cb48b075c0899cc2948,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5699015300285903142, guid: 265d897c89fb6cb48b075c0899cc2948,
         type: 3}
@@ -1899,6 +1959,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type04
       objectReference: {fileID: 0}
+    - target: {fileID: 4740634213586250499, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2018,6 +2083,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2040,6 +2110,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d2debcb3c417b07419457484a835eb7d, type: 3}
       propertyPath: m_Name
       value: Lava_simple
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d2debcb3c417b07419457484a835eb7d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d2debcb3c417b07419457484a835eb7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2235,6 +2309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type15
       objectReference: {fileID: 0}
+    - target: {fileID: 7921162285901233187, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2308,6 +2387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wallPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536940096830577352, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
         type: 3}
@@ -2473,6 +2557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2546,6 +2635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331093477851661995, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
         type: 3}
@@ -2660,6 +2754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101607124074482925, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8101607124074516685, guid: fdea16c61d021c646a7393785ddfb5a3,
         type: 3}
@@ -2784,6 +2883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 47622362897534705, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
         type: 3}
@@ -2914,6 +3018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type05
       objectReference: {fileID: 0}
+    - target: {fileID: 199911672641828813, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -3032,6 +3141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340474413773910240, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
         type: 3}
@@ -3197,6 +3311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3265,6 +3384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813973547374100145, guid: e38cceaad7140e546af538add9ef2932,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7813973547374584465, guid: e38cceaad7140e546af538add9ef2932,
         type: 3}
@@ -3390,6 +3514,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 3536940096830577352, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -3504,6 +3633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type03
       objectReference: {fileID: 0}
+    - target: {fileID: 1294665387545159235, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -3572,6 +3706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591304411037338565, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4591304411037767653, guid: 79ab247e7b382b6498384bca80807eca,
         type: 3}
@@ -3732,6 +3871,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type11
       objectReference: {fileID: 0}
+    - target: {fileID: 9085703082669218455, guid: 0a6b4595497f2c34689c28990fb25d30,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9085703082669246135, guid: 0a6b4595497f2c34689c28990fb25d30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3805,6 +3949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559176198378073654, guid: b5272922ea5ed1c46808b1a7d66c84e9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1559176198378369558, guid: b5272922ea5ed1c46808b1a7d66c84e9,
         type: 3}
@@ -3964,6 +4113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340474413773910240, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
         type: 3}
@@ -4129,6 +4283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type04
       objectReference: {fileID: 0}
+    - target: {fileID: 4740634213586250499, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4202,6 +4361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type02
+      objectReference: {fileID: 0}
+    - target: {fileID: 22903564835500384, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
         type: 3}
@@ -4322,6 +4486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type02
       objectReference: {fileID: 0}
+    - target: {fileID: 22903564835500384, guid: d96e065a00de2824a819433df5fc9081,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9180476960421562534, guid: d96e065a00de2824a819433df5fc9081,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -4435,6 +4604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294665387545159235, guid: f1ccb2013998620449a549285cc6ff6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4195267219571219153, guid: f1ccb2013998620449a549285cc6ff6f,
         type: 3}
@@ -4550,6 +4724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type13
       objectReference: {fileID: 0}
+    - target: {fileID: 2331093477851661995, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -4663,6 +4842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193953818240560734, guid: b84c3a9e65f0b824294ad1e6985084a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7193953818240660094, guid: b84c3a9e65f0b824294ad1e6985084a6,
         type: 3}
@@ -4833,6 +5017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4952,6 +5141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5025,6 +5219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340474413773910240, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7881994887087566667, guid: 8d8f027b0aa40844c9f3d89502f3b63a,
         type: 3}
@@ -5185,6 +5384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5258,6 +5462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type05
+      objectReference: {fileID: 0}
+    - target: {fileID: 199911672641828813, guid: 8793dc0f8873b4d46a7411aab7e964d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5232984213765725421, guid: 8793dc0f8873b4d46a7411aab7e964d0,
         type: 3}
@@ -5408,6 +5617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type15
       objectReference: {fileID: 0}
+    - target: {fileID: 7921162285901233187, guid: fdf6d0db86a460842a5446760e6b1098,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5526,6 +5740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tree_small
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5646,6 +5865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5764,6 +5988,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740634213586250499, guid: 69ab9ea8c098c4b41a7a329b144453ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5884,6 +6113,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5957,6 +6191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wallPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536940096830577352, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
         type: 3}
@@ -6122,6 +6361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type17
       objectReference: {fileID: 0}
+    - target: {fileID: 3629430451972932530, guid: 0d03e433793a7a14ba20f03ed433ee6d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6195,6 +6439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331093477851661995, guid: 97bdb0c0f64e4254eba3b064df996f5f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7301104400348632810, guid: 97bdb0c0f64e4254eba3b064df996f5f,
         type: 3}
@@ -6315,6 +6564,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wallPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 3536940096830577352, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -6378,6 +6632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: house_type09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591304411037338565, guid: 79ab247e7b382b6498384bca80807eca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4591304411037767653, guid: 79ab247e7b382b6498384bca80807eca,
         type: 3}
@@ -6543,6 +6802,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type01
       objectReference: {fileID: 0}
+    - target: {fileID: 8101607124074482925, guid: fdea16c61d021c646a7393785ddfb5a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8101607124074516685, guid: fdea16c61d021c646a7393785ddfb5a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6667,6 +6931,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_type08
       objectReference: {fileID: 0}
+    - target: {fileID: 2591746916535978899, guid: c2853374668a9164aaba706c005aa086,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6647155533803351535, guid: c2853374668a9164aaba706c005aa086,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
@@ -6785,6 +7054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wallPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536940096830577352, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8995983128832029711, guid: 4ef38b8f1e453644ab9496e07af8e2d7,
         type: 3}
@@ -6950,6 +7224,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7023,6 +7302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 47622362897534705, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
         type: 3}
@@ -7198,6 +7482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_small
       objectReference: {fileID: 0}
+    - target: {fileID: 5226188125101271890, guid: 2e8e07181d6175c42b2fcbe07b1831b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7271,6 +7560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: driveway_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 47622362897534705, guid: 3133cc739c8e28e42acfb93b9ba30226,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8183460990102053306, guid: 3133cc739c8e28e42acfb93b9ba30226,
         type: 3}
