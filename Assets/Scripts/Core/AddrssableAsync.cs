@@ -22,7 +22,7 @@ public static class AddrssableAsync
         var updates = Addressables.CheckForCatalogUpdates().WaitForCompletion();
         if (updates != null)
         {
-            if(updates.Count > 0)
+            if (updates.Count > 0)
                 Addressables.UpdateCatalogs().WaitForCompletion();
         }
 
@@ -75,14 +75,14 @@ public static class AddrssableAsync
             }
             else
             {
-                Debug.LogError($"載入資源失敗: {assetName}");
+                Log.Error($"載入資源失敗: {assetName}");
                 return default;
             }
         }
         catch (System.Exception e)
         {
             // 捕獲例外並輸出錯誤訊息
-            Debug.LogError($"載入資源過程中發生例外: {e.Message}");
+            Log.Error($"載入資源過程中發生例外: {e.Message}");
             return default;
         }
     }
@@ -91,11 +91,11 @@ public static class AddrssableAsync
     {
         try
         {
-           return await Addressables.InstantiateAsync(assetName, parent, instantiateInWorldSpace, trackHandle).Task;
+            return await Addressables.InstantiateAsync(assetName, parent, instantiateInWorldSpace, trackHandle).Task;
         }
         catch (System.Exception e)
         {
-            Debug.LogError(e);
+            Log.Error(e);
             return null;
         }
 
@@ -110,7 +110,7 @@ public static class AddrssableAsync
         }
         catch (System.Exception e)
         {
-            Debug.LogError(e);
+            Log.Error(e);
             return new AsyncOperationHandle<SceneInstance>();
         }
     }
@@ -140,8 +140,10 @@ public static class AddrssableAsync
         }
         catch (System.Exception e)
         {
-            Debug.LogError(e);
+            Log.Error(e);
         }
     }
+
     #endregion
+
 }

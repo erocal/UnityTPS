@@ -1,5 +1,6 @@
 ﻿using ToolBox.Pools;
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 // singleton單例模式
 // 可以確保生成對象只有一個實例存在
@@ -15,14 +16,15 @@ public class GameManagerSingleton
     {
         get
         {
-            if(m_Instance == null)
+            if (m_Instance == null)
             {
 
                 m_Instance = new GameManagerSingleton
                 {
-                    gameObject = new GameObject("Core")
+                    gameObject = new GameObject("Core"),
                 };
 
+                m_Instance.gameObject.AddComponent<DontDestroyOnLoad>();
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<PoolInstaller>();
                 m_Instance.gameObject.AddComponent<BackgroundMusicSystem>();
@@ -36,8 +38,9 @@ public class GameManagerSingleton
     private InputController m_InputController;
     public InputController InputController
     {
-        get{
-            if(m_InputController == null)
+        get
+        {
+            if (m_InputController == null)
             {
                 m_InputController = gameObject.GetComponent<InputController>();
             }

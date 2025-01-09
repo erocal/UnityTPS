@@ -442,7 +442,7 @@ public class PlayerController : MonoBehaviour
         // 根據玩家區域，開啟地圖
         await mapAreaManager.SwitchMapArea((int)playerStandMapArea);
 
-        health.Alive();
+        health.ReBorn();
         animator.SetTrigger("IsAlive");
         
         // 初始玩家生成位置

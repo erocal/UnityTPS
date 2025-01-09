@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class InputController : MonoBehaviour
 {
 
-    #region -- 參數參考區 --
+    #region -- 變數參考區 --
 
     public float vertical;
     public float horizontal;
@@ -24,8 +24,6 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         CheckCursorState();
-        //vertical = Input.GetAxis("Vertical");
-        //horizontal = Input.GetAxis("Horizontal");
     }
 
     #endregion
@@ -37,7 +35,7 @@ public class InputController : MonoBehaviour
     /// </summary>
     public Vector3 GetMoveInput()
     {
-        if(CanProcessInput())
+        if (CanProcessInput())
         {
             Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
@@ -46,7 +44,7 @@ public class InputController : MonoBehaviour
 
             return move;
         }
-        
+
         return Vector3.zero;
     }
 
@@ -55,11 +53,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetCapInput()
     {
+
         if (CanProcessInput())
         {
             return Input.GetKey(KeyCode.CapsLock);
         }
         return false;
+
     }
 
     /// <summary>
@@ -67,11 +67,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetJumpInput()
     {
+
         if (CanProcessInput())
         {
             return Input.GetKey(KeyCode.Space);
         }
         return false;
+
     }
 
     /// <summary>
@@ -79,11 +81,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetJumpInputDown()
     {
-        if(CanProcessInput())
+
+        if (CanProcessInput())
         {
             return Input.GetKeyDown(KeyCode.Space);
         }
         return false;
+
     }
 
     /// <summary>
@@ -91,11 +95,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public float GetMouseXAxis()
     {
+
         if (CanProcessInput())
         {
             return Input.GetAxis("Mouse X");
         }
         return 0;
+
     }
 
     /// <summary>
@@ -103,11 +109,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public float GetMouseYAxis()
     {
+
         if (CanProcessInput())
         {
             return Input.GetAxis("Mouse Y");
         }
         return 0;
+
     }
 
     /// <summary>
@@ -115,11 +123,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public float GetMouseScrollWheelAxis()
     {
+
         if (CanProcessInput())
         {
             return Input.GetAxis("Mouse ScrollWheel");
         }
         return 0;
+
     }
 
     /// <summary>
@@ -127,7 +137,9 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetClick()
     {
+
         return Input.GetMouseButtonDown(0);
+
     }
 
     /// <summary>
@@ -135,11 +147,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetFireInputDown()
     {
+
         if (CanProcessInput())
         {
             return Input.GetMouseButtonDown(0);
         }
         return false;
+
     }
 
     /// <summary>
@@ -147,11 +161,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetFireInputHeld()
     {
+
         if (CanProcessInput())
         {
             return Input.GetMouseButton(0);
         }
         return false;
+
     }
 
     /// <summary>
@@ -159,11 +175,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetFireInputUp()
     {
+
         if (CanProcessInput())
         {
             return Input.GetMouseButtonUp(0);
         }
         return false;
+
     }
 
     /// <summary>
@@ -171,11 +189,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetAimInputDown()
     {
+
         if (CanProcessInput())
         {
             return Input.GetMouseButtonDown(1);
         }
         return false;
+
     }
 
     /// <summary>
@@ -183,11 +203,13 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool GetReloadInputDown()
     {
+
         if (CanProcessInput())
         {
             return Input.GetKeyDown(KeyCode.R);
         }
         return false;
+
     }
 
     /// <summary>
@@ -195,6 +217,7 @@ public class InputController : MonoBehaviour
     /// </summary>
     public int GetSwichWeaponInput()
     {
+
         if (CanProcessInput())
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -207,6 +230,7 @@ public class InputController : MonoBehaviour
             }
         }
         return 0;
+
     }
 
     /// <summary>
@@ -214,34 +238,26 @@ public class InputController : MonoBehaviour
     /// </summary>
     private void CheckCursorState()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0 && SceneManager.GetActiveScene().buildIndex != 0)
         {
             if (Cursor.lockState == CursorLockMode.None)
-                Cursor.lockState = CursorLockMode.Locked;
+                CursorStateChange(true);
             else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
+                CursorStateChange(false);
         }
+
     }
 
     /// <summary>
-    /// 更新鼠標狀態為鎖定
+    /// 更改鼠標鎖定狀態
     /// </summary>
-    public void CursorStateLocked()
+    public void CursorStateChange(bool isLocked)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
 
-    /// <summary>
-    /// 顯示鼠標&更新鼠標狀態為未鎖定
-    /// </summary>
-    public void CursorStateUnlocked()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = isLocked ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !isLocked;
+
     }
 
     /// <summary>
@@ -249,8 +265,10 @@ public class InputController : MonoBehaviour
     /// </summary>
     public bool CanProcessInput()
     {
+
         // 如果Cursor狀態不在鎖定中就不能處理Input
         return Cursor.lockState == CursorLockMode.Locked;
+
     }
 
     #endregion

@@ -1,5 +1,6 @@
-﻿using System;
+﻿using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class Health : MonoBehaviour
     [SerializeField, Tooltip("治療時的特效")] ParticleSystem healParticle;
     [SerializeField, Tooltip("生命提升時的特效")] ParticleSystem lifeParticle;
 
+    [Header("HealthBar")]
+    [SerializeField] private bool isPlayer;
+    [HideIf("isPlayer"), SerializeField] private GameObject rootCanvas;
+    [HideIf("isPlayer"), SerializeField] private Image foreground;
+    [HideIf("isPlayer"), SerializeField, Range(0, 1)] float changeHealthRatio = 0.1f;
+
     #endregion
 
     #region -- 變數參考區 --
@@ -38,33 +45,49 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
     }
 
     void Start()
     {
+
         currentHealth = maxHealth;
         audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
     {
+
         rate -= Time.deltaTime;
         zombierate -= Time.deltaTime;
+
+        HealthBar();
+
     }
 
     #endregion
 
     #region -- 方法參考區 --
 
-    public float GetCurrentHealth()
+    private void HealthBar()
     {
-        return currentHealth;
-    }
 
-    public float GetMaxHealth()
-    {
-        return maxHealth;
+        if (isPlayer) return;
+
+        // 如果血量百分比約等於0或是1
+        if (Mathf.Approximately(GetHealthRatio(), 0) || Mathf.Approximately(GetHealthRatio(), 1))
+        {
+            rootCanvas.SetActive(false);
+            return;
+        }
+
+        rootCanvas.SetActive(true);
+        rootCanvas.transform.LookAt(Camera.main.transform.position);
+        foreground.fillAmount = Mathf.Lerp(foreground.fillAmount, GetHealthRatio(), changeHealthRatio);
+
     }
 
     public float GetHealthRatio()
@@ -143,7 +166,7 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Min(currentHealth, maxHealth);
     }
 
-    public void Life(float amount)
+    public void AddMaxHealth(float amount)
     {
         if (lifeParticle != null)
             lifeParticle.Play();
@@ -152,7 +175,7 @@ public class Health : MonoBehaviour
         currentHealth += amount;
     }
 
-    public void Alive()
+    public void ReBorn()
     {
         isDead = false;
         Heal(maxHealth);

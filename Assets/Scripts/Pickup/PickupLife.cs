@@ -24,7 +24,7 @@ public class PickupLife : MonoBehaviour
         Health health = player.GetComponent<Health>();
         if (health)
         {
-            health.Life(addHealth);
+            health.AddMaxHealth(addHealth);
 
             //Destroy(pickupRoot);
             pickupRoot.SetActive(false);

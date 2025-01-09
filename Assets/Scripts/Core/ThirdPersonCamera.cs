@@ -222,7 +222,7 @@ public class ThirdPersonCamera : MonoBehaviour
         if (id != organism.GetPlayer().GetInstanceID()) return;
 
         aliveUI.SetActive(true);
-        input.CursorStateUnlocked();
+        input.CursorStateChange(false);
 
     }
 
@@ -315,7 +315,7 @@ public class ThirdPersonCamera : MonoBehaviour
     /// </summary>
     public void ContinueGame()
     {
-        input.CursorStateLocked();
+        input.CursorStateChange(true);
     }
 
     /// <summary>
@@ -323,7 +323,7 @@ public class ThirdPersonCamera : MonoBehaviour
     /// </summary>
     public async void Respawn()
     {
-        input.CursorStateLocked();
+        input.CursorStateChange(true);
 
         await playercontroller.IsAlive();
     }

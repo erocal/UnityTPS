@@ -22,4 +22,12 @@ public static class Log
         Debug.LogError(msg);
 #endif
     }
+
+    public static void Error(object message)
+    {
+#if UNITY_EDITOR
+        Debug.LogError(message);
+#endif
+    }
+
 }

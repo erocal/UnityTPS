@@ -58,7 +58,6 @@ public class LoadingManager : MonoBehaviour
         input = GameManagerSingleton.Instance.InputController;
 
         // Á×§K¤Á´«³õ´º¯}Ãa
-        DontDestroyOnLoad(input);
         DontDestroyOnLoad(this.gameObject);
 
         #region -- btn --
@@ -80,7 +79,7 @@ public class LoadingManager : MonoBehaviour
         // ¥[¸üGame
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            input.CursorStateLocked();
+            input.CursorStateChange(true);
 
             Destroy(startGameUI);
 
