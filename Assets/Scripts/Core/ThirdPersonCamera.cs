@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -79,7 +78,7 @@ public class ThirdPersonCamera : MonoBehaviour
     bool isRidalBlur;
 
     bool isChange;
-    
+
     // 應該是看滑鼠是不是鎖住的狀態
     bool isLocked = false;
 
@@ -116,8 +115,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private async void LateUpdate()
     {
-        
-        if ( Cursor.lockState == CursorLockMode.Locked )
+
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
             pauseUI.SetActive(false);
             aliveUI.SetActive(false);
@@ -126,7 +125,7 @@ public class ThirdPersonCamera : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
-            
+
             mouse_X += input.GetMouseXAxis() * sensitivity_X;
             mouse_Y += input.GetMouseYAxis() * sensitivity_Y;
 
@@ -155,7 +154,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
             isLocked = true;
 
-            if(!aliveUI.activeSelf)
+            if (!aliveUI.activeSelf)
             {
                 pauseUI.SetActive(true);
                 await DelayAndStopTimeAsync(0);
@@ -196,7 +195,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void CheckVolumeMute()
     {
 
-        if(audioSource.volume == 0)
+        if (audioSource.volume == 0)
         {
             volumeUI.SetActive(false);
             muteUI.SetActive(true);
@@ -253,7 +252,7 @@ public class ThirdPersonCamera : MonoBehaviour
         if (mainCameraData != null)
         {
 
-            if(!isRidalBlur)
+            if (!isRidalBlur)
             {
 
                 CameraSetRenderer(RADIAL_BLUR_RENDERER);
@@ -333,7 +332,7 @@ public class ThirdPersonCamera : MonoBehaviour
     /// </summary>
     public void Volume()
     {
-        if(volumeSliderUI.activeSelf)
+        if (volumeSliderUI.activeSelf)
             volumeSliderUI.SetActive(false);
         else
             volumeSliderUI.SetActive(true);

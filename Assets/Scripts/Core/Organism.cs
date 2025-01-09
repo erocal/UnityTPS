@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Organism : MonoBehaviour
 {
 
-    #region -- ¸ê·½°Ñ¦Ò°Ï --
+    #region -- è³‡æºåƒè€ƒå€ --
 
-    [SerializeField, Tooltip("ª±®a")] private GameObject player;
-    [SerializeField, Tooltip("¼É®{")] private GameObject mutant;
-    [SerializeField, Tooltip("½E¬ÌÂå¥Í")] private GameObject plagueDoctor;
+    [SerializeField, Tooltip("ç©å®¶")] private GameObject player;
+    [SerializeField, Tooltip("æš´å¾’")] private GameObject mutant;
+    [SerializeField, Tooltip("ç˜Ÿç–«é†«ç”Ÿ")] private GameObject plagueDoctor;
 
     #endregion
 
-    #region -- ÅÜ¼Æ°Ñ¦Ò°Ï --
+    #region -- è®Šæ•¸åƒè€ƒå€ --
 
     private static Organism _instance;
 
@@ -31,9 +31,9 @@ public class Organism : MonoBehaviour
 
     #endregion
 
-    #region -- ªì©l¤Æ/¹B§@ --
+    #region -- åˆå§‹åŒ–/é‹ä½œ --
 
-    // ¨¾¤î¥~³¡¹ê¨Ò¤Æ¸ÓÃş
+    // é˜²æ­¢å¤–éƒ¨å¯¦ä¾‹åŒ–è©²é¡
     private Organism()
     {
     }
@@ -50,12 +50,12 @@ public class Organism : MonoBehaviour
 
     #endregion
 
-    #region -- ¤èªk°Ñ¦Ò°Ï --
+    #region -- æ–¹æ³•åƒè€ƒå€ --
 
-    #region -- ³æ¨Ò¼Ò¦¡ --
+    #region -- å–®ä¾‹æ¨¡å¼ --
 
     /// <summary>
-    /// Àò¨ú°ß¤@¹ê¨Ò
+    /// ç²å–å”¯ä¸€å¯¦ä¾‹
     /// </summary>
     private void GetInstance()
     {
@@ -67,34 +67,34 @@ public class Organism : MonoBehaviour
 
     #endregion
 
-    #region -- Get¤èªk --
+    #region -- Getæ–¹æ³• --
 
     /// <summary>
-    /// ¨ú±oª±®a
+    /// å–å¾—ç©å®¶
     /// </summary>
     public GameObject GetPlayer()
     {
-        if (player == null) Log.Error("ª±®aª«¥ó¬°ªÅ");
+        if (player == null) Log.Error("ç©å®¶ç‰©ä»¶ç‚ºç©º");
 
         return player;
     }
 
     /// <summary>
-    /// ¨ú±o¼É®{Boss
+    /// å–å¾—æš´å¾’Boss
     /// </summary>
     public GameObject GetMutant()
     {
-        if (mutant == null) Log.Error("¼É®{Bossª«¥ó¬°ªÅ");
+        if (mutant == null) Log.Error("æš´å¾’Bossç‰©ä»¶ç‚ºç©º");
 
         return mutant;
     }
 
     /// <summary>
-    /// ¨ú±o½E¬ÌÂå¥ÍBoss
+    /// å–å¾—ç˜Ÿç–«é†«ç”ŸBoss
     /// </summary>
     public GameObject GetPlagueDoctor()
     {
-        if (plagueDoctor == null) Log.Error("½E¬ÌÂå¥ÍBossª«¥ó¬°ªÅ");
+        if (plagueDoctor == null) Log.Error("ç˜Ÿç–«é†«ç”ŸBossç‰©ä»¶ç‚ºç©º");
 
         return plagueDoctor;
     }

@@ -340,6 +340,8 @@ namespace UnityEngine.PostProcessing
 
         bool m_FirstFrame = true;
 
+#pragma warning disable CS0618
+
         public override bool active
         {
             get
@@ -351,6 +353,8 @@ namespace UnityEngine.PostProcessing
                        && !context.interrupted;
             }
         }
+
+#pragma warning restore CS0618
 
         public override string GetName()
         {
