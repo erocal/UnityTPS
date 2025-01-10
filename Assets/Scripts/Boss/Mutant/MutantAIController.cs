@@ -127,7 +127,7 @@ public class MutantAIController : AIController
             {
                 if (roarTimer <= -1.37f)
                 {
-                    mutantAudio.MutantRoar(gameObject);
+                    mutantAudio.MutantRoar();
                     roarTimer = 2.0f;
                 }
                 mutantMover.CancelMove();

@@ -91,8 +91,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
         organism = Organism.Instance;
 
-        input = GameManagerSingleton.Instance.InputController;
-        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        var instance = GameManagerSingleton.Instance;
+
+        input = instance.InputController;
+        actionSystem = instance.ActionSystem;
         playercontroller = player.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
         mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();

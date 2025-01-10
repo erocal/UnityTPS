@@ -30,7 +30,6 @@ public class PlagueDoctorFighter : MonoBehaviour
 
     PlagueDoctorMover mover;
     Animator animator;
-    Health health;
     Health targetHealth;
     PlagueDoctorAudio plagueDoctorAudio;
     AnimatorStateInfo baseLayer;
@@ -47,8 +46,10 @@ public class PlagueDoctorFighter : MonoBehaviour
 
     private void Awake()
     {
+
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
+
     }
 
     void Start()
@@ -56,7 +57,6 @@ public class PlagueDoctorFighter : MonoBehaviour
 
         mover = GetComponent<PlagueDoctorMover>();
         animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
         plagueDoctorAudio = GetComponent<PlagueDoctorAudio>();
         actionSystem.OnDie += OnDie;
 
@@ -153,7 +153,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             if (shootrate <= 0.594f)
             {
-                plagueDoctorAudio.PlagueDoctorFireBall(gameObject);
+                plagueDoctorAudio.PlagueDoctorFireBall();
                 shootrate = 2.0f;
             }
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
@@ -169,7 +169,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             if (continuousshootrate <= 0)
             {
-                plagueDoctorAudio.PlagueDoctorLighting(gameObject);
+                plagueDoctorAudio.PlagueDoctorLighting();
                 continuousshootrate = 2.0f;
             }
             Projectile newProjectile = Instantiate(throwProjectile2, hand.position, Quaternion.LookRotation(transform.forward));

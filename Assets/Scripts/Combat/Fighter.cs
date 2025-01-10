@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum Actor
 {
@@ -45,7 +42,6 @@ public class Fighter : MonoBehaviour
 
     Mover mover;
     Animator animator;
-    Health health;
     Health targetHealth;
     AnimatorStateInfo baseLayer;
 
@@ -57,19 +53,23 @@ public class Fighter : MonoBehaviour
 
     private void Awake()
     {
+
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
     }
 
     void Start()
     {
+
         mover = GetComponent<Mover>();
         animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
         actionSystem.OnDie += OnDie;
+
     }
 
     void Update()
     {
+
         if (targetHealth == null || targetHealth.IsDead()) return;
 
         if (IsInAttackRange())
@@ -79,19 +79,21 @@ public class Fighter : MonoBehaviour
         }
         else if (CheckHasAttack() && timeSinceLastAttack > timeBetweenAttack)
         {
-            //camera.GetComponent<ThirdPersonCamera>().PreAudio();
             mover.MoveTo(targetHealth.transform.position, 1f);
         }
 
         UpdateTimer();
+
     }
 
     // Called by Unity
     // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
     private void OnDrawGizmosSelected()
     {
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+
     }
 
     #endregion
@@ -101,6 +103,7 @@ public class Fighter : MonoBehaviour
     // 檢查攻擊動作是否已經結束
     private bool CheckHasAttack()
     {
+
         baseLayer = animator.GetCurrentAnimatorStateInfo(0);
 
         // 如果當前動作等於攻擊
@@ -112,6 +115,7 @@ public class Fighter : MonoBehaviour
         {
             return true;
         }
+
     }
 
     /// <summary>
@@ -119,11 +123,14 @@ public class Fighter : MonoBehaviour
     /// </summary>
     void UpdateTimer()
     {
+
         timeSinceLastAttack += Time.deltaTime;
+
     }
 
     private void AttackBehavior()
     {
+
         transform.LookAt(targetHealth.transform);
 
         if (timeSinceLastAttack > timeBetweenAttack)
@@ -131,36 +138,44 @@ public class Fighter : MonoBehaviour
             timeSinceLastAttack = 0;
             TriggerAttack();
         }
+
     }
 
     private void TriggerAttack()
     {
+
         animator.ResetTrigger("Attack");
         animator.SetTrigger("Attack");
+
     }
 
     private void Hit()
     {
+
         if (targetHealth == null || actorType != Actor.Melee) return;
 
         if (IsInAttackRange())
         {
             targetHealth.TakeDamage(attackDamage);
         }
+
     }
 
     private void ZombieHit()
     {
+
         if (targetHealth == null || actorType != Actor.Zombie) return;
 
         if (IsInAttackRange())
         {
             targetHealth.TakeDamage(attackDamage);
         }
+
     }
 
     private void Shoot()
     {
+
         if (targetHealth == null || actorType != Actor.Archer) return;
 
         if (throwProjectile != null)
@@ -168,6 +183,7 @@ public class Fighter : MonoBehaviour
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
             newProjectile.Shoot(gameObject);
         }
+
     }
 
     /// <summary>
@@ -176,7 +192,9 @@ public class Fighter : MonoBehaviour
     /// <returns>回傳是否在搭載此Script的敵人的進戰攻擊範圍內</returns>
     private bool IsInAttackRange()
     {
+
         return Vector3.Distance(transform.position, targetHealth.transform.position) < attackRange;
+
     }
 
     /// <summary>
@@ -185,12 +203,16 @@ public class Fighter : MonoBehaviour
     /// <param name="target"></param>
     public void Attack(Health target)
     {
+
         targetHealth = target;
+
     }
 
     public void CancelTarget()
     {
+
         targetHealth = null;
+
     }
 
     private void OnDie(int id)

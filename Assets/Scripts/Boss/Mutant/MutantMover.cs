@@ -3,11 +3,22 @@ using UnityEngine.AI;
 
 public class MutantMover : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("旋轉速度")]
     [SerializeField] float rotateSpeed = 3f;
 
+    #endregion
+
+    #region -- 變數參考區 --
+
     NavMeshAgent navmeshAgent;
     Animator animator;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
@@ -30,6 +41,10 @@ public class MutantMover : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region -- 方法參考區 --
+
     public void MoveTo(Vector3 destination)
     {
         navmeshAgent.isStopped = false;
@@ -43,4 +58,7 @@ public class MutantMover : MonoBehaviour
         navmeshAgent.isStopped = true;
         animator.SetBool("Move", false);
     }
+
+    #endregion
+
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MutantFighter : MonoBehaviour
 {
@@ -36,14 +34,15 @@ public class MutantFighter : MonoBehaviour
     MutantMover mover;
     Animator animator;
     MutantAudio mutantAudio;
-    Health health;
+
+    /// <summary> 追趕的目標人物生命 </summary>
     Health targetHealth;
     AnimatorStateInfo baseLayer;
 
     float timeSinceLastAttack = Mathf.Infinity;
 
     // 計時器
-    private float attackrate;
+    private float attackRate;
 
     #endregion
 
@@ -51,23 +50,26 @@ public class MutantFighter : MonoBehaviour
 
     private void Awake()
     {
+
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
+
     }
 
     void Start()
     {
+
         mover = GetComponent<MutantMover>();
         animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
         mutantAudio = GetComponent<MutantAudio>();
         actionSystem.OnDie += OnDie;
+
     }
 
     void Update()
     {
 
-        attackrate -= Time.deltaTime;
+        attackRate -= Time.deltaTime;
 
         if (targetHealth == null || targetHealth.IsDead()) return;
 
@@ -156,10 +158,10 @@ public class MutantFighter : MonoBehaviour
 
         if (IsInAttackRange())
         {
-            if (attackrate <= 0.661f)
+            if (attackRate <= 0.661f)
             {
-                mutantAudio.MutantAttack(gameObject);
-                attackrate = 2.0f;
+                mutantAudio.MutantAttack();
+                attackRate = 2.0f;
             }
             targetHealth.TakeDamage(attackDamage);
         }
@@ -171,10 +173,10 @@ public class MutantFighter : MonoBehaviour
 
         if (IsInAttackRange())
         {
-            if (attackrate <= 0.661f)
+            if (attackRate <= 0.661f)
             {
-                mutantAudio.MutantAttack(gameObject);
-                attackrate = 2.0f;
+                mutantAudio.MutantAttack();
+                attackRate = 2.0f;
             }
             targetHealth.TakeDamage(jumpAttackDamage);
         }
