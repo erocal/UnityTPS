@@ -336,6 +336,7 @@ public class PlayerController : MonoBehaviour
 
         // 動態變化移動速度
         controller.Move(moveSpeed * Time.deltaTime * targetMovement);
+
     }
     
     /// <summary>
@@ -343,11 +344,13 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private Vector3 GetCurrentCameraForward()
     {
+
         Vector3 cameraForward = Camera.main.transform.forward;
         cameraForward.y = 0f;
         //歸一化
         cameraForward.Normalize();
         return cameraForward;
+
     }
     
     /// <summary>
@@ -355,11 +358,13 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private Vector3 GetCurrentCameraRight()
     {
+
         Vector3 cameraRight = Camera.main.transform.right;
         cameraRight.y = 0f;
         //歸一化
         cameraRight.Normalize();
         return cameraRight;
+
     }
 
     /// <summary>
@@ -368,7 +373,9 @@ public class PlayerController : MonoBehaviour
     /// <param name="targetMovement">目標方向</param>
     private void SmoothRotation(Vector3 targetMovement)
     {
+
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetMovement, Vector3.up), rotateSpeed * Time.deltaTime);
+    
     }
 
     /// <summary>
@@ -377,7 +384,9 @@ public class PlayerController : MonoBehaviour
     /// <returns>回傳玩家是否在地上</returns>
     private bool IsGrounded()
     {
+
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
+    
     }
     
     /// <summary>
@@ -385,6 +394,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void JumpBehaviour()
     {
+
         // 如果人物處於地面
         if (IsGrounded())
         {
@@ -416,6 +426,7 @@ public class PlayerController : MonoBehaviour
         jumpDirection.y = Mathf.Max(jumpDirection.y, -gravityDownForce);
 
         controller.Move(jumpDirection * Time.deltaTime);
+
     }
 
     /// <summary>
@@ -423,6 +434,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void RestBehaviour()
     {
+
         if(resttimerrate <= -30.0f)
         {
             animator.SetTrigger("IsRest");
@@ -432,6 +444,7 @@ public class PlayerController : MonoBehaviour
                 audioSource.PlayOneShot(soundEffects.FeelSleepSFX);
             }
         }
+
     }
 
     /// <summary>
@@ -439,6 +452,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public async Task IsAlive()
     {
+
         // 根據玩家區域，開啟地圖
         await mapAreaManager.SwitchMapArea((int)playerStandMapArea);
 
@@ -449,6 +463,7 @@ public class PlayerController : MonoBehaviour
         ChangePosition(spawn);
         //還給玩家控制權
         this.GetComponent<PlayerController>().enabled = true;
+
     }
 
     /// <summary>
@@ -456,7 +471,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void ChangePosition(Vector3 teleportPosition)
     {
+
         this.transform.position = teleportPosition;
+
     }
 
     #region -- Get方法 --
@@ -466,7 +483,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public GameObject GetCrosshair()
     {
+
         return crosshair;
+
     }
 
     #endregion
@@ -478,7 +497,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void SetPlayerStandMapArea(MapArea playerStandMapArea)
     {
+
         this.playerStandMapArea = playerStandMapArea;
+
     }
 
     #endregion

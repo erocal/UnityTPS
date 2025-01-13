@@ -42,6 +42,7 @@ public class Fighter : MonoBehaviour
 
     Mover mover;
     Animator animator;
+    /// <summary> 追趕的目標人物生命 </summary>
     Health targetHealth;
     AnimatorStateInfo baseLayer;
 

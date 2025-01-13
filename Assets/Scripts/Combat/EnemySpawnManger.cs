@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class EnemySpawnManger : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("要生成的Enemy物件")]
     [SerializeField] GameObject enemy;
     [Header("生成的間隔時間")]
@@ -11,10 +14,19 @@ public class EnemySpawnManger : MonoBehaviour
     [SerializeField] int spawnAmount = 10;
     [SerializeField] Transform[] spawnPoint;
 
+    #endregion
+
+    #region -- 變數參考區 --
+
     bool hasbeentrigger;
+
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (hasbeentrigger) return;
 
         if (other.tag == "Player")
@@ -22,7 +34,12 @@ public class EnemySpawnManger : MonoBehaviour
             hasbeentrigger = true;
             StartCoroutine(Spawn());
         }
+
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
 
     /// <summary>
     /// 敵人的生成
@@ -39,4 +56,7 @@ public class EnemySpawnManger : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
         }
     }
+
+    #endregion
+
 }

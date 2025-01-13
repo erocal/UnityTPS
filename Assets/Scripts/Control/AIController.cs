@@ -1,45 +1,46 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [RequireComponent(typeof(Collider), typeof(Animator), typeof(Health))]
 public abstract class AIController : MonoBehaviour
 {
-    #region -- ¸ê·½°Ñ¦Ò°Ï --
 
-    [Tooltip("°l»°¶ZÂ÷")]
+    #region -- è³‡æºåƒè€ƒå€ --
+
+    [Tooltip("è¿½è¶•è·é›¢")]
     [SerializeField] protected float chaseDistance = 10f;
-    [Tooltip("¥¢¥h¥Ø¼Ğ«á§x´bªº®É¶¡")]
+    [Tooltip("å¤±å»ç›®æ¨™å¾Œå›°æƒ‘çš„æ™‚é–“")]
     [SerializeField] protected float confuseTime = 5f;
 
-    [Header("¨µÅŞ¸ô®|")]
+    [Header("å·¡é‚è·¯å¾‘")]
     [SerializeField] protected PatrolPath patrol;
-    [Header("»İ­n¨ì¹FWayPointªº¶ZÂ÷")]
+    [Header("éœ€è¦åˆ°é”WayPointçš„è·é›¢")]
     [SerializeField] protected float waypointToStay = 3f;
-    [Header("«İ¦bWayPointªº®É¶¡")]
+    [Header("å¾…åœ¨WayPointçš„æ™‚é–“")]
     [SerializeField] protected float waypointToWaitTime = 3f;
-    [Header("¨µÅŞ®Éªº³t«×")]
+    [Header("å·¡é‚æ™‚çš„é€Ÿåº¦")]
     [Range(0, 1)]
     [SerializeField] protected float patrolSpeedRatio = 0.5f;
 
     [Space(20)]
-    [Header("AI¬O§_¨üÀ»")]
+    [Header("AIæ˜¯å¦å—æ“Š")]
     [SerializeField] protected bool isBeHit;
 
     #endregion
 
-    #region -- ÅÜ¼Æ°Ñ¦Ò°Ï --
+    #region -- è®Šæ•¸åƒè€ƒå€ --
 
-    [Tooltip("¤W¦¸¬İ¨ìª±®aªº®É¶¡")]
+    [Tooltip("ä¸Šæ¬¡çœ‹åˆ°ç©å®¶çš„æ™‚é–“")]
     [SerializeField] protected float sinceLastSawPlayerTimer = Mathf.Infinity;
-    [Tooltip("ªì©l¥Í¦¨®y¼Ğ")]
+    [Tooltip("åˆå§‹ç”Ÿæˆåº§æ¨™")]
     [SerializeField] protected Vector3 aiSpawnPostion;
-    [Tooltip("·í«e»İ­n¨ì¹FªºWayPoint½s¸¹")]
+    [Tooltip("ç•¶å‰éœ€è¦åˆ°é”çš„WayPointç·¨è™Ÿ")]
     [SerializeField] protected int currentWaypointIndex = 0;
-    [Tooltip("¶ZÂ÷¤W¦¸©è¹FWayPointªº®É¶¡")]
+    [Tooltip("è·é›¢ä¸Šæ¬¡æŠµé”WayPointçš„æ™‚é–“")]
     [SerializeField] protected float sinceArriveWayPointTimer = 0;
 
     protected Organism organism;
 
-    /// <summary> ­n¾P·´ªºgameobject®Ú¸`ÂI </summary>
+    /// <summary> è¦éŠ·æ¯€çš„gameobjectæ ¹ç¯€é» </summary>
     protected GameObject enemyRoot;
     protected GameObject player;
     protected Animator aiAnimator;
@@ -48,58 +49,70 @@ public abstract class AIController : MonoBehaviour
 
     #endregion
 
-    #region -- ªì©l¤Æ/¹B§@ --
+    #region -- åˆå§‹åŒ–/é‹ä½œ --
 
     private void Update()
     {
         if (health.IsDead()) return;
     }
 
+    #region -- DrawGizmo --
+
+    // Called by Unity
+    // é€™æ˜¯è‡ªè¡Œç¹ªè£½visableå¯è¦–åŒ–ç‰©ä»¶ï¼Œç”¨ä¾†è¨­è¨ˆæ€ªç‰©è¿½è¹¤ç©å®¶çš„ç¯„åœ
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseDistance);
+    }
+
     #endregion
 
-    #region -- ¤èªk°Ñ¦Ò°Ï --
+    #endregion
+
+    #region -- æ–¹æ³•åƒè€ƒå€ --
 
     /// <summary>
-    /// ³]©wAIªì©l¥Í¦¨¦ì¸m
+    /// è¨­å®šAIåˆå§‹ç”Ÿæˆä½ç½®
     /// </summary>
-    /// <param name="spawnPostion">ªì©l¥Í¦¨¦ì¸m</param>
+    /// <param name="spawnPostion">åˆå§‹ç”Ÿæˆä½ç½®</param>
     protected void SetSpawnPosition(Vector3 spawnPostion)
     {
         this.aiSpawnPostion = spawnPostion;
     }
 
     /// <summary>
-    /// AI©Ò¯à°µ¥Xªº¦æ¬°
+    /// AIæ‰€èƒ½åšå‡ºçš„è¡Œç‚º
     /// </summary>
     protected abstract void AIBehavior();
 
     /// <summary>
-    /// ³B²zAI§ğÀ»¦æ¬°
+    /// è™•ç†AIæ”»æ“Šè¡Œç‚º
     /// </summary>
     protected abstract void AttackBehavior();
 
-    // ¨µÅŞ¦æ¬°
+    // å·¡é‚è¡Œç‚º
     protected abstract void PatrolBehavior();
 
-    // §x´bªº°Ê§@¦æ¬°
+    // å›°æƒ‘çš„å‹•ä½œè¡Œç‚º
     protected abstract void ConfuseBehavior();
 
     /// <summary>
-    /// ¬İ¨£ª±®a
+    /// çœ‹è¦‹ç©å®¶
     /// </summary>
     protected void SawPlayer()
     {
         sinceLastSawPlayerTimer = 0;
     }
 
-    // ÀË¬d¬O§_¤w¸g©è¹FWayPoint
+    // æª¢æŸ¥æ˜¯å¦å·²ç¶“æŠµé”WayPoint
     protected bool IsAtWayPoint()
     {
         return (Vector3.Distance(transform.position, patrol.GetWayPointPosition(currentWaypointIndex)) < waypointToStay);
     }
 
     /// <summary>
-    /// ¬O§_¤p©ó°l»°¶ZÂ÷¤º
+    /// æ˜¯å¦å°æ–¼è¿½è¶•è·é›¢å…§
     /// </summary>
     protected bool IsRange()
     {
@@ -107,7 +120,7 @@ public abstract class AIController : MonoBehaviour
     }
 
     /// <summary>
-    /// ½T»{¬O§_¨üÀ»
+    /// ç¢ºèªæ˜¯å¦å—æ“Š
     /// </summary>
     protected bool CheckIsBeHit()
     {
@@ -124,39 +137,28 @@ public abstract class AIController : MonoBehaviour
         sinceArriveWayPointTimer += Time.deltaTime;
     }
 
-    #region -- ¨Æ¥ó¬ÛÃö --
+    #region -- äº‹ä»¶ç›¸é—œ --
 
     /// <summary>
-    /// AI¨ü¨ì§ğÀ»®É³B²z¤èªk
+    /// AIå—åˆ°æ”»æ“Šæ™‚è™•ç†æ–¹æ³•
     /// </summary>
     protected void OnDamage(int id)
     {
 
         if (id != this.gameObject.GetInstanceID()) return;
 
-        //  ¨ü¨ì§ğÀ»®É¡AÄ²µoªº¨Æ¥ó
+        //  å—åˆ°æ”»æ“Šæ™‚ï¼Œè§¸ç™¼çš„äº‹ä»¶
         isBeHit = true;
 
     }
 
     /// <summary>
-    /// AI¦º¤`®É³B²z¤èªk
+    /// AIæ­»äº¡æ™‚è™•ç†æ–¹æ³•
     /// </summary>
     protected abstract void OnDie(int id);
 
     #endregion
 
-    #region -- DrawGizmo --
-
-    // Called by Unity
-    // ³o¬O¦Û¦æÃ¸»svisable¥iµø¤Æª«¥ó¡A¥Î¨Ó³]­p©Çª«°lÂÜª±®aªº½d³ò
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, chaseDistance);
-    }
-
     #endregion
 
-    #endregion
 }

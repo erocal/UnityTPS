@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2985431386430978143}
   - component: {fileID: 7296744966889788951}
   - component: {fileID: 7075706179197238929}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7672628503953153351}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: MinimapImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1542838682064669065}
   - component: {fileID: 1803088769386956492}
   - component: {fileID: 7126031020015410337}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
