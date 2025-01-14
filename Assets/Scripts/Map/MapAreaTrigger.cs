@@ -7,7 +7,7 @@ public class MapAreaTrigger : MonoBehaviour
     #region -- 資源參考區 --
 
     [Header("地圖區域"), Tooltip("這個觸發所屬的地圖區域")]
-    [SerializeField] MapArea mapArea;
+    [SerializeField] MapAreaType mapArea;
 
     #endregion
 

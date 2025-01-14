@@ -16,17 +16,17 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    Organism organism;
+    private Organism organism;
 
-    Ray ray;
-    RaycastHit hit;
+    private Ray ray;
+    private RaycastHit hit;
 
     [HideInInspector] public string info = null;
     private int targetMaskEnemy;
     private GameObject player;
 
-    PlayerController playerController;
-    Gazed ingazed;
+    private PlayerController playerController;
+    private Gazed ingazed;
 
     #endregion
 
@@ -34,6 +34,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
     private void Awake()
     {
+
         organism = Organism.Instance;
 
         ingazed = null;
@@ -41,11 +42,11 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
         player = organism.GetPlayer();
         playerController = player.GetComponent<PlayerController>();
         
-        //ingazed = GetComponent<Gazed>();
     }
 
     void Update()
     {
+
         ingazed = null;
         
         ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2 + offset_Y, 0));
@@ -60,6 +61,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
                 ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<Gazed>();
                 ingazed.Ingazed();
             }
+
         }
         else
         {
@@ -72,8 +74,8 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * 1000, Color.blue);
         }
 
-
         //Debug.DrawLine(transform.position, ray.GetPoint(maxDistance), Color.blue);
+
     }
 
     #endregion

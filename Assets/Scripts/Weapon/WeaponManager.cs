@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+
     [Header("一開始就有的武器")]
     [SerializeField] List<WeaponController> startingWeapons = new List<WeaponController>();
 
@@ -237,4 +237,5 @@ public class WeaponManager : MonoBehaviour
         isAim = true;
 
     }
+
 }

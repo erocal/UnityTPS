@@ -1,5 +1,5 @@
-/// <summary>
-/// ªZ¾¹®gÀ»¼Ò¦¡
+ï»¿/// <summary>
+/// æ­¦å™¨å°„æ“Šæ¨¡å¼
 /// </summary>
 public enum WeaponShootType
 {

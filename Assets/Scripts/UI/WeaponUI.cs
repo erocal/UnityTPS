@@ -16,9 +16,9 @@ public class WeaponUI : MonoBehaviour
 
     private ActionSystem actionSystem;
 
-    Organism organism;
+    private Organism organism;
 
-    WeaponManager weaponManager;
+    private WeaponManager weaponManager;
 
     #endregion
 
@@ -33,10 +33,12 @@ public class WeaponUI : MonoBehaviour
 
         weaponManager = organism.GetPlayer().GetComponent<WeaponManager>();
         actionSystem.OnAddWeapon += OnAddWeapon;
+
     }
 
     private void Update()
     {
+
         for (int i = 0; i < 3; i++)
         {
             if (weaponManager.GetWeaponAtSlotIndex(i) == null) continue;
@@ -61,6 +63,7 @@ public class WeaponUI : MonoBehaviour
                 energy[i].color = Color.gray;
             }
         }
+
     }
 
     #endregion

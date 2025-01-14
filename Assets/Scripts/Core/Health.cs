@@ -110,6 +110,7 @@ public class Health : MonoBehaviour
     /// <param name="damage">受到的傷害數值</param>
     public void TakeDamage(float damage)
     {
+
         if (isDead) return;
 
         if (gameObject.tag == "Player" && rate <= 0)
@@ -142,6 +143,7 @@ public class Health : MonoBehaviour
         {
             HandleDeath();
         }
+
     }
 
     private void HandleDeath()

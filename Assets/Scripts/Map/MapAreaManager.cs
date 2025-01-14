@@ -22,7 +22,7 @@ public class MapAreaManager : MonoBehaviour
 
     #endregion
 
-    #region -- 參數參考區 --
+    #region -- 變數參考區 --
 
     private Dictionary<int, GameObject> mapAreaDictionary = new Dictionary<int, GameObject>()
     {
@@ -41,10 +41,10 @@ public class MapAreaManager : MonoBehaviour
 
     private void Awake()
     {
-        areaEnemyDictionary.Add((int)MapArea.StartArea, StartAreaEnemyList);
-        areaEnemyDictionary.Add((int)MapArea.PlainArea, PlainAreaEnemyList);
-        areaEnemyDictionary.Add((int)MapArea.PlagueDoctorArea, PlagueDoctorAreaEnemyList);
-        areaEnemyDictionary.Add((int)MapArea.MutantArea, MutantAreaEnemyList);
+        areaEnemyDictionary.Add((int)MapAreaType.StartArea, StartAreaEnemyList);
+        areaEnemyDictionary.Add((int)MapAreaType.PlainArea, PlainAreaEnemyList);
+        areaEnemyDictionary.Add((int)MapAreaType.PlagueDoctorArea, PlagueDoctorAreaEnemyList);
+        areaEnemyDictionary.Add((int)MapAreaType.MutantArea, MutantAreaEnemyList);
     }
 
     #endregion
@@ -62,23 +62,23 @@ public class MapAreaManager : MonoBehaviour
         switch (mapAreaTriggerid)
         {
             case 0:
-                await LoadMapAreaAsync((int)MapArea.StartArea, MapArea.StartArea);
-                await LoadMapAreaAsync((int)MapArea.PlainArea, MapArea.PlainArea);
-                UnloadMapArea(MapArea.PlagueDoctorArea);
-                UnloadMapArea(MapArea.MutantArea);
+                await LoadMapAreaAsync((int)MapAreaType.StartArea, MapAreaType.StartArea);
+                await LoadMapAreaAsync((int)MapAreaType.PlainArea, MapAreaType.PlainArea);
+                UnloadMapArea(MapAreaType.PlagueDoctorArea);
+                UnloadMapArea(MapAreaType.MutantArea);
                 break;
             case 1:
             case 2:
-                UnloadMapArea(MapArea.StartArea);
-                await LoadMapAreaAsync((int)MapArea.PlainArea, MapArea.PlainArea);
-                await LoadMapAreaAsync((int)MapArea.PlagueDoctorArea, MapArea.PlagueDoctorArea);
-                UnloadMapArea(MapArea.MutantArea);
+                UnloadMapArea(MapAreaType.StartArea);
+                await LoadMapAreaAsync((int)MapAreaType.PlainArea, MapAreaType.PlainArea);
+                await LoadMapAreaAsync((int)MapAreaType.PlagueDoctorArea, MapAreaType.PlagueDoctorArea);
+                UnloadMapArea(MapAreaType.MutantArea);
                 break;
             case 3:
-                UnloadMapArea(MapArea.StartArea);
-                await LoadMapAreaAsync((int)MapArea.PlainArea, MapArea.PlainArea);
-                UnloadMapArea(MapArea.PlagueDoctorArea);
-                await LoadMapAreaAsync((int)MapArea.MutantArea, MapArea.MutantArea);
+                UnloadMapArea(MapAreaType.StartArea);
+                await LoadMapAreaAsync((int)MapAreaType.PlainArea, MapAreaType.PlainArea);
+                UnloadMapArea(MapAreaType.PlagueDoctorArea);
+                await LoadMapAreaAsync((int)MapAreaType.MutantArea, MapAreaType.MutantArea);
                 break;
         }
 
@@ -110,7 +110,7 @@ public class MapAreaManager : MonoBehaviour
     /// </summary>
     /// <param name="index">地圖區域編號</param>
     /// <param name="mapAreaType">地圖區域</param>
-    private async Task LoadMapAreaAsync(int index, MapArea mapAreaType)
+    private async Task LoadMapAreaAsync(int index, MapAreaType mapAreaType)
     {
         try
         {
@@ -143,7 +143,7 @@ public class MapAreaManager : MonoBehaviour
     /// </summary>
     /// <param name="index">地圖區域編號</param>
     /// <param name="mapAreaType">地圖區域</param>
-    private void UnloadMapArea(MapArea mapAreaType)
+    private void UnloadMapArea(MapAreaType mapAreaType)
     {
         if (mapAreaDictionary[(int)mapAreaType] != null)
         {

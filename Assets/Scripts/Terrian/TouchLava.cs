@@ -1,30 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TouchLava : MonoBehaviour
 {
+
+    #region -- 資源參考區 --
+
     [Header("岩漿傷害")]
-    [SerializeField] float LavaDamage = 15f;
+    [SerializeField] private int lavaDamage = 15;
 
-    GameObject target;
-    Health targetHealth;
+    #endregion
 
-    bool hasbeentrigger;
+    #region -- 初始化/運作 --
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hasbeentrigger) return;
 
-        if ((other.tag == "Player" || other.tag == "Enemy"
-        || other.tag == "Zombie" || other.tag == "Zombiegrounp"))
-        {
+        var targetHealth = other.GetComponent<Health>();
 
-            target = other.gameObject;
+        if (targetHealth)
+            targetHealth.TakeDamage(lavaDamage);
 
-            if (target) targetHealth = target.GetComponent<Health>();
-
-            targetHealth.TakeDamage(LavaDamage);
-        }
     }
+
+    #endregion
+
 }

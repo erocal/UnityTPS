@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,10 +9,6 @@ public class LightProbeRuntime : MonoBehaviour
 
     public Color m_Ambient;
     Light[] m_Lights;
-
-    #endregion
-
-    #region -- 變數參考區 --
 
     #endregion
 

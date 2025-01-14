@@ -4,14 +4,24 @@ using UnityEngine.UI;
 
 public class StartGameAnimation : MonoBehaviour
 {
-    [SerializeField] float scaleRange = 20.0f;   // 字体大小缩放范围
-    [SerializeField] float baseFontSize = 40.0f; // 基础字体大小
 
-    [SerializeField] float animationDuration = 0.5f; // 动画持续时间
+    #region -- 資源參考區 --
+
+    [SerializeField] float scaleRange = 20.0f;   // 縮放範圍
+    [SerializeField] float baseFontSize = 40.0f; // 字體大小
+
+    [SerializeField] float animationDuration = 0.5f; // 動畫持續時間
+
+    #endregion
+
+    #region -- 變數參考區 --
 
     private Text text;
     private float animationStartTime;
 
+    #endregion
+
+    #region -- 初始化/運作 --
 
     private void Awake()
     {
@@ -33,6 +43,10 @@ public class StartGameAnimation : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region -- 方法參考區 --
+
     private IEnumerator ScaleText()
     {
         while (true)
@@ -40,7 +54,7 @@ public class StartGameAnimation : MonoBehaviour
             float elapsedTime = Time.time - animationStartTime;
             float t = Mathf.PingPong(elapsedTime / animationDuration, 1.0f);
 
-            // 使用缓动函数 SmoothStep 来平滑变化
+            // 平滑
             float easedT = Mathf.SmoothStep(0.0f, 1.0f, t);
 
             float fontSize = baseFontSize + Mathf.Lerp(0, scaleRange, easedT);
@@ -49,4 +63,7 @@ public class StartGameAnimation : MonoBehaviour
             yield return null;
         }
     }
+
+    #endregion
+
 }

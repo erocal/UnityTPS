@@ -50,19 +50,23 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
+
         // maxLifetime秒後回收子彈
         StartCoroutine(RecoverAfterDelay(maxLifetime));
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         transform.position += currentVelocity * Time.deltaTime;
 
         if (gravityDownForce > 0)
         {
-            currentVelocity += Vector3.down * gravityDownForce * Time.deltaTime;
+            currentVelocity += gravityDownForce * Time.deltaTime * Vector3.down;
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,6 +94,7 @@ public class Projectile : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+
         if (other == owner || !canAttack) return;
 
         if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Particle)
@@ -102,6 +107,7 @@ public class Projectile : MonoBehaviour
         }
 
         HitEffect(transform.position);
+
     }
 
     #endregion
@@ -110,6 +116,7 @@ public class Projectile : MonoBehaviour
 
     private void HitEffect(Vector3 hitpoint)
     {
+
         if (hitParticle)
         {
             GameObject newParticleInstance = Instantiate(hitParticle, hitpoint, transform.rotation);
@@ -118,6 +125,7 @@ public class Projectile : MonoBehaviour
                 Destroy(newParticleInstance, particleLifeTime);
             }
         }
+
     }
 
     /// <summary>
@@ -126,9 +134,11 @@ public class Projectile : MonoBehaviour
     /// <param name="gameObject"></param>
     public void Shoot(GameObject gameObject)
     {
+
         owner = gameObject;
         currentVelocity = transform.forward * projectileSpeed;
         canAttack = true;
+
     }
 
     #region -- 協程 --

@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
 
-    #region -- ¸ê·½°Ñ¦Ò°Ï --
+    #region -- è³‡æºåƒè€ƒå€ --
 
-    [Header("¦a¹Ï°Ï°ì"), Tooltip("³o­Ó­«¥ÍÂI©ÒÄİªº¦a¹Ï°Ï°ì")]
-    [SerializeField] MapArea mapArea;
+    [Header("åœ°åœ–å€åŸŸ"), Tooltip("é€™å€‹é‡ç”Ÿé»æ‰€å±¬çš„åœ°åœ–å€åŸŸ")]
+    [SerializeField] MapAreaType mapArea;
 
-    [Header("­«¥ÍÂI¯S®Ä"), Tooltip("Ä²µo­«¥ÍÂI®É´£¥Üª±®aªº¯S®Ä")]
+    [Header("é‡ç”Ÿé»ç‰¹æ•ˆ"), Tooltip("è§¸ç™¼é‡ç”Ÿé»æ™‚æç¤ºç©å®¶çš„ç‰¹æ•ˆ")]
     [SerializeField] GameObject spawnPointParticle;
 
     #endregion
 
-    #region -- ªì©l¤Æ/¹B§@ --
+    #region -- åˆå§‹åŒ–/é‹ä½œ --
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,10 +21,10 @@ public class SpawnPoint : MonoBehaviour
         {
             var playerController = other.GetComponent<PlayerController>();
 
-            playerController.spawn = this.transform.position;// §ó·s­«¥ÍÂI
+            playerController.spawn = this.transform.position;// æ›´æ–°é‡ç”Ÿé»
             playerController.SetPlayerStandMapArea(mapArea);
 
-            // Ä²µo¯S®Ä
+            // è§¸ç™¼ç‰¹æ•ˆ
             var spawnPointParticle = Instantiate(this.spawnPointParticle, this.transform);
             spawnPointParticle.SetActive(true);
         }

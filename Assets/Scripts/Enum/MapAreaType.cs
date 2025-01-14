@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// 地圖區域
 /// </summary>
-public enum MapArea
+public enum MapAreaType
 {
     StartArea,
     PlainArea,

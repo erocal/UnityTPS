@@ -48,14 +48,13 @@ public class WeaponController : MonoBehaviour
     public bool IsCooling { get; private set; }
 
     private PoolInstaller poolInstaller;
+    private Organism organism;
     AudioSource audioSource;
 
     // 當前子彈數量
     float currentAmmo;
     // 距離上次射擊的時間
     float timeSinceLastShoot;
-    // 是否在瞄準狀態
-    bool isAim;
 
     #endregion
 
@@ -65,6 +64,7 @@ public class WeaponController : MonoBehaviour
     {
 
         poolInstaller = GameManagerSingleton.Instance.PoolInstaller;
+        organism = Organism.Instance;
         currentAmmo = maxAmmo;
         audioSource = GetComponent<AudioSource>();
 
@@ -164,7 +164,7 @@ public class WeaponController : MonoBehaviour
                 trail.enabled = true; // 再次啟用
             }
 
-            newProjectile.Shoot(GameObject.FindGameObjectWithTag("Player"));
+            newProjectile.Shoot(organism.GetPlayer());
 
         }
 
@@ -175,11 +175,10 @@ public class WeaponController : MonoBehaviour
         }
 
         if (shootSFX != null)
-        {
             audioSource.PlayOneShot(shootSFX);
-        }
 
         timeSinceLastShoot = Time.time;
+
     }
 
     /// <summary>
@@ -188,10 +187,12 @@ public class WeaponController : MonoBehaviour
     /// <param name="amount">恢復的子彈量</param>
     public void Fullammo(float amount)
     {
+
         currentAmmo += amount;
 
         // 限制不要加超過
         currentAmmo = Mathf.Min(currentAmmo, maxAmmo);
+
     }
 
     #endregion

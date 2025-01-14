@@ -40,19 +40,23 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
+
         // 上下移動的公式
         float bobbingAnimationPhase = ((Mathf.Sin(Time.time * verticalBobFrequency) * 0.5f) + 0.5f) * bobbingAmount;
         transform.position = startPosition + Vector3.up * bobbingAnimationPhase;
 
         transform.Rotate(Vector3.up, rotatingSpeed * Time.deltaTime, Space.Self);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player")
         {
             OnPick?.Invoke(other.gameObject);
         }
+
     }
 
     #endregion

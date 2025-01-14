@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("管理地圖區域相關方法")]
     [SerializeField] MapAreaManager mapAreaManager;
     [Tooltip("玩家所在地圖區域")]
-    [SerializeField] MapArea playerStandMapArea = MapArea.StartArea;
+    [SerializeField] MapAreaType playerStandMapArea = MapAreaType.StartArea;
 
     #endregion
 
@@ -495,7 +495,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// 取得玩家所在地圖區域
     /// </summary>
-    public void SetPlayerStandMapArea(MapArea playerStandMapArea)
+    public void SetPlayerStandMapArea(MapAreaType playerStandMapArea)
     {
 
         this.playerStandMapArea = playerStandMapArea;
