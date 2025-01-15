@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(MutantAIController))]
 public class MutantFighter : MonoBehaviour
 {
 
@@ -31,9 +32,9 @@ public class MutantFighter : MonoBehaviour
     ActionSystem actionSystem;
     Organism organism;
 
+    MutantAIController aiController;
     MutantMover mover;
     Animator animator;
-    MutantAudio mutantAudio;
 
     /// <summary> 追趕的目標人物生命 </summary>
     Health targetHealth;
@@ -53,16 +54,14 @@ public class MutantFighter : MonoBehaviour
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
-
     }
 
     void Start()
     {
 
+        aiController = GetComponent<MutantAIController>();
         mover = GetComponent<MutantMover>();
         animator = GetComponent<Animator>();
-        mutantAudio = GetComponent<MutantAudio>();
-        actionSystem.OnDie += OnDie;
 
     }
 
@@ -98,11 +97,13 @@ public class MutantFighter : MonoBehaviour
     // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
     private void OnDrawGizmosSelected()
     {
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, jumpAttackRange);
+
     }
 
     #endregion
@@ -114,6 +115,7 @@ public class MutantFighter : MonoBehaviour
     /// </summary>
     private bool CheckHasAttack()
     {
+
         baseLayer = animator.GetCurrentAnimatorStateInfo(0);
 
         // 如果當前動作等於攻擊
@@ -125,6 +127,7 @@ public class MutantFighter : MonoBehaviour
         {
             return true;
         }
+
     }
 
     /// <summary>
@@ -132,11 +135,14 @@ public class MutantFighter : MonoBehaviour
     /// </summary>
     void UpdateTimer()
     {
+
         timeSinceLastAttack += Time.deltaTime;
+
     }
 
     private void AttackBehavior(string attackName)
     {
+
         transform.LookAt(targetHealth.transform);
 
         if (timeSinceLastAttack > timeBetweenAttack)
@@ -144,46 +150,54 @@ public class MutantFighter : MonoBehaviour
             timeSinceLastAttack = 0;
             TriggerAttack(attackName);
         }
+
     }
 
     private void TriggerAttack(string attackName)
     {
+
         animator.ResetTrigger(attackName);
         animator.SetTrigger(attackName);
+
     }
 
     private void Hit()
     {
+
         if (targetHealth == null || actorType != Actor.Mutant) return;
 
         if (IsInAttackRange())
         {
             if (attackRate <= 0.661f)
             {
-                mutantAudio.MutantAttack();
+                aiController.MutantAttack();
                 attackRate = 2.0f;
             }
             targetHealth.TakeDamage(attackDamage);
         }
+
     }
 
     private void JumpHit()
     {
+
         if (targetHealth == null || actorType != Actor.Mutant) return;
 
         if (IsInAttackRange())
         {
             if (attackRate <= 0.661f)
             {
-                mutantAudio.MutantAttack();
+                aiController.MutantAttack();
                 attackRate = 2.0f;
             }
             targetHealth.TakeDamage(jumpAttackDamage);
         }
+
     }
 
     private void Shoot()
     {
+
         if (targetHealth == null || actorType != Actor.Archer) return;
 
         if (throwProjectile != null)
@@ -191,6 +205,7 @@ public class MutantFighter : MonoBehaviour
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
             newProjectile.Shoot(gameObject);
         }
+
     }
 
     /// <summary>
@@ -199,7 +214,9 @@ public class MutantFighter : MonoBehaviour
     /// <returns>回傳是否在Mutant的跳躍攻擊範圍內</returns>
     private bool IsInJumpAttackRange()
     {
+
         return Vector3.Distance(transform.position, targetHealth.transform.position) < jumpAttackRange;
+
     }
 
     /// <summary>
@@ -208,7 +225,9 @@ public class MutantFighter : MonoBehaviour
     /// <returns>回傳是否在Mutant的一般攻擊範圍內</returns>
     private bool IsInAttackRange()
     {
+
         return Vector3.Distance(transform.position, targetHealth.transform.position) < attackRange;
+
     }
 
     /// <summary>
@@ -217,7 +236,9 @@ public class MutantFighter : MonoBehaviour
     /// <param name="target">目標</param>
     public void Attack(Health target)
     {
+
         targetHealth = target;
+
     }
 
     /// <summary>
@@ -225,22 +246,8 @@ public class MutantFighter : MonoBehaviour
     /// </summary>
     public void CancelTarget()
     {
+
         targetHealth = null;
-    }
-
-    #endregion
-
-    #region -- 事件相關 --
-
-    /// <summary>
-    /// 處理Mutant死亡處理方法
-    /// </summary>
-    private void OnDie(int id)
-    {
-
-        if (id != organism.GetMutant().GetInstanceID()) return;
-
-        this.enabled = false;
 
     }
 

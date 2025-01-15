@@ -1502,7 +1502,6 @@ GameObject:
   - component: {fileID: 6723940725919078928}
   - component: {fileID: 2120720027157841654}
   - component: {fileID: -7762786383811461739}
-  - component: {fileID: -7144876969965670726}
   m_Layer: 10
   m_Name: Zombie
   m_TagString: Zombiegrounp
@@ -1596,6 +1595,8 @@ MonoBehaviour:
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
   sinceArriveWayPointTimer: 0
+  zombieIdleSFX: {fileID: 8300000, guid: 1fb0ffef842b745bda4a400b7e6914bb, type: 3}
+  zombieFollowSFX: {fileID: 8300000, guid: a9bbec37959ad464d8eef0ed85262172, type: 3}
 --- !u!114 &2988732817540152966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,20 +1772,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-7144876969965670726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405600536223058674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieIdleSFX: {fileID: 8300000, guid: 90d342cf6f89440b9aa6c6ef4af6af88, type: 3}
-  zombieFollowSFX: {fileID: 8300000, guid: ad7b6eb3c723442b483e6b280fa02230, type: 3}
 --- !u!1 &405600536223058676
 GameObject:
   m_ObjectHideFlags: 0

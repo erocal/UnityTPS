@@ -4,13 +4,20 @@ using UnityEngine;
 public class MutantAIController : AIController
 {
 
-    #region -- 變數參考區 --
+    #region -- 資源參考區 --
 
-    ActionSystem actionSystem;
+    [Space(5)]
+    [Header("吼叫的音效")]
+    [SerializeField] AudioClip mutantRoarSFX;
+    [Header("攻擊的音效")]
+    [SerializeField] AudioClip mutantAttackSFX;
+
+    #endregion
+
+    #region -- 變數參考區 --
 
     MutantMover mutantMover;
     MutantFighter mutantFighter;
-    MutantAudio mutantAudio;
 
     // 計時器
     private float roarTimer = 2.0f;
@@ -22,17 +29,7 @@ public class MutantAIController : AIController
     private void Awake()
     {
 
-        organism = Organism.Instance;
-        actionSystem = GameManagerSingleton.Instance.ActionSystem;
-        enemyRoot = this.gameObject;
-        player = organism.GetPlayer();
-        aiAnimator = this.GetComponent<Animator>();
-        aiCollider = this.GetComponent<Collider>();
-        health = this.GetComponent<Health>();
-
-        mutantMover = GetComponent<MutantMover>();
-        mutantFighter = GetComponent<MutantFighter>();
-        mutantAudio = GetComponent<MutantAudio>();
+        Init();
 
         SetSpawnPosition(transform.position);
 
@@ -68,6 +65,19 @@ public class MutantAIController : AIController
     #endregion
 
     #region -- 方法參考區 --
+
+    /// <summary>
+    /// 初始化參數
+    /// </summary>
+    protected override void Init()
+    {
+
+        base.Init();
+
+        mutantMover = GetComponent<MutantMover>();
+        mutantFighter = GetComponent<MutantFighter>();
+
+    }
 
     /// <summary>
     /// 設置委派事件
@@ -120,14 +130,13 @@ public class MutantAIController : AIController
     protected override void PatrolBehavior()
     {
 
-        Vector3 nextWaypointPostion = aiSpawnPostion;
         if (patrol != null)
         {
             if (IsAtWayPoint())
             {
                 if (roarTimer <= -1.37f)
                 {
-                    mutantAudio.MutantRoar();
+                    MutantRoar();
                     roarTimer = 2.0f;
                 }
                 mutantMover.CancelMove();
@@ -153,7 +162,9 @@ public class MutantAIController : AIController
             }
             catch (Exception e)
             {
-                Debug.LogException(e);
+
+                Log.Exception(e);
+                
             }
         }
 
@@ -184,6 +195,28 @@ public class MutantAIController : AIController
 
     }
 
+    /// <summary>
+    /// 播放Mutant吼叫的音效
+    /// </summary>
+    /// <param name="mutant">傳入的物件，用來抓取聲音組件，此處應為Boss:Mutant</param>
+    public void MutantRoar()
+    {
+
+        aiAudioSource.PlayOneShot(mutantRoarSFX);
+
+    }
+
+    /// <summary>
+    /// 播放Mutant攻擊的音效
+    /// </summary>
+    /// <param name="mutant">傳入的物件，用來抓取聲音組件，此處應為Boss:Mutant</param>
+    public void MutantAttack()
+    {
+
+        aiAudioSource.PlayOneShot(mutantAttackSFX);
+
+    }
+
     #region -- 事件相關 --
 
     /// <summary>
@@ -192,11 +225,13 @@ public class MutantAIController : AIController
     protected override void OnDie(int id)
     {
 
-        if (id != this.gameObject.GetInstanceID()) return;
+        if (id != organism.GetMutant().GetInstanceID()) return;
 
         mutantMover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;
+        mutantFighter.enabled = false;
+
     }
 
     #endregion

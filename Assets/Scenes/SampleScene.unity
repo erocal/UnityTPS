@@ -96322,7 +96322,7 @@ PrefabInstance:
     - target: {fileID: 8176835161292196540, guid: f87e135959a0b6945af25cfe291bcb18,
         type: 3}
       propertyPath: maxHealth
-      value: 10000
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -97292,29 +97292,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1429238949914004714}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1894963758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894963757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ffa550442d35a43a12999d6e3deb21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseDistance: 10
-  confuseTime: 5
-  patrol: {fileID: 8315461947081377600}
-  waypointToStay: 3
-  waypointToWaitTime: 3
-  patrolSpeedRatio: 0.5
-  isBeHit: 0
-  sinceLastSawPlayerTimer: Infinity
-  aiSpawnPostion: {x: 0, y: 0, z: 0}
-  currentWaypointIndex: 0
-  sinceArriveWayPointTimer: 0
 --- !u!1 &1895489206
 GameObject:
   m_ObjectHideFlags: 0
@@ -111598,11 +111575,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7754407660756948227, guid: ac32101e219160845922951046c70ff6,
-        type: 3}
-      propertyPath: patrol
-      value: 
-      objectReference: {fileID: 8315461947081377600}
     - target: {fileID: 8347928683958988552, guid: ac32101e219160845922951046c70ff6,
         type: 3}
       propertyPath: patrol
@@ -111611,11 +111583,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6867669641158447859, guid: ac32101e219160845922951046c70ff6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1894963758}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac32101e219160845922951046c70ff6, type: 3}
 --- !u!224 &1462029900113590969
 RectTransform:

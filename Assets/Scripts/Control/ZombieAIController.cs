@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class ZombieAIController : AIController
 {
 
-    #region -- 變數參考區 --
+    #region -- 資源參考區 --
 
-    ActionSystem actionSystem;
+    [Space(5)]
+    [Header("閒置的音效")]
+    [SerializeField] AudioClip zombieIdleSFX;
+    [Header("追趕的音效")]
+    [SerializeField] AudioClip zombieFollowSFX;
+
+    #endregion
+
+    #region -- 變數參考區 --
 
     Mover mover;
     Fighter fighter;
-    ZombieAudio zombieAudio;
 
     bool isDead;
 
@@ -47,23 +55,15 @@ public class ZombieAIController : AIController
     #region -- 方法參考區 --
 
     /// <summary>
-    /// 初始化
+    /// 初始化參數
     /// </summary>
-    private void Init()
+    protected override void Init()
     {
 
-        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        base.Init();
 
-        organism = Organism.Instance;
-
-        enemyRoot = this.gameObject;
-        player = organism.GetPlayer();
         mover = GetComponent<Mover>();
-        aiAnimator = GetComponent<Animator>();
-        health = GetComponent<Health>();
         fighter = GetComponent<Fighter>();
-        aiCollider = GetComponent<Collider>();
-        zombieAudio = GetComponent<ZombieAudio>();
 
     }
 
@@ -104,7 +104,7 @@ public class ZombieAIController : AIController
         SawPlayer();
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombieFollowTimer <= 0)
         {
-            zombieAudio.ZombieFollow(gameObject);
+            ZombieFollow(gameObject);
             zombieFollowTimer = 2.0f;
         }
         fighter.Attack(player.GetComponent<Health>());
@@ -115,10 +115,9 @@ public class ZombieAIController : AIController
     {
         if ((gameObject.tag == "Zombie" || gameObject.tag == "Zombiegrounp") && zombieFollowTimer <= 0)
         {
-            zombieAudio.ZombieIdle(gameObject);
+            ZombieIdle(gameObject);
             zombieFollowTimer = 2.0f;
         }
-        Vector3 nextWaypointPostion = aiSpawnPostion;
         
         if (patrol != null)
         {
@@ -169,6 +168,28 @@ public class ZombieAIController : AIController
     private void UpdateZombieFollowTimer()
     {
         zombieFollowTimer -= Time.deltaTime;
+    }
+
+    /// <summary>
+    /// 播放Zombie追趕的音效
+    /// </summary>
+    /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
+    public void ZombieFollow(GameObject zombie)
+    {
+
+        aiAudioSource?.PlayOneShot(zombieFollowSFX);
+
+    }
+
+    /// <summary>
+    /// 播放Zombie閒置的音效
+    /// </summary>
+    /// <param name="zombie">傳入的物件，用來抓取聲音組件，此處應為Zombie</param>
+    public void ZombieIdle(GameObject zombie)
+    {
+
+        aiAudioSource?.PlayOneShot(zombieIdleSFX);
+
     }
 
     #region -- 事件相關 --

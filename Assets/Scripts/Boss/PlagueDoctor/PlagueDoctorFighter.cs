@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
+[RequireComponent(typeof(PlagueDoctorAIController))]
 public class PlagueDoctorFighter : MonoBehaviour
 {
 
@@ -28,10 +30,10 @@ public class PlagueDoctorFighter : MonoBehaviour
     ActionSystem actionSystem;
     Organism organism;
 
+    PlagueDoctorAIController aiController;
     PlagueDoctorMover mover;
     Animator animator;
     Health targetHealth;
-    PlagueDoctorAudio plagueDoctorAudio;
     AnimatorStateInfo baseLayer;
 
     // 計時器
@@ -49,15 +51,14 @@ public class PlagueDoctorFighter : MonoBehaviour
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
-
     }
 
     void Start()
     {
 
+        aiController = GetComponent<PlagueDoctorAIController>();
         mover = GetComponent<PlagueDoctorMover>();
         animator = GetComponent<Animator>();
-        plagueDoctorAudio = GetComponent<PlagueDoctorAudio>();
         actionSystem.OnDie += OnDie;
 
     }
@@ -153,7 +154,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             if (shootrate <= 0.594f)
             {
-                plagueDoctorAudio.PlagueDoctorFireBall();
+                aiController.PlagueDoctorFireBall();
                 shootrate = 2.0f;
             }
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
@@ -169,7 +170,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             if (continuousshootrate <= 0)
             {
-                plagueDoctorAudio.PlagueDoctorLighting();
+                aiController.PlagueDoctorLighting();
                 continuousshootrate = 2.0f;
             }
             Projectile newProjectile = Instantiate(throwProjectile2, hand.position, Quaternion.LookRotation(transform.forward));

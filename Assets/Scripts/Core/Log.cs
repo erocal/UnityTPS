@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class Log
@@ -27,6 +28,13 @@ public static class Log
     {
 #if UNITY_EDITOR
         Debug.LogError(message);
+#endif
+    }
+
+    public static void Exception(Exception exception)
+    {
+#if UNITY_EDITOR
+        Debug.LogException(exception);
 #endif
     }
 

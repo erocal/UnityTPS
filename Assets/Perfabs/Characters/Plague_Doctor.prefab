@@ -1523,13 +1523,11 @@ GameObject:
   - component: {fileID: 1907454662275767516}
   - component: {fileID: 1543216753392985323}
   - component: {fileID: 1543216753392985319}
-  - component: {fileID: 1543216753392985317}
   - component: {fileID: 1543216753392985327}
   - component: {fileID: 1543216753392985333}
   - component: {fileID: 4008796483235746998}
   - component: {fileID: 5042442598815150079}
   - component: {fileID: 8750665946905413740}
-  - component: {fileID: 7179587110553425907}
   m_Layer: 10
   m_Name: Plague_Doctor
   m_TagString: Enemy
@@ -1698,20 +1696,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1543216753392985317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907454662283194204}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8556dc05cd32c44faa2637bdc5365ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieIdleSFX: {fileID: 0}
-  zombieFollowSFX: {fileID: 0}
 --- !u!114 &1543216753392985327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,6 +1764,10 @@ MonoBehaviour:
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
   sinceArriveWayPointTimer: 0
+  plagueDoctorFireballSFX: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73,
+    type: 3}
+  plagueDoctorLightingSFX: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4,
+    type: 3}
 --- !u!114 &5042442598815150079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,22 +1803,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 6
   animatorChangeRatio: 0.2
---- !u!114 &7179587110553425907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907454662283194204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afdbf53ada672c643aab3cc593afe96c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plagueDoctorFireballSFX: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73,
-    type: 3}
-  plagueDoctorLightingSFX: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4,
-    type: 3}
 --- !u!1 &1907454662283194206
 GameObject:
   m_ObjectHideFlags: 0

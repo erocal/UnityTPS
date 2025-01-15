@@ -987,7 +987,6 @@ GameObject:
   - component: {fileID: 8347928683958988552}
   - component: {fileID: 4069765651592129423}
   - component: {fileID: 7754407660756948227}
-  - component: {fileID: 6787237974808016240}
   - component: {fileID: 5061502968039432220}
   m_Layer: 10
   m_Name: Mutant
@@ -1144,7 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ffa550442d35a43a12999d6e3deb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 10
+  chaseDistance: 20
   confuseTime: 5
   patrol: {fileID: 0}
   waypointToStay: 3
@@ -1155,6 +1154,8 @@ MonoBehaviour:
   aiSpawnPostion: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
   sinceArriveWayPointTimer: 0
+  mutantRoarSFX: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
+  mutantAttackSFX: {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
 --- !u!114 &4069765651592129423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,20 +1189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 3
---- !u!114 &6787237974808016240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6867669641158447859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2b67007d6a01345836216e93df101f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mutantRoarSFX: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
-  mutantAttackSFX: {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
 --- !u!82 &5061502968039432220
 AudioSource:
   m_ObjectHideFlags: 0

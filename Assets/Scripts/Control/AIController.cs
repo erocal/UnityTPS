@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Collider), typeof(Animator), typeof(Health))]
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Health))]
 public abstract class AIController : MonoBehaviour
 {
 
@@ -39,12 +42,14 @@ public abstract class AIController : MonoBehaviour
     [SerializeField] protected float sinceArriveWayPointTimer = 0;
 
     protected Organism organism;
+    protected ActionSystem actionSystem;
 
     /// <summary> 要銷毀的gameobject根節點 </summary>
     protected GameObject enemyRoot;
     protected GameObject player;
     protected Animator aiAnimator;
     protected Collider aiCollider;
+    protected AudioSource aiAudioSource;
     protected Health health;
 
     #endregion
@@ -71,6 +76,23 @@ public abstract class AIController : MonoBehaviour
     #endregion
 
     #region -- 方法參考區 --
+
+    /// <summary>
+    /// 初始化參數
+    /// </summary>
+    protected virtual void Init()
+    {
+
+        organism = Organism.Instance;
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        enemyRoot = this.gameObject;
+        player = organism.GetPlayer();
+        aiAnimator = this.GetComponent<Animator>();
+        aiCollider = this.GetComponent<Collider>();
+        aiAudioSource = this.GetComponent<AudioSource>();
+        health = this.GetComponent<Health>();
+
+    }
 
     /// <summary>
     /// 設定AI初始生成位置

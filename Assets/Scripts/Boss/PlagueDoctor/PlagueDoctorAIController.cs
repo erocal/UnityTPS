@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlagueDoctorAIController : AIController
 {
 
-    #region -- 參數參考區 --
+    #region -- 資源參考區 --
 
-    ActionSystem actionSystem;
+    [Space(5)]
+    [Header("火球的音效")]
+    [SerializeField] AudioClip plagueDoctorFireballSFX;
+    [Header("電擊的音效")]
+    [SerializeField] AudioClip plagueDoctorLightingSFX;
+
+    #endregion
+
+    #region -- 變數參考區 --
 
     PlagueDoctorMover plagueDoctorMover;
     PlagueDoctorFighter plagueDoctorFighter;
@@ -44,17 +53,10 @@ public class PlagueDoctorAIController : AIController
     /// <summary>
     /// 初始化參數
     /// </summary>
-    private void Init()
+    protected override void Init()
     {
 
-        actionSystem = GameManagerSingleton.Instance.ActionSystem;
-
-        organism = Organism.Instance;
-        enemyRoot = this.gameObject;
-        player = organism.GetPlayer();
-        aiAnimator = this.GetComponent<Animator>();
-        aiCollider = this.GetComponent<Collider>();
-        health = this.GetComponent<Health>();
+        base.Init();
 
         plagueDoctorMover = GetComponent<PlagueDoctorMover>();
         plagueDoctorFighter = GetComponent<PlagueDoctorFighter>();
@@ -145,6 +147,28 @@ public class PlagueDoctorAIController : AIController
     {
         UpdateLastSawPlayerTimer();
         UpdateArriveWayPointTimer();
+    }
+
+    /// <summary>
+    /// 播放PlagueDoctor火球的音效
+    /// </summary>
+    /// <param name="plagueDoctor">傳入的物件，用來抓取聲音組件，此處應為Boss:PlagueDoctor</param>
+    public void PlagueDoctorFireBall()
+    {
+
+        aiAudioSource.PlayOneShot(plagueDoctorFireballSFX);
+
+    }
+
+    /// <summary>
+    /// 播放PlagueDoctor電擊的音效
+    /// </summary>
+    /// <param name="plagueDoctor">傳入的物件，用來抓取聲音組件，此處應為Boss:PlagueDoctor</param>
+    public void PlagueDoctorLighting()
+    {
+
+        aiAudioSource?.PlayOneShot(plagueDoctorLightingSFX);
+
     }
 
     #endregion
