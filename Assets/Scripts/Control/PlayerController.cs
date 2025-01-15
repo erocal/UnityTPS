@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
 
     [Space(20)]
     [Header("地圖區域")]
-    [Tooltip("管理地圖區域相關方法")]
-    [SerializeField] MapAreaManager mapAreaManager;
     [Tooltip("玩家所在地圖區域")]
     [SerializeField] MapAreaType playerStandMapArea = MapAreaType.StartArea;
 
@@ -130,10 +128,6 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         spawn = new Vector3(-473.3f, 21.93f, 245.9f);
-
-#if UNITY_EDITOR
-        if (mapAreaManager == null) Log.Error("地圖管理員未掛載!");
-#endif
 
         // 訂閱死亡事件
         actionSystem.OnDie += OnDie;
@@ -453,8 +447,7 @@ public class PlayerController : MonoBehaviour
     public async Task IsAlive()
     {
 
-        // 根據玩家區域，開啟地圖
-        await mapAreaManager.SwitchMapArea((int)playerStandMapArea);
+        await actionSystem.MapAreaSwitch((int)playerStandMapArea);
 
         health.ReBorn();
         animator.SetTrigger("IsAlive");

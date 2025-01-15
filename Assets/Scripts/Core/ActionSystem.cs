@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 public sealed class ActionSystem
 {
@@ -15,6 +16,8 @@ public sealed class ActionSystem
     public event Action<int> OnDamage;
     // 當人物死亡時觸發的委派事件
     public event Action<int> OnDie;
+
+    public event Func<int, Task> OnMapAreaSwitch;
 
     #endregion
 
@@ -48,6 +51,11 @@ public sealed class ActionSystem
     public void Death(int id)
     {
         OnDie?.Invoke(id);
+    }
+
+    public async Task MapAreaSwitch(int mapAreaTriggerid)
+    {
+        await OnMapAreaSwitch?.Invoke(mapAreaTriggerid);
     }
 
     #endregion

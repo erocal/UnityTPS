@@ -13,7 +13,7 @@ public class MapAreaTrigger : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    private MapAreaManager mapAreaManager;
+    private ActionSystem actionSystem;
 
     #endregion
 
@@ -21,14 +21,18 @@ public class MapAreaTrigger : MonoBehaviour
 
     private void Awake()
     {
-        if (mapAreaManager == null) mapAreaManager = GetComponentInParent<MapAreaManager>();
+
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
     }
 
     private async Task OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            await mapAreaManager.SwitchMapArea( (int)mapArea );
+
+            await actionSystem.MapAreaSwitch((int)mapArea);
+
         }
     }
 

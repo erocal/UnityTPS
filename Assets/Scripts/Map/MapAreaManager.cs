@@ -24,6 +24,8 @@ public class MapAreaManager : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    private ActionSystem actionSystem;
+
     private Dictionary<int, GameObject> mapAreaDictionary = new Dictionary<int, GameObject>()
     {
         { 0, null},
@@ -41,10 +43,16 @@ public class MapAreaManager : MonoBehaviour
 
     private void Awake()
     {
+
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
+
         areaEnemyDictionary.Add((int)MapAreaType.StartArea, StartAreaEnemyList);
         areaEnemyDictionary.Add((int)MapAreaType.PlainArea, PlainAreaEnemyList);
         areaEnemyDictionary.Add((int)MapAreaType.PlagueDoctorArea, PlagueDoctorAreaEnemyList);
         areaEnemyDictionary.Add((int)MapAreaType.MutantArea, MutantAreaEnemyList);
+
+        actionSystem.OnMapAreaSwitch += SwitchMapArea;
+
     }
 
     #endregion
