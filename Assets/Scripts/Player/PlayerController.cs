@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     [Tooltip("出生點")]
-    public Vector3 spawn;
+    public Vector3 spawnPos;
     [Tooltip("下一幀要移動到的目標位置")]
     Vector3 targetMovement;
     [Tooltip("下一幀跳躍到的方向")]
@@ -127,10 +127,12 @@ public class PlayerController : MonoBehaviour
         weaponManager = GetComponent<WeaponManager>();
         audioSource = GetComponent<AudioSource>();
 
-        spawn = new Vector3(-473.3f, 21.93f, 245.9f);
+        spawnPos = new Vector3(-473.3f, 21.93f, 245.9f);
 
         // 訂閱死亡事件
         actionSystem.OnDie += OnDie;
+        actionSystem.OnSpawnPointUpdate += SpawnPointUpdate;
+
     }
 
     private void Update()
@@ -453,7 +455,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("IsAlive");
         
         // 初始玩家生成位置
-        ChangePosition(spawn);
+        ChangePosition(spawnPos);
         //還給玩家控制權
         this.GetComponent<PlayerController>().enabled = true;
 
@@ -469,8 +471,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    #region -- Get方法 --
-
     /// <summary>
     /// 取得準星Icon
     /// </summary>
@@ -481,21 +481,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    #endregion
-
-    #region -- Set方法 --
-
     /// <summary>
-    /// 取得玩家所在地圖區域
+    /// 取得玩家所在地圖區域與新重生位置
     /// </summary>
-    public void SetPlayerStandMapArea(MapAreaType playerStandMapArea)
+    public void SpawnPointUpdate(Vector3 spawnPos, MapAreaType playerStandMapArea)
     {
 
+        this.spawnPos = spawnPos;
         this.playerStandMapArea = playerStandMapArea;
 
     }
-
-    #endregion
 
     #endregion
 

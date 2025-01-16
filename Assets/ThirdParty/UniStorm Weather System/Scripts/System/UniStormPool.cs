@@ -102,7 +102,7 @@ namespace UniStorm.Utility
         {
             Init(prefab, qty);
 
-            // Make an array to grab the objects we're about to pre-spawn.
+            // Make an array to grab the objects we're about to pre-spawnPos.
             GameObject[] obs = new GameObject[qty];
             for (int i = 0; i < qty; i++)
             {
@@ -119,7 +119,7 @@ namespace UniStorm.Utility
         /// <summary>
         /// Spawns a copy of the specified prefab (instantiating one if required).
         /// NOTE: Remember that Awake() or Start() will only run on the very first
-        /// spawn and that member variables won't get reset.  OnEnable will run
+        /// spawnPos and that member variables won't get reset.  OnEnable will run
         /// after spawning -- but remember that toggling IsActive will also
         /// call that function.
         /// </summary>

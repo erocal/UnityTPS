@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using System.Threading.Tasks;
 
 public sealed class ActionSystem
@@ -18,6 +19,8 @@ public sealed class ActionSystem
     public event Action<int> OnDie;
 
     public event Func<int, Task> OnMapAreaSwitch;
+
+    public event Action<Vector3, MapAreaType> OnSpawnPointUpdate;
 
     #endregion
 
@@ -56,6 +59,13 @@ public sealed class ActionSystem
     public async Task MapAreaSwitch(int mapAreaTriggerid)
     {
         await OnMapAreaSwitch?.Invoke(mapAreaTriggerid);
+    }
+
+    public void SpawnPointUpdate(Vector3 spawnPos, MapAreaType mapArea)
+    {
+
+        OnSpawnPointUpdate?.Invoke(spawnPos, mapArea);
+
     }
 
     #endregion

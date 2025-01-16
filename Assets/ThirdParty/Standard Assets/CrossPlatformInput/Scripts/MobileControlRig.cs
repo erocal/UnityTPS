@@ -44,7 +44,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 UnityEngine.EventSystems.EventSystem system = GameObject.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>();
 
                 if (system == null)
-                {//the scene have no event system, spawn one
+                {//the scene have no event system, spawnPos one
                     GameObject o = new GameObject("EventSystem");
 
                     o.AddComponent<UnityEngine.EventSystems.EventSystem>();
