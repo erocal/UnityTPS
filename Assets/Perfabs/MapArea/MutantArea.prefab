@@ -2190,7 +2190,8 @@ PrefabInstance:
       propertyPath: 'm_LightmapsDir.Array.data[0]'
       value: 
       objectReference: {fileID: 2800000, guid: e7900804eee860148b473c726ca5b14e, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: d2debcb3c417b07419457484a835eb7d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

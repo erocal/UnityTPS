@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 11400000}
+  - component: {fileID: 5241694557586576605}
   - component: {fileID: 4053982142733040770}
   - component: {fileID: 8274163317381898997}
   - component: {fileID: 1120252514250345639}
@@ -90,7 +90,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &11400000
+--- !u!114 &5241694557586576605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,11 +99,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d28cb150ad86f4a8100312a4aea7a1, type: 3}
+  m_Script: {fileID: 11500000, guid: bdbcfe3f38bef8e4eba130ff12bcc1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uvAnimationRate: {x: 0.06, y: 0}
-  textureName: _LavaTex
+  dmage: 100
 --- !u!114 &4053982142733040770
 MonoBehaviour:
   m_ObjectHideFlags: 0

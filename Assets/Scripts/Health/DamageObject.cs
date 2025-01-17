@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class TouchLava : MonoBehaviour
+public class DamageObject : MonoBehaviour
 {
 
     #region -- 資源參考區 --
 
-    [Header("岩漿傷害")]
-    [SerializeField] private int lavaDamage = 15;
+    [Header("傷害")]
+    [SerializeField] private int dmage = 15;
 
     #endregion
 
@@ -18,7 +18,7 @@ public class TouchLava : MonoBehaviour
         var targetHealth = other.GetComponent<Health>();
 
         if (targetHealth)
-            targetHealth.TakeDamage(lavaDamage);
+            targetHealth.TakeDamage(dmage);
 
     }
 
