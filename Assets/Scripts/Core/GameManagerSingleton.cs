@@ -1,6 +1,5 @@
 ﻿using ToolBox.Pools;
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 // singleton單例模式
 // 可以確保生成對象只有一個實例存在
