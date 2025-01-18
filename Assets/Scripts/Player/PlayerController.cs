@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [Header("地圖區域")]
     [Tooltip("玩家所在地圖區域")]
     [SerializeField] MapAreaType playerStandMapArea = MapAreaType.StartArea;
+    
+    [Tooltip("出生點")]
+    public Vector3 spawnPos;
 
     #endregion
 
@@ -98,8 +101,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    [Tooltip("出生點")]
-    public Vector3 spawnPos;
+    
     [Tooltip("下一幀要移動到的目標位置")]
     Vector3 targetMovement;
     [Tooltip("下一幀跳躍到的方向")]
@@ -127,7 +129,7 @@ public class PlayerController : MonoBehaviour
         weaponManager = GetComponent<WeaponManager>();
         audioSource = GetComponent<AudioSource>();
 
-        spawnPos = new Vector3(-473.3f, 21.93f, 245.9f);
+        PlayerSpawn();
 
         // 訂閱死亡事件
         actionSystem.OnDie += OnDie;
@@ -153,6 +155,13 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region -- 方法參考區 --
+
+    private void PlayerSpawn()
+    {
+
+        this.transform.position = spawnPos;
+
+    }
 
     #region -- 事件相關 --
 

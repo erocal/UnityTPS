@@ -36,9 +36,11 @@ public class CameraFollowSmooth : MonoBehaviour
 
     private void Awake() 
     {
+
         input = GameManagerSingleton.Instance.InputController;
         transform.position = player.position + Vector3.up * startHeight;  
         offset_Y = startHeight;
+
     }
 
     private void LateUpdate()

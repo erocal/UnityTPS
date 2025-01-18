@@ -12,6 +12,8 @@ TagManager:
   - Muzzle
   - Lava
   - AimImage
+  - Fire
+  - UniStorm
   layers:
   - Default
   - TransparentFX

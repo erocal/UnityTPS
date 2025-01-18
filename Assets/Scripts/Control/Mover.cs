@@ -15,7 +15,7 @@ public class Mover : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    NavMeshAgent navmeshAgent;
+    NavMeshAgent navMeshAgent;
     float nextSpeed;
 
     // 上一幀的移動速度
@@ -27,7 +27,7 @@ public class Mover : MonoBehaviour
 
     private void Awake()
     {
-        navmeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -41,7 +41,7 @@ public class Mover : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        Vector3 velocity = navmeshAgent.velocity;
+        Vector3 velocity = navMeshAgent.velocity;
         // 將全局NavMesh速度變量，轉換成local的速度變量。
         Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
@@ -58,9 +58,11 @@ public class Mover : MonoBehaviour
     public void MoveTo(Vector3 destination, float speedRatio)
     {
 
-        navmeshAgent.isStopped = false;
-        navmeshAgent.speed = maxSpeed * Mathf.Clamp01(speedRatio);
-        navmeshAgent.destination = destination;
+        if (!navMeshAgent.isOnNavMesh) NavMeshHelper.CantFindNavMesh(gameObject);
+
+        navMeshAgent.isStopped = false;
+        navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedRatio);
+        navMeshAgent.destination = destination;
 
     }
 
@@ -68,7 +70,7 @@ public class Mover : MonoBehaviour
     {
 
         // 停止導航系統
-        navmeshAgent.isStopped = true;
+        navMeshAgent.isStopped = true;
 
     }
 

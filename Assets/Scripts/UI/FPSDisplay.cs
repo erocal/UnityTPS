@@ -20,12 +20,6 @@ public class FPSDisplay : MonoBehaviour
 
     #region -- 初始化/運作 --
 
-    void Awake()
-    {
-        // 標記此物件不會在場景切換時被卸載
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Update()
     {
 

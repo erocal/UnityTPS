@@ -1151,7 +1151,7 @@ MonoBehaviour:
   patrolSpeedRatio: 0.5
   isBeHit: 0
   sinceLastSawPlayerTimer: Infinity
-  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  aiSpawnPostion: {x: 51.92576, y: 120.5346, z: -243.7021}
   currentWaypointIndex: 0
   sinceArriveWayPointTimer: 0
   mutantRoarSFX: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}

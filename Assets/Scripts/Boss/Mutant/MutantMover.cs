@@ -13,7 +13,7 @@ public class MutantMover : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    NavMeshAgent navmeshAgent;
+    NavMeshAgent navMeshAgent;
     Animator animator;
 
     #endregion
@@ -22,18 +22,18 @@ public class MutantMover : MonoBehaviour
 
     private void Awake()
     {
-        navmeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        navmeshAgent.isStopped = true;
-        navmeshAgent.updateRotation = false;
+        navMeshAgent.isStopped = true;
+        navMeshAgent.updateRotation = false;
     }
 
     private void Update()
     {
-        if (!navmeshAgent.isStopped)
+        if (!navMeshAgent.isStopped)
         {
             // 避開障礙物
-            Vector3 targetPosition = navmeshAgent.steeringTarget - transform.position;
+            Vector3 targetPosition = navMeshAgent.steeringTarget - transform.position;
 
             if (targetPosition == Vector3.zero) return;
 
@@ -47,15 +47,19 @@ public class MutantMover : MonoBehaviour
 
     public void MoveTo(Vector3 destination)
     {
-        navmeshAgent.isStopped = false;
-        navmeshAgent.destination = destination;
+
+        if (!navMeshAgent.isOnNavMesh) NavMeshHelper.CantFindNavMesh(gameObject);
+
+        navMeshAgent.isStopped = false;
+        navMeshAgent.destination = destination;
         animator.SetBool("Move", true);
+
     }
 
     public void CancelMove()
     {
         // 停止導航系統
-        navmeshAgent.isStopped = true;
+        navMeshAgent.isStopped = true;
         animator.SetBool("Move", false);
     }
 

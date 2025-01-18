@@ -95,12 +95,13 @@ public abstract class AIController : MonoBehaviour
     }
 
     /// <summary>
-    /// 設定AI初始生成位置
+    /// 設定AI生成位置
     /// </summary>
-    /// <param name="spawnPostion">初始生成位置</param>
-    protected void SetSpawnPosition(Vector3 spawnPostion)
+    protected void EnemySpawn()
     {
-        this.aiSpawnPostion = spawnPostion;
+
+        this.transform.position = aiSpawnPostion;
+
     }
 
     /// <summary>

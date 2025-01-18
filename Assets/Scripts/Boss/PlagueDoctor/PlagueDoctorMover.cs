@@ -60,6 +60,8 @@ public class PlagueDoctorMover : MonoBehaviour
     public void MoveTo(Vector3 destination, float speedRatio)
     {
 
+        if (!navMeshAgent.isOnNavMesh) NavMeshHelper.CantFindNavMesh(gameObject);
+
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedRatio);
         navMeshAgent.destination = destination;

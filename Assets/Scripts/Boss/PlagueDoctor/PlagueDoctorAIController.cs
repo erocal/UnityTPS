@@ -28,7 +28,7 @@ public class PlagueDoctorAIController : AIController
 
         Init();
 
-        SetSpawnPosition(transform.position);
+        EnemySpawn();
 
         #region -- 委派 --
 

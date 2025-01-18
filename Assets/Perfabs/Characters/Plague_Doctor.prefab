@@ -1761,7 +1761,7 @@ MonoBehaviour:
   patrolSpeedRatio: 0.5
   isBeHit: 0
   sinceLastSawPlayerTimer: Infinity
-  aiSpawnPostion: {x: 0, y: 0, z: 0}
+  aiSpawnPostion: {x: -207.9114, y: 56.10513, z: 222.0225}
   currentWaypointIndex: 0
   sinceArriveWayPointTimer: 0
   plagueDoctorFireballSFX: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73,

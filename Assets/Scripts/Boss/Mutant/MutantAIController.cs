@@ -31,7 +31,7 @@ public class MutantAIController : AIController
 
         Init();
 
-        SetSpawnPosition(transform.position);
+        EnemySpawn();
 
         #region -- 委派 --
 

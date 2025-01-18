@@ -30,7 +30,7 @@ public class ZombieAIController : AIController
 
         Init();
 
-        SetSpawnPosition(transform.position);
+        EnemySpawn();
 
         #region -- 委派 --
 

@@ -20,11 +20,11 @@ public class LoadingManager : MonoBehaviour
     [SerializeField] GameObject startGameUI;
 
     [Header("CanvasGroup")]
-    [SerializeField] CanvasGroup canvasGroup_LoadingUI;
+    [SerializeField] CanvasGroup canvasGroup_StartUI;
 
     #endregion
 
-    #region -- 把计把σ跋 --
+    #region -- 跑计把σ跋 --
 
     #region -- 盽计 --
 
@@ -32,7 +32,9 @@ public class LoadingManager : MonoBehaviour
 
     #endregion
 
+    ActionSystem actionSystem;
     InputController input;
+    Organism organism;
 
     #endregion
 
@@ -55,10 +57,9 @@ public class LoadingManager : MonoBehaviour
     private void Init()
     {
 
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
         input = GameManagerSingleton.Instance.InputController;
-
-        // 磷ち传初春瘆胊
-        DontDestroyOnLoad(this.gameObject);
+        organism = Organism.Instance;
 
         #region -- btn --
 
@@ -83,11 +84,15 @@ public class LoadingManager : MonoBehaviour
 
             Destroy(startGameUI);
 
+            organism.GetPlayer().SetActive(true);
+
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
 
-            canvasGroup_LoadingUI.SetEnable(false);
+            actionSystem.SpawnPointUpdate(organism.GetPlayer().GetComponent<PlayerController>().spawnPos, MapAreaType.StartArea);
+
+            canvasGroup_StartUI.SetEnable(false);
 
         }
     }
