@@ -16,6 +16,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    private ActionSystem actionSystem;
     private Organism organism;
 
     private Ray ray;
@@ -26,7 +27,6 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
     private GameObject player;
 
     private PlayerController playerController;
-    private Gazed ingazed;
 
     #endregion
 
@@ -35,9 +35,9 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
     private void Awake()
     {
 
+        actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
 
-        ingazed = null;
         targetMaskEnemy = LayerMask.GetMask("Enemy");
         player = organism.GetPlayer();
         playerController = player.GetComponent<PlayerController>();
@@ -46,8 +46,6 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
     void Update()
     {
-
-        ingazed = null;
         
         ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2 + offset_Y, 0));
         transform.rotation = Quaternion.LookRotation(ray.GetPoint(maxDistance));
@@ -57,19 +55,14 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * ultDistance, Color.yellow);
             info = "Gazed";
             if (playerController.GetCrosshair().activeInHierarchy != false)
-            {
-                ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<Gazed>();
-                ingazed.Ingazed();
-            }
+                actionSystem.Gazed(true);
 
         }
         else
         {
             if (playerController.GetCrosshair().activeInHierarchy != false)
-            {
-                ingazed = GameObject.FindGameObjectWithTag("AimImage").GetComponent<Gazed>();
-                ingazed.NotIngazed();
-            }
+                actionSystem.Gazed(false);
+
             info = null;
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * 1000, Color.blue);
         }

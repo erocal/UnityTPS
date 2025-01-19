@@ -35,18 +35,6 @@ public class ThirdPersonCamera : MonoBehaviour
     [Header("加速時的特效")]
     [SerializeField] ParticleSystem caplockParticle;
 
-    [Header("Pause的UI")]
-    [SerializeField] GameObject pauseUI;
-    [Header("重生的UI")]
-    [SerializeField] GameObject aliveUI;
-    [Header("音量鍵的UI")]
-    [SerializeField] GameObject volumeUI;
-    [Header("靜音時的UI")]
-    [SerializeField] GameObject muteUI;
-    [Header("音量條的UI")]
-    [SerializeField] GameObject volumeSliderUI;
-
-
     [Header("Pause的音效")]
     [SerializeField] AudioClip pauseSFX;
 
@@ -104,7 +92,7 @@ public class ThirdPersonCamera : MonoBehaviour
         actionSystem.OnDamage += OnDamage;
         actionSystem.OnCaplock += OnCaplock;
         actionSystem.OnCaplockUp += OnCaplockUp;
-        actionSystem.OnDie += OnDie;
+        actionSystem.OnCameraVolumeChange += VolumeUpdate;
 
         #endregion
 
@@ -112,21 +100,18 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
+
         CheckVolumeMute();
+
     }
 
-    private async void LateUpdate()
+    private void LateUpdate()
     {
 
         if (Cursor.lockState == CursorLockMode.Locked)
         {
-            pauseUI.SetActive(false);
-            aliveUI.SetActive(false);
 
-            if (!aliveUI.activeSelf)
-            {
-                Time.timeScale = 1;
-            }
+            
 
             mouse_X += input.GetMouseXAxis() * sensitivity_X;
             mouse_Y += input.GetMouseYAxis() * sensitivity_Y;
@@ -156,16 +141,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
             isLocked = true;
 
-            if (!aliveUI.activeSelf)
-            {
-                pauseUI.SetActive(true);
-                await DelayAndStopTimeAsync(0);
-            }
-            else
-            {
-                await DelayAndStopTimeAsync(2000);//延遲停止，讓死亡動畫可以播完
-            }
-
         }
 
         if (isLocked != isChange)
@@ -181,51 +156,18 @@ public class ThirdPersonCamera : MonoBehaviour
     #region -- 方法參考區 --
 
     /// <summary>
-    /// 等待傳入值的秒數後，停止遊戲的時間
-    /// </summary>
-    /// <param name="delaytime">等待的秒數</param>
-    private async Task DelayAndStopTimeAsync(int delaytime)
-    {
-        await Task.Delay(delaytime); // 等待?秒
-
-        Time.timeScale = 0; // 停止時間
-    }
-
-    /// <summary>
     /// 確認目前音量是否為零，為零切換UI
     /// </summary>
     private void CheckVolumeMute()
     {
 
-        if (audioSource.volume == 0)
-        {
-            volumeUI.SetActive(false);
-            muteUI.SetActive(true);
-        }
-        else
-        {
-            volumeUI.SetActive(true);
-            muteUI.SetActive(false);
-        }
+        actionSystem.CameraVolumeMute(audioSource.volume == 0);
 
     }
 
     #endregion
 
     #region -- 事件相關 --
-
-    /// <summary>
-    /// 玩家死亡時處理方法
-    /// </summary>
-    private void OnDie(int id)
-    {
-
-        if (id != organism.GetPlayer().GetInstanceID()) return;
-
-        aliveUI.SetActive(true);
-        input.CursorStateChange(false);
-
-    }
 
     /// <summary>
     /// 玩家受傷時處理方法
@@ -292,52 +234,14 @@ public class ThirdPersonCamera : MonoBehaviour
 
     }
 
-    #endregion
-
-    #region -- UI的OnClick()關聯 --
-
-    /// <summary>
-    /// 離開遊戲
-    /// </summary>
-    public void QuitGame()
-    {
-        Application.Quit();
-
-#if UNITY_EDITOR
-        if (EditorApplication.isPlaying)
-        {
-            EditorApplication.ExitPlaymode();
-        }
-#endif
-    }
-
-    /// <summary>
-    /// 繼續遊戲
-    /// </summary>
-    public void ContinueGame()
-    {
-        input.CursorStateChange(true);
-    }
-
-    /// <summary>
-    /// 復活
-    /// </summary>
-    public async void Respawn()
-    {
-        input.CursorStateChange(true);
-
-        await playercontroller.IsAlive();
-    }
-
     /// <summary>
     /// 音量
     /// </summary>
-    public void Volume()
+    private void VolumeUpdate(float volume)
     {
-        if (volumeSliderUI.activeSelf)
-            volumeSliderUI.SetActive(false);
-        else
-            volumeSliderUI.SetActive(true);
+
+        audioSource.volume = volume;
+
     }
 
     #endregion

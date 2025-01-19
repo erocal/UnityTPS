@@ -13,14 +13,19 @@ public sealed class ActionSystem
 
     public event Action<WeaponController, int> OnAddWeapon;
 
-    // 當受到攻擊時觸發的委派事件
+    /// <summary>當受到攻擊時觸發的委派事件</summary>
     public event Action<int> OnDamage;
-    // 當人物死亡時觸發的委派事件
+    /// <summary>當人物死亡時觸發的委派事件</summary>
     public event Action<int> OnDie;
 
     public event Func<int, Task> OnMapAreaSwitch;
 
     public event Action<Vector3, MapAreaType> OnSpawnPointUpdate;
+
+    public event Action<float> OnCameraVolumeChange;
+    public event Action<bool> OnCameraVolumeMute;
+    /// <summary>武器射線碰到敵人</summary>
+    public event Action<bool> OnGazed;
 
     #endregion
 
@@ -65,6 +70,27 @@ public sealed class ActionSystem
     {
 
         OnSpawnPointUpdate?.Invoke(spawnPos, mapArea);
+
+    }
+
+    public void CameraVolumeChange(float volume)
+    {
+
+        OnCameraVolumeChange?.Invoke(volume);
+
+    }
+
+    public void CameraVolumeMute(bool isMute)
+    {
+
+        OnCameraVolumeMute?.Invoke(isMute);
+
+    }
+
+    public void Gazed(bool inGazed)
+    {
+
+        OnGazed?.Invoke(inGazed);
 
     }
 

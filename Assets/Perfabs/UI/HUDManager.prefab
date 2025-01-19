@@ -951,10 +951,9 @@ GameObject:
   - component: {fileID: 1519617924}
   - component: {fileID: 1519617926}
   - component: {fileID: 1519617925}
-  - component: {fileID: 1776548001}
   m_Layer: 5
-  m_Name: Image
-  m_TagString: AimImage
+  m_Name: Image_Gazed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1016,18 +1015,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1776548001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519617923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94296d48815af7b448250ca14ea0728a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1545141439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1028,7 @@ GameObject:
   - component: {fileID: 1545141442}
   - component: {fileID: 1545141441}
   m_Layer: 5
-  m_Name: Button-Quit
+  m_Name: Button_Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,19 +1135,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1545141442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1666808258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1149,7 @@ GameObject:
   - component: {fileID: 1666808261}
   - component: {fileID: 1666808260}
   m_Layer: 5
-  m_Name: Button-Continue
+  m_Name: Button_Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,19 +1256,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1666808261}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
-        m_MethodName: ContinueGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1717574008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,19 +1677,7 @@ MonoBehaviour:
   m_Value: 0.4
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_volume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &915753760977945131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1763,7 @@ GameObject:
   - component: {fileID: 2925561600571996425}
   - component: {fileID: 1196956080421081258}
   m_Layer: 5
-  m_Name: Button-Mute
+  m_Name: Button_Mute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,19 +1869,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
-        m_MethodName: Volume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1553537895306772200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,19 +2065,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6814178985605827146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
-        m_MethodName: Respawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1653762098812477347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2602,7 @@ GameObject:
   - component: {fileID: 2880948846872410973}
   - component: {fileID: 4831313651060576974}
   m_Layer: 5
-  m_Name: Button-Respawn
+  m_Name: Button_Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,19 +2709,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2880948846872410973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
-        m_MethodName: Respawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4585267217776530847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,8 +2720,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1154338284342759303}
   - component: {fileID: 7958934159689220467}
-  - component: {fileID: 1319299512636986513}
-  - component: {fileID: 823001075540499331}
   m_Layer: 5
   m_Name: StartUI
   m_TagString: Untagged
@@ -2847,37 +2760,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1319299512636986513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4585267217776530847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fae2502c1cee447a8aac3954b1ba13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text_FPS: {fileID: 8993471067801229514}
-  Text_ms: {fileID: 6480320079789735547}
---- !u!114 &823001075540499331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4585267217776530847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41c408f9f028a0f4d8a6b8c9f15459fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingImage: {fileID: 7956381978955541848}
-  btn_Start: {fileID: 2406697283141023713}
-  btn_Quit: {fileID: 5444015209782255752}
-  startGameUI: {fileID: 8629665876400715467}
-  canvasGroup_StartUI: {fileID: 7958934159689220467}
 --- !u!1 &5212441396712161367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,7 +2914,7 @@ GameObject:
   - component: {fileID: 6133113173830068882}
   - component: {fileID: 3814408677847060383}
   m_Layer: 5
-  m_Name: Button-Volume
+  m_Name: Button_Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3138,19 +3020,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6133113173830068882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
-        m_MethodName: Volume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5711031095606270880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4124,6 +3994,7 @@ GameObject:
   - component: {fileID: 3034512225883939588}
   - component: {fileID: 577082722397882627}
   - component: {fileID: 9105175674627892612}
+  - component: {fileID: 6942757663882820752}
   - component: {fileID: 1095604521070275460}
   m_Layer: 5
   m_Name: HUDManager
@@ -4216,6 +4087,39 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6942757663882820752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201214469493527482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a166958ad79ca47b3cacadb7b4ec5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text_FPS: {fileID: 8993471067801229514}
+  Text_ms: {fileID: 6480320079789735547}
+  loadingImage: {fileID: 7956381978955541848}
+  btn_Start: {fileID: 2406697283141023713}
+  btn_Quit: {fileID: 5444015209782255752}
+  pauseUI_Btn_Quit: {fileID: 1545141441}
+  btn_Volume: {fileID: 3814408677847060383}
+  btn_Mute: {fileID: 1196956080421081258}
+  btn_Continue: {fileID: 1666808260}
+  btn_Respawn: {fileID: 4831313651060576974}
+  aliveUI_Btn_Respawn: {fileID: 3703964749243759149}
+  Slider_Music: {fileID: 5255452636332718056}
+  startGameUI: {fileID: 8629665876400715467}
+  pauseUI: {fileID: 531354560}
+  aliveUI: {fileID: 1653762098812477347}
+  btnVolumeUI: {fileID: 5692467677022772891}
+  btnMuteUI: {fileID: 1468811723141295042}
+  volumeSliderUI: {fileID: 506934970280666503}
+  healthImage: {fileID: 8930417828114104873}
+  Image_Gazed: {fileID: 1519617925}
+  canvasGroup_StartUI: {fileID: 7958934159689220467}
 --- !u!114 &1095604521070275460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4236,55 +4140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7389019813278119810}
     m_Modifications:
-    - target: {fileID: 209256100480320573, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 209256100480320573, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577654000647116142, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 577654000647116142, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2252719910223042366, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4510467516586253403, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818129392067728663, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 4818129392067728663, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6973944219926375095, guid: 37c4e93462a36cb4a85a05aeefb3c694,
         type: 3}
       propertyPath: m_Name
       value: Health Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973944219926375095, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7938439998219439644, guid: 37c4e93462a36cb4a85a05aeefb3c694,
         type: 3}
@@ -4294,11 +4153,6 @@ PrefabInstance:
     - target: {fileID: 7938439998219439644, guid: 37c4e93462a36cb4a85a05aeefb3c694,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7938439998219439644, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7938439998219439644, guid: 37c4e93462a36cb4a85a05aeefb3c694,
@@ -4391,19 +4245,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8259317414485290214, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4510467516586253403, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6567254906019687500}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37c4e93462a36cb4a85a05aeefb3c694, type: 3}
 --- !u!224 &2143726537977256283 stripped
 RectTransform:
@@ -4411,33 +4256,13 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8352781975956297543}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5580923921477585692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4510467516586253403, guid: 37c4e93462a36cb4a85a05aeefb3c694,
-    type: 3}
-  m_PrefabInstance: {fileID: 8352781975956297543}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6567254906019687500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5580923921477585692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9abf5c978c34349bc891817f072069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthImage: {fileID: 8930417828114104873}
-  playerHealth: {fileID: 0}
 --- !u!114 &8930417828114104873 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 577654000647116142, guid: 37c4e93462a36cb4a85a05aeefb3c694,
     type: 3}
   m_PrefabInstance: {fileID: 8352781975956297543}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5580923921477585692}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
