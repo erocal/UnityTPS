@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Packed Assets
+  m_Name: UI
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
-  m_GUID: 381621776029a1246a553005650db515
+  m_GroupName: UI
+  m_GUID: 4c874722a80c1714db7fe3869f196108
   m_SerializeEntries:
-  - m_GUID: ef13065bd303dfe479c71e7826dfbd8e
-    m_Address: samplescene
+  - m_GUID: 0509333bcbd1a9c498d8650d0c4e1859
+    m_Address: hudmanager
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
@@ -25,5 +25,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: ffae77cf890a788449e0386bc5733194, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 663f9a7649dcb2244ac67c03f5e55c7c, type: 2}
-    - {fileID: 11400000, guid: 6e9d47a1d1e85d34f930973d267aab1c, type: 2}
+    - {fileID: 11400000, guid: 358bc1577b6059d4098ef9cf2f327cdd, type: 2}
+    - {fileID: 11400000, guid: 3d17c6910507c044791733bc8a5db0c5, type: 2}

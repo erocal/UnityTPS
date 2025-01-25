@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+ï»¿#if UNITY_EDITOR
 using UnityEditor;
 #endif
 using System.Threading.Tasks;
@@ -9,16 +9,13 @@ using UnityEngine.UI;
 public class UISystem : MonoBehaviour
 {
 
-    #region -- ¸ê·½°Ñ¦Ò°Ï --
-
-    [Header("GameObject")]
-    [SerializeField, Tooltip("·Ç¬PIcon")] GameObject crosshair;
+    #region -- è³‡æºåƒè€ƒå€ --
 
     [Header("Text")]
     [SerializeField, Tooltip("FPS")] private Text Text_FPS;
     [SerializeField, Tooltip("ms")] private Text Text_ms;
 
-    [Header("µ¥«İ¹Ï"), Tooltip("¤Á´«³õ´º®Éªºµ¥«İµe­±")]
+    [Header("ç­‰å¾…åœ–"), Tooltip("åˆ‡æ›å ´æ™¯æ™‚çš„ç­‰å¾…ç•«é¢")]
     [SerializeField] Image loadingImage;
 
     [Header("Btn")]
@@ -35,12 +32,13 @@ public class UISystem : MonoBehaviour
     [SerializeField] Slider Slider_Music;
 
     [Header("GameObject")]
-    [SerializeField, Tooltip("¹CÀ¸¶}©lUI")] GameObject startGameUI;
-    [SerializeField, Tooltip("PauseªºUI")] GameObject pauseUI;
-    [SerializeField, Tooltip("­«¥ÍªºUI")] GameObject aliveUI;
-    [SerializeField, Tooltip("­µ¶qÁäªºUI")] GameObject btnVolumeUI;
-    [SerializeField, Tooltip("ÀR­µ®ÉªºUI")] GameObject btnMuteUI;
-    [SerializeField, Tooltip("­µ¶q±øªºUI")] GameObject volumeSliderUI;
+    [SerializeField, Tooltip("éŠæˆ²é–‹å§‹UI")] GameObject startGameUI;
+    [SerializeField, Tooltip("Pauseçš„UI")] GameObject pauseUI;
+    [SerializeField, Tooltip("é‡ç”Ÿçš„UI")] GameObject aliveUI;
+    [SerializeField, Tooltip("éŸ³é‡éµçš„UI")] GameObject btnVolumeUI;
+    [SerializeField, Tooltip("éœéŸ³æ™‚çš„UI")] GameObject btnMuteUI;
+    [SerializeField, Tooltip("éŸ³é‡æ¢çš„UI")] GameObject volumeSliderUI;
+    [SerializeField, Tooltip("æº–æ˜ŸIcon")] GameObject crosshair;
 
     [Header("Image")]
     [SerializeField] Image healthImage;
@@ -51,30 +49,14 @@ public class UISystem : MonoBehaviour
 
     #endregion
 
-    #region -- ÅÜ¼Æ°Ñ¦Ò°Ï --
-
-    private static UISystem _instance;
-
-    public static UISystem Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindFirstObjectByType<UISystem>();
-            }
-
-            return _instance;
-        }
-        private set { }
-    }
+    #region -- è®Šæ•¸åƒè€ƒå€ --
 
     public GameObject CrossHair
     {
         get { return crosshair; }
     }
 
-    #region -- ±`¼Æ --
+    #region -- å¸¸æ•¸ --
 
     private const int FIVE_THOUSAND_MILLISECONDS = 5000;
 
@@ -92,17 +74,10 @@ public class UISystem : MonoBehaviour
 
     #endregion
 
-    #region -- ªì©l¤Æ/¹B§@ --
-
-    // ¨¾¤î¥~³¡¹ê¨Ò¤Æ¸ÓÃş
-    private UISystem()
-    {
-    }
+    #region -- åˆå§‹åŒ–/é‹ä½œ --
 
     private void Awake()
     {
-
-        GetInstance();
 
         Init();
 
@@ -124,28 +99,12 @@ public class UISystem : MonoBehaviour
 
     }
 
-    private void OnDestroy()
-    {
-        _instance = null;
-    }
-
     #endregion
 
-    #region -- ¤èªk°Ñ¦Ò°Ï --
+    #region -- æ–¹æ³•åƒè€ƒå€ --
 
     /// <summary>
-    /// Àò¨ú°ß¤@¹ê¨Ò
-    /// </summary>
-    private void GetInstance()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-    }
-
-    /// <summary>
-    /// ªì©l¤Æ
+    /// åˆå§‹åŒ–
     /// </summary>
     private void Init()
     {
@@ -185,7 +144,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// ª±®a¦º¤`®É³B²z¤èªk
+    /// ç©å®¶æ­»äº¡æ™‚è™•ç†æ–¹æ³•
     /// </summary>
     private void OnDie(int id)
     {
@@ -200,11 +159,11 @@ public class UISystem : MonoBehaviour
     #region -- onClick --
 
     /// <summary>
-    /// Button-Start ¥[¸ü¤U¤@±i¦a¹Ï
+    /// Button-Start åŠ è¼‰ä¸‹ä¸€å¼µåœ°åœ–
     /// </summary>
     private async Task OnStartGame()
     {
-        // ¥[¸üGame
+        // åŠ è¼‰Game
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             input.CursorStateChange(true);
@@ -228,7 +187,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Â÷¶}¹CÀ¸
+    /// é›¢é–‹éŠæˆ²
     /// </summary>
     private void OnQuitGame()
     {
@@ -245,7 +204,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// ­µ¶q
+    /// éŸ³é‡
     /// </summary>
     public void OnVolume()
     {
@@ -255,7 +214,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä~Äò¹CÀ¸
+    /// ç¹¼çºŒéŠæˆ²
     /// </summary>
     public void OnContinueGame()
     {
@@ -265,7 +224,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// ´_¬¡
+    /// å¾©æ´»
     /// </summary>
     public async void OnRespawn()
     {
@@ -279,7 +238,7 @@ public class UISystem : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// ­pºâ·í«eFPS©Mmilisecond©µ¿ğ
+    /// è¨ˆç®—ç•¶å‰FPSå’Œmilisecondå»¶é²
     /// </summary>
     private void CalculateFPSAndMsec()
     {
@@ -296,7 +255,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// §ó·sª±®a¦å±ø
+    /// æ›´æ–°ç©å®¶è¡€æ¢
     /// </summary>
     private void PlayerHealthUpdate()
     {
@@ -306,7 +265,7 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// ­µ¶qUI
+    /// éŸ³é‡UI
     /// </summary>
     private void VolumeUI(bool isMute)
     {
@@ -331,7 +290,7 @@ public class UISystem : MonoBehaviour
         }
         else if (aliveUI.activeSelf)
         {
-            await DelayAndStopTimeAsync(2000);//©µ¿ğ°±¤î¡AÅı¦º¤`°Êµe¥i¥H¼½§¹
+            await DelayAndStopTimeAsync(2000);//å»¶é²åœæ­¢ï¼Œè®“æ­»äº¡å‹•ç•«å¯ä»¥æ’­å®Œ
         }
 
     }
@@ -347,14 +306,14 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
-    /// µ¥«İ¶Ç¤J­Èªº¬í¼Æ«á¡A°±¤î¹CÀ¸ªº®É¶¡
+    /// ç­‰å¾…å‚³å…¥å€¼çš„ç§’æ•¸å¾Œï¼Œåœæ­¢éŠæˆ²çš„æ™‚é–“
     /// </summary>
-    /// <param name="delaytime">µ¥«İªº¬í¼Æ</param>
+    /// <param name="delaytime">ç­‰å¾…çš„ç§’æ•¸</param>
     private async Task DelayAndStopTimeAsync(int delaytime)
     {
-        await Task.Delay(delaytime); // µ¥«İ?¬í
+        await Task.Delay(delaytime); // ç­‰å¾…?ç§’
 
-        Time.timeScale = 0; // °±¤î®É¶¡
+        Time.timeScale = 0; // åœæ­¢æ™‚é–“
     }
 
     #endregion

@@ -1,11 +1,16 @@
-﻿using ToolBox.Pools;
+﻿using System.Threading.Tasks;
+using ToolBox.Pools;
 using UnityEngine;
+using UnityEngine.Localization.PropertyVariants;
 
 // singleton單例模式
 // 可以確保生成對象只有一個實例存在
 // 開發遊戲會希望某個類別只有一個實例化物件就可以使用
 public class GameManagerSingleton
 {
+
+    private bool m_IsUISystemInitializing = false;
+
     private GameObject gameObject;
 
     //單例
@@ -23,6 +28,7 @@ public class GameManagerSingleton
                     gameObject = new GameObject("Core"),
                 };
 
+                m_Instance.gameObject.AddComponent<Init>();
                 m_Instance.gameObject.AddComponent<DontDestroyOnLoad>();
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<PoolInstaller>();
@@ -80,6 +86,55 @@ public class GameManagerSingleton
         {
             m_ActionSystem ??= new ActionSystem();
             return m_ActionSystem;
+        }
+    }
+
+    private UISystem m_UISystem;
+    public UISystem UISystem
+    {
+        get
+        {
+
+            // 如果已經初始化，直接返回
+            if (m_UISystem != null)
+            {
+                return m_UISystem;
+            }
+
+            // 避免重複初始化
+            if (m_IsUISystemInitializing)
+            {
+                return null; // 或者可以拋出異常，提示正在初始化
+            }
+
+            m_IsUISystemInitializing = true;
+
+            var init = gameObject.GetComponent<Init>();
+
+            // 如果 Init 組件中已經有 UISystem，直接使用
+            if (init.UISystem != null)
+            {
+                m_UISystem = init.UISystem;
+                m_IsUISystemInitializing = false;
+                return m_UISystem;
+            }
+
+            // 非同步初始化 UISystem
+            init.CreateHUDManagerAsync().ContinueWith(task =>
+            {
+                if (task.IsCompletedSuccessfully)
+                {
+                    m_UISystem = init.UISystem;
+                }
+                else
+                {
+                    Log.Error("Failed to initialize UISystem: " + task.Exception);
+                }
+                m_IsUISystemInitializing = false;
+            });
+
+            return null;
+
         }
     }
 

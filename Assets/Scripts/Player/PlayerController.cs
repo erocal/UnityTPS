@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         input = GameManagerSingleton.Instance.InputController;
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
-        uiSystem = UISystem.Instance;
+        uiSystem = GameManagerSingleton.Instance.UISystem;
 
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();

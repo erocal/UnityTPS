@@ -107,7 +107,7 @@ public class MapAreaManager : MonoBehaviour
             return;
         }
 
-        var enemyCompareResultList =  GameObjectComparer.CompareAndExecuteMethods(fullEnemyList, enemyList);
+        var enemyCompareResultList =  GameObjectComparerHelper.CompareAndExecuteMethods(fullEnemyList, enemyList);
         SetActiveEnemy(enemyCompareResultList.commonElementsList, true);
         SetActiveEnemy(enemyCompareResultList.differentElementsList, false);
 

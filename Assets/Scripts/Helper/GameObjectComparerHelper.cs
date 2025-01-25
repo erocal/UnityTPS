@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public static class GameObjectComparer
+public static class GameObjectComparerHelper
 {
     /// <summary>
     /// 比較兩個List中相同及不同的元素
