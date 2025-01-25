@@ -19,13 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("跳躍時向上施加的力量")] float jumpForce = 15;
     [SerializeField, Tooltip("在空中下施加的力量")] float gravityDownForce = 50;
     [SerializeField, Tooltip("檢查與地面之間的距離")] float distanceToGround = 0.1f;
-    
+
     [Header("儲存腳的位置")]
     [SerializeField] Transform feet;
-
-    [Space(20)]
-    [Header("準星Icon")]
-    [SerializeField] GameObject crosshair;
 
     [Space(20)]
     [Header("音效")]
@@ -35,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [Header("地圖區域")]
     [Tooltip("玩家所在地圖區域")]
     [SerializeField] MapAreaType playerStandMapArea = MapAreaType.StartArea;
-    
+
     [Tooltip("出生點")]
     public Vector3 spawnPos;
 
@@ -84,6 +80,8 @@ public class PlayerController : MonoBehaviour
     InputController input;
     ActionSystem actionSystem;
     Organism organism;
+    UISystem uiSystem;
+
     CharacterController controller;
     [HideInInspector] public Animator animator;
     Health health;
@@ -101,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    
+
     [Tooltip("下一幀要移動到的目標位置")]
     Vector3 targetMovement;
     [Tooltip("下一幀跳躍到的方向")]
@@ -123,6 +121,8 @@ public class PlayerController : MonoBehaviour
         input = GameManagerSingleton.Instance.InputController;
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
+        uiSystem = UISystem.Instance;
+
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
@@ -143,11 +143,11 @@ public class PlayerController : MonoBehaviour
         UpdateTimer();
 
         AimBehaviour();
-        
+
         MoveBehaviour();
-        
+
         JumpBehaviour();
-        
+
         RestBehaviour();
 
     }
@@ -213,10 +213,10 @@ public class PlayerController : MonoBehaviour
 
         if (lastTimeAim != isAim)
         {
-            if (crosshair != null)
+            if (uiSystem.CrossHair != null)
             {
-                crosshair.SetActive(isAim);
-                if (soundEffects.TargetLockonSFX != null && crosshair.activeInHierarchy != false)
+                uiSystem.CrossHair.SetActive(isAim);
+                if (soundEffects.TargetLockonSFX != null && uiSystem.CrossHair.activeInHierarchy != false)
                 {
                     audioSource.PlayOneShot(soundEffects.TargetLockonSFX);
                 }
@@ -256,11 +256,11 @@ public class PlayerController : MonoBehaviour
         else if (input.GetCapInput() && !isAim)// 如果加速鍵被按下且不在瞄準時
         {
 
-            
+
             nextFrameSpeed = 1f;
             targetMovement *= cprintSpeedModifier;
 
-            if(canDash)
+            if (canDash)
             {
                 targetMovement *= DASH_SPEED_MODIFIER;
                 animator.SetTrigger("IsDash");
@@ -286,7 +286,7 @@ public class PlayerController : MonoBehaviour
             SmoothRotation(targetMovement);
         }
 
-        if(!input.GetCapInput())
+        if (!input.GetCapInput())
         {
             canDash = true;
             actionSystem.ReleaseCaplock();
@@ -340,10 +340,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", input.GetMoveInput().x);
 
         // 動態變化移動速度
-        controller.Move(moveSpeed * Time.deltaTime * targetMovement);
+        if (controller != null && controller.enabled)
+            controller.Move(moveSpeed * Time.deltaTime * targetMovement);
 
     }
-    
+
     /// <summary>
     /// 取得目前相機的正面方向
     /// </summary>
@@ -357,7 +358,7 @@ public class PlayerController : MonoBehaviour
         return cameraForward;
 
     }
-    
+
     /// <summary>
     /// 取得目前相機的右側方向
     /// </summary>
@@ -380,7 +381,7 @@ public class PlayerController : MonoBehaviour
     {
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetMovement, Vector3.up), rotateSpeed * Time.deltaTime);
-    
+
     }
 
     /// <summary>
@@ -391,9 +392,9 @@ public class PlayerController : MonoBehaviour
     {
 
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
-    
+
     }
-    
+
     /// <summary>
     /// 處理跳躍行為
     /// </summary>
@@ -430,7 +431,8 @@ public class PlayerController : MonoBehaviour
         jumpDirection.y -= gravityDownForce * Time.deltaTime;
         jumpDirection.y = Mathf.Max(jumpDirection.y, -gravityDownForce);
 
-        controller.Move(jumpDirection * Time.deltaTime);
+        if (controller != null && controller.enabled)
+            controller.Move(jumpDirection * Time.deltaTime);
 
     }
 
@@ -440,7 +442,7 @@ public class PlayerController : MonoBehaviour
     private void RestBehaviour()
     {
 
-        if(resttimerrate <= -30.0f)
+        if (resttimerrate <= -30.0f)
         {
             animator.SetTrigger("IsRest");
             resttimerrate = 2.0f;
@@ -462,7 +464,7 @@ public class PlayerController : MonoBehaviour
 
         health.ReBorn();
         animator.SetTrigger("IsAlive");
-        
+
         // 初始玩家生成位置
         ChangePosition(spawnPos);
         //還給玩家控制權
@@ -486,7 +488,7 @@ public class PlayerController : MonoBehaviour
     public GameObject GetCrosshair()
     {
 
-        return crosshair;
+        return uiSystem.CrossHair;
 
     }
 

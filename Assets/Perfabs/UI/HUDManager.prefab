@@ -4099,6 +4099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a166958ad79ca47b3cacadb7b4ec5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 1201574475}
   Text_FPS: {fileID: 8993471067801229514}
   Text_ms: {fileID: 6480320079789735547}
   loadingImage: {fileID: 7956381978955541848}

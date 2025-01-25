@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -28,8 +27,6 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] float minDistance = 2;
     [Header("最大相機與目標的距離")]
     [SerializeField] float maxDistance = 25;
-    [Header("PlayerTarget")]
-    [SerializeField] GameObject player;
     [Header("受傷時的特效")]
     [SerializeField] ParticleSystem beHitParticle;
     [Header("加速時的特效")]
@@ -77,24 +74,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Awake()
     {
 
-        organism = Organism.Instance;
-
-        var instance = GameManagerSingleton.Instance;
-
-        input = instance.InputController;
-        actionSystem = instance.ActionSystem;
-        playercontroller = player.GetComponent<PlayerController>();
-        audioSource = GetComponent<AudioSource>();
-        mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
-
-        #region -- 訂閱 --
-
-        actionSystem.OnDamage += OnDamage;
-        actionSystem.OnCaplock += OnCaplock;
-        actionSystem.OnCaplockUp += OnCaplockUp;
-        actionSystem.OnCameraVolumeChange += VolumeUpdate;
-
-        #endregion
+        Init();
 
     }
 
@@ -110,8 +90,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
         if (Cursor.lockState == CursorLockMode.Locked)
         {
-
-            
 
             mouse_X += input.GetMouseXAxis() * sensitivity_X;
             mouse_Y += input.GetMouseYAxis() * sensitivity_Y;
@@ -156,6 +134,33 @@ public class ThirdPersonCamera : MonoBehaviour
     #region -- 方法參考區 --
 
     /// <summary>
+    /// 初始化參數
+    /// </summary>
+    private void Init()
+    {
+
+        organism = Organism.Instance;
+
+        var instance = GameManagerSingleton.Instance;
+
+        input = instance.InputController;
+        actionSystem = instance.ActionSystem;
+        playercontroller = organism.GetPlayer().GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
+        mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
+
+        #region -- 訂閱 --
+
+        actionSystem.OnDamage += OnDamage;
+        actionSystem.OnCaplock += OnCaplock;
+        actionSystem.OnCaplockUp += OnCaplockUp;
+        actionSystem.OnCameraVolumeChange += VolumeUpdate;
+
+        #endregion
+
+    }
+
+    /// <summary>
     /// 確認目前音量是否為零，為零切換UI
     /// </summary>
     private void CheckVolumeMute()
@@ -177,7 +182,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
         if (id != organism.GetPlayer().GetInstanceID()) return;
 
-        beHitParticle?.Play();
+        beHitParticle.Play();
 
         //player受傷動畫
         playercontroller.animator.SetTrigger("IsDamage");

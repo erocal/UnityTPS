@@ -1,5 +1,7 @@
-using System.Threading.Tasks;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +10,9 @@ public class UISystem : MonoBehaviour
 {
 
     #region -- 資源參考區 --
+
+    [Header("GameObject")]
+    [SerializeField, Tooltip("準星Icon")] GameObject crosshair;
 
     [Header("Text")]
     [SerializeField, Tooltip("FPS")] private Text Text_FPS;
@@ -48,6 +53,27 @@ public class UISystem : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    private static UISystem _instance;
+
+    public static UISystem Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindFirstObjectByType<UISystem>();
+            }
+
+            return _instance;
+        }
+        private set { }
+    }
+
+    public GameObject CrossHair
+    {
+        get { return crosshair; }
+    }
+
     #region -- 常數 --
 
     private const int FIVE_THOUSAND_MILLISECONDS = 5000;
@@ -68,8 +94,15 @@ public class UISystem : MonoBehaviour
 
     #region -- 初始化/運作 --
 
+    // 防止外部實例化該類
+    private UISystem()
+    {
+    }
+
     private void Awake()
     {
+
+        GetInstance();
 
         Init();
 
@@ -91,9 +124,25 @@ public class UISystem : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        _instance = null;
+    }
+
     #endregion
 
     #region -- 方法參考區 --
+
+    /// <summary>
+    /// 獲取唯一實例
+    /// </summary>
+    private void GetInstance()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+    }
 
     /// <summary>
     /// 初始化
@@ -163,10 +212,13 @@ public class UISystem : MonoBehaviour
             Destroy(startGameUI);
 
             organism.GetPlayer().SetActive(true);
+            organism.GetPlayer().GetComponent<CharacterController>().enabled = false;
 
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+
+            organism.GetPlayer().GetComponent<CharacterController>().enabled = true;
 
             actionSystem.SpawnPointUpdate(organism.GetPlayer().GetComponent<PlayerController>().spawnPos, MapAreaType.StartArea);
 

@@ -83,4 +83,29 @@ public class GameManagerSingleton
         }
     }
 
+    // 實現IDisposable接口
+    public void Dispose()
+    {
+
+        // 銷毀GameObject及其所有組件
+        if (gameObject != null)
+        {
+            Object.Destroy(gameObject);
+            gameObject = null;
+        }
+
+        // 釋放其他資源（如果有的話）
+        m_ActionSystem = null;
+
+        // 清除單例實例
+        m_Instance = null;
+
+    }
+
+    // 析構函數，確保資源被釋放
+    ~GameManagerSingleton()
+    {
+        Dispose();
+    }
+
 }

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Packed Assets
   m_GUID: 381621776029a1246a553005650db515
   m_SerializeEntries:
+  - m_GUID: 60e6b310a1f71954093eacf5b1485416
+    m_Address: playergroup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef13065bd303dfe479c71e7826dfbd8e
     m_Address: samplescene
     m_ReadOnly: 0

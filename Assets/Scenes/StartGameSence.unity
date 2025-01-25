@@ -137,12 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77d8589d60b3024ca6c9e96c60382d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &188970152 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1201574475, guid: 0509333bcbd1a9c498d8650d0c4e1859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809618249}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &495298995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,11 +368,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1566514830776128767, guid: d41330405904d6c4c996c77a62700ab7,
-        type: 3}
-      propertyPath: crosshair
-      value: 
-      objectReference: {fileID: 188970152}
     - target: {fileID: 1814827734458055456, guid: d41330405904d6c4c996c77a62700ab7,
         type: 3}
       propertyPath: aiSpawnPostion.x
@@ -559,31 +548,6 @@ PrefabInstance:
       propertyPath: aiSpawnPostion.z
       value: 119.2613
       objectReference: {fileID: 0}
-    - target: {fileID: 4647361624006705510, guid: d41330405904d6c4c996c77a62700ab7,
-        type: 3}
-      propertyPath: muteUI
-      value: 
-      objectReference: {fileID: 1809618251}
-    - target: {fileID: 4647361624006705510, guid: d41330405904d6c4c996c77a62700ab7,
-        type: 3}
-      propertyPath: aliveUI
-      value: 
-      objectReference: {fileID: 1809618253}
-    - target: {fileID: 4647361624006705510, guid: d41330405904d6c4c996c77a62700ab7,
-        type: 3}
-      propertyPath: pauseUI
-      value: 
-      objectReference: {fileID: 1809618254}
-    - target: {fileID: 4647361624006705510, guid: d41330405904d6c4c996c77a62700ab7,
-        type: 3}
-      propertyPath: volumeUI
-      value: 
-      objectReference: {fileID: 1809618252}
-    - target: {fileID: 4647361624006705510, guid: d41330405904d6c4c996c77a62700ab7,
-        type: 3}
-      propertyPath: volumeSliderUI
-      value: 
-      objectReference: {fileID: 1809618250}
     - target: {fileID: 4653841233611728841, guid: d41330405904d6c4c996c77a62700ab7,
         type: 3}
       propertyPath: aiSpawnPostion.x
@@ -1073,36 +1037,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0509333bcbd1a9c498d8650d0c4e1859, type: 3}
---- !u!1 &1809618250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 506934970280666503, guid: 0509333bcbd1a9c498d8650d0c4e1859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809618249}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1809618251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1468811723141295042, guid: 0509333bcbd1a9c498d8650d0c4e1859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809618249}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1809618252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5692467677022772891, guid: 0509333bcbd1a9c498d8650d0c4e1859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809618249}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1809618253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1653762098812477347, guid: 0509333bcbd1a9c498d8650d0c4e1859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809618249}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1809618254 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 531354560, guid: 0509333bcbd1a9c498d8650d0c4e1859,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809618249}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
