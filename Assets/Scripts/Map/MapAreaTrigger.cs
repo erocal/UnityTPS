@@ -14,6 +14,7 @@ public class MapAreaTrigger : MonoBehaviour
     #region -- 變數參考區 --
 
     private ActionSystem actionSystem;
+    private Organism organism;
 
     #endregion
 
@@ -23,17 +24,20 @@ public class MapAreaTrigger : MonoBehaviour
     {
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
+        organism = Organism.Instance;
 
     }
 
     private async Task OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+
+        if (other.tag == organism.GetPlayer().tag)
         {
 
             await actionSystem.MapAreaSwitch((int)mapArea);
 
         }
+
     }
 
     #endregion

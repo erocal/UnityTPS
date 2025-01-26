@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class UISystem : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class UISystem : MonoBehaviour
     [SerializeField] Image healthImage;
     [SerializeField] Image Image_Gazed;
 
+    [Header("WeaponUI")]
+    [SerializeField] WeaponUIElements[] weaponUI;
+
     [Header("CanvasGroup")]
     [SerializeField] CanvasGroup canvasGroup_StartUI;
 
@@ -67,6 +71,7 @@ public class UISystem : MonoBehaviour
     Organism organism;
 
     private Health playerHealth;
+    private WeaponManager weaponManager;
 
     private Color32 originalImageGazedColor = new Color32(229, 23, 24, 168);
 
@@ -88,6 +93,7 @@ public class UISystem : MonoBehaviour
 
         CalculateFPSAndMsec();
         PlayerHealthUpdate();
+        WeaponUIUpdate();
 
     }
 
@@ -109,37 +115,27 @@ public class UISystem : MonoBehaviour
     private void Init()
     {
 
-        actionSystem = GameManagerSingleton.Instance.ActionSystem;
-        input = GameManagerSingleton.Instance.InputController;
+        var instance = GameManagerSingleton.Instance;
+        actionSystem = instance.ActionSystem;
+        input = instance.InputController;
         organism = Organism.Instance;
 
-        playerHealth = organism.GetPlayer().GetComponent<Health>();
+        var player = organism.GetPlayer();
+        playerHealth = player.GetComponent<Health>();
+        weaponManager = player.GetComponent<WeaponManager>();
 
         actionSystem.OnDie += OnDie;
         actionSystem.OnCameraVolumeMute += VolumeUI;
         actionSystem.OnGazed += ImageGazedChangeColor;
+        actionSystem.OnAddWeapon += OnAddWeapon;
 
         #region -- btn --
 
-        btn_Start.onClick.AddListener(async () => await OnStartGame());
-        btn_Quit.onClick.AddListener(OnQuitGame);
-        pauseUI_Btn_Quit.onClick.AddListener(OnQuitGame);
-        btn_Volume.onClick.AddListener(OnVolume);
-        btn_Mute.onClick.AddListener(OnVolume);
-        btn_Continue.onClick.AddListener(OnContinueGame);
-        btn_Respawn.onClick.AddListener(OnRespawn);
-        aliveUI_Btn_Respawn.onClick.AddListener(OnRespawn);
+        ButtonOnClick();
 
         #endregion
 
         Slider_Music.onValueChanged.AddListener(actionSystem.CameraVolumeChange);
-
-    }
-
-    private void ImageGazedChangeColor(bool inGazed)
-    {
-
-        Image_Gazed.color = inGazed ? Color.green : originalImageGazedColor;
 
     }
 
@@ -153,6 +149,33 @@ public class UISystem : MonoBehaviour
 
         aliveUI.SetActive(true);
         input.CursorStateChange(false);
+
+    }
+
+    private void ImageGazedChangeColor(bool inGazed)
+    {
+
+        Image_Gazed.color = inGazed ? Color.green : originalImageGazedColor;
+
+    }
+
+    private void OnAddWeapon(WeaponController weapon, int index)
+    {
+        weaponUI[index].weaponIcon.enabled = true;
+        weaponUI[index].weaponIcon.sprite = weapon.weaponIcon;
+    }
+
+    private void ButtonOnClick()
+    {
+
+        btn_Start.onClick.AddListener(async () => await OnStartGame());
+        btn_Quit.onClick.AddListener(OnQuitGame);
+        pauseUI_Btn_Quit.onClick.AddListener(OnQuitGame);
+        btn_Volume.onClick.AddListener(OnVolume);
+        btn_Mute.onClick.AddListener(OnVolume);
+        btn_Continue.onClick.AddListener(OnContinueGame);
+        btn_Respawn.onClick.AddListener(OnRespawn);
+        aliveUI_Btn_Respawn.onClick.AddListener(OnRespawn);
 
     }
 
@@ -265,6 +288,39 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
+    /// 更新武器UI
+    /// </summary>
+    private void WeaponUIUpdate()
+    {
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (weaponManager.GetWeaponAtSlotIndex(i) == null) continue;
+
+            float value = weaponManager.GetWeaponAtSlotIndex(i).CurrentAmmoRatio;
+
+            weaponUI[i].weaponEnergy.fillAmount = Mathf.Lerp(weaponUI[i].weaponEnergy.fillAmount, value, 0.2f);
+
+            if (weaponManager.GetWeaponAtSlotIndex(i) == weaponManager.GetActiveWeapon())
+            {
+                weaponUI[i].weaponPocket.transform.localScale = new Vector3(1f, 1f, 1f);
+                weaponUI[i].weaponPocket.color = Color.white;
+                weaponUI[i].weaponIcon.color = Color.white;
+                weaponUI[i].weaponEnergy.color = Color.white;
+            }
+            else
+            {
+                // 縮小pocket
+                weaponUI[i].weaponPocket.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                weaponUI[i].weaponPocket.color = Color.gray;
+                weaponUI[i].weaponIcon.color = Color.gray;
+                weaponUI[i].weaponEnergy.color = Color.gray;
+            }
+        }
+
+    }
+
+    /// <summary>
     /// 音量UI
     /// </summary>
     private void VolumeUI(bool isMute)
@@ -318,4 +374,12 @@ public class UISystem : MonoBehaviour
 
     #endregion
 
+}
+
+[Serializable]
+public class WeaponUIElements
+{
+    public Image weaponPocket;  // 武器的能量或彈藥UI底圖
+    public Image weaponIcon;    // 武器Icon
+    public Image weaponEnergy;  // 武器的能量或彈藥UI
 }

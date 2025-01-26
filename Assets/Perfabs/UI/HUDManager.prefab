@@ -1417,7 +1417,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1918998782}
   - component: {fileID: 1918998783}
-  - component: {fileID: 1297899777}
   m_Layer: 5
   m_Name: WeaponPocket
   m_TagString: Untagged
@@ -1473,30 +1472,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1297899777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918998781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b9f4d256b0c514ead82dea5b33a0d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pocket:
-  - {fileID: 1980560105}
-  - {fileID: 875063854}
-  - {fileID: 1017960971}
-  weaponIcon:
-  - {fileID: 85617248}
-  - {fileID: 1875576941}
-  - {fileID: 1717574010}
-  energy:
-  - {fileID: 156160333}
-  - {fileID: 301182506}
-  - {fileID: 95571068}
 --- !u!1 &1980560101
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,7 +4074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a166958ad79ca47b3cacadb7b4ec5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair: {fileID: 1201574475}
   Text_FPS: {fileID: 8993471067801229514}
   Text_ms: {fileID: 6480320079789735547}
   loadingImage: {fileID: 7956381978955541848}
@@ -4118,8 +4092,19 @@ MonoBehaviour:
   btnVolumeUI: {fileID: 5692467677022772891}
   btnMuteUI: {fileID: 1468811723141295042}
   volumeSliderUI: {fileID: 506934970280666503}
+  crosshair: {fileID: 1201574475}
   healthImage: {fileID: 8930417828114104873}
   Image_Gazed: {fileID: 1519617925}
+  weaponUI:
+  - weaponPocket: {fileID: 1980560105}
+    weaponIcon: {fileID: 85617248}
+    weaponEnergy: {fileID: 156160333}
+  - weaponPocket: {fileID: 875063854}
+    weaponIcon: {fileID: 1875576941}
+    weaponEnergy: {fileID: 301182506}
+  - weaponPocket: {fileID: 1017960971}
+    weaponIcon: {fileID: 1717574010}
+    weaponEnergy: {fileID: 95571068}
   canvasGroup_StartUI: {fileID: 7958934159689220467}
 --- !u!114 &1095604521070275460
 MonoBehaviour:
