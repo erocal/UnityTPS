@@ -27,6 +27,8 @@ public sealed class ActionSystem
     /// <summary>武器射線碰到敵人</summary>
     public event Action<bool> OnGazed;
 
+    public event Action<int, string> OnAnimatorDamage;
+
     #endregion
 
     #region -- 方法參考區 --
@@ -91,6 +93,13 @@ public sealed class ActionSystem
     {
 
         OnGazed?.Invoke(inGazed);
+
+    }
+
+    public void AnimatorTriggerDamage(int id, string parameter)
+    {
+
+        OnAnimatorDamage?.Invoke(id, parameter);
 
     }
 

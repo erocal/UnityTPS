@@ -1,10 +1,10 @@
-using System.Threading.Tasks;
+ï»¿using System.Threading.Tasks;
 using UnityEngine;
 
 public class Init : MonoBehaviour
 {
 
-    #region -- ÅÜ¼Æ°Ñ¦Ò°Ï --
+    #region -- è®Šæ•¸åƒè€ƒå€ --
 
     public UISystem UISystem
     {
@@ -13,7 +13,7 @@ public class Init : MonoBehaviour
 
     #endregion
 
-    #region -- ªì©l¤Æ/¹B§@ --
+    #region -- åˆå§‹åŒ–/é‹ä½œ --
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class Init : MonoBehaviour
 
     #endregion
 
-    #region -- ¤èªk°Ñ¦Ò°Ï --
+    #region -- æ–¹æ³•åƒè€ƒå€ --
 
     public async Task CreateHUDManagerAsync()
     {

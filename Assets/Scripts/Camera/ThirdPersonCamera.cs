@@ -54,7 +54,6 @@ public class ThirdPersonCamera : MonoBehaviour
     InputController input;
     ActionSystem actionSystem;
     AudioSource audioSource;
-    PlayerController playercontroller;
     UniversalAdditionalCameraData mainCameraData;
 
     float mouse_X = 0;
@@ -145,7 +144,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
         input = instance.InputController;
         actionSystem = instance.ActionSystem;
-        playercontroller = organism.GetPlayer().GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
         mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
 
@@ -184,8 +182,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
         beHitParticle.Play();
 
-        //player受傷動畫
-        playercontroller.animator.SetTrigger("IsDamage");
+        actionSystem.AnimatorTriggerDamage(id, "IsDamage");
         await Task.Delay(2000);
 
     }

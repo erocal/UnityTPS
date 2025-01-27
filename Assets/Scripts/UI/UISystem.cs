@@ -357,7 +357,10 @@ public class UISystem : MonoBehaviour
         if (Cursor.lockState == CursorLockMode.Locked)
             pauseUI.SetActive(false);
         else if (!aliveUI.activeSelf)
+        {
             pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
 
     }
 

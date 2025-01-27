@@ -31,7 +31,7 @@ public class MapAreaTrigger : MonoBehaviour
     private async Task OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == organism.GetPlayer().tag)
+        if (organism.GetPlayer().CompareTag(other.tag))
         {
 
             await actionSystem.MapAreaSwitch((int)mapArea);

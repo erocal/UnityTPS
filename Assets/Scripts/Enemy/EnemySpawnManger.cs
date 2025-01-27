@@ -18,18 +18,27 @@ public class EnemySpawnManger : MonoBehaviour
 
     #region -- 變數參考區 --
 
+    Organism organism;
+
     bool hasbeentrigger;
 
     #endregion
 
     #region -- 初始化/運作 --
 
+    private void Awake()
+    {
+
+        organism = Organism.Instance;
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (hasbeentrigger) return;
 
-        if (other.tag == "Player")
+        if (organism.GetPlayer().CompareTag(other.tag))
         {
             hasbeentrigger = true;
             StartCoroutine(Spawn());

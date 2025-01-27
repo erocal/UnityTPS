@@ -77,18 +77,18 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    InputController input;
-    ActionSystem actionSystem;
-    Organism organism;
-    UISystem uiSystem;
+    private InputController input;
+    private ActionSystem actionSystem;
+    private Organism organism;
+    private UISystem uiSystem;
 
-    CharacterController controller;
-    [HideInInspector] public Animator animator;
-    Health health;
-    WeaponManager weaponManager;
-    AudioSource audioSource;
+    private CharacterController controller;
+    private Animator animator;
+    private Health health;
+    private WeaponManager weaponManager;
+    private AudioSource audioSource;
 
-    int jumpCount = 1;
+    private int jumpCount = 1;
 
     #region -- 計時器 --
 
@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
         // 訂閱死亡事件
         actionSystem.OnDie += OnDie;
         actionSystem.OnSpawnPointUpdate += SpawnPointUpdate;
+        actionSystem.OnAnimatorDamage += AnimatorTrigger;
 
     }
 
@@ -500,6 +501,15 @@ public class PlayerController : MonoBehaviour
 
         this.spawnPos = spawnPos;
         this.playerStandMapArea = playerStandMapArea;
+
+    }
+
+    private void AnimatorTrigger(int id, string parameter)
+    {
+
+        if (id != organism.GetPlayer().GetInstanceID()) return;
+
+        animator.SetTrigger(parameter);
 
     }
 

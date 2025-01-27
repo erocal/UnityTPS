@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurPower: 4
+    - _BlurPower: 2
     - _Fullscreen_DepthWrite: 0
     - _NoBlurCircleRadius: 0.5
     - _Range: 1

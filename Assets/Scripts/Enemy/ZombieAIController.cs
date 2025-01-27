@@ -176,7 +176,7 @@ public class ZombieAIController : AIController
     public void ZombieFollow(GameObject zombie)
     {
 
-        aiAudioSource?.PlayOneShot(zombieFollowSFX);
+        aiAudioSource.PlayOneShot(zombieFollowSFX);
 
     }
 
@@ -187,7 +187,7 @@ public class ZombieAIController : AIController
     public void ZombieIdle(GameObject zombie)
     {
 
-        aiAudioSource?.PlayOneShot(zombieIdleSFX);
+        aiAudioSource.PlayOneShot(zombieIdleSFX);
 
     }
 
