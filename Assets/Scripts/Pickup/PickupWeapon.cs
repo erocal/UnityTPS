@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PickupWeapon : MonoBehaviour
+public class PickupWeapon : Pickup
 {
 
     #region -- 資源參考區 --
@@ -12,28 +12,9 @@ public class PickupWeapon : MonoBehaviour
 
     #endregion
 
-    #region -- 變數參考區 --
-
-    Pickup pickup;
-
-    #endregion
-
-    #region -- 初始化/運作 --
-
-    void Start()
-    {
-
-        pickup = GetComponent<Pickup>();
-
-        pickup.OnPick += OnPick;
-
-    }
-
-    #endregion
-
     #region -- 方法參考區 --
 
-    void OnPick(GameObject player)
+    protected override void PickUpItem()
     {
 
         WeaponManager weaponManager = player.GetComponent<WeaponManager>();

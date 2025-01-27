@@ -29121,7 +29121,6 @@ GameObject:
   - component: {fileID: 7621175584076775590}
   - component: {fileID: 6743369007887411467}
   - component: {fileID: 5201569940151763835}
-  - component: {fileID: 8423594898401271424}
   - component: {fileID: 3053991312135078551}
   m_Layer: 0
   m_Name: Heart
@@ -29246,21 +29245,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8423594898401271424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7607108851435918608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d963551af985df94895aa9c669661b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  verticalBobFrequency: 1
-  bobbingAmount: 1
-  rotatingSpeed: 0
 --- !u!114 &3053991312135078551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29273,5 +29257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b09729109e6f48a46c3f371ef0615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verticalBobFrequency: 1
+  bobbingAmount: 1
+  rotatingSpeed: 0
   healAmount: 30
   pickupRoot: {fileID: 6862412329045027360}

@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public abstract class Pickup : MonoBehaviour
 {
 
     #region -- 資源參考區 --
@@ -17,13 +16,22 @@ public class Pickup : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    public event Action<GameObject> OnPick;
+    Organism organism;
 
     private Vector3 startPosition;
+    protected GameObject player;
 
     #endregion
 
     #region -- 初始化/運作 --
+
+    private void Awake()
+    {
+
+        organism = Organism.Instance;
+        player = organism.GetPlayer();
+
+    }
 
     void Start()
     {
@@ -52,12 +60,20 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Player")
+        if(player == null) player = Organism.Instance.GetPlayer();
+
+        if (player.CompareTag(other.tag))
         {
-            OnPick?.Invoke(other.gameObject);
+            PickUpItem();
         }
 
     }
+
+    #endregion
+
+    #region -- 方法參考區 --
+
+    protected abstract void PickUpItem();
 
     #endregion
 

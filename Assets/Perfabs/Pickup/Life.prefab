@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4960409973302809583}
   - component: {fileID: 4119253779028201629}
   - component: {fileID: 7233034077931478331}
-  - component: {fileID: 151704895496614826}
   - component: {fileID: 3437058280972867077}
   m_Layer: 0
   m_Name: Life
@@ -138,21 +137,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &151704895496614826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4960409973305003311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d963551af985df94895aa9c669661b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  verticalBobFrequency: 1
-  bobbingAmount: 1
-  rotatingSpeed: 0
 --- !u!114 &3437058280972867077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,5 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a506b2aba2d1c642bf3f2c25a95b417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verticalBobFrequency: 1
+  bobbingAmount: 1
+  rotatingSpeed: 0
   addHealth: 5
   pickupRoot: {fileID: 0}

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class SpawnPoint : Pickup
 {
 
     #region -- 資源參考區 --
@@ -15,7 +15,6 @@ public class SpawnPoint : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    private Organism organism;
     private ActionSystem actionSystem;
 
     #endregion
@@ -25,23 +24,23 @@ public class SpawnPoint : MonoBehaviour
     private void Awake()
     {
 
-        organism = Organism.Instance;
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    #endregion
+
+    #region -- 方法參考區 --
+
+    protected override void PickUpItem()
     {
-        if (organism.GetPlayer().CompareTag(other.tag))
-        {
 
-            actionSystem.SpawnPointUpdate(this.transform.position, mapArea);
+        actionSystem.SpawnPointUpdate(this.transform.position, mapArea);
 
-            // 觸發特效
-            var spawnPointParticle = Instantiate(this.spawnPointParticle, this.transform);
-            spawnPointParticle.SetActive(true);
+        // 觸發特效
+        var spawnPointParticle = Instantiate(this.spawnPointParticle, this.transform);
+        spawnPointParticle.SetActive(true);
 
-        }
     }
 
     #endregion
