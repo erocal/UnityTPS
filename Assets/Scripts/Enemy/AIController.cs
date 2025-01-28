@@ -86,7 +86,7 @@ public abstract class AIController : MonoBehaviour
         organism = Organism.Instance;
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         enemyRoot = this.gameObject;
-        player = organism.GetPlayer();
+        player = organism.PlayerData.Player;
         aiAnimator = this.GetComponent<Animator>();
         aiCollider = this.GetComponent<Collider>();
         aiAudioSource = this.GetComponent<AudioSource>();

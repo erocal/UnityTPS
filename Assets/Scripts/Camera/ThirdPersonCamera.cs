@@ -178,7 +178,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private async void OnDamage(int id)
     {
 
-        if (id != organism.GetPlayer().GetInstanceID()) return;
+        if (id != organism.PlayerData.InstanceID) return;
 
         beHitParticle.Play();
 

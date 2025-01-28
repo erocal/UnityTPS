@@ -24,9 +24,6 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
     [HideInInspector] public string info = null;
     private int targetMaskEnemy;
-    private GameObject player;
-
-    private PlayerController playerController;
 
     #endregion
 
@@ -39,8 +36,6 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
         organism = Organism.Instance;
 
         targetMaskEnemy = LayerMask.GetMask("Enemy");
-        player = organism.GetPlayer();
-        playerController = player.GetComponent<PlayerController>();
         
     }
 
@@ -54,13 +49,13 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
             
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * ultDistance, Color.yellow);
             info = "Gazed";
-            if (playerController.GetCrosshair().activeInHierarchy != false)
+            if (organism.PlayerData.PlayerController.GetCrosshair().activeInHierarchy != false)
                 actionSystem.Gazed(true);
 
         }
         else
         {
-            if (playerController.GetCrosshair().activeInHierarchy != false)
+            if (organism.PlayerData.PlayerController.GetCrosshair().activeInHierarchy != false)
                 actionSystem.Gazed(false);
 
             info = null;

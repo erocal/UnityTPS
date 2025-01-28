@@ -38,7 +38,7 @@ public class EnemySpawnManger : MonoBehaviour
 
         if (hasbeentrigger) return;
 
-        if (organism.GetPlayer().CompareTag(other.tag))
+        if (organism.PlayerData.Player.CompareTag(other.tag))
         {
             hasbeentrigger = true;
             StartCoroutine(Spawn());

@@ -70,9 +70,6 @@ public class UISystem : MonoBehaviour
     InputController input;
     Organism organism;
 
-    private Health playerHealth;
-    private WeaponManager weaponManager;
-
     private Color32 originalImageGazedColor = new Color32(229, 23, 24, 168);
 
     private float deltaTime = 0.0f;
@@ -120,10 +117,6 @@ public class UISystem : MonoBehaviour
         input = instance.InputController;
         organism = Organism.Instance;
 
-        var player = organism.GetPlayer();
-        playerHealth = player.GetComponent<Health>();
-        weaponManager = player.GetComponent<WeaponManager>();
-
         actionSystem.OnDie += OnDie;
         actionSystem.OnCameraVolumeMute += VolumeUI;
         actionSystem.OnGazed += ImageGazedChangeColor;
@@ -145,7 +138,7 @@ public class UISystem : MonoBehaviour
     private void OnDie(int id)
     {
 
-        if (id != organism.GetPlayer().GetInstanceID()) return;
+        if (id != organism.PlayerData.InstanceID) return;
 
         aliveUI.SetActive(true);
         input.CursorStateChange(false);
@@ -186,27 +179,32 @@ public class UISystem : MonoBehaviour
     /// </summary>
     private async Task OnStartGame()
     {
+
         // 加載Game
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+
+            var playerCharacterController = organism.PlayerData.PlayerCharacterController;
+
             input.CursorStateChange(true);
 
             Destroy(startGameUI);
 
-            organism.GetPlayer().SetActive(true);
-            organism.GetPlayer().GetComponent<CharacterController>().enabled = false;
+            organism.PlayerData.Player.SetActive(true);
+            playerCharacterController.enabled = false;
 
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
 
-            organism.GetPlayer().GetComponent<CharacterController>().enabled = true;
+            playerCharacterController.enabled = true;
 
-            actionSystem.SpawnPointUpdate(organism.GetPlayer().GetComponent<PlayerController>().spawnPos, MapAreaType.StartArea);
+            actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
 
             canvasGroup_StartUI.SetEnable(false);
 
         }
+
     }
 
     /// <summary>
@@ -249,18 +247,17 @@ public class UISystem : MonoBehaviour
     /// <summary>
     /// 重置角色
     /// </summary>
-    public async void OnReset()
+    public void OnReset()
     {
 
-        organism.GetPlayer().GetComponent<PlayerController>().enabled = false;
-        organism.GetPlayer().GetComponent<CharacterController>().enabled = false;
+        organism.PlayerData.PlayerController.enabled = false;
+        organism.PlayerData.PlayerCharacterController.enabled = false;
 
         input.CursorStateChange(true);
-        await actionSystem.MapAreaSwitch((int)MapAreaType.StartArea);
-        organism.GetPlayer().transform.position = organism.GetPlayer().GetComponent<PlayerController>().spawnPos;
+        organism.PlayerData.Player.transform.position = organism.PlayerData.PlayerController.spawnPos;
 
-        organism.GetPlayer().GetComponent<PlayerController>().enabled = true;
-        organism.GetPlayer().GetComponent<CharacterController>().enabled = true;
+        organism.PlayerData.PlayerController.enabled = true;
+        organism.PlayerData.PlayerCharacterController.enabled = true;
 
     }
 
@@ -270,13 +267,13 @@ public class UISystem : MonoBehaviour
     public async void OnRespawn()
     {
 
-        var playerController = organism.GetPlayer().GetComponent<PlayerController>();
+        var playerController = organism.PlayerData.PlayerController;
 
         if (playerController.enabled) return;
 
         input.CursorStateChange(true);
 
-        await organism.GetPlayer().GetComponent<PlayerController>().IsAlive();
+        await playerController.IsAlive();
 
     }
 
@@ -305,7 +302,7 @@ public class UISystem : MonoBehaviour
     private void PlayerHealthUpdate()
     {
 
-        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, playerHealth.GetHealthRatio(), 0.3f);
+        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, organism.PlayerData.PlayerHealth.GetHealthRatio(), 0.3f);
 
     }
 
@@ -314,6 +311,8 @@ public class UISystem : MonoBehaviour
     /// </summary>
     private void WeaponUIUpdate()
     {
+
+        var weaponManager = organism.PlayerData.PlayerWeaponManager;
 
         for (int i = 0; i < 3; i++)
         {

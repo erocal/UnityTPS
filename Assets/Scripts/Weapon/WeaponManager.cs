@@ -23,7 +23,6 @@ public class WeaponManager : MonoBehaviour
 
     // 武器最多三個
     WeaponController[] weapons = new WeaponController[3];
-    PlayerController player;
     InputController input;
 
     bool isAim;
@@ -45,7 +44,6 @@ public class WeaponManager : MonoBehaviour
         activeWeaponIndex = -1;
 
         input = GameManagerSingleton.Instance.InputController;
-        player = GetComponent<PlayerController>();
         actionSystem.OnAim += OnAim;
 
         foreach (WeaponController weapon in startingWeapons)

@@ -164,7 +164,7 @@ public class WeaponController : MonoBehaviour
                 trail.enabled = true; // 再次啟用
             }
 
-            newProjectile.Shoot(organism.GetPlayer());
+            newProjectile.Shoot(organism.PlayerData.Player);
 
         }
 

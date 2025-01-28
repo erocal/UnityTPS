@@ -79,13 +79,9 @@ public class PlayerController : MonoBehaviour
 
     private InputController input;
     private ActionSystem actionSystem;
-    private Organism organism;
     private UISystem uiSystem;
+    private Organism organism;
 
-    private CharacterController controller;
-    private Animator animator;
-    private Health health;
-    private WeaponManager weaponManager;
     private AudioSource audioSource;
 
     private int jumpCount = 1;
@@ -123,10 +119,6 @@ public class PlayerController : MonoBehaviour
         organism = Organism.Instance;
         uiSystem = GameManagerSingleton.Instance.UISystem;
 
-        controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        health = GetComponent<Health>();
-        weaponManager = GetComponent<WeaponManager>();
         audioSource = GetComponent<AudioSource>();
 
         PlayerSpawn();
@@ -172,9 +164,9 @@ public class PlayerController : MonoBehaviour
     private void OnDie(int id)
     {
 
-        if (id != organism.GetPlayer().GetInstanceID()) return;
+        if (id != organism.PlayerData.InstanceID) return;
 
-        animator.SetTrigger("IsDead");
+        organism.PlayerData.PlayerAnimator.SetTrigger("IsDead");
         //取消玩家的控制
         this.enabled = false;
         this.GetComponent<CharacterController>().enabled = false;
@@ -203,6 +195,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AimBehaviour()
     {
+
+        var weaponManager = organism.PlayerData.PlayerWeaponManager;
+
         bool lastTimeAim = isAim;
         if (input.GetFireInputDown() && weaponManager.GetActiveWeapon() != null)
         {
@@ -226,7 +221,8 @@ public class PlayerController : MonoBehaviour
             actionSystem.Aim(isAim);
         }
 
-        animator.SetBool("IsAim", isAim);
+        organism.PlayerData.PlayerAnimator.SetBool("IsAim", isAim);
+
     }
 
     /// <summary>
@@ -234,6 +230,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void MoveBehaviour()
     {
+
+        var animator = organism.PlayerData.PlayerAnimator;
+        var controller = organism.PlayerData.PlayerCharacterController;
+
         targetMovement = Vector3.zero;
         Vector3 pretargetMovement = targetMovement;
         targetMovement += input.GetMoveInput().z * GetCurrentCameraForward();
@@ -403,6 +403,8 @@ public class PlayerController : MonoBehaviour
     private void JumpBehaviour()
     {
 
+        var controller = organism.PlayerData.PlayerCharacterController;
+
         // 如果人物處於地面
         if (IsGrounded())
         {
@@ -412,7 +414,7 @@ public class PlayerController : MonoBehaviour
         // 當人物處於地面，按下跳躍鍵且沒有瞄準時
         if (input.GetJumpInputDown() && jumpCount > 0 && !isAim && IsGrounded())
         {
-            animator.SetTrigger("IsJump");
+            organism.PlayerData.PlayerAnimator.SetTrigger("IsJump");
             jumpDirection = Vector3.zero;
             jumpDirection += jumpForce * Vector3.up;
             jumpCount = 0;
@@ -446,7 +448,7 @@ public class PlayerController : MonoBehaviour
 
         if (resttimerrate <= -30.0f)
         {
-            animator.SetTrigger("IsRest");
+            organism.PlayerData.PlayerAnimator.SetTrigger("IsRest");
             resttimerrate = 2.0f;
             if (soundEffects.FeelSleepSFX != null)
             {
@@ -464,8 +466,8 @@ public class PlayerController : MonoBehaviour
 
         await actionSystem.MapAreaSwitch((int)playerStandMapArea);
 
-        health.ReBorn();
-        animator.SetTrigger("IsAlive");
+        organism.PlayerData.PlayerHealth.ReBorn();
+        organism.PlayerData.PlayerAnimator.SetTrigger("IsAlive");
 
         // 初始玩家生成位置
         ChangePosition(spawnPos);
@@ -509,9 +511,9 @@ public class PlayerController : MonoBehaviour
     private void AnimatorTrigger(int id, string parameter)
     {
 
-        if (id != organism.GetPlayer().GetInstanceID()) return;
+        if (id != organism.PlayerData.InstanceID) return;
 
-        animator.SetTrigger(parameter);
+        organism.PlayerData.PlayerAnimator.SetTrigger(parameter);
 
     }
 

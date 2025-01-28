@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityStandardAssets.Vehicles.Car;
 
 [RequireComponent(typeof(PlagueDoctorAIController))]
 public class PlagueDoctorFighter : MonoBehaviour

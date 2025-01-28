@@ -29,7 +29,7 @@ public abstract class Pickup : MonoBehaviour
     {
 
         organism = Organism.Instance;
-        player = organism.GetPlayer();
+        player = organism.PlayerData.Player;
 
     }
 
@@ -60,7 +60,7 @@ public abstract class Pickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(player == null) player = Organism.Instance.GetPlayer();
+        if(player == null) player = Organism.Instance.PlayerData.Player;
 
         if (player.CompareTag(other.tag))
         {

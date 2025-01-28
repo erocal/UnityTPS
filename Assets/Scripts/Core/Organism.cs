@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Organism : MonoBehaviour
 {
@@ -29,6 +30,61 @@ public class Organism : MonoBehaviour
         private set { }
     }
 
+    #region -- Player --
+
+    private PlayerDataStruct playerData;
+    public PlayerDataStruct PlayerData
+    {
+        get
+        {
+            return playerData;
+        }
+    }
+
+    public readonly struct PlayerDataStruct
+    {
+        private readonly GameObject _player;
+        private readonly int _instanceID;
+        private readonly PlayerController _playerController;
+        private readonly Health _playerHealth;
+        private readonly WeaponManager _playerWeaponManager;
+        private readonly CharacterController _playerCharacterController;
+        private readonly Animator _playerAnimator;
+
+        // 構造函數，確保所有字段在初始化時被賦值
+        public PlayerDataStruct(
+            GameObject player,
+            int instanceID,
+            PlayerController playerController,
+            Health playerHealth,
+            WeaponManager playerWeaponManager,
+            CharacterController playerCharacterController,
+            Animator playerAnimator)
+        {
+
+            _player = player;
+            _instanceID = instanceID;
+            _playerController = playerController;
+            _playerHealth = playerHealth;
+            _playerWeaponManager = playerWeaponManager;
+            _playerCharacterController = playerCharacterController;
+            _playerAnimator = playerAnimator;
+
+        }
+
+        // 只讀屬性
+        public GameObject Player { get { return _player; } }
+        public int InstanceID { get { return _instanceID; } }
+        public PlayerController PlayerController { get { return _playerController; } }
+        public Health PlayerHealth { get { return _playerHealth; } }
+        public WeaponManager PlayerWeaponManager { get { return _playerWeaponManager; } }
+        public CharacterController PlayerCharacterController { get { return _playerCharacterController; } }
+        public Animator PlayerAnimator { get { return _playerAnimator; } }
+
+    }
+
+    #endregion
+
     #endregion
 
     #region -- 初始化/運作 --
@@ -40,7 +96,10 @@ public class Organism : MonoBehaviour
 
     private void Awake()
     {
+
         GetInstance();
+        SetPlayerData();
+
     }
 
     private void OnDestroy()
@@ -67,17 +126,31 @@ public class Organism : MonoBehaviour
 
     #endregion
 
-    #region -- Get方法 --
-
     /// <summary>
-    /// 取得玩家
+    /// 設置玩家資料
     /// </summary>
-    public GameObject GetPlayer()
+    private void SetPlayerData()
     {
-        if (player == null) Log.Error("玩家物件為空");
 
-        return player;
+        if(player == null)
+        {
+            Log.Error("玩家物件為空");
+            return;
+        }
+
+        playerData = new PlayerDataStruct(
+            player,
+            player.GetInstanceID(),
+            player.GetComponent<PlayerController>(),
+            player.GetComponent<Health>(),
+            player.GetComponent<WeaponManager>(),
+            player.GetComponent<CharacterController>(),
+            player.GetComponent<Animator>()
+            );
+
     }
+
+    #region -- Get方法 --
 
     /// <summary>
     /// 取得暴徒Boss
