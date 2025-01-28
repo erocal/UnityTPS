@@ -2577,7 +2577,7 @@ GameObject:
   - component: {fileID: 2880948846872410973}
   - component: {fileID: 4831313651060576974}
   m_Layer: 5
-  m_Name: Button_Respawn
+  m_Name: Button_Reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3747,7 +3747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Respawn
+  m_Text: Reset
 --- !u!1 &8629665876400715467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4083,7 +4083,7 @@ MonoBehaviour:
   btn_Volume: {fileID: 3814408677847060383}
   btn_Mute: {fileID: 1196956080421081258}
   btn_Continue: {fileID: 1666808260}
-  btn_Respawn: {fileID: 4831313651060576974}
+  btn_Reset: {fileID: 4831313651060576974}
   aliveUI_Btn_Respawn: {fileID: 3703964749243759149}
   Slider_Music: {fileID: 5255452636332718056}
   startGameUI: {fileID: 8629665876400715467}

@@ -26,7 +26,7 @@ public class UISystem : MonoBehaviour
     [SerializeField] Button btn_Volume;
     [SerializeField] Button btn_Mute;
     [SerializeField] Button btn_Continue;
-    [SerializeField] Button btn_Respawn;
+    [SerializeField] Button btn_Reset;
     [SerializeField] Button aliveUI_Btn_Respawn;
 
     [Header("Slider")]
@@ -174,7 +174,7 @@ public class UISystem : MonoBehaviour
         btn_Volume.onClick.AddListener(OnVolume);
         btn_Mute.onClick.AddListener(OnVolume);
         btn_Continue.onClick.AddListener(OnContinueGame);
-        btn_Respawn.onClick.AddListener(OnRespawn);
+        btn_Reset.onClick.AddListener(OnReset);
         aliveUI_Btn_Respawn.onClick.AddListener(OnRespawn);
 
     }
@@ -247,10 +247,32 @@ public class UISystem : MonoBehaviour
     }
 
     /// <summary>
+    /// 重置角色
+    /// </summary>
+    public async void OnReset()
+    {
+
+        organism.GetPlayer().GetComponent<PlayerController>().enabled = false;
+        organism.GetPlayer().GetComponent<CharacterController>().enabled = false;
+
+        input.CursorStateChange(true);
+        await actionSystem.MapAreaSwitch((int)MapAreaType.StartArea);
+        organism.GetPlayer().transform.position = organism.GetPlayer().GetComponent<PlayerController>().spawnPos;
+
+        organism.GetPlayer().GetComponent<PlayerController>().enabled = true;
+        organism.GetPlayer().GetComponent<CharacterController>().enabled = true;
+
+    }
+
+    /// <summary>
     /// 復活
     /// </summary>
     public async void OnRespawn()
     {
+
+        var playerController = organism.GetPlayer().GetComponent<PlayerController>();
+
+        if (playerController.enabled) return;
 
         input.CursorStateChange(true);
 

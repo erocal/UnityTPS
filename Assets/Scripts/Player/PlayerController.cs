@@ -176,7 +176,8 @@ public class PlayerController : MonoBehaviour
 
         animator.SetTrigger("IsDead");
         //取消玩家的控制
-        this.GetComponent<PlayerController>().enabled = false;
+        this.enabled = false;
+        this.GetComponent<CharacterController>().enabled = false;
 
     }
 
@@ -469,7 +470,8 @@ public class PlayerController : MonoBehaviour
         // 初始玩家生成位置
         ChangePosition(spawnPos);
         //還給玩家控制權
-        this.GetComponent<PlayerController>().enabled = true;
+        this.enabled = true;
+        this.GetComponent<CharacterController>().enabled = true;
 
     }
 
