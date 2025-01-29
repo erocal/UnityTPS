@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class Organism : MonoBehaviour
 {
@@ -50,6 +50,7 @@ public class Organism : MonoBehaviour
         private readonly WeaponManager _playerWeaponManager;
         private readonly CharacterController _playerCharacterController;
         private readonly Animator _playerAnimator;
+        private readonly AudioSource _playerAudioSource;
 
         // 構造函數，確保所有字段在初始化時被賦值
         public PlayerDataStruct(
@@ -59,7 +60,8 @@ public class Organism : MonoBehaviour
             Health playerHealth,
             WeaponManager playerWeaponManager,
             CharacterController playerCharacterController,
-            Animator playerAnimator)
+            Animator playerAnimator,
+            AudioSource playerAudioSource)
         {
 
             _player = player;
@@ -69,6 +71,7 @@ public class Organism : MonoBehaviour
             _playerWeaponManager = playerWeaponManager;
             _playerCharacterController = playerCharacterController;
             _playerAnimator = playerAnimator;
+            _playerAudioSource = playerAudioSource;
 
         }
 
@@ -80,6 +83,70 @@ public class Organism : MonoBehaviour
         public WeaponManager PlayerWeaponManager { get { return _playerWeaponManager; } }
         public CharacterController PlayerCharacterController { get { return _playerCharacterController; } }
         public Animator PlayerAnimator { get { return _playerAnimator; } }
+        public AudioSource PlayerAudioSource { get { return _playerAudioSource; } }
+
+    }
+
+    #endregion
+
+    #region -- Mutant --
+
+    private MutantDataStruct mutantData;
+    public MutantDataStruct MutantData
+    {
+        get
+        {
+            return mutantData;
+        }
+    }
+
+    public readonly struct MutantDataStruct
+    {
+        private readonly GameObject _mutant;
+        private readonly int _instanceID;
+        private readonly Health _mutantHealth;
+        private readonly MutantAIController _mutantAIController;
+        private readonly MutantFighter _mutantFighter;
+        private readonly MutantMover _mutantMover;
+        private readonly NavMeshAgent _mutantNavMeshAgent;
+        private readonly Animator _mutantAnimator;
+        private readonly AudioSource _mutantAudioSource;
+
+        // 構造函數，確保所有字段在初始化時被賦值
+        public MutantDataStruct(
+            GameObject mutant,
+            int instanceID,
+            Health mutantHealth,
+            MutantAIController mutantAIController,
+            MutantFighter mutantFighter,
+            MutantMover mutantMover,
+            NavMeshAgent mutantNavMeshAgent,
+            Animator mutantAnimator,
+            AudioSource mutantAudioSource)
+        {
+
+            _mutant = mutant;
+            _instanceID = instanceID;
+            _mutantHealth = mutantHealth;
+            _mutantAIController = mutantAIController;
+            _mutantFighter = mutantFighter;
+            _mutantMover = mutantMover;
+            _mutantNavMeshAgent = mutantNavMeshAgent;
+            _mutantAnimator = mutantAnimator;
+            _mutantAudioSource = mutantAudioSource;
+
+        }
+
+        // 只讀屬性
+        public GameObject Mutant { get { return _mutant; } }
+        public int InstanceID { get { return _instanceID; } }
+        public Health MutantHealth { get { return _mutantHealth; } }
+        public MutantAIController MutantAIController { get { return _mutantAIController; } }
+        public MutantFighter MutantFighter { get { return _mutantFighter; } }
+        public MutantMover MutantMover { get { return _mutantMover; } }
+        public NavMeshAgent MutantNavMeshAgent { get { return _mutantNavMeshAgent; } }
+        public Animator MutantAnimator { get { return _mutantAnimator; } }
+        public AudioSource MutantAudioSource { get { return _mutantAudioSource; } }
 
     }
 
@@ -99,6 +166,7 @@ public class Organism : MonoBehaviour
 
         GetInstance();
         SetPlayerData();
+        SetMutantData();
 
     }
 
@@ -145,7 +213,34 @@ public class Organism : MonoBehaviour
             player.GetComponent<Health>(),
             player.GetComponent<WeaponManager>(),
             player.GetComponent<CharacterController>(),
-            player.GetComponent<Animator>()
+            player.GetComponent<Animator>(),
+            player.GetComponent<AudioSource>()
+            );
+
+    }
+
+    /// <summary>
+    /// 設置Boss : Mutant資料
+    /// </summary>
+    private void SetMutantData()
+    {
+
+        if (mutant == null)
+        {
+            Log.Error("Mutant物件為空");
+            return;
+        }
+
+        mutantData = new MutantDataStruct(
+            mutant,
+            mutant.GetInstanceID(),
+            mutant.GetComponent<Health>(),
+            mutant.GetComponent<MutantAIController>(),
+            mutant.GetComponent<MutantFighter>(),
+            mutant.GetComponent<MutantMover>(),
+            mutant.GetComponent<NavMeshAgent>(),
+            mutant.GetComponent<Animator>(),
+            mutant.GetComponent<AudioSource>()
             );
 
     }

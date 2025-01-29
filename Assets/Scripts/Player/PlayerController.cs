@@ -82,8 +82,6 @@ public class PlayerController : MonoBehaviour
     private UISystem uiSystem;
     private Organism organism;
 
-    private AudioSource audioSource;
-
     private int jumpCount = 1;
 
     #region -- 計時器 --
@@ -118,8 +116,6 @@ public class PlayerController : MonoBehaviour
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
         uiSystem = GameManagerSingleton.Instance.UISystem;
-
-        audioSource = GetComponent<AudioSource>();
 
         PlayerSpawn();
 
@@ -215,7 +211,7 @@ public class PlayerController : MonoBehaviour
                 uiSystem.CrossHair.SetActive(isAim);
                 if (soundEffects.TargetLockonSFX != null && uiSystem.CrossHair.activeInHierarchy != false)
                 {
-                    audioSource.PlayOneShot(soundEffects.TargetLockonSFX);
+                    organism.PlayerData.PlayerAudioSource.PlayOneShot(soundEffects.TargetLockonSFX);
                 }
             }
             actionSystem.Aim(isAim);
@@ -233,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
         var animator = organism.PlayerData.PlayerAnimator;
         var controller = organism.PlayerData.PlayerCharacterController;
+        var audioSource = organism.PlayerData.PlayerAudioSource;
 
         targetMovement = Vector3.zero;
         Vector3 pretargetMovement = targetMovement;
@@ -428,7 +425,7 @@ public class PlayerController : MonoBehaviour
             // 播放跳躍音效
             if (soundEffects.JumpTwiceSFX != null)
             {
-                audioSource.PlayOneShot(soundEffects.JumpTwiceSFX);
+                organism.PlayerData.PlayerAudioSource.PlayOneShot(soundEffects.JumpTwiceSFX);
             }
         }
 
@@ -452,7 +449,7 @@ public class PlayerController : MonoBehaviour
             resttimerrate = 2.0f;
             if (soundEffects.FeelSleepSFX != null)
             {
-                audioSource.PlayOneShot(soundEffects.FeelSleepSFX);
+                organism.PlayerData.PlayerAudioSource.PlayOneShot(soundEffects.FeelSleepSFX);
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
+[RequireComponent(typeof(MutantAIController))]
 public class MutantMover : MonoBehaviour
 {
 
@@ -13,8 +13,7 @@ public class MutantMover : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    NavMeshAgent navMeshAgent;
-    Animator animator;
+    Organism organism;
 
     #endregion
 
@@ -22,14 +21,20 @@ public class MutantMover : MonoBehaviour
 
     private void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+
+        organism = Organism.Instance;
+
+        var navMeshAgent = organism.MutantData.MutantNavMeshAgent;
         navMeshAgent.isStopped = true;
         navMeshAgent.updateRotation = false;
+
     }
 
     private void Update()
     {
+
+        var navMeshAgent = organism.MutantData.MutantNavMeshAgent;
+
         if (!navMeshAgent.isStopped)
         {
             // 避開障礙物
@@ -39,6 +44,7 @@ public class MutantMover : MonoBehaviour
 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetPosition, Vector3.up), rotateSpeed * Time.deltaTime);
         }
+
     }
 
     #endregion
@@ -48,19 +54,23 @@ public class MutantMover : MonoBehaviour
     public void MoveTo(Vector3 destination)
     {
 
+        var navMeshAgent = organism.MutantData.MutantNavMeshAgent;
+
         if (!navMeshAgent.isOnNavMesh) NavMeshHelper.CantFindNavMesh(gameObject);
 
         navMeshAgent.isStopped = false;
         navMeshAgent.destination = destination;
-        animator.SetBool("Move", true);
+        organism.MutantData.MutantAnimator.SetBool("Move", true);
 
     }
 
     public void CancelMove()
     {
+
         // 停止導航系統
-        navMeshAgent.isStopped = true;
-        animator.SetBool("Move", false);
+        organism.MutantData.MutantNavMeshAgent.isStopped = true;
+        organism.MutantData.MutantAnimator.SetBool("Move", false);
+
     }
 
     #endregion

@@ -29,12 +29,7 @@ public class MutantFighter : MonoBehaviour
 
     #region -- 參數參考區 --
 
-    ActionSystem actionSystem;
     Organism organism;
-
-    MutantAIController aiController;
-    MutantMover mover;
-    Animator animator;
 
     /// <summary> 追趕的目標人物生命 </summary>
     Health targetHealth;
@@ -52,21 +47,14 @@ public class MutantFighter : MonoBehaviour
     private void Awake()
     {
 
-        actionSystem = GameManagerSingleton.Instance.ActionSystem;
         organism = Organism.Instance;
-    }
-
-    void Start()
-    {
-
-        aiController = GetComponent<MutantAIController>();
-        mover = GetComponent<MutantMover>();
-        animator = GetComponent<Animator>();
 
     }
 
     void Update()
     {
+
+        var mover = organism.MutantData.MutantMover;
 
         attackRate -= Time.deltaTime;
 
@@ -116,7 +104,7 @@ public class MutantFighter : MonoBehaviour
     private bool CheckHasAttack()
     {
 
-        baseLayer = animator.GetCurrentAnimatorStateInfo(0);
+        baseLayer = organism.MutantData.MutantAnimator.GetCurrentAnimatorStateInfo(0);
 
         // 如果當前動作等於攻擊
         if (baseLayer.fullPathHash == Animator.StringToHash("Base Layer.Attack"))
@@ -156,6 +144,8 @@ public class MutantFighter : MonoBehaviour
     private void TriggerAttack(string attackName)
     {
 
+        var animator = organism.MutantData.MutantAnimator;
+
         animator.ResetTrigger(attackName);
         animator.SetTrigger(attackName);
 
@@ -170,7 +160,7 @@ public class MutantFighter : MonoBehaviour
         {
             if (attackRate <= 0.661f)
             {
-                aiController.MutantAttack();
+                organism.MutantData.MutantAIController.MutantAttack();
                 attackRate = 2.0f;
             }
             targetHealth.TakeDamage(attackDamage);
@@ -187,7 +177,7 @@ public class MutantFighter : MonoBehaviour
         {
             if (attackRate <= 0.661f)
             {
-                aiController.MutantAttack();
+                organism.MutantData.MutantAIController.MutantAttack();
                 attackRate = 2.0f;
             }
             targetHealth.TakeDamage(jumpAttackDamage);

@@ -16,9 +16,6 @@ public class MutantAIController : AIController
 
     #region -- 變數參考區 --
 
-    MutantMover mutantMover;
-    MutantFighter mutantFighter;
-
     // 計時器
     private float roarTimer = 2.0f;
 
@@ -67,19 +64,6 @@ public class MutantAIController : AIController
     #region -- 方法參考區 --
 
     /// <summary>
-    /// 初始化參數
-    /// </summary>
-    protected override void Init()
-    {
-
-        base.Init();
-
-        mutantMover = GetComponent<MutantMover>();
-        mutantFighter = GetComponent<MutantFighter>();
-
-    }
-
-    /// <summary>
     /// 設置委派事件
     /// </summary>
     private void SetAction()
@@ -120,7 +104,7 @@ public class MutantAIController : AIController
 
         aiAnimator.SetBool("IsConfuse", false);
         SawPlayer();
-        mutantFighter.Attack(player.GetComponent<Health>());
+        organism.MutantData.MutantFighter.Attack(organism.PlayerData.PlayerHealth);
 
     }
 
@@ -129,6 +113,8 @@ public class MutantAIController : AIController
     /// </summary>
     protected override void PatrolBehavior()
     {
+
+        var mutantMover = organism.MutantData.MutantMover;
 
         if (patrol != null)
         {
@@ -176,8 +162,8 @@ public class MutantAIController : AIController
     protected override void ConfuseBehavior()
     {
 
-        mutantMover.CancelMove();
-        mutantFighter.CancelTarget();
+        organism.MutantData.MutantMover.CancelMove();
+        organism.MutantData.MutantFighter.CancelTarget();
 
         // 困惑動作
         aiAnimator.SetBool("IsConfuse", true);
@@ -227,10 +213,10 @@ public class MutantAIController : AIController
 
         if (id != organism.GetMutant().GetInstanceID()) return;
 
-        mutantMover.CancelMove();
+        organism.MutantData.MutantMover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;
-        mutantFighter.enabled = false;
+        organism.MutantData.MutantFighter.enabled = false;
 
     }
 
