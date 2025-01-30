@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
 public class PlagueDoctorMover : MonoBehaviour
 {
@@ -15,8 +14,7 @@ public class PlagueDoctorMover : MonoBehaviour
 
     #region -- 變數參考區 --
 
-    NavMeshAgent navMeshAgent;
-    Animator animator;
+    Organism organism;
 
     // 上一幀的移動速度
     float lastFrameSpeed;
@@ -28,8 +26,7 @@ public class PlagueDoctorMover : MonoBehaviour
     private void Awake()
     {
 
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        organism = GameManagerSingleton.Instance.Organism;
 
     }
 
@@ -47,18 +44,20 @@ public class PlagueDoctorMover : MonoBehaviour
     private void UpdateAnimator()
     {
 
-        Vector3 velocity = navMeshAgent.velocity;
+        Vector3 velocity = organism.PlagueDoctorData.BossNavMeshAgent.velocity;
         // 將全局NavMesh速度變量，轉換成local的速度變量。
         Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
         lastFrameSpeed = Mathf.Lerp(lastFrameSpeed, localVelocity.z, animatorChangeRatio);
 
-        animator.SetFloat("WalkSpeed", lastFrameSpeed / maxSpeed);
+        organism.PlagueDoctorData.BossAnimator.SetFloat("WalkSpeed", lastFrameSpeed / maxSpeed);
 
     }
 
     public void MoveTo(Vector3 destination, float speedRatio)
     {
+
+        var navMeshAgent = organism.PlagueDoctorData.BossNavMeshAgent;
 
         if (!navMeshAgent.isOnNavMesh) NavMeshHelper.CantFindNavMesh(gameObject);
 
@@ -75,7 +74,7 @@ public class PlagueDoctorMover : MonoBehaviour
     {
 
         // 停止導航系統
-        navMeshAgent.isStopped = true;
+        organism.PlagueDoctorData.BossNavMeshAgent.isStopped = true;
 
     }
 

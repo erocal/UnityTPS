@@ -37,6 +37,11 @@ public class Projectile : MonoBehaviour
     // 子彈當前飛行速度
     Vector3 currentVelocity;
 
+    TagHandle zombieTagHandle;
+    TagHandle zombiegrounpTagHandle;
+    TagHandle enemyTagHandle;
+    TagHandle playerTagHandle;
+
     #endregion
 
     #region -- 初始化/運作 --
@@ -45,6 +50,11 @@ public class Projectile : MonoBehaviour
     {
 
         poolInstaller = GameManagerSingleton.Instance.PoolInstaller;
+
+        zombieTagHandle = TagHandle.GetExistingTag("Zombie");
+        zombiegrounpTagHandle = TagHandle.GetExistingTag("Zombiegrounp");
+        enemyTagHandle = TagHandle.GetExistingTag("Enemy");
+        playerTagHandle = TagHandle.GetExistingTag("Player");
 
     }
 
@@ -56,7 +66,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -74,14 +84,7 @@ public class Projectile : MonoBehaviour
 
         if (other.gameObject == owner || !canAttack || LayerMask.LayerToName(other.gameObject.layer) == "MapAreaTrigger") return;
 
-        if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Coliider)
-        {
-            Health targetHealth = other.gameObject.GetComponent<Health>();
-            if (!targetHealth.IsDead())
-            {
-                targetHealth.TakeDamage(damage);
-            }
-        }
+        TargetTakeDamage(other, ProjectileType.Coliider);
 
         HitEffect(transform.position);
 
@@ -97,14 +100,7 @@ public class Projectile : MonoBehaviour
 
         if (other == owner || !canAttack) return;
 
-        if ((other.tag == "Zombiegrounp" || other.tag == "Zombie" || other.tag == "Enemy" || other.tag == "Player") && type == ProjectileType.Particle)
-        {
-            Health targetHealth = other.gameObject.GetComponent<Health>();
-            if (!targetHealth.IsDead())
-            {
-                targetHealth.TakeDamage(damage);
-            }
-        }
+        TargetTakeDamage(other, ProjectileType.Particle);
 
         HitEffect(transform.position);
 
@@ -113,6 +109,48 @@ public class Projectile : MonoBehaviour
     #endregion
 
     #region -- 方法參考區 --
+
+    private void TargetTakeDamage<T>(T target, ProjectileType projectileType)where T : class
+    {
+
+        GameObject other;
+
+        // 檢查T的類型
+        if (target is GameObject)
+        {
+            other = target as GameObject;
+        }
+        else if (target is Collider)
+        {
+            other = (target as Collider).gameObject;
+        }
+        else
+        {
+            Log.Error("Unsupported type: " + typeof(T).Name);
+            return;
+        }
+
+        if ( TagCheckOrganismAndEnemy(other) && type == projectileType )
+        {
+
+            Health targetHealth = other.GetComponent<Health>();
+            if (!targetHealth.IsDead())
+            {
+                targetHealth.TakeDamage(damage);
+            }
+
+        }
+
+    }
+
+    private bool TagCheckOrganismAndEnemy(GameObject other)
+    {
+
+        TagHandle otherTagHandle = TagHandle.GetExistingTag(other.tag);
+        return otherTagHandle.Equals(zombieTagHandle) || otherTagHandle.Equals(zombiegrounpTagHandle) ||
+            otherTagHandle.Equals(enemyTagHandle) || otherTagHandle.Equals(playerTagHandle);
+
+    }
 
     private void HitEffect(Vector3 hitpoint)
     {
@@ -131,11 +169,10 @@ public class Projectile : MonoBehaviour
     /// <summary>
     /// 射出子彈的速度
     /// </summary>
-    /// <param name="gameObject"></param>
-    public void Shoot(GameObject gameObject)
+    public void Shoot(GameObject owner)
     {
 
-        owner = gameObject;
+        this.owner = owner;
         currentVelocity = transform.forward * projectileSpeed;
         canAttack = true;
 

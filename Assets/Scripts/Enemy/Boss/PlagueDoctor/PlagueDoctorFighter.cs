@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(PlagueDoctorAIController))]
 public class PlagueDoctorFighter : MonoBehaviour
 {
 
@@ -29,10 +28,8 @@ public class PlagueDoctorFighter : MonoBehaviour
     ActionSystem actionSystem;
     Organism organism;
 
-    PlagueDoctorAIController aiController;
-    PlagueDoctorMover mover;
-    Animator animator;
     Health targetHealth;
+
     AnimatorStateInfo baseLayer;
 
     // 計時器
@@ -49,21 +46,17 @@ public class PlagueDoctorFighter : MonoBehaviour
     {
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
-        organism = Organism.Instance;
-    }
+        organism = GameManagerSingleton.Instance.Organism;
 
-    void Start()
-    {
-
-        aiController = GetComponent<PlagueDoctorAIController>();
-        mover = GetComponent<PlagueDoctorMover>();
-        animator = GetComponent<Animator>();
         actionSystem.OnDie += OnDie;
 
     }
 
     void Update()
     {
+
+        PlagueDoctorMover mover = (PlagueDoctorMover)organism.PlagueDoctorData.BossMover;
+
         shootrate -= Time.deltaTime;
         continuousshootrate -= Time.deltaTime;
 
@@ -87,6 +80,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         }
 
         UpdateTimer();
+
     }
 
     // Called by Unity
@@ -107,7 +101,8 @@ public class PlagueDoctorFighter : MonoBehaviour
     // 檢查攻擊動作是否已經結束
     private bool CheckHasAttack()
     {
-        baseLayer = animator.GetCurrentAnimatorStateInfo(0);
+
+        baseLayer = organism.PlagueDoctorData.BossAnimator.GetCurrentAnimatorStateInfo(0);
 
         // 如果當前動作等於攻擊
         if (baseLayer.fullPathHash == Animator.StringToHash("Base Layer.Attack"))
@@ -118,6 +113,7 @@ public class PlagueDoctorFighter : MonoBehaviour
         {
             return true;
         }
+
     }
 
     /// <summary>
@@ -125,11 +121,14 @@ public class PlagueDoctorFighter : MonoBehaviour
     /// </summary>
     void UpdateTimer()
     {
+
         timeSinceLastAttack += Time.deltaTime;
+
     }
 
     private void AttackBehavior(string attackName)
     {
+
         transform.LookAt(targetHealth.transform);
 
         if (timeSinceLastAttack > timeBetweenAttack)
@@ -137,44 +136,58 @@ public class PlagueDoctorFighter : MonoBehaviour
             timeSinceLastAttack = 0;
             TriggerAttack(attackName);
         }
+
     }
 
     private void TriggerAttack(string attackName)
     {
+
+        var animator = organism.PlagueDoctorData.BossAnimator;
         animator.ResetTrigger(attackName);
         animator.SetTrigger(attackName);
+
     }
 
     private void Shoot()
     {
+
         if (targetHealth == null || actorType != Actor.Plague) return;
 
         if (throwProjectile != null)
         {
             if (shootrate <= 0.594f)
             {
+
+                PlagueDoctorAIController aiController = (PlagueDoctorAIController)organism.PlagueDoctorData.BossAIController;
                 aiController.PlagueDoctorFireBall();
                 shootrate = 2.0f;
+
             }
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
-            newProjectile.Shoot(gameObject);
+            newProjectile.Shoot(organism.PlagueDoctorData.Boss);
         }
+
     }
 
     private void ContinuousShoot()
     {
+
         if (targetHealth == null || actorType != Actor.Plague) return;
 
         if (throwProjectile2 != null)
         {
             if (continuousshootrate <= 0)
             {
+
+                PlagueDoctorAIController aiController = (PlagueDoctorAIController)organism.PlagueDoctorData.BossAIController;
                 aiController.PlagueDoctorLighting();
                 continuousshootrate = 2.0f;
+
             }
             Projectile newProjectile = Instantiate(throwProjectile2, hand.position, Quaternion.LookRotation(transform.forward));
-            newProjectile.Shoot(gameObject);
+            newProjectile.Shoot(organism.PlagueDoctorData.Boss);
         }
+
     }
 
     /// <summary>

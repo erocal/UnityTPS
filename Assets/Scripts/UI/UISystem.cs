@@ -88,6 +88,8 @@ public class UISystem : MonoBehaviour
     private void Update()
     {
 
+        if(CheckOrganismNull()) return;
+
         CalculateFPSAndMsec();
         PlayerHealthUpdate();
         WeaponUIUpdate();
@@ -96,6 +98,8 @@ public class UISystem : MonoBehaviour
 
     private void LateUpdate()
     {
+
+        if (CheckOrganismNull()) return;
 
         AliveUI();
         PauseUI();
@@ -115,7 +119,7 @@ public class UISystem : MonoBehaviour
         var instance = GameManagerSingleton.Instance;
         actionSystem = instance.ActionSystem;
         input = instance.InputController;
-        organism = Organism.Instance;
+        organism = instance.Organism;
 
         actionSystem.OnDie += OnDie;
         actionSystem.OnCameraVolumeMute += VolumeUI;
@@ -278,6 +282,20 @@ public class UISystem : MonoBehaviour
     }
 
     #endregion
+
+    private bool CheckOrganismNull()
+    {
+
+        if (organism == null)
+        {
+
+            organism = GameManagerSingleton.Instance.Organism;
+
+        }
+
+        return organism == null;
+
+    }
 
     /// <summary>
     /// 計算當前FPS和milisecond延遲

@@ -64,7 +64,7 @@ public class WeaponController : MonoBehaviour
     {
 
         poolInstaller = GameManagerSingleton.Instance.PoolInstaller;
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
         currentAmmo = maxAmmo;
         audioSource = GetComponent<AudioSource>();
 

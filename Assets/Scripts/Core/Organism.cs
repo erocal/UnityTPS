@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class Organism : MonoBehaviour
@@ -10,25 +11,21 @@ public class Organism : MonoBehaviour
     [SerializeField, Tooltip("暴徒")] private GameObject mutant;
     [SerializeField, Tooltip("瘟疫醫生")] private GameObject plagueDoctor;
 
+    [Header("敵人"), Tooltip("地圖上預先生成的全部敵人")]
+    public List<GameObject> fullEnemyList = new List<GameObject>();
+    [Header("區域敵人")]
+    [Tooltip("StartArea區域預先生成的敵人")]
+    public List<GameObject> StartAreaEnemyList = new List<GameObject>();
+    [Tooltip("PlainArea區域預先生成的敵人")]
+    public List<GameObject> PlainAreaEnemyList = new List<GameObject>();
+    [Tooltip("PlagueDoctorArea區域預先生成的敵人")]
+    public List<GameObject> PlagueDoctorAreaEnemyList = new List<GameObject>();
+    [Tooltip("MutantArea區域預先生成的敵人")]
+    public List<GameObject> MutantAreaEnemyList = new List<GameObject>();
+
     #endregion
 
     #region -- 變數參考區 --
-
-    private static Organism _instance;
-
-    public static Organism Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindFirstObjectByType<Organism>();
-            }
-
-            return _instance;
-        }
-        private set { }
-    }
 
     #region -- Player --
 
@@ -89,10 +86,55 @@ public class Organism : MonoBehaviour
 
     #endregion
 
+    #region -- Boss --
+
+    public readonly struct BossDataStruct
+    {
+
+        private readonly GameObject _bossObject;
+        private readonly int _instanceID;
+        private readonly Health _healthComponent;
+        private readonly AIController _aiController;
+        private readonly MonoBehaviour _fighter;
+        private readonly MonoBehaviour _mover;
+        private readonly NavMeshAgent _navAgent;
+        private readonly Animator _animator;
+        private readonly AudioSource _audio;
+
+        public BossDataStruct(GameObject boss, int id, Health health,
+                              AIController aiController, MonoBehaviour fighter, MonoBehaviour mover,
+                              NavMeshAgent navAgent, Animator animator, AudioSource audio)
+        {
+            _bossObject = boss;
+            _instanceID = id;
+            _healthComponent = health;
+            _aiController = aiController;
+            _fighter = fighter;
+            _mover = mover;
+            _navAgent = navAgent;
+            _animator = animator;
+            _audio = audio;
+        }
+
+        // 只讀屬性
+        public GameObject Boss { get { return _bossObject; } }
+        public int InstanceID { get { return _instanceID; } }
+        public Health BossHealth { get { return _healthComponent; } }
+        public AIController BossAIController { get { return _aiController; } }
+        public MonoBehaviour BossFighter { get { return _fighter; } }
+        public MonoBehaviour BossMover { get { return _mover; } }
+        public NavMeshAgent BossNavMeshAgent { get { return _navAgent; } }
+        public Animator BossAnimator { get { return _animator; } }
+        public AudioSource BossAudioSource { get { return _audio; } }
+
+    }
+
+    #endregion
+
     #region -- Mutant --
 
-    private MutantDataStruct mutantData;
-    public MutantDataStruct MutantData
+    private BossDataStruct mutantData;
+    public BossDataStruct MutantData
     {
         get
         {
@@ -100,54 +142,17 @@ public class Organism : MonoBehaviour
         }
     }
 
-    public readonly struct MutantDataStruct
+    #endregion
+
+    #region -- PlagueDoctor --
+
+    private BossDataStruct plagueDoctorData;
+    public BossDataStruct PlagueDoctorData
     {
-        private readonly GameObject _mutant;
-        private readonly int _instanceID;
-        private readonly Health _mutantHealth;
-        private readonly MutantAIController _mutantAIController;
-        private readonly MutantFighter _mutantFighter;
-        private readonly MutantMover _mutantMover;
-        private readonly NavMeshAgent _mutantNavMeshAgent;
-        private readonly Animator _mutantAnimator;
-        private readonly AudioSource _mutantAudioSource;
-
-        // 構造函數，確保所有字段在初始化時被賦值
-        public MutantDataStruct(
-            GameObject mutant,
-            int instanceID,
-            Health mutantHealth,
-            MutantAIController mutantAIController,
-            MutantFighter mutantFighter,
-            MutantMover mutantMover,
-            NavMeshAgent mutantNavMeshAgent,
-            Animator mutantAnimator,
-            AudioSource mutantAudioSource)
+        get
         {
-
-            _mutant = mutant;
-            _instanceID = instanceID;
-            _mutantHealth = mutantHealth;
-            _mutantAIController = mutantAIController;
-            _mutantFighter = mutantFighter;
-            _mutantMover = mutantMover;
-            _mutantNavMeshAgent = mutantNavMeshAgent;
-            _mutantAnimator = mutantAnimator;
-            _mutantAudioSource = mutantAudioSource;
-
+            return plagueDoctorData;
         }
-
-        // 只讀屬性
-        public GameObject Mutant { get { return _mutant; } }
-        public int InstanceID { get { return _instanceID; } }
-        public Health MutantHealth { get { return _mutantHealth; } }
-        public MutantAIController MutantAIController { get { return _mutantAIController; } }
-        public MutantFighter MutantFighter { get { return _mutantFighter; } }
-        public MutantMover MutantMover { get { return _mutantMover; } }
-        public NavMeshAgent MutantNavMeshAgent { get { return _mutantNavMeshAgent; } }
-        public Animator MutantAnimator { get { return _mutantAnimator; } }
-        public AudioSource MutantAudioSource { get { return _mutantAudioSource; } }
-
     }
 
     #endregion
@@ -156,43 +161,19 @@ public class Organism : MonoBehaviour
 
     #region -- 初始化/運作 --
 
-    // 防止外部實例化該類
-    private Organism()
-    {
-    }
 
     private void Awake()
     {
 
-        GetInstance();
         SetPlayerData();
         SetMutantData();
+        SetPlagueDoctorData();
 
-    }
-
-    private void OnDestroy()
-    {
-        _instance = null;
     }
 
     #endregion
 
     #region -- 方法參考區 --
-
-    #region -- 單例模式 --
-
-    /// <summary>
-    /// 獲取唯一實例
-    /// </summary>
-    private void GetInstance()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-    }
-
-    #endregion
 
     /// <summary>
     /// 設置玩家資料
@@ -231,19 +212,55 @@ public class Organism : MonoBehaviour
             return;
         }
 
-        mutantData = new MutantDataStruct(
-            mutant,
-            mutant.GetInstanceID(),
-            mutant.GetComponent<Health>(),
-            mutant.GetComponent<MutantAIController>(),
-            mutant.GetComponent<MutantFighter>(),
-            mutant.GetComponent<MutantMover>(),
-            mutant.GetComponent<NavMeshAgent>(),
-            mutant.GetComponent<Animator>(),
-            mutant.GetComponent<AudioSource>()
-            );
+        SetBossData<MutantAIController, MutantFighter, MutantMover>(mutant, ref mutantData);
 
     }
+
+    /// <summary>
+    /// 設置Boss : PlagueDoctor資料
+    /// </summary>
+    private void SetPlagueDoctorData()
+    {
+
+        if (plagueDoctor == null)
+        {
+            Log.Error("PlagueDoctor物件為空");
+            return;
+        }
+
+        SetBossData<PlagueDoctorAIController, PlagueDoctorFighter, PlagueDoctorMover>(plagueDoctor, ref plagueDoctorData);
+
+    }
+
+    /// <summary>
+    /// 設置Boss資料
+    /// </summary>
+    private void SetBossData<TController, TFighter, TMover>(GameObject boss, ref BossDataStruct bossData)
+        where TController : AIController
+        where TFighter : MonoBehaviour
+        where TMover : MonoBehaviour
+    {
+
+        if (boss == null)
+        {
+            Log.Error($"{typeof(TController).Name} 物件為空");
+            return;
+        }
+
+        bossData = new BossDataStruct(
+            boss,
+            boss.GetInstanceID(),
+            boss.GetComponent<Health>(),
+            boss.GetComponent<TController>(),
+            boss.GetComponent<TFighter>(),
+            boss.GetComponent<TMover>(),
+            boss.GetComponent<NavMeshAgent>(),
+            boss.GetComponent<Animator>(),
+            boss.GetComponent<AudioSource>()
+        );
+
+    }
+
 
     #region -- Get方法 --
 

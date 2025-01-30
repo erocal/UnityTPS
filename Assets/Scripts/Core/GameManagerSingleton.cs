@@ -1,7 +1,5 @@
-﻿using System.Threading.Tasks;
-using ToolBox.Pools;
+﻿using ToolBox.Pools;
 using UnityEngine;
-using UnityEngine.Localization.PropertyVariants;
 
 // singleton單例模式
 // 可以確保生成對象只有一個實例存在
@@ -10,6 +8,7 @@ public class GameManagerSingleton
 {
 
     private bool m_IsUISystemInitializing = false;
+    private bool m_IsOrganismInitializing = false;
 
     private GameObject gameObject;
 
@@ -131,6 +130,55 @@ public class GameManagerSingleton
                     Log.Error("Failed to initialize UISystem: " + task.Exception);
                 }
                 m_IsUISystemInitializing = false;
+            });
+
+            return null;
+
+        }
+    }
+
+    private Organism m_Organism;
+    public Organism Organism
+    {
+        get
+        {
+
+            // 如果已經初始化，直接返回
+            if (m_Organism != null)
+            {
+                return m_Organism;
+            }
+
+            // 避免重複初始化
+            if (m_IsOrganismInitializing)
+            {
+                return null; // 或者可以拋出異常，提示正在初始化
+            }
+
+            m_IsOrganismInitializing = true;
+
+            var init = gameObject.GetComponent<Init>();
+
+            // 如果 Init 組件中已經有 UISystem，直接使用
+            if (init.Organism != null)
+            {
+                m_Organism = init.Organism;
+                m_IsOrganismInitializing = false;
+                return m_Organism;
+            }
+
+            // 非同步初始化 Organism
+            init.CreateOrganismAsync().ContinueWith(task =>
+            {
+                if (task.IsCompletedSuccessfully)
+                {
+                    m_Organism = init.Organism;
+                }
+                else
+                {
+                    Log.Error("Failed to initialize Organism: " + task.Exception);
+                }
+                m_IsOrganismInitializing = false;
             });
 
             return null;

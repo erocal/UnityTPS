@@ -33,7 +33,7 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
     {
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
 
         targetMaskEnemy = LayerMask.GetMask("Enemy");
         

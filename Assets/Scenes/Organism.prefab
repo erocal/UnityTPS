@@ -209,6 +209,21 @@ MonoBehaviour:
   player: {fileID: 1566514830776128740}
   mutant: {fileID: 6625956734597640868}
   plagueDoctor: {fileID: 3403867487629065965}
+  fullEnemyList:
+  - {fileID: 3403867487629065965}
+  - {fileID: 6625956734597640868}
+  - {fileID: 13679928671119585}
+  - {fileID: 243310962204112475}
+  - {fileID: 6322223093730666895}
+  StartAreaEnemyList:
+  - {fileID: 13679928671119585}
+  PlainAreaEnemyList:
+  - {fileID: 243310962204112475}
+  - {fileID: 3403867487629065965}
+  PlagueDoctorAreaEnemyList: []
+  MutantAreaEnemyList:
+  - {fileID: 6322223093730666895}
+  - {fileID: 6625956734597640868}
 --- !u!114 &3734684614048151309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +329,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5379339212452653683}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -242.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -418,6 +448,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5379339212452653683}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -201.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 72.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -847,6 +892,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5414611599073527851}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -55.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 51.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 73.88
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -951,6 +1011,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 8233360599816331969}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -315.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -38.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1055,6 +1130,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 8233360599816331969}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -298.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -7.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1089,6 +1179,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 6564556559022283593}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: 23.72515
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 120.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -210
+      objectReference: {fileID: 0}
     - target: {fileID: 3847871812968571574, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1263,6 +1368,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5379339212452653683}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -192.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 6.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1367,6 +1487,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5379339212452653683}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -170.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1476,6 +1611,21 @@ PrefabInstance:
       propertyPath: attackDamage
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2988732817540152986, guid: f87e135959a0b6945af25cfe291bcb18,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -414.8856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988732817540152986, guid: f87e135959a0b6945af25cfe291bcb18,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 27.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988732817540152986, guid: f87e135959a0b6945af25cfe291bcb18,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 119.2613
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1580,6 +1730,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 3944176257728278771}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -185
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 38.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 111.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1684,6 +1849,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 3944176257728278771}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -194
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 38.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 124.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1813,6 +1993,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 4962303703596802545}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -395.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 23.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 171.41
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1947,6 +2142,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 7425019147710682677}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -328.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -57.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1986,6 +2196,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 6564556559022283593}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: 23.72515
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 120.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -210
+      objectReference: {fileID: 0}
     - target: {fileID: 3847871812968571574, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2160,6 +2385,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 1859107547472207496}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -220.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 49.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2194,6 +2434,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 4806442367257985650}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -297.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 36.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847871812968571571, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 83.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3847871812968571574, guid: ec5c465548ff8fa4fad0f6afada4ed7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2488,6 +2743,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 4493552164679122386}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -253.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 34.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 135.62
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2592,6 +2862,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 7368132274057111884}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -303.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -29.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2696,6 +2981,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 4806442367257985650}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -317.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 34.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 46
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2800,6 +3100,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 8233360599816331969}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -314.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2904,6 +3219,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5379339212452653683}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -169.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 13.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3013,6 +3343,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 7368132274057111884}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -291.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -27
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3117,6 +3462,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 4493552164679122386}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -290.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 34.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 129.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3225,6 +3585,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.00089216063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988732817540152986, guid: f87e135959a0b6945af25cfe291bcb18,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -89.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988732817540152986, guid: f87e135959a0b6945af25cfe291bcb18,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 73.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988732817540152986, guid: f87e135959a0b6945af25cfe291bcb18,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -37.6
       objectReference: {fileID: 0}
     - target: {fileID: 8176835161292196540, guid: f87e135959a0b6945af25cfe291bcb18,
         type: 3}
@@ -3335,6 +3710,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 7425019147710682677}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -333.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -31.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3519,6 +3909,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 5414611599073527851}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -43.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 51.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 60.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3623,6 +4028,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 7368132274057111884}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -304.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 8.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3727,6 +4147,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 7425019147710682677}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -323.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 53.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: -20.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3831,6 +4266,21 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 1859107547472207496}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.x
+      value: -167.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.y
+      value: 59.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711041121750524313, guid: 02cee93f580c863439b0974544536661,
+        type: 3}
+      propertyPath: aiSpawnPostion.z
+      value: 37.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

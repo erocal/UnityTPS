@@ -29,7 +29,7 @@ public class EnemySpawnManger : MonoBehaviour
     private void Awake()
     {
 
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
 
     }
 

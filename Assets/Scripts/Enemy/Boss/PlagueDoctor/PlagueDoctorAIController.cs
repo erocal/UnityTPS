@@ -13,13 +13,6 @@ public class PlagueDoctorAIController : AIController
 
     #endregion
 
-    #region -- 變數參考區 --
-
-    PlagueDoctorMover plagueDoctorMover;
-    PlagueDoctorFighter plagueDoctorFighter;
-
-    #endregion
-
     #region -- 初始化/運作 --
 
     private void Awake()
@@ -34,6 +27,7 @@ public class PlagueDoctorAIController : AIController
         SetAction();
 
         #endregion
+
     }
 
     private void Update()
@@ -48,19 +42,6 @@ public class PlagueDoctorAIController : AIController
     #endregion
 
     #region -- 方法參考區 --
-
-    /// <summary>
-    /// 初始化參數
-    /// </summary>
-    protected override void Init()
-    {
-
-        base.Init();
-
-        plagueDoctorMover = GetComponent<PlagueDoctorMover>();
-        plagueDoctorFighter = GetComponent<PlagueDoctorFighter>();
-
-    }
 
     /// <summary>
     /// 設置委派事件
@@ -78,6 +59,7 @@ public class PlagueDoctorAIController : AIController
     /// </summary>
     protected override void AIBehavior()
     {
+
         // 玩家在追趕範圍內
         if (IsRange() || CheckIsBeHit())
         {
@@ -91,30 +73,41 @@ public class PlagueDoctorAIController : AIController
         {
             PatrolBehavior();
         }
+
     }
 
     protected override void AttackBehavior()
     {
+
         aiAnimator.SetBool("IsConfuse", false);
 
         SawPlayer();
 
-        plagueDoctorFighter.Attack(player.GetComponent<Health>());
+        PlagueDoctorFighter fighter = (PlagueDoctorFighter)organism.PlagueDoctorData.BossFighter;
+        fighter.Attack(organism.PlayerData.PlayerHealth);
+
     }
 
     // 困惑的動作行為
     protected override void ConfuseBehavior()
     {
-        plagueDoctorMover.CancelMove();
-        plagueDoctorFighter.CancelTarget();
+
+        PlagueDoctorMover mover = (PlagueDoctorMover)organism.PlagueDoctorData.BossMover;
+        PlagueDoctorFighter fighter = (PlagueDoctorFighter)organism.PlagueDoctorData.BossFighter;
+        mover.CancelMove();
+        fighter.CancelTarget();
 
         // 困惑動作
         aiAnimator.SetBool("IsConfuse", true);
+
     }
 
     // 巡邏行為
     protected override void PatrolBehavior()
     {
+
+        PlagueDoctorMover plagueDoctorMover = (PlagueDoctorMover)organism.PlagueDoctorData.BossMover;
+
         Vector3 nextWaypointPostion = aiSpawnPostion;
         if (patrol != null)
         {
@@ -137,6 +130,7 @@ public class PlagueDoctorAIController : AIController
             aiAnimator.SetBool("IsConfuse", false);
             plagueDoctorMover.MoveTo(aiSpawnPostion, 0.5f);
         }
+
     }
 
     /// <summary>
@@ -144,8 +138,10 @@ public class PlagueDoctorAIController : AIController
     /// </summary>
     private void UpdateTimer()
     {
+
         UpdateLastSawPlayerTimer();
         UpdateArriveWayPointTimer();
+
     }
 
     /// <summary>
@@ -166,7 +162,7 @@ public class PlagueDoctorAIController : AIController
     public void PlagueDoctorLighting()
     {
 
-        aiAudioSource?.PlayOneShot(plagueDoctorLightingSFX);
+        aiAudioSource.PlayOneShot(plagueDoctorLightingSFX);
 
     }
 
@@ -182,9 +178,11 @@ public class PlagueDoctorAIController : AIController
 
         if (id != this.gameObject.GetInstanceID()) return;
 
-        plagueDoctorMover.CancelMove();
+        PlagueDoctorMover mover = (PlagueDoctorMover)organism.PlagueDoctorData.BossMover;
+        mover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;
+
     }
 
     #endregion
@@ -193,8 +191,10 @@ public class PlagueDoctorAIController : AIController
     // 這是自行繪製visable可視化物件，用來設計怪物追蹤玩家的範圍
     private void OnDrawGizmosSelected()
     {
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
+
     }
 
 }

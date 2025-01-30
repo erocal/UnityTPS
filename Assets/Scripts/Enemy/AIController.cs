@@ -83,7 +83,7 @@ public abstract class AIController : MonoBehaviour
     protected virtual void Init()
     {
 
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
         enemyRoot = this.gameObject;
         player = organism.PlayerData.Player;

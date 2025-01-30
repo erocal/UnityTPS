@@ -11,6 +11,11 @@ public class Init : MonoBehaviour
         get; private set;
     }
 
+    public Organism Organism
+    {
+        get; private set;
+    }
+
     #endregion
 
     #region -- 初始化/運作 --
@@ -19,6 +24,7 @@ public class Init : MonoBehaviour
     {
         
         _ = GameManagerSingleton.Instance.UISystem;
+        _ = GameManagerSingleton.Instance.Organism;
 
     }
 
@@ -35,6 +41,24 @@ public class Init : MonoBehaviour
             if (obj != null)
             {
                 UISystem = obj.GetComponent<UISystem>();
+            }
+        }
+        catch (System.Exception e)
+        {
+            Log.Error(e);
+        }
+
+    }
+
+    public async Task CreateOrganismAsync()
+    {
+
+        try
+        {
+            var obj = await AddrssableAsync.LoadInstantiate("organism");
+            if (obj != null)
+            {
+                Organism = obj.GetComponent<Organism>();
             }
         }
         catch (System.Exception e)

@@ -28,7 +28,7 @@ public abstract class Pickup : MonoBehaviour
     private void Awake()
     {
 
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
         player = organism.PlayerData.Player;
 
     }
@@ -60,7 +60,7 @@ public abstract class Pickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(player == null) player = Organism.Instance.PlayerData.Player;
+        if(player == null) player = GameManagerSingleton.Instance.Organism.PlayerData.Player;
 
         if (player.CompareTag(other.tag))
         {

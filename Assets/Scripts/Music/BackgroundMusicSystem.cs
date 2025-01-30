@@ -29,7 +29,7 @@ public class BackgroundMusicSystem : MonoBehaviour
     private void Update()
     {
         
-        if(audioSource == null) audioSource = Camera.main.GetComponent<AudioSource>();
+        if(audioSource == null && Camera.main != null) audioSource = Camera.main.GetComponent<AudioSource>();
 
         if (audioSource != null && backgroundMusicSO != null && audioSource.clip == null)
         {

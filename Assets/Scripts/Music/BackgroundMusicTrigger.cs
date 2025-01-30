@@ -14,7 +14,7 @@ public class BackgroundMusicTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Player")
+        if (other.CompareTag(GameManagerSingleton.Instance.Organism.PlayerData.Player.tag))
         {
 
             GameManagerSingleton.Instance.BackgroundMusicSystem.BGMSelect(backgroundMusicType);

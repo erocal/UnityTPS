@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(MutantAIController))]
 public class MutantFighter : MonoBehaviour
 {
 
@@ -47,14 +46,14 @@ public class MutantFighter : MonoBehaviour
     private void Awake()
     {
 
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
 
     }
 
     void Update()
     {
 
-        var mover = organism.MutantData.MutantMover;
+        MutantMover mover = (MutantMover)organism.MutantData.BossMover;
 
         attackRate -= Time.deltaTime;
 
@@ -104,7 +103,7 @@ public class MutantFighter : MonoBehaviour
     private bool CheckHasAttack()
     {
 
-        baseLayer = organism.MutantData.MutantAnimator.GetCurrentAnimatorStateInfo(0);
+        baseLayer = organism.MutantData.BossAnimator.GetCurrentAnimatorStateInfo(0);
 
         // 如果當前動作等於攻擊
         if (baseLayer.fullPathHash == Animator.StringToHash("Base Layer.Attack"))
@@ -144,7 +143,7 @@ public class MutantFighter : MonoBehaviour
     private void TriggerAttack(string attackName)
     {
 
-        var animator = organism.MutantData.MutantAnimator;
+        var animator = organism.MutantData.BossAnimator;
 
         animator.ResetTrigger(attackName);
         animator.SetTrigger(attackName);
@@ -160,8 +159,11 @@ public class MutantFighter : MonoBehaviour
         {
             if (attackRate <= 0.661f)
             {
-                organism.MutantData.MutantAIController.MutantAttack();
+
+                MutantAIController aiController = (MutantAIController)organism.MutantData.BossAIController;
+                aiController.MutantAttack();
                 attackRate = 2.0f;
+
             }
             targetHealth.TakeDamage(attackDamage);
         }
@@ -177,8 +179,11 @@ public class MutantFighter : MonoBehaviour
         {
             if (attackRate <= 0.661f)
             {
-                organism.MutantData.MutantAIController.MutantAttack();
+
+                MutantAIController aiController = (MutantAIController)organism.MutantData.BossAIController;
+                aiController.MutantAttack();
                 attackRate = 2.0f;
+
             }
             targetHealth.TakeDamage(jumpAttackDamage);
         }
@@ -193,7 +198,7 @@ public class MutantFighter : MonoBehaviour
         if (throwProjectile != null)
         {
             Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
-            newProjectile.Shoot(gameObject);
+            newProjectile.Shoot(organism.MutantData.Boss);
         }
 
     }

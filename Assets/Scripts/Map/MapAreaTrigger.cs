@@ -24,7 +24,7 @@ public class MapAreaTrigger : MonoBehaviour
     {
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
 
     }
 

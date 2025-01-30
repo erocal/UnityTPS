@@ -104,7 +104,8 @@ public class MutantAIController : AIController
 
         aiAnimator.SetBool("IsConfuse", false);
         SawPlayer();
-        organism.MutantData.MutantFighter.Attack(organism.PlayerData.PlayerHealth);
+        MutantFighter fighter = (MutantFighter)organism.MutantData.BossFighter;
+        fighter.Attack(organism.PlayerData.PlayerHealth);
 
     }
 
@@ -114,7 +115,7 @@ public class MutantAIController : AIController
     protected override void PatrolBehavior()
     {
 
-        var mutantMover = organism.MutantData.MutantMover;
+        MutantMover mutantMover = (MutantMover)organism.MutantData.BossMover;
 
         if (patrol != null)
         {
@@ -162,8 +163,11 @@ public class MutantAIController : AIController
     protected override void ConfuseBehavior()
     {
 
-        organism.MutantData.MutantMover.CancelMove();
-        organism.MutantData.MutantFighter.CancelTarget();
+        MutantMover mover = (MutantMover)organism.MutantData.BossMover;
+        MutantFighter fighter = (MutantFighter)organism.MutantData.BossFighter;
+
+        mover.CancelMove();
+        fighter.CancelTarget();
 
         // 困惑動作
         aiAnimator.SetBool("IsConfuse", true);
@@ -211,12 +215,15 @@ public class MutantAIController : AIController
     protected override void OnDie(int id)
     {
 
+        MutantMover mover = (MutantMover)organism.MutantData.BossMover;
+        MutantFighter fighter = (MutantFighter)organism.MutantData.BossFighter;
+
         if (id != organism.GetMutant().GetInstanceID()) return;
 
-        organism.MutantData.MutantMover.CancelMove();
+        mover.CancelMove();
         aiAnimator.SetTrigger("IsDead");
         aiCollider.enabled = false;
-        organism.MutantData.MutantFighter.enabled = false;
+        fighter.enabled = false;
 
     }
 

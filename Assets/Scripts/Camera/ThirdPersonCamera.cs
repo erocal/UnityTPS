@@ -138,7 +138,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Init()
     {
 
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
 
         var instance = GameManagerSingleton.Instance;
 

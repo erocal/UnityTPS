@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(MutantAIController))]
 public class MutantMover : MonoBehaviour
 {
 
@@ -22,9 +21,9 @@ public class MutantMover : MonoBehaviour
     private void Awake()
     {
 
-        organism = Organism.Instance;
+        organism = GameManagerSingleton.Instance.Organism;
 
-        var navMeshAgent = organism.MutantData.MutantNavMeshAgent;
+        var navMeshAgent = organism.MutantData.BossNavMeshAgent;
         navMeshAgent.isStopped = true;
         navMeshAgent.updateRotation = false;
 
@@ -33,7 +32,7 @@ public class MutantMover : MonoBehaviour
     private void Update()
     {
 
-        var navMeshAgent = organism.MutantData.MutantNavMeshAgent;
+        var navMeshAgent = organism.MutantData.BossNavMeshAgent;
 
         if (!navMeshAgent.isStopped)
         {
@@ -54,13 +53,13 @@ public class MutantMover : MonoBehaviour
     public void MoveTo(Vector3 destination)
     {
 
-        var navMeshAgent = organism.MutantData.MutantNavMeshAgent;
+        var navMeshAgent = organism.MutantData.BossNavMeshAgent;
 
         if (!navMeshAgent.isOnNavMesh) NavMeshHelper.CantFindNavMesh(gameObject);
 
         navMeshAgent.isStopped = false;
         navMeshAgent.destination = destination;
-        organism.MutantData.MutantAnimator.SetBool("Move", true);
+        organism.MutantData.BossAnimator.SetBool("Move", true);
 
     }
 
@@ -68,8 +67,8 @@ public class MutantMover : MonoBehaviour
     {
 
         // 停止導航系統
-        organism.MutantData.MutantNavMeshAgent.isStopped = true;
-        organism.MutantData.MutantAnimator.SetBool("Move", false);
+        organism.MutantData.BossNavMeshAgent.isStopped = true;
+        organism.MutantData.BossAnimator.SetBool("Move", false);
 
     }
 
