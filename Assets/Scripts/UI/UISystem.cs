@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using static GameManagerSingletonHelper;
+using UnityEngine.Rendering.Universal;
 
 public class UISystem : MonoBehaviour
 {
@@ -88,7 +90,7 @@ public class UISystem : MonoBehaviour
     private void Update()
     {
 
-        if(CheckOrganismNull()) return;
+        if(CheckOrganismNull(ref organism)) return;
 
         CalculateFPSAndMsec();
         PlayerHealthUpdate();
@@ -99,7 +101,7 @@ public class UISystem : MonoBehaviour
     private void LateUpdate()
     {
 
-        if (CheckOrganismNull()) return;
+        if (CheckOrganismNull(ref organism)) return;
 
         AliveUI();
         PauseUI();
@@ -203,6 +205,8 @@ public class UISystem : MonoBehaviour
 
             playerCharacterController.enabled = true;
 
+            Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(0);
+
             actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
 
             canvasGroup_StartUI.SetEnable(false);
@@ -282,20 +286,6 @@ public class UISystem : MonoBehaviour
     }
 
     #endregion
-
-    private bool CheckOrganismNull()
-    {
-
-        if (organism == null)
-        {
-
-            organism = GameManagerSingleton.Instance.Organism;
-
-        }
-
-        return organism == null;
-
-    }
 
     /// <summary>
     /// 計算當前FPS和milisecond延遲
@@ -395,7 +385,7 @@ public class UISystem : MonoBehaviour
 
         if (Cursor.lockState == CursorLockMode.Locked)
             pauseUI.SetActive(false);
-        else if (!aliveUI.activeSelf)
+        else if (!aliveUI.activeSelf && startGameUI == null)
         {
             pauseUI.SetActive(true);
             Time.timeScale = 0;

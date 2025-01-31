@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using static GameManagerSingletonHelper;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class ThirdPersonCamera : MonoBehaviour
     #region -- 常數 --
 
     private const int ORIGINAL_RENDERER = 0;
-    private const int RADIAL_BLUR_RENDERER = 1;
+    private const int RADIAL_BLUR_RENDERER = 2;
 
     #endregion
 
@@ -79,6 +80,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
+
+        if (CheckOrganismNull(ref organism)) return;
 
         CheckVolumeMute();
 
@@ -138,12 +141,11 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Init()
     {
 
-        organism = GameManagerSingleton.Instance.Organism;
-
         var instance = GameManagerSingleton.Instance;
 
         input = instance.InputController;
         actionSystem = instance.ActionSystem;
+        organism = instance.Organism;
         audioSource = GetComponent<AudioSource>();
         mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
 

@@ -1,5 +1,6 @@
 ﻿using ToolBox.Pools;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // singleton單例模式
 // 可以確保生成對象只有一個實例存在
@@ -19,7 +20,7 @@ public class GameManagerSingleton
     {
         get
         {
-            if (m_Instance == null)
+            if (m_Instance == null && SceneManager.GetActiveScene().buildIndex == 0)
             {
 
                 m_Instance = new GameManagerSingleton
