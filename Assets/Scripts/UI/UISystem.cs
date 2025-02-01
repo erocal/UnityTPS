@@ -51,6 +51,7 @@ public class UISystem : MonoBehaviour
     [SerializeField] WeaponUIElements[] weaponUI;
 
     [Header("CanvasGroup")]
+    [SerializeField] CanvasGroup canvasGroup_GameUI;
     [SerializeField] CanvasGroup canvasGroup_StartUI;
 
     #endregion
@@ -90,7 +91,7 @@ public class UISystem : MonoBehaviour
     private void Update()
     {
 
-        if(CheckOrganismNull(ref organism)) return;
+        if (CheckOrganismNull(ref organism)) return;
 
         CalculateFPSAndMsec();
         PlayerHealthUpdate();
@@ -137,155 +138,6 @@ public class UISystem : MonoBehaviour
         Slider_Music.onValueChanged.AddListener(actionSystem.CameraVolumeChange);
 
     }
-
-    /// <summary>
-    /// 玩家死亡時處理方法
-    /// </summary>
-    private void OnDie(int id)
-    {
-
-        if (id != organism.PlayerData.InstanceID) return;
-
-        aliveUI.SetActive(true);
-        input.CursorStateChange(false);
-
-    }
-
-    private void ImageGazedChangeColor(bool inGazed)
-    {
-
-        Image_Gazed.color = inGazed ? Color.green : originalImageGazedColor;
-
-    }
-
-    private void OnAddWeapon(WeaponController weapon, int index)
-    {
-        weaponUI[index].weaponIcon.enabled = true;
-        weaponUI[index].weaponIcon.sprite = weapon.weaponIcon;
-    }
-
-    private void ButtonOnClick()
-    {
-
-        btn_Start.onClick.AddListener(async () => await OnStartGame());
-        btn_Quit.onClick.AddListener(OnQuitGame);
-        pauseUI_Btn_Quit.onClick.AddListener(OnQuitGame);
-        btn_Volume.onClick.AddListener(OnVolume);
-        btn_Mute.onClick.AddListener(OnVolume);
-        btn_Continue.onClick.AddListener(OnContinueGame);
-        btn_Reset.onClick.AddListener(OnReset);
-        aliveUI_Btn_Respawn.onClick.AddListener(OnRespawn);
-
-    }
-
-    #region -- onClick --
-
-    /// <summary>
-    /// Button-Start 加載下一張地圖
-    /// </summary>
-    private async Task OnStartGame()
-    {
-
-        // 加載Game
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-
-            var playerCharacterController = organism.PlayerData.PlayerCharacterController;
-
-            input.CursorStateChange(true);
-
-            Destroy(startGameUI);
-
-            organism.PlayerData.Player.SetActive(true);
-            playerCharacterController.enabled = false;
-
-            await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
-
-            await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
-
-            playerCharacterController.enabled = true;
-
-            Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(0);
-
-            actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
-
-            canvasGroup_StartUI.SetEnable(false);
-
-        }
-
-    }
-
-    /// <summary>
-    /// 離開遊戲
-    /// </summary>
-    private void OnQuitGame()
-    {
-
-        Application.Quit();
-
-#if UNITY_EDITOR
-        if (EditorApplication.isPlaying)
-        {
-            EditorApplication.ExitPlaymode();
-        }
-#endif
-
-    }
-
-    /// <summary>
-    /// 音量
-    /// </summary>
-    public void OnVolume()
-    {
-
-        volumeSliderUI.SetActive(!volumeSliderUI.activeSelf);
-
-    }
-
-    /// <summary>
-    /// 繼續遊戲
-    /// </summary>
-    public void OnContinueGame()
-    {
-
-        input.CursorStateChange(true);
-
-    }
-
-    /// <summary>
-    /// 重置角色
-    /// </summary>
-    public void OnReset()
-    {
-
-        organism.PlayerData.PlayerController.enabled = false;
-        organism.PlayerData.PlayerCharacterController.enabled = false;
-
-        input.CursorStateChange(true);
-        organism.PlayerData.Player.transform.position = organism.PlayerData.PlayerController.spawnPos;
-
-        organism.PlayerData.PlayerController.enabled = true;
-        organism.PlayerData.PlayerCharacterController.enabled = true;
-
-    }
-
-    /// <summary>
-    /// 復活
-    /// </summary>
-    public async void OnRespawn()
-    {
-
-        var playerController = organism.PlayerData.PlayerController;
-
-        if (playerController.enabled) return;
-
-        input.CursorStateChange(true);
-
-        await playerController.IsAlive();
-
-    }
-
-    #endregion
 
     /// <summary>
     /// 計算當前FPS和milisecond延遲
@@ -403,6 +255,157 @@ public class UISystem : MonoBehaviour
 
         Time.timeScale = 0; // 停止時間
     }
+
+    /// <summary>
+    /// 玩家死亡時處理方法
+    /// </summary>
+    private void OnDie(int id)
+    {
+
+        if (id != organism.PlayerData.InstanceID) return;
+
+        aliveUI.SetActive(true);
+        input.CursorStateChange(false);
+
+    }
+
+    private void ImageGazedChangeColor(bool inGazed)
+    {
+
+        Image_Gazed.color = inGazed ? Color.green : originalImageGazedColor;
+
+    }
+
+    private void OnAddWeapon(WeaponController weapon, int index)
+    {
+        weaponUI[index].weaponIcon.enabled = true;
+        weaponUI[index].weaponIcon.sprite = weapon.weaponIcon;
+    }
+
+    private void ButtonOnClick()
+    {
+
+        btn_Start.onClick.AddListener(async () => await OnStartGame());
+        btn_Quit.onClick.AddListener(OnQuitGame);
+        pauseUI_Btn_Quit.onClick.AddListener(OnQuitGame);
+        btn_Volume.onClick.AddListener(OnVolume);
+        btn_Mute.onClick.AddListener(OnVolume);
+        btn_Continue.onClick.AddListener(OnContinueGame);
+        btn_Reset.onClick.AddListener(OnReset);
+        aliveUI_Btn_Respawn.onClick.AddListener(OnRespawn);
+
+    }
+
+    #region -- onClick --
+
+    /// <summary>
+    /// Button-Start 加載下一張地圖
+    /// </summary>
+    private async Task OnStartGame()
+    {
+
+        // 加載Game
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+
+            var playerCharacterController = organism.PlayerData.PlayerCharacterController;
+
+            input.CursorStateChange(true);
+
+            Destroy(startGameUI);
+
+            organism.PlayerData.Player.SetActive(true);
+            playerCharacterController.enabled = false;
+
+            await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
+
+            await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+
+            canvasGroup_GameUI.SetEnable(true);
+
+            playerCharacterController.enabled = true;
+
+            Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(0);
+
+            actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
+
+            canvasGroup_StartUI.SetEnable(false);
+
+        }
+
+    }
+
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
+    private void OnQuitGame()
+    {
+
+        Application.Quit();
+
+#if UNITY_EDITOR
+        if (EditorApplication.isPlaying)
+        {
+            EditorApplication.ExitPlaymode();
+        }
+#endif
+
+    }
+
+    /// <summary>
+    /// 音量
+    /// </summary>
+    public void OnVolume()
+    {
+
+        volumeSliderUI.SetActive(!volumeSliderUI.activeSelf);
+
+    }
+
+    /// <summary>
+    /// 繼續遊戲
+    /// </summary>
+    public void OnContinueGame()
+    {
+
+        input.CursorStateChange(true);
+
+    }
+
+    /// <summary>
+    /// 重置角色
+    /// </summary>
+    public void OnReset()
+    {
+
+        organism.PlayerData.PlayerController.enabled = false;
+        organism.PlayerData.PlayerCharacterController.enabled = false;
+
+        input.CursorStateChange(true);
+        organism.PlayerData.Player.transform.position = organism.PlayerData.PlayerController.spawnPos;
+
+        organism.PlayerData.PlayerController.enabled = true;
+        organism.PlayerData.PlayerCharacterController.enabled = true;
+
+    }
+
+    /// <summary>
+    /// 復活
+    /// </summary>
+    public async void OnRespawn()
+    {
+
+        var playerController = organism.PlayerData.PlayerController;
+
+        if (playerController.enabled) return;
+
+        input.CursorStateChange(true);
+
+        await playerController.IsAlive();
+
+    }
+
+    #endregion
 
     #endregion
 
