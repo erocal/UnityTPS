@@ -4577,7 +4577,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6181018793532940005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8dde22c01fd4cf459c2d217e20f7c45, type: 3}
   m_Name: 
@@ -4590,7 +4590,6 @@ MonoBehaviour:
   gravityDownForce: 50
   distanceToGround: 0.4
   feet: {fileID: 1135784355}
-  crosshair: {fileID: 0}
   soundEffects:
     feelsleepSFX: {fileID: 8300000, guid: 6a28075a3eb144446a49f716c52bec89, type: 3}
     runtiredSFX: {fileID: 8300000, guid: 23b4a85d442dc4abb8d2c6559b135c3c, type: 3}
@@ -4600,7 +4599,6 @@ MonoBehaviour:
     runstepSFX: {fileID: 8300000, guid: e85ebefcaa228bc42adb2554e5a428d4, type: 3}
   playerStandMapArea: 0
   spawnPos: {x: -473.3, y: 29.54, z: 245.9}
-  animator: {fileID: 0}
 --- !u!114 &6181018793532940024
 MonoBehaviour:
   m_ObjectHideFlags: 0

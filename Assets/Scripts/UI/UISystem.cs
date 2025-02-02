@@ -66,6 +66,7 @@ public class UISystem : MonoBehaviour
     #region -- 常數 --
 
     private const int FIVE_THOUSAND_MILLISECONDS = 5000;
+    private const string START_WALK = "StartWalk";
 
     #endregion
 
@@ -324,12 +325,15 @@ public class UISystem : MonoBehaviour
             canvasGroup_GameUI.SetEnable(true);
 
             playerCharacterController.enabled = true;
+            organism.PlayerData.PlayerController.enabled = true;
 
             Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(0);
 
             actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
 
             canvasGroup_StartUI.SetEnable(false);
+
+            organism.PlayerData.PlayerAnimator.SetTrigger(START_WALK);
 
         }
 

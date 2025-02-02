@@ -126,6 +126,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+
+        uiSystem = GameManagerSingleton.Instance.UISystem;
+        organism = GameManagerSingleton.Instance.Organism;
+
+    }
+
     private void Update()
     {
 
@@ -481,16 +489,6 @@ public class PlayerController : MonoBehaviour
     {
 
         this.transform.position = teleportPosition;
-
-    }
-
-    /// <summary>
-    /// 取得準星Icon
-    /// </summary>
-    public GameObject GetCrosshair()
-    {
-
-        return uiSystem.CrossHair;
 
     }
 

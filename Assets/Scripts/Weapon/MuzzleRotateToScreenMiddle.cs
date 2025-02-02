@@ -17,7 +17,6 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
     #region -- 變數參考區 --
 
     private ActionSystem actionSystem;
-    private Organism organism;
 
     private Ray ray;
     private RaycastHit hit;
@@ -33,7 +32,6 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
     {
 
         actionSystem = GameManagerSingleton.Instance.ActionSystem;
-        organism = GameManagerSingleton.Instance.Organism;
 
         targetMaskEnemy = LayerMask.GetMask("Enemy");
         
@@ -41,6 +39,8 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
 
     void Update()
     {
+
+        var crosshair = GameManagerSingleton.Instance.UISystem.CrossHair;
         
         ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2 + offset_Y, 0));
         transform.rotation = Quaternion.LookRotation(ray.GetPoint(maxDistance));
@@ -49,13 +49,13 @@ public class MuzzleRotateToScreenMiddle : MonoBehaviour
             
             Debug.DrawRay(transform.position, ray.GetPoint(maxDistance) * ultDistance, Color.yellow);
             info = "Gazed";
-            if (organism.PlayerData.PlayerController.GetCrosshair().activeInHierarchy != false)
+            if (crosshair.activeInHierarchy != false)
                 actionSystem.Gazed(true);
 
         }
         else
         {
-            if (organism.PlayerData.PlayerController.GetCrosshair().activeInHierarchy != false)
+            if (crosshair.activeInHierarchy != false)
                 actionSystem.Gazed(false);
 
             info = null;
