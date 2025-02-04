@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1566514830776128740}
+  loginPlayer: {fileID: 89122976575502870}
   mutant: {fileID: 6625956734597640868}
   plagueDoctor: {fileID: 3403867487629065965}
   fullEnemyList:
@@ -3799,16 +3800,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7305315365507834139, guid: 60e6b310a1f71954093eacf5b1485416,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60e6b310a1f71954093eacf5b1485416, type: 3}
+--- !u!1 &89122976575502870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8205683379838734313, guid: 60e6b310a1f71954093eacf5b1485416,
+    type: 3}
+  m_PrefabInstance: {fileID: 8132605301569811967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1566514830776128740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7305315365507834139, guid: 60e6b310a1f71954093eacf5b1485416,

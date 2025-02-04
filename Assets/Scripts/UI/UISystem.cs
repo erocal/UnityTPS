@@ -8,6 +8,8 @@ using UnityEngine.UI;
 using System;
 using static GameManagerSingletonHelper;
 using UnityEngine.Rendering.Universal;
+using TMPro;
+using UnityEngine.Playables;
 
 public class UISystem : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class UISystem : MonoBehaviour
     [Header("Text")]
     [SerializeField, Tooltip("FPS")] private Text Text_FPS;
     [SerializeField, Tooltip("ms")] private Text Text_ms;
+    [SerializeField, Tooltip("Version")] private TextMeshProUGUI Text_Version;
+    [SerializeField, Tooltip("Loading")] private TextMeshProUGUI Text_Loading;
 
     [Header("等待圖"), Tooltip("切換場景時的等待畫面")]
     [SerializeField] Image loadingImage;
@@ -42,6 +46,7 @@ public class UISystem : MonoBehaviour
     [SerializeField, Tooltip("靜音時的UI")] GameObject btnMuteUI;
     [SerializeField, Tooltip("音量條的UI")] GameObject volumeSliderUI;
     [SerializeField, Tooltip("準星Icon")] GameObject crosshair;
+    [SerializeField, Tooltip("LoadingWarning時的背景")] GameObject StartGameUI_BG;
 
     [Header("Image")]
     [SerializeField] Image healthImage;
@@ -53,6 +58,12 @@ public class UISystem : MonoBehaviour
     [Header("CanvasGroup")]
     [SerializeField] CanvasGroup canvasGroup_GameUI;
     [SerializeField] CanvasGroup canvasGroup_StartUI;
+    [SerializeField] CanvasGroup canvasGroup_PrepareGroup;
+    [SerializeField] CanvasGroup canvasGroup_ContinueGroup;
+    [SerializeField] CanvasGroup canvasGroup_LoadingBottomBar;
+
+    [Header("PlayableDirector")]
+    [SerializeField] PlayableDirector StartGameUI_PlayableDirector;
 
     #endregion
 
@@ -65,6 +76,7 @@ public class UISystem : MonoBehaviour
 
     #region -- 常數 --
 
+    private const int One_THOUSAND_MILLISECONDS = 1000;
     private const int FIVE_THOUSAND_MILLISECONDS = 5000;
     private const string START_WALK = "StartWalk";
 
@@ -137,6 +149,10 @@ public class UISystem : MonoBehaviour
         #endregion
 
         Slider_Music.onValueChanged.AddListener(actionSystem.CameraVolumeChange);
+
+        StartGameUI_PlayableDirector.stopped += OnLoadingUIStopped;
+
+        TextVersionSetText();
 
     }
 
@@ -320,6 +336,8 @@ public class UISystem : MonoBehaviour
 
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
+            Destroy(organism.LoginPlayer);
+
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
 
             canvasGroup_GameUI.SetEnable(true);
@@ -410,6 +428,36 @@ public class UISystem : MonoBehaviour
     }
 
     #endregion
+
+    private void OnLoadingUIStopped(PlayableDirector director)
+    {
+
+        if (director != StartGameUI_PlayableDirector) return;
+
+        Log.Info("Timeline結束了!");
+
+        Destroy(StartGameUI_BG);
+
+        StartCheckResource();
+
+    }
+
+    private void TextVersionSetText()
+    {
+
+        Text_Version.text = $"TechAlpha_{Application.version}";
+
+    }
+
+    private async void StartCheckResource()
+    {
+
+        await Task.Delay(One_THOUSAND_MILLISECONDS);
+
+        canvasGroup_PrepareGroup.FadeOut();
+        canvasGroup_ContinueGroup.FadeIn();
+
+    }
 
     #endregion
 

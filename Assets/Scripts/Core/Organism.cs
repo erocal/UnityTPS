@@ -8,6 +8,7 @@ public class Organism : MonoBehaviour
     #region -- 資源參考區 --
 
     [SerializeField, Tooltip("玩家")] private GameObject player;
+    [SerializeField, Tooltip("登入時展示的玩家")] private GameObject loginPlayer;
     [SerializeField, Tooltip("暴徒")] private GameObject mutant;
     [SerializeField, Tooltip("瘟疫醫生")] private GameObject plagueDoctor;
 
@@ -28,6 +29,14 @@ public class Organism : MonoBehaviour
     #region -- 變數參考區 --
 
     #region -- Player --
+
+    public GameObject LoginPlayer
+    {
+        get
+        {
+            return loginPlayer;
+        }
+    }
 
     private PlayerDataStruct playerData;
     public PlayerDataStruct PlayerData
@@ -168,6 +177,8 @@ public class Organism : MonoBehaviour
         SetPlayerData();
         SetMutantData();
         SetPlagueDoctorData();
+
+        player.SetActive(false);
 
     }
 
