@@ -180,6 +180,7 @@ MonoBehaviour:
   pauseSFX: {fileID: 8300000, guid: 4f13633ea56974e6dbf63eb99fa6c851, type: 3}
   offset: {x: 0, y: 0, z: 0}
   playableDirector: {fileID: 4112546881910479150}
+  miniMapCamera: {fileID: 6171097818220540574}
 --- !u!320 &4112546881910479150
 PlayableDirector:
   m_ObjectHideFlags: 0

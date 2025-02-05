@@ -42,6 +42,9 @@ public class ThirdPersonCamera : MonoBehaviour
 
     [SerializeField] private PlayableDirector playableDirector;
 
+    [Header("Camera")]
+    [SerializeField] private Camera miniMapCamera;
+
     #endregion
 
     #region -- 變數參考區 --
@@ -283,6 +286,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
         playableDirector.enabled = false;
         this.GetComponent<Animator>().enabled = false;
+
+        miniMapCamera.GetComponent<UniversalAdditionalCameraData>().SetRenderer(ORIGINAL_RENDERER);
 
     }
 
