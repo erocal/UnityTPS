@@ -1799,7 +1799,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7199207368655111772}
   - component: {fileID: 6218087550848800150}
-  - component: {fileID: 7895593265910307016}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
@@ -1834,33 +1833,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915753760977945131}
   m_CullTransparentMesh: 0
---- !u!114 &7895593265910307016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915753760977945131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!1 &1468811723141295042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,9 +5616,9 @@ MonoBehaviour:
   volumeSliderUI: {fileID: 506934970280666503}
   crosshair: {fileID: 1201574475}
   StartGameUI_BG: {fileID: 1553537895306772200}
+  minimap: {fileID: 915753760977945131}
   healthImage: {fileID: 8930417828114104873}
   Image_Gazed: {fileID: 1519617925}
-  RawImage_Minimap: {fileID: 7895593265910307016}
   weaponUI:
   - weaponPocket: {fileID: 1980560105}
     weaponIcon: {fileID: 85617248}

@@ -47,13 +47,13 @@ public class UISystem : MonoBehaviour
     [SerializeField, Tooltip("音量條的UI")] GameObject volumeSliderUI;
     [SerializeField, Tooltip("準星Icon")] GameObject crosshair;
     [SerializeField, Tooltip("LoadingWarning時的背景")] GameObject StartGameUI_BG;
+    [SerializeField] GameObject minimap;
 
     [Header("Image")]
     [SerializeField] Image healthImage;
     [SerializeField] Image Image_Gazed;
 
     [Header("RawImage")]
-    [SerializeField] private RawImage RawImage_Minimap;
 
     [Header("WeaponUI")]
     [SerializeField] WeaponUIElements[] weaponUI;
@@ -307,7 +307,7 @@ public class UISystem : MonoBehaviour
     {
 
         if(minimap != null)
-            RawImage_Minimap.texture = minimap;
+            this.minimap.AddComponent<RawImage>().texture = minimap;
 
     }
 
