@@ -52,6 +52,9 @@ public class UISystem : MonoBehaviour
     [SerializeField] Image healthImage;
     [SerializeField] Image Image_Gazed;
 
+    [Header("RawImage")]
+    [SerializeField] private RawImage RawImage_Minimap;
+
     [Header("WeaponUI")]
     [SerializeField] WeaponUIElements[] weaponUI;
 
@@ -76,6 +79,7 @@ public class UISystem : MonoBehaviour
 
     #region -- 常數 --
 
+    private const int ORIGINAL_RENDERER = 0;
     private const int ONE_THOUSAND_MILLISECONDS = 1000;
     private const int FIVE_THOUSAND_MILLISECONDS = 5000;
 
@@ -140,6 +144,7 @@ public class UISystem : MonoBehaviour
         actionSystem.OnCameraVolumeMute += VolumeUI;
         actionSystem.OnGazed += ImageGazedChangeColor;
         actionSystem.OnAddWeapon += OnAddWeapon;
+        actionSystem.OnMinimapInit += OnMinimapInit;
 
         #region -- btn --
 
@@ -298,6 +303,14 @@ public class UISystem : MonoBehaviour
         weaponUI[index].weaponIcon.sprite = weapon.weaponIcon;
     }
 
+    private void OnMinimapInit(RenderTexture minimap)
+    {
+
+        if(minimap != null)
+            RawImage_Minimap.texture = minimap;
+
+    }
+
     private void ButtonOnClick()
     {
 
@@ -346,7 +359,7 @@ public class UISystem : MonoBehaviour
             playerCharacterController.enabled = true;
             organism.PlayerData.PlayerController.enabled = true;
 
-            Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(0);
+            Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(ORIGINAL_RENDERER);
 
             actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
 

@@ -1,5 +1,8 @@
 ﻿using System.Threading.Tasks;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
+using UnityEngine.Localization.SmartFormat.Core.Parsing;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
 using static GameManagerSingletonHelper;
@@ -287,7 +290,19 @@ public class ThirdPersonCamera : MonoBehaviour
         playableDirector.enabled = false;
         this.GetComponent<Animator>().enabled = false;
 
-        miniMapCamera.GetComponent<UniversalAdditionalCameraData>().SetRenderer(ORIGINAL_RENDERER);
+        SetMinimap();
+
+    }
+
+    private void SetMinimap()
+    {
+
+        RenderTexture renderTexture = new RenderTexture(256, 256, 0, RenderTextureFormat.Default);
+        renderTexture.name = "Minimap";
+        renderTexture.Create();
+
+        miniMapCamera.targetTexture = renderTexture;
+        actionSystem.MinimapInit(renderTexture);
 
     }
 

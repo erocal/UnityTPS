@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 6ee43c92d049e6a4ea9168f7c86fd5ec, type: 2}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5646,6 +5646,7 @@ MonoBehaviour:
   StartGameUI_BG: {fileID: 1553537895306772200}
   healthImage: {fileID: 8930417828114104873}
   Image_Gazed: {fileID: 1519617925}
+  RawImage_Minimap: {fileID: 7248035763676637704}
   weaponUI:
   - weaponPocket: {fileID: 1980560105}
     weaponIcon: {fileID: 85617248}

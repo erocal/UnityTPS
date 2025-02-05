@@ -29,6 +29,8 @@ public sealed class ActionSystem
 
     public event Action<int, string> OnAnimatorDamage;
 
+    public event Action<RenderTexture> OnMinimapInit;
+
     public event Action OnLoginCameraMove;
 
     public event Action OnGameStart;
@@ -104,6 +106,13 @@ public sealed class ActionSystem
     {
 
         OnAnimatorDamage?.Invoke(id, parameter);
+
+    }
+
+    public void MinimapInit(RenderTexture minimap)
+    {
+
+        OnMinimapInit?.Invoke(minimap);
 
     }
 
