@@ -169,6 +169,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
         #endregion
 
+        SetMinimap();
+
     }
 
     /// <summary>
@@ -287,7 +289,7 @@ public class ThirdPersonCamera : MonoBehaviour
         playableDirector.enabled = false;
         this.GetComponent<Animator>().enabled = false;
 
-        SetMinimap();
+        actionSystem.MinimapInit(miniMapCamera.targetTexture);
 
     }
 
@@ -299,7 +301,6 @@ public class ThirdPersonCamera : MonoBehaviour
         renderTexture.Create();
 
         miniMapCamera.targetTexture = renderTexture;
-        actionSystem.MinimapInit(renderTexture);
 
     }
 
