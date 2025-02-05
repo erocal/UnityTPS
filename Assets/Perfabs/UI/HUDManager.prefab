@@ -1799,7 +1799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7199207368655111772}
   - component: {fileID: 6218087550848800150}
-  - component: {fileID: 7248035763676637704}
+  - component: {fileID: 7895593265910307016}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
@@ -1834,7 +1834,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915753760977945131}
   m_CullTransparentMesh: 0
---- !u!114 &7248035763676637704
+--- !u!114 &7895593265910307016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5646,7 +5646,7 @@ MonoBehaviour:
   StartGameUI_BG: {fileID: 1553537895306772200}
   healthImage: {fileID: 8930417828114104873}
   Image_Gazed: {fileID: 1519617925}
-  RawImage_Minimap: {fileID: 7248035763676637704}
+  RawImage_Minimap: {fileID: 7895593265910307016}
   weaponUI:
   - weaponPocket: {fileID: 1980560105}
     weaponIcon: {fileID: 85617248}

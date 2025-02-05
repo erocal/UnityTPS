@@ -294,7 +294,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void SetMinimap()
     {
 
-        RenderTexture renderTexture = new RenderTexture(256, 256, 0, RenderTextureFormat.Default);
+        RenderTexture renderTexture = new RenderTexture(256, 256, 1, RenderTextureFormat.Default);
         renderTexture.name = "Minimap";
         renderTexture.Create();
 
