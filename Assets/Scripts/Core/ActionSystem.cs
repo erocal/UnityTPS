@@ -29,6 +29,10 @@ public sealed class ActionSystem
 
     public event Action<int, string> OnAnimatorDamage;
 
+    public event Action OnLoginCameraMove;
+
+    public event Action OnGameStart;
+
     #endregion
 
     #region -- 方法參考區 --
@@ -100,6 +104,20 @@ public sealed class ActionSystem
     {
 
         OnAnimatorDamage?.Invoke(id, parameter);
+
+    }
+
+    public void LoginCameraMove()
+    {
+
+        OnLoginCameraMove?.Invoke();
+
+    }
+
+    public void GameStart()
+    {
+
+        OnGameStart?.Invoke();
 
     }
 

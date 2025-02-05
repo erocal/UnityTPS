@@ -76,9 +76,8 @@ public class UISystem : MonoBehaviour
 
     #region -- 常數 --
 
-    private const int One_THOUSAND_MILLISECONDS = 1000;
+    private const int ONE_THOUSAND_MILLISECONDS = 1000;
     private const int FIVE_THOUSAND_MILLISECONDS = 5000;
-    private const string START_WALK = "StartWalk";
 
     #endregion
 
@@ -340,6 +339,8 @@ public class UISystem : MonoBehaviour
 
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
 
+            actionSystem.GameStart();
+
             canvasGroup_GameUI.SetEnable(true);
 
             playerCharacterController.enabled = true;
@@ -350,8 +351,6 @@ public class UISystem : MonoBehaviour
             actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
 
             canvasGroup_StartUI.SetEnable(false);
-
-            organism.PlayerData.PlayerAnimator.SetTrigger(START_WALK);
 
         }
 
@@ -452,12 +451,30 @@ public class UISystem : MonoBehaviour
     private async void StartCheckResource()
     {
 
-        await Task.Delay(One_THOUSAND_MILLISECONDS);
+        await Task.Delay(ONE_THOUSAND_MILLISECONDS);
+
+        canvasGroup_LoadingBottomBar.FadeIn(.1f);
+        Text_Loading.text = "// 正在確認遊戲資源完整性...";
+
+        await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+
+        Text_Loading.text = "// 正在加載資源...";
+
+        while (GameManagerSingleton.Instance == null)
+        {
+            await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+        }
+
+        await Task.Delay(ONE_THOUSAND_MILLISECONDS);
 
         canvasGroup_PrepareGroup.FadeOut();
         canvasGroup_ContinueGroup.FadeIn();
 
+        actionSystem.LoginCameraMove();
+
     }
+
+    
 
     #endregion
 

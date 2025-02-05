@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
 using static GameManagerSingletonHelper;
 
@@ -39,6 +40,8 @@ public class ThirdPersonCamera : MonoBehaviour
     [Header("Offset")]
     [SerializeField] Vector3 offset;
 
+    [SerializeField] private PlayableDirector playableDirector;
+
     #endregion
 
     #region -- 變數參考區 --
@@ -47,6 +50,9 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private const int ORIGINAL_RENDERER = 0;
     private const int RADIAL_BLUR_RENDERER = 2;
+    private const int ONE_THOUSAND_MILLISECONDS = 1000;
+    private const string ANIMATOR_START_WALK = "StartWalk";
+    private const string ANIMATOR_WALK_SPEED = "WalkSpeed";
 
     #endregion
 
@@ -155,6 +161,8 @@ public class ThirdPersonCamera : MonoBehaviour
         actionSystem.OnCaplock += OnCaplock;
         actionSystem.OnCaplockUp += OnCaplockUp;
         actionSystem.OnCameraVolumeChange += VolumeUpdate;
+        actionSystem.OnLoginCameraMove += LoginCameraMove;
+        actionSystem.OnGameStart += GameStart;
 
         #endregion
 
@@ -245,6 +253,36 @@ public class ThirdPersonCamera : MonoBehaviour
     {
 
         audioSource.volume = volume;
+
+    }
+
+    private void LoginCameraMove()
+    {
+
+        playableDirector.Play();
+
+        LoginPlayerWalking();
+
+    }
+
+    private async void LoginPlayerWalking()
+    {
+
+        var animator = organism.LoginPlayer.GetComponent<Animator>();
+
+        animator.SetTrigger(ANIMATOR_START_WALK);
+
+        await Task.Delay(ONE_THOUSAND_MILLISECONDS);
+
+        animator.SetFloat(ANIMATOR_WALK_SPEED, .1f);
+
+    }
+
+    private void GameStart()
+    {
+
+        playableDirector.enabled = false;
+        this.GetComponent<Animator>().enabled = false;
 
     }
 
