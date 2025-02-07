@@ -20,9 +20,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("在空中下施加的力量")] float gravityDownForce = 50;
     [SerializeField, Tooltip("檢查與地面之間的距離")] float distanceToGround = 0.1f;
 
-    [Header("儲存腳的位置")]
-    [SerializeField] Transform feet;
-
     [Space(20)]
     [Header("音效")]
     [SerializeField] private SoundEffects soundEffects;

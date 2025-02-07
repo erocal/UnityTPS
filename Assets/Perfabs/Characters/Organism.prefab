@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1566514830776128740}
-  loginPlayer: {fileID: 89122976575502870}
+  loginPlayer: {fileID: 3062883429405027046}
   mutant: {fileID: 6625956734597640868}
   plagueDoctor: {fileID: 3403867487629065965}
   fullEnemyList:
@@ -3757,6 +3757,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -876546973899608171, guid: 619ab9889384f8347a36c94c5af01d88,
         type: 3}
+    - target: {fileID: 683494735651274631, guid: 60e6b310a1f71954093eacf5b1485416,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1132148590106058555, guid: 60e6b310a1f71954093eacf5b1485416,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3948,12 +3953,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60e6b310a1f71954093eacf5b1485416, type: 3}
---- !u!1 &89122976575502870 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8205683379838734313, guid: 60e6b310a1f71954093eacf5b1485416,
-    type: 3}
-  m_PrefabInstance: {fileID: 8132605301569811967}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1566514830776128740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7305315365507834139, guid: 60e6b310a1f71954093eacf5b1485416,
@@ -3963,6 +3962,12 @@ GameObject:
 --- !u!4 &2310396891599960130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5822306412985683389, guid: 60e6b310a1f71954093eacf5b1485416,
+    type: 3}
+  m_PrefabInstance: {fileID: 8132605301569811967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3062883429405027046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6511463091561766681, guid: 60e6b310a1f71954093eacf5b1485416,
     type: 3}
   m_PrefabInstance: {fileID: 8132605301569811967}
   m_PrefabAsset: {fileID: 0}

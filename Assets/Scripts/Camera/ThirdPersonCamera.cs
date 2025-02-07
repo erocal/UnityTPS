@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using DG.Tweening;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
@@ -279,7 +280,9 @@ public class ThirdPersonCamera : MonoBehaviour
 
         await Task.Delay(ONE_THOUSAND_MILLISECONDS);
 
-        animator.SetFloat(ANIMATOR_WALK_SPEED, .1f);
+        DOTween.To(() => animator.GetFloat(ANIMATOR_WALK_SPEED),
+           x => animator.SetFloat(ANIMATOR_WALK_SPEED, x),
+           0.8f, 2f);
 
     }
 
