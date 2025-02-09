@@ -27,7 +27,7 @@ public class UISystem : MonoBehaviour
 
     [Header("Btn")]
     [SerializeField] Button btn_Start;
-    [SerializeField] Button btn_Quit;
+    [SerializeField] Button btn_Logout;
     [SerializeField] Button pauseUI_Btn_Quit;
     [SerializeField] Button btn_Volume;
     [SerializeField] Button btn_Mute;
@@ -315,7 +315,7 @@ public class UISystem : MonoBehaviour
     {
 
         btn_Start.onClick.AddListener(async () => await OnStartGame());
-        btn_Quit.onClick.AddListener(OnQuitGame);
+        btn_Logout.onClick.AddListener(OnQuitGame);
         pauseUI_Btn_Quit.onClick.AddListener(OnQuitGame);
         btn_Volume.onClick.AddListener(OnVolume);
         btn_Mute.onClick.AddListener(OnVolume);
