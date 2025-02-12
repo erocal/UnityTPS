@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: bbcc364a8f3a645a3b03709ca87499e5
+timeCreated: 1544699250
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 146898
+  packageName: Trails FX
+  packageVersion: 5.3
+  assetPath: Assets/Trails FX/Resources/TrailsFX/TrailEffectClone.shader
+  uploadId: 716359

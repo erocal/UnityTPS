@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TrailsFX;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -192,7 +193,7 @@ public class Organism : MonoBehaviour
     private void SetPlayerData()
     {
 
-        if(player == null)
+        if (player == null)
         {
             Log.Error("玩家物件為空");
             return;

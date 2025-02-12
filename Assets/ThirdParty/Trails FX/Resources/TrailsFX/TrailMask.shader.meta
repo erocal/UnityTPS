@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9b1712fdc7af94349a7a81a126b731a9
+timeCreated: 1554810685
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 146898
+  packageName: Trails FX
+  packageVersion: 5.3
+  assetPath: Assets/Trails FX/Resources/TrailsFX/TrailMask.shader
+  uploadId: 716359

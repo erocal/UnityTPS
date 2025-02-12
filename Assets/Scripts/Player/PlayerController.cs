@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using TrailsFX;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     [Tooltip("出生點")]
     public Vector3 spawnPos;
+
+    [SerializeField] private TrailEffect[] trailEffectArray;
 
     #endregion
 
@@ -90,7 +93,6 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-
     [Tooltip("下一幀要移動到的目標位置")]
     Vector3 targetMovement;
     [Tooltip("下一幀跳躍到的方向")]
@@ -101,6 +103,8 @@ public class PlayerController : MonoBehaviour
     bool isAim;
 
     bool canDash = true;
+
+    bool isTrailActive;
 
     #endregion
 
@@ -116,10 +120,13 @@ public class PlayerController : MonoBehaviour
 
         PlayerSpawn();
 
+        actionSystem.OnCaplock += OnCaplock;
+        actionSystem.OnCaplockUp += OnCaplockUp;
         // 訂閱死亡事件
         actionSystem.OnDie += OnDie;
         actionSystem.OnSpawnPointUpdate += SpawnPointUpdate;
         actionSystem.OnAnimatorDamage += AnimatorTrigger;
+
 
     }
 
@@ -158,6 +165,34 @@ public class PlayerController : MonoBehaviour
     }
 
     #region -- 事件相關 --
+
+    private async void OnCaplock()
+    {
+
+        if (!isTrailActive)
+        {
+
+            isTrailActive = true;
+
+            TrailEffectActive(isTrailActive);
+
+            await Task.Delay(1000);
+
+            if(isTrailActive)
+                TrailEffectActive(!isTrailActive);
+
+        }
+
+    }
+
+    private void OnCaplockUp()
+    {
+
+        isTrailActive = false;
+
+        TrailEffectActive(isTrailActive);
+
+    }
 
     /// <summary>
     /// 玩家死亡時處理方法
@@ -506,6 +541,16 @@ public class PlayerController : MonoBehaviour
         if (id != organism.PlayerData.InstanceID) return;
 
         organism.PlayerData.PlayerAnimator.SetTrigger(parameter);
+
+    }
+
+    private void TrailEffectActive(bool isActive)
+    {
+
+        foreach (var trailEffect in trailEffectArray)
+        {
+            trailEffect.active = isActive;
+        }
 
     }
 

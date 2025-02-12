@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 94b4d90a08428475fabe4c32314dce8e
+timeCreated: 1555054192
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 146898
+  packageName: Trails FX
+  packageVersion: 5.3
+  assetPath: Assets/Trails FX/Resources/TrailsFX/TrailEffectColor.mat
+  uploadId: 716359
