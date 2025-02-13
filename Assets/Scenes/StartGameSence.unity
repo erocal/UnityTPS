@@ -387,7 +387,13 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 77.448685, y: 1, z: 81.86376}
+        m_Name: AABox_size
+        m_Overridden: 1
+      - m_Value: {x: -0.79909146, y: 0, z: 0.09305954}
+        m_Name: AABox_center
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
