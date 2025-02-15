@@ -316,7 +316,8 @@ GameObject:
   - component: {fileID: 1522729603}
   - component: {fileID: 1522729602}
   - component: {fileID: 1522729601}
-  m_Layer: 0
+  - component: {fileID: 1522729604}
+  m_Layer: 3
   m_Name: VFXGraph_InteractiveParticlesEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +384,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 4
+        m_Name: Speed
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -391,7 +395,7 @@ VisualEffect:
       - m_Value: {x: 77.448685, y: 1, z: 81.86376}
         m_Name: AABox_size
         m_Overridden: 1
-      - m_Value: {x: -0.79909146, y: 0, z: 0.09305954}
+      - m_Value: {x: -0.7990914, y: 0, z: 39.654232}
         m_Name: AABox_center
         m_Overridden: 1
     m_Vector4f:
@@ -418,13 +422,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522729600}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.9860886, y: -0.01565958, z: -0.0519492, w: 0.15711592}
+  m_LocalPosition: {x: -464.2, y: 29.8, z: 248.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 162.047, y: 6.481003, z: 2.8439941}
+--- !u!114 &1522729604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522729600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae1a288b0d0adb45951fbaa4d36a4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
