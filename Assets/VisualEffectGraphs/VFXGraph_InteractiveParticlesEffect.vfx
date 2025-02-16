@@ -143,9 +143,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 2635
-    y: 647
-    width: 1222
-    height: 1969
+    y: 633
+    width: 2426
+    height: 1983
 --- !u!114 &114350483966674978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots: []
-  m_Label: 
+  m_Label: System
   m_Data: {fileID: 114350483966674979}
   m_InputFlowSlot:
   - link: []
