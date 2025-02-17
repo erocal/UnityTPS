@@ -341,14 +341,18 @@ public class UISystem : MonoBehaviour
 
             input.CursorStateChange(true);
 
-            Destroy(startGameUI);
+            Destroy(organism.LoginPlayer);
+
+            canvasGroup_ContinueGroup.FadeOut();
 
             organism.PlayerData.Player.SetActive(true);
             playerCharacterController.enabled = false;
 
+            await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
-            Destroy(organism.LoginPlayer);
+            Destroy(startGameUI);
 
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
 

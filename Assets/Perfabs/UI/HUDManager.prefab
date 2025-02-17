@@ -6845,7 +6845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 903b95aeb4ced7b4bb4210c2d36a012d, type: 2}
   m_Color: {r: 0.6862745, g: 0.69411767, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8383,7 +8383,7 @@ GameObject:
   - component: {fileID: 637845065980093934}
   - component: {fileID: 3566295096030230258}
   m_Layer: 5
-  m_Name: Image_Border (1)
+  m_Name: Image_Border2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8503,7 +8503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 8bd464fc58b8ecd4792eab56e2251659, type: 2}
   m_Color: {r: 0.7058824, g: 0.7137255, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
