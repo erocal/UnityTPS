@@ -10,6 +10,7 @@ using static GameManagerSingletonHelper;
 using UnityEngine.Rendering.Universal;
 using TMPro;
 using UnityEngine.Playables;
+using DG.Tweening;
 
 public class UISystem : MonoBehaviour
 {
@@ -21,9 +22,6 @@ public class UISystem : MonoBehaviour
     [SerializeField, Tooltip("ms")] private Text Text_ms;
     [SerializeField, Tooltip("Version")] private TextMeshProUGUI Text_Version;
     [SerializeField, Tooltip("Loading")] private TextMeshProUGUI Text_Loading;
-
-    [Header("等待圖"), Tooltip("切換場景時的等待畫面")]
-    [SerializeField] Image loadingImage;
 
     [Header("Btn")]
     [SerializeField] Button btn_Start;
@@ -37,6 +35,7 @@ public class UISystem : MonoBehaviour
 
     [Header("Slider")]
     [SerializeField] Slider Slider_Music;
+    [SerializeField] Slider Slider_LoadingBar;
 
     [Header("GameObject")]
     [SerializeField, Tooltip("遊戲開始UI")] GameObject startGameUI;
@@ -61,6 +60,7 @@ public class UISystem : MonoBehaviour
     [Header("CanvasGroup")]
     [SerializeField] CanvasGroup canvasGroup_GameUI;
     [SerializeField] CanvasGroup canvasGroup_StartUI;
+    [SerializeField] CanvasGroup canvasGroup_LoadingUI;
     [SerializeField] CanvasGroup canvasGroup_PrepareGroup;
     [SerializeField] CanvasGroup canvasGroup_ContinueGroup;
     [SerializeField] CanvasGroup canvasGroup_LoadingBottomBar;
@@ -337,37 +337,23 @@ public class UISystem : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
 
-            var playerCharacterController = organism.PlayerData.PlayerCharacterController;
+            LoadingStart();
 
-            input.CursorStateChange(true);
+            Slider_LoadingBar.DOValue(.1f, .4f);
+            await Task.Delay(ONE_THOUSAND_MILLISECONDS);
 
-            Destroy(organism.LoginPlayer);
+            LoadingProgress();
 
-            canvasGroup_ContinueGroup.FadeOut();
-
-            organism.PlayerData.Player.SetActive(true);
-            playerCharacterController.enabled = false;
-
+            Slider_LoadingBar.DOValue(.3f, .4f);
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
 
             await AddrssableAsync.LoadSceneAsync("samplescene", LoadSceneMode.Single);
 
-            Destroy(startGameUI);
-
+            Slider_LoadingBar.DOValue(.9f, .4f);
             await Task.Delay(FIVE_THOUSAND_MILLISECONDS);
+            Slider_LoadingBar.value = 1;
 
-            actionSystem.GameStart();
-
-            canvasGroup_GameUI.SetEnable(true);
-
-            playerCharacterController.enabled = true;
-            organism.PlayerData.PlayerController.enabled = true;
-
-            Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(ORIGINAL_RENDERER);
-
-            actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
-
-            canvasGroup_StartUI.SetEnable(false);
+            LoadingEnd();
 
         }
 
@@ -462,6 +448,49 @@ public class UISystem : MonoBehaviour
     {
 
         Text_Version.text = $"TechAlpha_{Application.version}";
+
+    }
+
+    private void LoadingStart()
+    {
+
+        canvasGroup_LoadingUI.FadeIn();
+
+    }
+
+    private void LoadingProgress()
+    {
+
+        Camera.main.GetComponent<UniversalAdditionalCameraData>().SetRenderer(ORIGINAL_RENDERER);
+
+        input.CursorStateChange(true);
+
+        Destroy(startGameUI);
+
+        Destroy(organism.LoginPlayer);
+
+        organism.PlayerData.Player.SetActive(true);
+
+        var playerCharacterController = organism.PlayerData.PlayerCharacterController;
+        playerCharacterController.enabled = false;
+
+    }
+
+    private void LoadingEnd()
+    {
+
+        canvasGroup_LoadingUI.FadeOut();
+        
+        canvasGroup_GameUI.SetEnable(true);
+
+        canvasGroup_StartUI.SetEnable(false);
+
+        organism.PlayerData.PlayerCharacterController.enabled = true;
+        organism.PlayerData.PlayerController.enabled = true;
+        
+        actionSystem.GameStart();
+
+        actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
 
     }
 

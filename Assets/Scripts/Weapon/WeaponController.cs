@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using ToolBox.Pools;
+using DG.Tweening;
 public class WeaponController : MonoBehaviour
 {
 
@@ -72,7 +73,11 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
+
         UpdateAmmo();
+
+        LookAtScreenCenter();
+
     }
 
     #endregion
@@ -105,11 +110,33 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void ShowWeapon(bool value)
+    private void LookAtScreenCenter()
     {
-        weaponRoot.SetActive(value);
 
-        if (value && changeWeaponSFX)
+        Camera cam = Camera.main;
+        if (cam == null) return;
+
+        // 取得螢幕中心的像素座標
+        Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+
+        // 從螢幕中心建立射線
+        Ray ray = cam.ScreenPointToRay(screenCenter);
+
+        // 發射 Raycast，檢測是否擊中物件
+        if (Physics.Raycast(ray, out RaycastHit hit, 40f, LayerMask.GetMask("Enemy")))
+        {
+            // 讓當前物件朝向擊中的物件
+            transform.DODynamicLookAt(hit.point, .1f);
+
+        }
+
+    }
+
+    public void ShowWeapon()
+    {
+        weaponRoot.SetActive(true);
+
+        if (changeWeaponSFX)
         {
             audioSource.PlayOneShot(changeWeaponSFX);
         }
@@ -153,9 +180,7 @@ public class WeaponController : MonoBehaviour
         for (int i = 0; i < bulletPerShoot; i++)
         {
 
-            Projectile newProjectile = null;
-
-            newProjectile = projectilePrefab.gameObject.Reuse<Projectile>(weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward), poolInstaller.transform);
+            Projectile newProjectile = projectilePrefab.gameObject.Reuse<Projectile>(weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward), poolInstaller.transform);
 
             var trail = newProjectile.trailRenderer;
             if (trail != null)

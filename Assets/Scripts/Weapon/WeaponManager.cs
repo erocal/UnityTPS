@@ -9,7 +9,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] List<WeaponController> startingWeapons = new List<WeaponController>();
 
     [Header("儲存武器位置的Parent，武器會被加在這裡")]
-    [SerializeField] Transform equipWeaponParent;
+    [SerializeField] Transform[] equipWeaponParent;
 
     [Header("瞄準的準備時間")]
     [SerializeField] float aimTime = 2f;
@@ -27,6 +27,8 @@ public class WeaponManager : MonoBehaviour
 
     bool isAim;
 
+    int currentEquipWeaponCount = 0;
+
     #endregion
 
     #region -- 初始化/運作 --
@@ -40,6 +42,7 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
+
         // 初始狀態
         activeWeaponIndex = -1;
 
@@ -114,15 +117,11 @@ public class WeaponManager : MonoBehaviour
         {
             if (GetWeaponAtSlotIndex(index) != null)
             {
-                // 如果目前已裝備武器，就隱藏
-                if (GetActiveWeapon() != null)
-                {
-                    GetActiveWeapon().ShowWeapon(false);
-                }
 
                 // 顯示武器
                 activeWeaponIndex = index;
-                GetActiveWeapon().ShowWeapon(true);
+                GetActiveWeapon().ShowWeapon();
+
             }
         }
 
@@ -177,17 +176,19 @@ public class WeaponManager : MonoBehaviour
         {
             if (weapons[i] == null)
             {
+
                 // 產生Weapon到設定好的位置底下
-                WeaponController weaponInstance = Instantiate(weaponPrefab, equipWeaponParent);
+                WeaponController weaponInstance = Instantiate(weaponPrefab, equipWeaponParent[currentEquipWeaponCount]);
+                currentEquipWeaponCount++;
 
                 weaponInstance.SourcePrefab = weaponPrefab.gameObject;
-                weaponInstance.ShowWeapon(false);
 
                 weapons[i] = weaponInstance;
 
                 actionSystem.AddWeapon(weaponInstance, i);
 
                 return true;
+
             }
         }
         return false;

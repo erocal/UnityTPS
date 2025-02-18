@@ -69,7 +69,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _GLITCH: 1
-    - _GlitchIntensity: 9
+    - _GlitchIntensity: 0.05
     - _GlitchScrollSpeed: 0.9
     - _GlitchSpeed: 2.5
     - _NoiseAmount: 20

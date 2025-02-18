@@ -319,6 +319,37 @@ MonoBehaviour:
   sphereColliders: []
   capsuleColliders: []
   panelColliders: []
+--- !u!1 &408792304043167850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564551026988007809}
+  m_Layer: 9
+  m_Name: EquipWeapon5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564551026988007809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408792304043167850}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.55, y: 0.675, z: 0.022}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4419762660845248003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410018372517148097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1458,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.05580139, y: 1.4818993, z: 0.07619858}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.11175537, y: 0.15171051, z: 0.19787598}
+  - {x: -0.11175537, y: 0.15171814, z: 0.19787216}
   m_RotationOffsets:
   - {x: -6.8299146, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -2055,7 +2086,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.05580139, y: 1.4818993, z: 0.07619858}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.111450195, y: 0.15171051, z: 0.19787598}
+  - {x: 0.111450195, y: 0.15171814, z: 0.19787216}
   m_RotationOffsets:
   - {x: -6.8299146, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -3687,6 +3718,37 @@ RotationConstraint:
   m_Sources:
   - sourceTransform: {fileID: 2297823193916831100}
     weight: 1
+--- !u!1 &2050539537913748349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5100878791669514089}
+  m_Layer: 9
+  m_Name: EquipWeapon3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5100878791669514089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050539537913748349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 0.897, z: 0.081}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4419762660845248003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074526162882995024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +3978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072072044148434641}
   m_Layer: 9
-  m_Name: EquipWeapon
+  m_Name: EquipWeapon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3930,12 +3992,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2316772322660216669}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7113348, y: -0.03991356, z: 0.055087093, w: 0.69955355}
-  m_LocalPosition: {x: -0.0629, y: -0.0145, z: -0.0119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.673, y: 0.281, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8873185295786630066}
+  m_Father: {fileID: 4419762660845248003}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2346564463974081540
 GameObject:
@@ -9923,6 +9985,37 @@ MonoBehaviour:
   - {fileID: 7477014399185837292}
   capsuleColliders: []
   panelColliders: []
+--- !u!1 &5837044191323928444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7280659266651311497}
+  m_Layer: 9
+  m_Name: EquipWeapon2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7280659266651311497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837044191323928444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0.675, z: 0.022}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4419762660845248003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5891305634602167196
 GameObject:
   m_ObjectHideFlags: 0
@@ -10277,7 +10370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWeapons: []
-  equipWeaponParent: {fileID: 1072072044148434641}
+  equipWeaponParent:
+  - {fileID: 1072072044148434641}
+  - {fileID: 7280659266651311497}
+  - {fileID: 5100878791669514089}
+  - {fileID: 8234276918517669292}
+  - {fileID: 564551026988007809}
   aimTime: 1.2
 --- !u!82 &1220530032
 AudioSource:
@@ -10750,6 +10848,42 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7373669108927450610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6636162928429481313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4419762660845248003}
+  m_Layer: 0
+  m_Name: EquipWeaponGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4419762660845248003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636162928429481313}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1072072044148434641}
+  - {fileID: 7280659266651311497}
+  - {fileID: 5100878791669514089}
+  - {fileID: 8234276918517669292}
+  - {fileID: 564551026988007809}
+  m_Father: {fileID: 2396087563859294601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6706896203199821070
 GameObject:
@@ -11583,7 +11717,6 @@ Transform:
   - {fileID: 1108354721374552000}
   - {fileID: 4516319584353946141}
   - {fileID: 898709256080718458}
-  - {fileID: 1072072044148434641}
   m_Father: {fileID: 6204982518643828656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7063072539721955744
@@ -14399,6 +14532,37 @@ MonoBehaviour:
   sphereColliders: []
   capsuleColliders: []
   panelColliders: []
+--- !u!1 &8669833847052400246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8234276918517669292}
+  m_Layer: 9
+  m_Name: EquipWeapon4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8234276918517669292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8669833847052400246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.673, y: 0.281, z: 0.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4419762660845248003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8699146425944234836
 GameObject:
   m_ObjectHideFlags: 0
@@ -14947,6 +15111,7 @@ Transform:
   - {fileID: 6897238353620093062}
   - {fileID: 8465840648840219792}
   - {fileID: 898709256800023776}
+  - {fileID: 4419762660845248003}
   m_Father: {fileID: 5380802493870743568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6181018794259286821
