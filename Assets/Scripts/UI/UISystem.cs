@@ -61,6 +61,7 @@ public class UISystem : MonoBehaviour
     [SerializeField] CanvasGroup canvasGroup_GameUI;
     [SerializeField] CanvasGroup canvasGroup_StartUI;
     [SerializeField] CanvasGroup canvasGroup_LoadingUI;
+    [SerializeField] CanvasGroup canvasGroup_MinmapUI;
     [SerializeField] CanvasGroup canvasGroup_PrepareGroup;
     [SerializeField] CanvasGroup canvasGroup_ContinueGroup;
     [SerializeField] CanvasGroup canvasGroup_LoadingBottomBar;
@@ -122,6 +123,7 @@ public class UISystem : MonoBehaviour
 
         AliveUI();
         PauseUI();
+        MinmapUI();
 
     }
 
@@ -266,6 +268,13 @@ public class UISystem : MonoBehaviour
 
     }
 
+    private void MinmapUI()
+    {
+
+        canvasGroup_MinmapUI.SetEnable(Cursor.lockState == CursorLockMode.Locked);
+
+    }
+
     /// <summary>
     /// 等待傳入值的秒數後，停止遊戲的時間
     /// </summary>
@@ -306,7 +315,7 @@ public class UISystem : MonoBehaviour
     private void OnMinimapInit(RenderTexture minimap)
     {
 
-        if(minimap != null)
+        if (minimap != null)
             this.minimap.AddComponent<RawImage>().texture = minimap;
 
     }
@@ -480,14 +489,14 @@ public class UISystem : MonoBehaviour
     {
 
         canvasGroup_LoadingUI.FadeOut();
-        
+
         canvasGroup_GameUI.SetEnable(true);
 
         canvasGroup_StartUI.SetEnable(false);
 
         organism.PlayerData.PlayerCharacterController.enabled = true;
         organism.PlayerData.PlayerController.enabled = true;
-        
+
         actionSystem.GameStart();
 
         actionSystem.SpawnPointUpdate(organism.PlayerData.PlayerController.spawnPos, MapAreaType.StartArea);
@@ -520,7 +529,7 @@ public class UISystem : MonoBehaviour
 
     }
 
-    
+
 
     #endregion
 
