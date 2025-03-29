@@ -22,6 +22,7 @@ public class UISystem : MonoBehaviour
     [SerializeField, Tooltip("ms")] private Text Text_ms;
     [SerializeField, Tooltip("Version")] private TextMeshProUGUI Text_Version;
     [SerializeField, Tooltip("Loading")] private TextMeshProUGUI Text_Loading;
+    [SerializeField] private TextMeshProUGUI Text_Health;
 
     [Header("Btn")]
     [SerializeField] Button btn_Start;
@@ -185,7 +186,9 @@ public class UISystem : MonoBehaviour
     private void PlayerHealthUpdate()
     {
 
-        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, organism.PlayerData.PlayerHealth.GetHealthRatio(), 0.3f);
+        Health playerHealth = organism.PlayerData.PlayerHealth;
+        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, playerHealth.GetHealthRatio(), 0.3f);
+        Text_Health.text = $"{playerHealth.currentHealth} / {playerHealth.maxHealth}";
 
     }
 
