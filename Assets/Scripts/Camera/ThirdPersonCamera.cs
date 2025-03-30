@@ -1,8 +1,14 @@
 ﻿using DG.Tweening;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 using static GameManagerSingletonHelper;
 
 public class ThirdPersonCamera : MonoBehaviour
@@ -74,8 +80,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     bool isChange;
 
-    // 應該是看滑鼠是不是鎖住的狀態
+    // 滑鼠是不是鎖住的狀態
     bool isLocked = false;
+
+    Material bloodLossMat;
 
     #endregion
 
@@ -88,12 +96,28 @@ public class ThirdPersonCamera : MonoBehaviour
 
     }
 
+    void OnEnable()
+    {
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+
+        SetBloodLossMaterial();
+
+    }
+
     private void Update()
     {
 
         if (CheckOrganismNull(ref organism)) return;
 
         CheckVolumeMute();
+
+        BloodLossEffectUpdate();
 
     }
 
@@ -172,6 +196,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
         SetMinimap();
 
+        SetBloodLossMaterial();
+
     }
 
     /// <summary>
@@ -181,6 +207,19 @@ public class ThirdPersonCamera : MonoBehaviour
     {
 
         actionSystem.CameraVolumeMute(audioSource.volume == 0);
+
+    }
+
+    /// <summary>
+    /// 血量流失特效
+    /// </summary>
+    private void BloodLossEffectUpdate()
+    {
+
+        if (bloodLossMat != null)
+        {
+            bloodLossMat.SetFloat("_BloodLossIntensity", 1 - (organism.PlayerData.PlayerHealth.currentHealth / organism.PlayerData.PlayerHealth.maxHealth));
+        }
 
     }
 
@@ -305,6 +344,33 @@ public class ThirdPersonCamera : MonoBehaviour
 
         miniMapCamera.targetTexture = renderTexture;
 
+    }
+
+    private void SetBloodLossMaterial()
+    {
+
+        if (mainCameraData != null)
+        {
+
+            // 使用反射取得 rendererFeatures
+            FieldInfo fieldInfo = typeof(ScriptableRenderer).GetField("m_RendererFeatures", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (fieldInfo != null)
+            {
+                if (fieldInfo.GetValue(mainCameraData.scriptableRenderer) is List<ScriptableRendererFeature> features)
+                {
+                    foreach (var feature in features)
+                    {
+                        if (feature is FullScreenPassRendererFeature fullScreenFeature && fullScreenFeature.name == "BloodLossPassRendererFeature")
+                        {
+
+                            bloodLossMat = fullScreenFeature.passMaterial;
+
+                        }
+                    }
+                }
+            }
+
+        }
     }
 
     #endregion
