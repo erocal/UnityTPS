@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BloodLossIntensity: 0.47619048
+    - _BloodLossIntensity: 0
     - _FullscreenIntensity: 0.22
     - _USEVORONI: 0
     - _VigenetteIntensity: 0.7

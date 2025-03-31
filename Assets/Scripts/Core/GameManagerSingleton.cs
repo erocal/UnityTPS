@@ -33,6 +33,7 @@ public class GameManagerSingleton
                 m_Instance.gameObject.AddComponent<InputController>();
                 m_Instance.gameObject.AddComponent<PoolInstaller>();
                 m_Instance.gameObject.AddComponent<BackgroundMusicSystem>();
+                m_Instance.gameObject.AddComponent<ScreenEffectManager>();
 
             }
             return m_Instance;
@@ -76,6 +77,19 @@ public class GameManagerSingleton
                 m_BackgroundMusicSystem = gameObject.GetComponent<BackgroundMusicSystem>();
             }
             return m_BackgroundMusicSystem;
+        }
+    }
+
+    private ScreenEffectManager m_ScreenEffectManager;
+    public ScreenEffectManager ScreenEffectManager
+    {
+        get
+        {
+            if (m_ScreenEffectManager == null)
+            {
+                m_ScreenEffectManager = gameObject.GetComponent<ScreenEffectManager>();
+            }
+            return m_ScreenEffectManager;
         }
     }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TrailsFX;
 using UnityEngine;
 using UnityEngine.AI;
 
