@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BackgroundMusicSO
   m_EditorClassIdentifier: 
   backgroundMusics:
-  - backgroundMusic: {fileID: 8300000, guid: 87890a66193394e3cb7d6284cc6b4344, type: 3}
-    volume: 0.4
+  - backgroundMusic: {fileID: 8300000, guid: 55e1ed13e3e389d43b6b0fc1b4ad2baf, type: 3}
+    volume: 0.2
   - backgroundMusic: {fileID: 8300000, guid: 23e8faf69e5eb5748818b5db878e3186, type: 3}
     volume: 0.141
   - backgroundMusic: {fileID: 8300000, guid: f14e8bfdac498dd4f82766090b48e582, type: 3}

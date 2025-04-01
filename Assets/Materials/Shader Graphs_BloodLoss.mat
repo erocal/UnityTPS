@@ -42,10 +42,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BloodLossIntensity: 0
+    - _BloodLossIntensity: 0.01904762
     - _FullscreenIntensity: 0.22
     - _USEVORONI: 0
-    - _VigenetteIntensity: 0.7
+    - _VigenetteIntensity: 0.8240882
     - _VigenetteRadiusPower: 4
     - _VoroniPower: 2
     - _VoroniRadiusPower: 7.5
